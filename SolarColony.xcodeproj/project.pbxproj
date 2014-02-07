@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5181D7318A58B16001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7218A58B16001F96F7 /* GridMap.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
 		F55948B618A56F3B008ADDED /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B518A56F3B008ADDED /* OpenAL.framework */; };
@@ -144,6 +145,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5181D7118A58B16001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = SOURCE_ROOT; };
+		F5181D7218A58B16001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = SOURCE_ROOT; };
+		F5181D7418A5903C001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = SOURCE_ROOT; };
 		F55948AE18A56F3B008ADDED /* SolarColony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarColony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55948B118A56F3B008ADDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55948B318A56F3B008ADDED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -902,6 +906,9 @@
 		F5594A6618A570CD008ADDED /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F5181D7118A58B16001F96F7 /* GridMap.h */,
+				F5181D7218A58B16001F96F7 /* GridMap.m */,
+				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -1067,6 +1074,7 @@
 				F559491F18A56F3C008ADDED /* CCDirector.m in Sources */,
 				F559490F18A56F3C008ADDED /* CCAtlasNode.m in Sources */,
 				F5594A5518A56F40008ADDED /* main.m in Sources */,
+				F5181D7318A58B16001F96F7 /* GridMap.m in Sources */,
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
@@ -1219,6 +1227,7 @@
 				F5594A6318A56F40008ADDED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
