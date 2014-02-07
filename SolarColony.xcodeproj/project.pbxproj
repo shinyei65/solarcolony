@@ -141,6 +141,7 @@
 		F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5718A56F40008ADDED /* AppDelegate.m */; };
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
 		F5594A5E18A56F40008ADDED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5D18A56F40008ADDED /* IntroLayer.m */; };
+		F5594A8C18A588B4008ADDED /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A8B18A588B4008ADDED /* HomeScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -423,8 +424,11 @@
 		F5594A5718A56F40008ADDED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5594A5918A56F40008ADDED /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		F5594A5C18A56F40008ADDED /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		F5594A5D18A56F40008ADDED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F5594A5C18A56F40008ADDED /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = ../IntroLayer.h; sourceTree = "<group>"; };
+		F5594A5D18A56F40008ADDED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroLayer.m; path = ../IntroLayer.m; sourceTree = "<group>"; };
+		F5594A8718A587EC008ADDED /* AbstractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractScene.h; sourceTree = "<group>"; };
+		F5594A8A18A588B4008ADDED /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		F5594A8B18A588B4008ADDED /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,16 +489,14 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
-				F5594A6518A570CD008ADDED /* managers */,
+				F5594A8D18A58DED008ADDED /* Managers */,
+				F5594A8318A58515008ADDED /* Layers */,
 				F5594A6618A570CD008ADDED /* models */,
-				F5594A7418A570CD008ADDED /* views */,
 				F5594A6418A570A8008ADDED /* controllers */,
 				F5594A5618A56F40008ADDED /* AppDelegate.h */,
 				F5594A5718A56F40008ADDED /* AppDelegate.m */,
 				F5594A5918A56F40008ADDED /* HelloWorldLayer.h */,
 				F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */,
-				F5594A5C18A56F40008ADDED /* IntroLayer.h */,
-				F5594A5D18A56F40008ADDED /* IntroLayer.m */,
 				F55948C618A56F3B008ADDED /* Resources */,
 				F55948DE18A56F3B008ADDED /* libs */,
 				F5594A5218A56F40008ADDED /* Supporting Files */,
@@ -892,25 +894,11 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		F5594A6518A570CD008ADDED /* managers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = managers;
-			sourceTree = "<group>";
-		};
 		F5594A6618A570CD008ADDED /* models */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = models;
-			sourceTree = "<group>";
-		};
-		F5594A7418A570CD008ADDED /* views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = views;
 			sourceTree = "<group>";
 		};
 		F5594A8118A57141008ADDED /* images */ = {
@@ -927,6 +915,25 @@
 			);
 			name = sounds;
 			path = Resources/sounds;
+			sourceTree = "<group>";
+		};
+		F5594A8318A58515008ADDED /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				F5594A8718A587EC008ADDED /* AbstractScene.h */,
+				F5594A8A18A588B4008ADDED /* HomeScene.h */,
+				F5594A8B18A588B4008ADDED /* HomeScene.m */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		F5594A8D18A58DED008ADDED /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F5594A5C18A56F40008ADDED /* IntroLayer.h */,
+				F5594A5D18A56F40008ADDED /* IntroLayer.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1092,6 +1099,7 @@
 				F559492818A56F3C008ADDED /* CCFontDefinition.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,
 				F5594A4C18A56F40008ADDED /* vec2.c in Sources */,
+				F5594A8C18A588B4008ADDED /* HomeScene.m in Sources */,
 				F5594A3C18A56F40008ADDED /* matrix.c in Sources */,
 				F559492218A56F3C008ADDED /* CCDrawingPrimitives.m in Sources */,
 				F559498A18A56F3E008ADDED /* ccShaders.m in Sources */,
@@ -1219,6 +1227,7 @@
 				F5594A6318A56F40008ADDED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
