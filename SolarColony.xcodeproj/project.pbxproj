@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F5181D7318A58B16001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7218A58B16001F96F7 /* GridMap.m */; };
+		F5181D7C18A5A77B001F96F7 /* GridMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */; };
+		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
 		F55948B618A56F3B008ADDED /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B518A56F3B008ADDED /* OpenAL.framework */; };
@@ -147,9 +148,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F5181D7118A58B16001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = SOURCE_ROOT; };
-		F5181D7218A58B16001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = SOURCE_ROOT; };
-		F5181D7418A5903C001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = SOURCE_ROOT; };
+		F5181D7A18A5A77B001F96F7 /* GridMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMapLayer.h; sourceTree = "<group>"; };
+		F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMapLayer.m; sourceTree = "<group>"; };
+		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
+		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
+		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
 		F55948AE18A56F3B008ADDED /* SolarColony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarColony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55948B118A56F3B008ADDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55948B318A56F3B008ADDED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -459,12 +462,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F5181D7918A5A2F8001F96F7 /* Models */ = {
+		F5181D7D18A5A84A001F96F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F5181D7118A58B16001F96F7 /* GridMap.h */,
-				F5181D7218A58B16001F96F7 /* GridMap.m */,
-				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
+				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
+				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
+				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,7 +509,7 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
-				F5181D7918A5A2F8001F96F7 /* Models */,
+				F5181D7D18A5A84A001F96F7 /* Models */,
 				F5594A8D18A58DED008ADDED /* Managers */,
 				F5594A8318A58515008ADDED /* Layers */,
 				F5594A6418A570A8008ADDED /* controllers */,
@@ -935,6 +938,8 @@
 				F5594A8B18A588B4008ADDED /* HomeScene.m */,
 				F5594A9118A598E7008ADDED /* GameLandingScene.h */,
 				F5594A9218A598E7008ADDED /* GameLandingScene.m */,
+				F5181D7A18A5A77B001F96F7 /* GridMapLayer.h */,
+				F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1063,6 +1068,7 @@
 				F5594A4418A56F40008ADDED /* plane.c in Sources */,
 				F55949F018A56F3F008ADDED /* CCProfiling.m in Sources */,
 				F559498718A56F3E008ADDED /* CCShaderCache.m in Sources */,
+				F5181D7C18A5A77B001F96F7 /* GridMapLayer.m in Sources */,
 				F559498D18A56F3E008ADDED /* CCSprite.m in Sources */,
 				F559493418A56F3C008ADDED /* CCGrabber.m in Sources */,
 				F5594A3E18A56F40008ADDED /* mat3.c in Sources */,
@@ -1087,7 +1093,6 @@
 				F559491F18A56F3C008ADDED /* CCDirector.m in Sources */,
 				F559490F18A56F3C008ADDED /* CCAtlasNode.m in Sources */,
 				F5594A5518A56F40008ADDED /* main.m in Sources */,
-				F5181D7318A58B16001F96F7 /* GridMap.m in Sources */,
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
@@ -1117,6 +1122,7 @@
 				F5594A3C18A56F40008ADDED /* matrix.c in Sources */,
 				F559492218A56F3C008ADDED /* CCDrawingPrimitives.m in Sources */,
 				F559498A18A56F3E008ADDED /* ccShaders.m in Sources */,
+				F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */,
 				F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */,
 				F55949E018A56F3F008ADDED /* CCWindow.m in Sources */,
 				F55949BE18A56F3F008ADDED /* cocos2d.m in Sources */,
