@@ -904,6 +904,9 @@
 		F5594A6618A570CD008ADDED /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F5181D7118A58B16001F96F7 /* GridMap.h */,
+				F5181D7218A58B16001F96F7 /* GridMap.m */,
+				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -911,9 +914,6 @@
 		F5594A8118A57141008ADDED /* images */ = {
 			isa = PBXGroup;
 			children = (
-				F5181D7118A58B16001F96F7 /* GridMap.h */,
-				F5181D7218A58B16001F96F7 /* GridMap.m */,
-				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
 			);
 			name = images;
 			path = Resources/images;
