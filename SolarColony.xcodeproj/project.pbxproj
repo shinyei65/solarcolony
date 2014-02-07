@@ -485,6 +485,10 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
+				F5594A6518A570CD008ADDED /* managers */,
+				F5594A6618A570CD008ADDED /* models */,
+				F5594A7418A570CD008ADDED /* views */,
+				F5594A6418A570A8008ADDED /* controllers */,
 				F5594A5618A56F40008ADDED /* AppDelegate.h */,
 				F5594A5718A56F40008ADDED /* AppDelegate.m */,
 				F5594A5918A56F40008ADDED /* HelloWorldLayer.h */,
@@ -501,6 +505,8 @@
 		F55948C618A56F3B008ADDED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5594A8118A57141008ADDED /* images */,
+				F5594A8218A57141008ADDED /* sounds */,
 				F55948C718A56F3B008ADDED /* Default.png */,
 				F55948C918A56F3B008ADDED /* Default@2x.png */,
 				F55948CB18A56F3B008ADDED /* Default-568h@2x.png */,
@@ -877,6 +883,50 @@
 				F5594A5418A56F40008ADDED /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5594A6418A570A8008ADDED /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		F5594A6518A570CD008ADDED /* managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = managers;
+			sourceTree = "<group>";
+		};
+		F5594A6618A570CD008ADDED /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		F5594A7418A570CD008ADDED /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		F5594A8118A57141008ADDED /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = images;
+			path = Resources/images;
+			sourceTree = "<group>";
+		};
+		F5594A8218A57141008ADDED /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = sounds;
+			path = Resources/sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
