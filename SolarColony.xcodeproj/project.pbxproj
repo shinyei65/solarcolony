@@ -459,6 +459,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5181D7918A5A2F8001F96F7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F5181D7118A58B16001F96F7 /* GridMap.h */,
+				F5181D7218A58B16001F96F7 /* GridMap.m */,
+				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		F55948A518A56F3B008ADDED = {
 			isa = PBXGroup;
 			children = (
@@ -496,9 +506,9 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
+				F5181D7918A5A2F8001F96F7 /* Models */,
 				F5594A8D18A58DED008ADDED /* Managers */,
 				F5594A8318A58515008ADDED /* Layers */,
-				F5594A6618A570CD008ADDED /* models */,
 				F5594A6418A570A8008ADDED /* controllers */,
 				F5594A5618A56F40008ADDED /* AppDelegate.h */,
 				F5594A5718A56F40008ADDED /* AppDelegate.m */,
@@ -899,16 +909,6 @@
 			children = (
 			);
 			path = controllers;
-			sourceTree = "<group>";
-		};
-		F5594A6618A570CD008ADDED /* models */ = {
-			isa = PBXGroup;
-			children = (
-				F5181D7118A58B16001F96F7 /* GridMap.h */,
-				F5181D7218A58B16001F96F7 /* GridMap.m */,
-				F5181D7418A5903C001F96F7 /* ModelsConstants.h */,
-			);
-			path = models;
 			sourceTree = "<group>";
 		};
 		F5594A8118A57141008ADDED /* images */ = {
