@@ -13,10 +13,16 @@
 @protocol  AbstractScene
 
     @required
+        
         -(CCMenu*)loadMenu;
+        -(void)moveToScene:(int)scene;
         -(void)dealloc;
         +(CCScene *) scene;
 
     @optional
         -(int)dummyMethodForReference:(int) value;
+
+@property(assign, nonatomic) int layerId;
+@property  CGSize mobileDisplaySize;
+
 @end

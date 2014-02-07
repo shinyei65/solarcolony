@@ -1,14 +1,14 @@
 //
-//  HomeScene.m
+//  GameLandingScene.m
 //  SolarColony
 //
 //  Created by Student on 2/7/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "HomeScene.h"
+#import "GameLandingScene.h"
 
-@implementation HomeScene
+@implementation GameLandingScene
 @synthesize mobileDisplaySize;
 +(CCScene *) scene
 {
@@ -16,7 +16,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HomeScene *layer = [HomeScene node];
+	GameLandingScene *layer = [GameLandingScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -30,7 +30,7 @@
     self = [super init];
     if (self) {
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Home Page" fontName:@"Marker Felt" fontSize:64];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
@@ -44,11 +44,13 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game"];
+    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"Friends"];
     
-    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"];
+    CCMenuItemFont *manuItemDefense=[CCMenuItemFont itemWithString:@"DeFense"];
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
+    CCMenuItemFont *manuItemattack=[CCMenuItemFont itemWithString:@"Attack"];
+    
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
@@ -57,7 +59,7 @@
     return mainMenu;
     
 }
-    
+
 - (void)dealloc
 {
     [super dealloc];

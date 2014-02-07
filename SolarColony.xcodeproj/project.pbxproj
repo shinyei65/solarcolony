@@ -142,6 +142,7 @@
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
 		F5594A5E18A56F40008ADDED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5D18A56F40008ADDED /* IntroLayer.m */; };
 		F5594A8C18A588B4008ADDED /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A8B18A588B4008ADDED /* HomeScene.m */; };
+		F5594A9318A598E7008ADDED /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A9218A598E7008ADDED /* GameLandingScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -429,6 +430,8 @@
 		F5594A8718A587EC008ADDED /* AbstractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractScene.h; sourceTree = "<group>"; };
 		F5594A8A18A588B4008ADDED /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
 		F5594A8B18A588B4008ADDED /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
+		F5594A9118A598E7008ADDED /* GameLandingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLandingScene.h; sourceTree = "<group>"; };
+		F5594A9218A598E7008ADDED /* GameLandingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLandingScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -923,6 +926,8 @@
 				F5594A8718A587EC008ADDED /* AbstractScene.h */,
 				F5594A8A18A588B4008ADDED /* HomeScene.h */,
 				F5594A8B18A588B4008ADDED /* HomeScene.m */,
+				F5594A9118A598E7008ADDED /* GameLandingScene.h */,
+				F5594A9218A598E7008ADDED /* GameLandingScene.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1009,6 +1014,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5594A9318A598E7008ADDED /* GameLandingScene.m in Sources */,
 				F55949A218A56F3E008ADDED /* CCTexturePVR.m in Sources */,
 				F55949F218A56F3F008ADDED /* ccUtils.c in Sources */,
 				F559494318A56F3D008ADDED /* CCLayer.m in Sources */,

@@ -1,5 +1,5 @@
 //
-//  HomeScene.h
+//  GameLandingScene.h
 //  SolarColony
 //
 //  Created by Student on 2/7/14.
@@ -8,7 +8,6 @@
 
 #import "AbstractScene.h"
 
-@interface HomeScene : CCLayer<AbstractScene>
+@interface GameLandingScene : CCLayer<AbstractScene>
 
 @end
-
