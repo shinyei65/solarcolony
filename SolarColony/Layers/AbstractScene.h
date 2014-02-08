@@ -9,6 +9,7 @@
 #import "cocos2d.h"
 #import "CCLayer.h"
 #import <GameKit/GameKit.h>
+//#import "TransitionManagerSingleton.h"
 
 @protocol  AbstractScene
 
@@ -22,7 +23,8 @@
     @optional
         -(int)dummyMethodForReference:(int) value;
 
-@property(assign, nonatomic) int layerId;
-@property  CGSize mobileDisplaySize;
+    @property(assign, nonatomic) int layerId;
+    @property  CGSize mobileDisplaySize;
+   // @property (readonly) (TransitionManagerSingleton*) transitionManagerSingleton;
 
 @end

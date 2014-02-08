@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F5181D7C18A5A77B001F96F7 /* GridMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
@@ -142,14 +141,13 @@
 		F5594A5518A56F40008ADDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5418A56F40008ADDED /* main.m */; };
 		F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5718A56F40008ADDED /* AppDelegate.m */; };
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
-		F5594A5E18A56F40008ADDED /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5D18A56F40008ADDED /* IntroLayer.m */; };
-		F5594A8C18A588B4008ADDED /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A8B18A588B4008ADDED /* HomeScene.m */; };
-		F5594A9318A598E7008ADDED /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A9218A598E7008ADDED /* GameLandingScene.m */; };
+		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
+		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
+		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
+		F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F5181D7A18A5A77B001F96F7 /* GridMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMapLayer.h; sourceTree = "<group>"; };
-		F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMapLayer.m; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -432,13 +430,15 @@
 		F5594A5718A56F40008ADDED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5594A5918A56F40008ADDED /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		F5594A5C18A56F40008ADDED /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = IntroLayer.h; path = ../IntroLayer.h; sourceTree = "<group>"; };
-		F5594A5D18A56F40008ADDED /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = IntroLayer.m; path = ../IntroLayer.m; sourceTree = "<group>"; };
-		F5594A8718A587EC008ADDED /* AbstractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractScene.h; sourceTree = "<group>"; };
-		F5594A8A18A588B4008ADDED /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
-		F5594A8B18A588B4008ADDED /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
-		F5594A9118A598E7008ADDED /* GameLandingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLandingScene.h; sourceTree = "<group>"; };
-		F5594A9218A598E7008ADDED /* GameLandingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLandingScene.m; sourceTree = "<group>"; };
+		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
+		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
+		F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransitionManagerSingleton.m; sourceTree = "<group>"; };
+		F5DFA3B818A5AD04000F0A00 /* AbstractScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractScene.h; sourceTree = "<group>"; };
+		F5DFA3B918A5AD04000F0A00 /* GameLandingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLandingScene.h; sourceTree = "<group>"; };
+		F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLandingScene.m; sourceTree = "<group>"; };
+		F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
+		F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -509,9 +509,9 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
+				F5DFA3B718A5AD04000F0A00 /* Layers */,
+				F5DFA3B018A5ACC8000F0A00 /* Managers */,
 				F5181D7D18A5A84A001F96F7 /* Models */,
-				F5594A8D18A58DED008ADDED /* Managers */,
-				F5594A8318A58515008ADDED /* Layers */,
 				F5594A6418A570A8008ADDED /* controllers */,
 				F5594A5618A56F40008ADDED /* AppDelegate.h */,
 				F5594A5718A56F40008ADDED /* AppDelegate.m */,
@@ -930,27 +930,27 @@
 			path = Resources/sounds;
 			sourceTree = "<group>";
 		};
-		F5594A8318A58515008ADDED /* Layers */ = {
+		F5DFA3B018A5ACC8000F0A00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				F5594A8718A587EC008ADDED /* AbstractScene.h */,
-				F5594A8A18A588B4008ADDED /* HomeScene.h */,
-				F5594A8B18A588B4008ADDED /* HomeScene.m */,
-				F5594A9118A598E7008ADDED /* GameLandingScene.h */,
-				F5594A9218A598E7008ADDED /* GameLandingScene.m */,
-				F5181D7A18A5A77B001F96F7 /* GridMapLayer.h */,
-				F5181D7B18A5A77B001F96F7 /* GridMapLayer.m */,
-			);
-			path = Layers;
-			sourceTree = "<group>";
-		};
-		F5594A8D18A58DED008ADDED /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				F5594A5C18A56F40008ADDED /* IntroLayer.h */,
-				F5594A5D18A56F40008ADDED /* IntroLayer.m */,
+				F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */,
+				F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */,
+				F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */,
+				F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		F5DFA3B718A5AD04000F0A00 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				F5DFA3B818A5AD04000F0A00 /* AbstractScene.h */,
+				F5DFA3B918A5AD04000F0A00 /* GameLandingScene.h */,
+				F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */,
+				F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */,
+				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
+			);
+			path = Layers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1026,7 +1026,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5594A9318A598E7008ADDED /* GameLandingScene.m in Sources */,
 				F55949A218A56F3E008ADDED /* CCTexturePVR.m in Sources */,
 				F55949F218A56F3F008ADDED /* ccUtils.c in Sources */,
 				F559494318A56F3D008ADDED /* CCLayer.m in Sources */,
@@ -1034,6 +1033,7 @@
 				F55949A818A56F3E008ADDED /* CCTMXLayer.m in Sources */,
 				F5594A4018A56F40008ADDED /* mat4.c in Sources */,
 				F559491C18A56F3C008ADDED /* ccDeprecated.m in Sources */,
+				F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */,
 				F55949D718A56F3F008ADDED /* CCDirectorMac.m in Sources */,
 				F559493118A56F3C008ADDED /* ccGLStateCache.m in Sources */,
 				F5594A0318A56F3F008ADDED /* TransformUtils.m in Sources */,
@@ -1052,6 +1052,7 @@
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
 				F55949B718A56F3E008ADDED /* CCTransitionPageTurn.m in Sources */,
 				F55948E818A56F3B008ADDED /* CCActionCatmullRom.m in Sources */,
+				F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */,
 				F559495F18A56F3D008ADDED /* CCParticleSystem.m in Sources */,
 				F55949B418A56F3E008ADDED /* CCTransition.m in Sources */,
 				F559495C18A56F3D008ADDED /* CCParticleExamples.m in Sources */,
@@ -1066,9 +1067,9 @@
 				F5594A1718A56F40008ADDED /* CDXPropertyModifierAction.m in Sources */,
 				F55949E718A56F3F008ADDED /* CCArray.m in Sources */,
 				F5594A4418A56F40008ADDED /* plane.c in Sources */,
+				F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */,
 				F55949F018A56F3F008ADDED /* CCProfiling.m in Sources */,
 				F559498718A56F3E008ADDED /* CCShaderCache.m in Sources */,
-				F5181D7C18A5A77B001F96F7 /* GridMapLayer.m in Sources */,
 				F559498D18A56F3E008ADDED /* CCSprite.m in Sources */,
 				F559493418A56F3C008ADDED /* CCGrabber.m in Sources */,
 				F5594A3E18A56F40008ADDED /* mat3.c in Sources */,
@@ -1076,9 +1077,9 @@
 				F55949C818A56F3F008ADDED /* CCES2Renderer.m in Sources */,
 				F559493A18A56F3C008ADDED /* CCLabelAtlas.m in Sources */,
 				F559495618A56F3D008ADDED /* CCParallaxNode.m in Sources */,
-				F5594A5E18A56F40008ADDED /* IntroLayer.m in Sources */,
 				F55948EE18A56F3B008ADDED /* CCActionGrid.m in Sources */,
 				F559493718A56F3C008ADDED /* CCGrid.m in Sources */,
+				F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */,
 				F5594A4618A56F40008ADDED /* quaternion.c in Sources */,
 				F559499318A56F3E008ADDED /* CCSpriteFrame.m in Sources */,
 				F559490018A56F3C008ADDED /* CCActionProgressTimer.m in Sources */,
@@ -1118,7 +1119,6 @@
 				F559492818A56F3C008ADDED /* CCFontDefinition.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,
 				F5594A4C18A56F40008ADDED /* vec2.c in Sources */,
-				F5594A8C18A588B4008ADDED /* HomeScene.m in Sources */,
 				F5594A3C18A56F40008ADDED /* matrix.c in Sources */,
 				F559492218A56F3C008ADDED /* CCDrawingPrimitives.m in Sources */,
 				F559498A18A56F3E008ADDED /* ccShaders.m in Sources */,

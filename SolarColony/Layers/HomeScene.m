@@ -10,6 +10,7 @@
 
 @implementation HomeScene
 @synthesize mobileDisplaySize;
+
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
@@ -29,6 +30,7 @@
 {
     self = [super init];
     if (self) {
+       // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Home Page" fontName:@"Marker Felt" fontSize:64];
         
@@ -44,9 +46,11 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game"];
+    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScenee:)];
+    manuItemStart.tag=1;
     
     CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"];
+    manuItemStart.tag=2;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
     
@@ -57,11 +61,21 @@
     return mainMenu;
     
 }
+
+-(void)moveToScenee:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;   
+    NSLog(menuItem.label.string);
+    //[transitionManagerSingleton transitionTo:menuItem.tag];
     
+
+}
+
 - (void)dealloc
 {
     [super dealloc];
     
 }
+
+
 
 @end
