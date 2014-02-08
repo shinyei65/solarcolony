@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
@@ -148,6 +149,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
+		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -949,6 +952,8 @@
 				F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */,
 				F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */,
 				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
+				09A7183118A6249800FC9BB2 /* Friends.h */,
+				09A7183218A6249800FC9BB2 /* Friends.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1083,6 +1088,7 @@
 				F5594A4618A56F40008ADDED /* quaternion.c in Sources */,
 				F559499318A56F3E008ADDED /* CCSpriteFrame.m in Sources */,
 				F559490018A56F3C008ADDED /* CCActionProgressTimer.m in Sources */,
+				09A7183318A6249800FC9BB2 /* Friends.m in Sources */,
 				F55948E218A56F3B008ADDED /* CCAction.m in Sources */,
 				F5594A1A18A56F40008ADDED /* CocosDenshion.m in Sources */,
 				F559499F18A56F3E008ADDED /* CCTextureCache.m in Sources */,
