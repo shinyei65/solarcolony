@@ -9,13 +9,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
-@interface GridMap : NSObject
+@interface GridMap : CCNode
 
 + (instancetype) map;
 - (instancetype) init;
-- (void) setTower:(int) val X:(int) x Y:(int) y;
-- (BOOL) hasTowerAtX:(int) x Y:(int) y;
-- (int) getTowerAtX:(int) x Y:(int) y;
+- (void) setMap:(char) target X:(int) x Y:(int) y;
+- (char) getStatusAtX:(int) x Y:(int) y;
+- (BOOL) canBuildTowerAtX:(int) x Y:(int) y;
+- (BOOL) canPassAtX:(int) x Y:(int) y;
 
 @end

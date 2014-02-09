@@ -14,7 +14,7 @@
 
 @implementation GridMap
 {
-    int map[GridMapWidth][GridMapHeight];
+    char _map [GridMapWidth][GridMapHeight];
 }
 
 #pragma mark - Create and Destroy
@@ -28,10 +28,10 @@
 {
     self = [super init];
     
-    // initialize map array with default value -1
+    // initialize map array with default value 'X'
     for(int i=0; i<GridMapWidth; i++){
         for(int j=0; j<GridMapHeight; j++){
-            map[i][j] = -1;
+            _map[i][j] = 'X';
         }
     }
     
@@ -47,22 +47,30 @@
 
 #pragma mark - operation of map array
 
-- (void) setTower:(int) val X:(int) x Y:(int) y
+- (void) setMap:(char) status X:(int) x Y:(int) y
 {
-    map[x][y] = val;
+    _map[x][y] = status;
 }
 
-- (BOOL) hasTowerAtX:(int) x Y:(int) y
+- (char) getStatusAtX:(int) x Y:(int) y
 {
-    if(map[x][y] == -1)
+    return _map[x][y];
+}
+
+- (BOOL) canBuildTowerAtX:(int) x Y:(int) y
+{
+    if(_map[x][y] == CLOSED || _map[x][y] == UNAVAILABLE)
         return FALSE;
     else
         return TRUE;
 }
 
-- (int) getTowerAtX:(int) x Y:(int) y
+- (BOOL) canPassAtX:(int) x Y:(int) y
 {
-    return map[x][y];
+    if(_map[x][y] == CLOSED || _map[x][y] == TOWER)
+        return FALSE;
+    else
+        return TRUE;
 }
 
 @end
