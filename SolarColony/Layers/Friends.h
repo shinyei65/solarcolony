@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "AbstractScene.h"
 
-@interface Friends : NSObject
+@interface Friends : CCLayer<AbstractScene>
 
 @end
