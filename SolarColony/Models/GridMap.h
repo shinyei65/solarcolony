@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GridMap : CCNode
+@interface GridMap : CCLayer
 
 + (instancetype) map;
 - (instancetype) init;

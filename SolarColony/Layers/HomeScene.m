@@ -8,6 +8,7 @@
 
 #import "HomeScene.h"
 #import "GridMap.h"
+#import "race.h"
 
 @implementation HomeScene
 @synthesize mobileDisplaySize;
@@ -69,10 +70,11 @@
 }
 
 -(void)moveToScenee:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+   /* CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     NSLog(menuItem.label.string);
     //[transitionManagerSingleton transitionTo:menuItem.tag];
-    
+    */
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
  }
 
 - (void)dealloc

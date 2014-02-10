@@ -11,6 +11,4 @@
 
 @interface race : CCLayer<AbstractScene>
     
-
-
 @end

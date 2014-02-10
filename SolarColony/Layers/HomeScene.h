@@ -8,7 +8,7 @@
 
 #import "AbstractScene.h"
 
-@interface HomeScene : CCLayer<AbstractScene>
+@interface HomeScene : CCScene<AbstractScene>
 
 @end
 
