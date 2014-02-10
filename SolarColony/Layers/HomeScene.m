@@ -74,7 +74,7 @@
     NSLog(menuItem.label.string);
     //[transitionManagerSingleton transitionTo:menuItem.tag];
     */
-    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:1 scene:[race node]]];
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
  }
 
 - (void)dealloc

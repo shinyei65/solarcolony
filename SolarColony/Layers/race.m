@@ -33,18 +33,18 @@
 {
     self = [super init];
     if (self) {
-        // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+       // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
+       // CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+       // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
         // test square cell
         
         
-        [self addChild:splash];
+     //   [self addChild:splash];
         [self addChild:[self loadMenu]];
     }
     return self;
@@ -52,7 +52,7 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItem *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(maketransition)];
+    CCMenuItem *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(maketransition:)];
     menuItemHuman.tag=1;
     
     CCMenuItem *MenuItemRobot=[CCMenuItemFont itemWithString:@"Robot"];
@@ -72,7 +72,7 @@
 }
 
 -(void)maketransition:(id)sender{
-    [[CCDirector sharedDirector]replaceScene:[CCTransitionFade transitionWithDuration:1 scene:[HomeScene node]]];
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
     
 }
 
