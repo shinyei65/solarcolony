@@ -144,6 +144,7 @@
 		F5594A5518A56F40008ADDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5418A56F40008ADDED /* main.m */; };
 		F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5718A56F40008ADDED /* AppDelegate.m */; };
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
+		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
@@ -439,6 +440,8 @@
 		F5594A5718A56F40008ADDED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5594A5918A56F40008ADDED /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		F56A654418A9516A00AE0884 /* Soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soldier.h; sourceTree = "<group>"; };
+		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
@@ -474,6 +477,8 @@
 		F5181D7D18A5A84A001F96F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F56A654418A9516A00AE0884 /* Soldier.h */,
+				F56A654518A9516A00AE0884 /* Soldier.m */,
 				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
 				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
@@ -1146,6 +1151,7 @@
 				F55949BE18A56F3F008ADDED /* cocos2d.m in Sources */,
 				F559496B18A56F3D008ADDED /* CCProgressTimer.m in Sources */,
 				F559494018A56F3D008ADDED /* CCLabelTTF.m in Sources */,
+				F56A654618A9516A00AE0884 /* Soldier.m in Sources */,
 				F55949ED18A56F3F008ADDED /* CCFileUtils.m in Sources */,
 				F55949DA18A56F3F008ADDED /* CCEventDispatcher.m in Sources */,
 				F559499018A56F3E008ADDED /* CCSpriteBatchNode.m in Sources */,
