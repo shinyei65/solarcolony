@@ -1060,6 +1060,7 @@
 				F55948FA18A56F3C008ADDED /* CCActionManager.m in Sources */,
 				F559496218A56F3D008ADDED /* CCParticleSystemQuad.m in Sources */,
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
+				F5389ADD18A82F510036B5D6 /* Soldier.m in Sources */,
 				F55949B718A56F3E008ADDED /* CCTransitionPageTurn.m in Sources */,
 				F55948E818A56F3B008ADDED /* CCActionCatmullRom.m in Sources */,
 				F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */,
