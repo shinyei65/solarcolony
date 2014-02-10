@@ -10,6 +10,7 @@
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
+		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F54A770B18A83F940087A1D1 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54A770A18A83F940087A1D1 /* GridCell.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
@@ -160,6 +161,7 @@
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
+		F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Dismounted Soldier - Gear.jpg"; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -480,6 +482,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F5080CB418A96B5E00E99AD9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */,
+			);
+			name = images;
+			path = Resources/images;
+			sourceTree = "<group>";
+		};
 		F5181D7D18A5A84A001F96F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -549,7 +560,7 @@
 		F55948C618A56F3B008ADDED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F5594A8118A57141008ADDED /* images */,
+				F5080CB418A96B5E00E99AD9 /* images */,
 				F5594A8218A57141008ADDED /* sounds */,
 				F55948C718A56F3B008ADDED /* Default.png */,
 				F55948C918A56F3B008ADDED /* Default@2x.png */,
@@ -936,14 +947,6 @@
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		F5594A8118A57141008ADDED /* images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = images;
-			path = Resources/images;
-			sourceTree = "<group>";
-		};
 		F5594A8218A57141008ADDED /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,6 +1039,7 @@
 			files = (
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
+				F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
