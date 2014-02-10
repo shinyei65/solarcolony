@@ -7,6 +7,7 @@
 //
 
 #import "HomeScene.h"
+#import "GridMap.h"
 
 @implementation HomeScene
 @synthesize mobileDisplaySize;
@@ -38,8 +39,13 @@
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
+        // test square cell
+        
+        GridMap *grid = [GridMap map];
+        
         [self addChild:splash];
         [self addChild:[self loadMenu]];
+        [self addChild:grid z:1];
     }
     return self;
 }

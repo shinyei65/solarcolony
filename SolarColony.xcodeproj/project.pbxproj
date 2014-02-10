@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
+		F54A770B18A83F940087A1D1 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54A770A18A83F940087A1D1 /* GridCell.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
 		F55948B618A56F3B008ADDED /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B518A56F3B008ADDED /* OpenAL.framework */; };
@@ -154,6 +155,8 @@
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
+		F54A770918A83F940087A1D1 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
+		F54A770A18A83F940087A1D1 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
 		F55948AE18A56F3B008ADDED /* SolarColony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarColony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55948B118A56F3B008ADDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55948B318A56F3B008ADDED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -471,6 +474,8 @@
 				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
 				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
+				F54A770918A83F940087A1D1 /* GridCell.h */,
+				F54A770A18A83F940087A1D1 /* GridCell.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1116,6 +1121,7 @@
 				F5594A1118A56F40008ADDED /* CDOpenALSupport.m in Sources */,
 				F55948F418A56F3B008ADDED /* CCActionInstant.m in Sources */,
 				F559491518A56F3C008ADDED /* CCClippingNode.m in Sources */,
+				F54A770B18A83F940087A1D1 /* GridCell.m in Sources */,
 				F559499918A56F3E008ADDED /* CCTexture2D.m in Sources */,
 				F55949AE18A56F3E008ADDED /* CCTMXTiledMap.m in Sources */,
 				F559496F18A56F3D008ADDED /* CCRenderTexture.m in Sources */,
