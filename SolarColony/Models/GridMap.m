@@ -74,6 +74,8 @@
         return TRUE;
 }
 
+#pragma mark - UI control
+
 - (void) draw
 {
     // draw a grid
