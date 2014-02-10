@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
+		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F54A770B18A83F940087A1D1 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54A770A18A83F940087A1D1 /* GridCell.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
@@ -152,6 +153,8 @@
 /* Begin PBXFileReference section */
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
+		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -959,6 +962,8 @@
 				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
 				09A7183118A6249800FC9BB2 /* Friends.h */,
 				09A7183218A6249800FC9BB2 /* Friends.m */,
+				09E9FDC418A94B1C000082B0 /* Settings.h */,
+				09E9FDC518A94B1C000082B0 /* Settings.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1060,10 +1065,10 @@
 				F55948FA18A56F3C008ADDED /* CCActionManager.m in Sources */,
 				F559496218A56F3D008ADDED /* CCParticleSystemQuad.m in Sources */,
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
-				F5389ADD18A82F510036B5D6 /* Soldier.m in Sources */,
 				F55949B718A56F3E008ADDED /* CCTransitionPageTurn.m in Sources */,
 				F55948E818A56F3B008ADDED /* CCActionCatmullRom.m in Sources */,
 				F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */,
+				09E9FDC618A94B1C000082B0 /* Settings.m in Sources */,
 				F559495F18A56F3D008ADDED /* CCParticleSystem.m in Sources */,
 				F55949B418A56F3E008ADDED /* CCTransition.m in Sources */,
 				F559495C18A56F3D008ADDED /* CCParticleExamples.m in Sources */,
