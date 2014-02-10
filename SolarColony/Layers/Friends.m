@@ -46,5 +46,15 @@
 }
 
 
+-(void)moveToScene:(int)scene
+{
+    
+}
+
+- (void)dealloc
+{
+    [super dealloc];
+}
+
 
 @end
