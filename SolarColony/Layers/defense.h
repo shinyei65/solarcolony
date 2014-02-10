@@ -6,11 +6,7 @@
 //  Copyright 2014 solarcolonyteam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "cocos2d.h"
+#import "AbstractScene.h"
 
-@interface defense : defense {
-    
-}
-
+@interface defense : CCLayer<AbstractScene>
 @end

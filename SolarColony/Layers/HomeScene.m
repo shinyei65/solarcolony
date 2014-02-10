@@ -69,12 +69,11 @@
 }
 
 -(void)moveToScenee:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;   
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     NSLog(menuItem.label.string);
     //[transitionManagerSingleton transitionTo:menuItem.tag];
     
-
-}
+ }
 
 - (void)dealloc
 {
