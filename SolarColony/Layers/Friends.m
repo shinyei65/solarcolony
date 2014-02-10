@@ -45,6 +45,10 @@
     return self;
 }
 
+- (CCMenu*)loadMenu
+{
+    
+}
 
 -(void)moveToScene:(int)scene
 {
