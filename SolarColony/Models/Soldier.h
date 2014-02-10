@@ -15,8 +15,8 @@
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 + (instancetype) runner:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
-- (instancetype) attacker_init;
-- (instancetype) runner_init;
+- (instancetype) attacker_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
+- (instancetype) runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 - (void)setHEALTH:(int)health;
 - (int)getHEALTH;
 - (void)setATTACK:(int)attack;
@@ -27,6 +27,7 @@
 - (int)getSPEED;
 - (void)setPOSITION:(int)x Y:(int)y; //set the position of soldier in grid coordinate
 - (CGPoint)getPOSITION;
+- (BOOL)getATTACK_FLAG;
 
 
 
