@@ -8,5 +8,9 @@
 
 #import "AbstractScene.h"
 
-@interface defense : CCLayer<AbstractScene>
+@interface defense : CCScene<AbstractScene>
+
++ (instancetype)defense;
+- (instancetype)init;
+
 @end

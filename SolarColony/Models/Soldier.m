@@ -36,10 +36,10 @@
     S_attack_sp = attack_sp;
     S_speed = speed;
     S_attack_flag = TRUE;
-    
-  
-/*    _soldier = [];
+    _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
     [self addChild:_soldier];
+  
+/*
     _hp = [];
     [self addChild:_hp];
  */
@@ -54,8 +54,9 @@
     S_attack_sp = attack_sp;
     S_speed = speed;
     S_attack_flag = FALSE;
-/*    _soldier = [];
-     [self addChild:_soldier];
+    _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
+    [self addChild:_soldier];
+/*
      _hp = [];
      [self addChild:_hp];
 */
@@ -113,7 +114,10 @@
     
 }
 
-
+- (void)update:(ccTime)delta
+{
+    
+}
 
 
 

@@ -7,8 +7,57 @@
 //
 
 #import "defense.h"
-
+#import "Soldier.h"
+#import "GridCell.h"
+#import "GridMap.h"
 
 @implementation defense
+
++ (instancetype)defense
+{
+    return [[self alloc] init];
+}
+
+// -----------------------------------------------------------------------
+
+- (instancetype)init
+{
+    self = [super init];
+    if (!self) return(nil);
+    
+    glClearColor(0, 0, 0, 1.0);
+    Soldier *sol1 = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
+    sol1.position = ccp(50, 50);
+    [self addChild:sol1];
+    
+    [self scheduleUpdate];
+    return self;
+}
+
+- (void)update:(ccTime)delta
+{
+    for (CCNode *node in self.children)
+    {
+        if([node isKindOfClass:[Soldier class]]){
+            Soldier *soldier = (Soldier *)node;
+
+    //  float time = ;
+            
+
+        if(lroundf(delta)%2 == 0){
+            if(soldier.position.x < [[CCDirector sharedDirector] winSize].width)
+                soldier.position = ccpAdd(soldier.position, ccp(1,0));
+        }
+        
+        else{
+            if(soldier.position.y < [[CCDirector sharedDirector] winSize].height)
+                soldier.position = ccpAdd(soldier.position, ccp(0,1));
+            
+        }
+        }
+
+    }
+}
+
 
 @end

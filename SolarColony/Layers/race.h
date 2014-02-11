@@ -9,6 +9,6 @@
 #import "AbstractScene.h"
 
 
-@interface race : CCScene<AbstractScene>
+@interface race : CCLayer<AbstractScene>
     
 @end

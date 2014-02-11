@@ -15,6 +15,9 @@
 @implementation GridMap
 {
     char _map [GridMapWidth][GridMapHeight];
+    CGSize _screenSize;
+    float _width_step;
+    float _height_step;
 }
 
 #pragma mark - Create and Destroy
@@ -29,12 +32,18 @@
     self = [super init];
     if (!self) return(nil);
     
+    _screenSize = [[CCDirector sharedDirector] winSize];
+    _width_step = _screenSize.width/GridMapWidth;
+    _height_step = _screenSize.height/GridMapHeight;
+    
     // initialize map array with default status 'X'
     for(int i=0; i<GridMapWidth; i++){
         for(int j=0; j<GridMapHeight; j++){
             _map[i][j] = 'X';
         }
     }
+    
+    [self setTouchEnabled: YES];
     
     // done
     return self;
@@ -46,7 +55,7 @@
     [self release];
 }
 
-#pragma mark - operation of map array
+#pragma mark - operation of map
 
 - (void) setMap:(char) status X:(int) x Y:(int) y
 {
@@ -74,20 +83,36 @@
         return TRUE;
 }
 
+- (CGPoint) convertToMapIndex: (CGPoint) loc
+{
+    loc.x = floor(loc.x / _width_step);
+    loc.y = floor((_screenSize.height - loc.y) / _height_step);
+    return loc;
+}
+
 #pragma mark - UI control
 
 - (void) draw
 {
     // draw a grid
-    CGSize screenSize = [[CCDirector sharedDirector] winSize];
-    int width_step = screenSize.width/GridMapWidth;
-    int height_step = screenSize.height/GridMapHeight;
-    for(int i=0; i<=width_step; i++){
-        ccDrawLine(ccp(i * width_step, 0), ccp(i * width_step, screenSize.height));
+    for(int i=0; i<=_width_step; i++){
+        ccDrawLine(ccp(i * _width_step, 0), ccp(i * _width_step, _screenSize.height));
     }
-    for(int i=0; i<=height_step; i++){
-        ccDrawLine(ccp(0, i * height_step), ccp(screenSize.width, i * height_step));
+    for(int i=0; i<=_height_step; i++){
+        ccDrawLine(ccp(0, i * _height_step), ccp(_screenSize.width, i * _height_step));
     }
+}
+
+- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [touches anyObject];
+    CGPoint loc = [touch locationInView:[touch view]];
+    loc = [self convertToMapIndex:[[CCDirector sharedDirector] convertToGL:loc]];
+    NSLog(@"Cell(%g,%g)", loc.x, loc.y);
+}
+
+- (void) selectCell: (CGPoint) index
+{
+    
 }
 
 @end
