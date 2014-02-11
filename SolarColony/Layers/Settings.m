@@ -7,6 +7,7 @@
 //
 
 #import "Settings.h"
+#import "HomeScene.h"
 
 @implementation Settings
 @synthesize mobileDisplaySize;
@@ -32,20 +33,20 @@
     if (self) {
         // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Settings" fontName:@"Marker Felt" fontSize:64];
+    //    CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Settings" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+   //     [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
-        [self addChild:splash];
+  //      [self addChild:splash];
         [self addChild:[self loadMenu]];
     }
     return self;
 }
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account" target:self selector:@selector(moveToScenee:)];
+    CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account" target:self selector:@selector(backToHome:)];
     manuItemAccount.tag=1;
     
     CCMenuItemFont *manuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
@@ -64,11 +65,10 @@
     
 }
 
--(void)moveToScene:(int)scene
+-(void)backToHome:(id)sender
 {
-    
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
 }
-
 - (void)dealloc
 {
     [super dealloc];

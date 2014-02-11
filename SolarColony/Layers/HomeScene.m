@@ -9,6 +9,7 @@
 #import "HomeScene.h"
 #import "GridMap.h"
 #import "race.h"
+#import "Settings.h"
 
 @implementation HomeScene
 @synthesize mobileDisplaySize;
@@ -56,7 +57,8 @@
     CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScenee:)];
     manuItemStart.tag=1;
     
-    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"];
+    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"
+        target:self selector:@selector(moveToSettings:)];
     manuItemStart.tag=2;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
@@ -76,6 +78,9 @@
     */
     [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
  }
+-(void)moveToSettings:(id)sender{
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[Settings node]]];
+}
 
 - (void)dealloc
 {
