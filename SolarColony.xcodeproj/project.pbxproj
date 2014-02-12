@@ -987,6 +987,8 @@
 				F5C8460218A9647A0019F6F7 /* defense.m */,
 				F5080CB118A96AB800E99AD9 /* race.h */,
 				F5080CB218A96AB800E99AD9 /* race.m */,
+				21DD47BA18AA14CF009E55DC /* attacker.h */,
+				21DD47BB18AA14CF009E55DC /* attacker.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1186,6 +1188,7 @@
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,
+				21DD47BC18AA14CF009E55DC /* attacker.m in Sources */,
 				F55949D018A56F3F008ADDED /* CCTouchDispatcher.m in Sources */,
 				F559495318A56F3D008ADDED /* CCNode.m in Sources */,
 			);
