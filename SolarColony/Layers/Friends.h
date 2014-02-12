@@ -8,6 +8,6 @@
 
 #import "AbstractScene.h"
 
-@interface Friends : CCScene<AbstractScene>
+@interface Friends : CCLayer<AbstractScene>
 
 @end

@@ -8,6 +8,6 @@
 
 #import "AbstractScene.h"
 
-@interface Settings : CCScene<AbstractScene>
+@interface Settings : CCLayer<AbstractScene>
 
 @end

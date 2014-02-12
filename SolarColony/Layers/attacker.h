@@ -1,14 +1,13 @@
 //
-//  race.h
+//  attacker.h
 //  SolarColony
 //
-//  Created by Student on 2/10/14.
+//  Created by Sophia Wu on 2/11/14.
 //  Copyright 2014 solarcolonyteam. All rights reserved.
 //
 
 #import "AbstractScene.h"
 
-@interface race : CCLayer<AbstractScene>
-
+@interface attacker : CCScene<AbstractScene>
 
 @end

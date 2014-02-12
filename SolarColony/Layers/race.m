@@ -37,7 +37,7 @@
         
        // CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
         
-        mobileDisplaySize= [[CCDirector sharedDirector] winSize];
+        
         
        // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
@@ -45,6 +45,8 @@
         
         
      //   [self addChild:splash];
+        
+        mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         [self addChild:[self loadMenu]];
     }
     return self;
@@ -53,19 +55,17 @@
 - (CCMenu*)loadMenu
 {
     CCMenuItem *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(maketransition:)];
-    menuItemHuman.tag=1;
+   
     
     CCMenuItem *MenuItemRobot=[CCMenuItemFont itemWithString:@"Robot"];
-    menuItemHuman.tag=2;
     
     CCMenuItem *menuItemMagic=[CCMenuItemFont itemWithString:@"Magic"];
-    menuItemHuman.tag=3;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot,menuItemMagic, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
+    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     
     return mainMenu;
     
