@@ -8,6 +8,7 @@
 
 #import "race.h"
 #import "HomeScene.h"
+#import "defense.h"
 
 @implementation race
 
@@ -72,7 +73,7 @@
 }
 
 -(void)maketransition:(id)sender{
-    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
+    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[defense scene]]];
     
 }
 

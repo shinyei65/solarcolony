@@ -10,7 +10,7 @@
 
 @interface defense : CCScene<AbstractScene>
 
-+ (instancetype)defense;
++ (instancetype)scene;
 - (instancetype)init;
 
 @end

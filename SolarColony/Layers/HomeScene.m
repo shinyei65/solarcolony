@@ -7,7 +7,6 @@
 //
 
 #import "HomeScene.h"
-#import "GridMap.h"
 #import "race.h"
 #import "Settings.h"
 
@@ -35,19 +34,14 @@
     if (self) {
        // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Home Page" fontName:@"Marker Felt" fontSize:64];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
-        // test square cell
-        
-        GridMap *grid = [GridMap map];
-        
         [self addChild:splash];
         [self addChild:[self loadMenu]];
-        [self addChild:grid z:1];
     }
     return self;
 }

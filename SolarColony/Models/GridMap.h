@@ -19,5 +19,6 @@
 - (char) getStatusAtX:(int) x Y:(int) y;
 - (BOOL) canBuildTowerAtX:(int) x Y:(int) y;
 - (BOOL) canPassAtX:(int) x Y:(int) y;
+- (char) getFullMap;
 
 @end

@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
+		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
+		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
-		F54A770B18A83F940087A1D1 /* GridCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54A770A18A83F940087A1D1 /* GridCell.m */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
 		F55948B618A56F3B008ADDED /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B518A56F3B008ADDED /* OpenAL.framework */; };
@@ -159,14 +160,16 @@
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		5681771918AAF70300E4D772 /* CCMenu+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMenu+Layout.h"; sourceTree = "<group>"; };
+		5681771A18AAF70300E4D772 /* CCMenu+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMenu+Layout.m"; sourceTree = "<group>"; };
+		5681771C18AB07E600E4D772 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
+		5681771D18AB07E600E4D772 /* TowerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMenu.m; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
 		F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Dismounted Soldier - Gear.jpg"; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
-		F54A770918A83F940087A1D1 /* GridCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridCell.h; sourceTree = "<group>"; };
-		F54A770A18A83F940087A1D1 /* GridCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridCell.m; sourceTree = "<group>"; };
 		F55948AE18A56F3B008ADDED /* SolarColony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarColony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55948B118A56F3B008ADDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55948B318A56F3B008ADDED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -499,8 +502,10 @@
 				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
 				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
-				F54A770918A83F940087A1D1 /* GridCell.h */,
-				F54A770A18A83F940087A1D1 /* GridCell.m */,
+				5681771918AAF70300E4D772 /* CCMenu+Layout.h */,
+				5681771A18AAF70300E4D772 /* CCMenu+Layout.m */,
+				5681771C18AB07E600E4D772 /* TowerMenu.h */,
+				5681771D18AB07E600E4D772 /* TowerMenu.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1126,6 +1131,7 @@
 				F5594A4218A56F40008ADDED /* neon_matrix_impl.c in Sources */,
 				F559497218A56F3D008ADDED /* CCScene.m in Sources */,
 				F55948F118A56F3B008ADDED /* CCActionGrid3D.m in Sources */,
+				5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */,
 				F5594A3A18A56F40008ADDED /* mat4stack.c in Sources */,
 				F559499618A56F3E008ADDED /* CCSpriteFrameCache.m in Sources */,
 				F559491F18A56F3C008ADDED /* CCDirector.m in Sources */,
@@ -1148,7 +1154,6 @@
 				F5594A1118A56F40008ADDED /* CDOpenALSupport.m in Sources */,
 				F55948F418A56F3B008ADDED /* CCActionInstant.m in Sources */,
 				F559491518A56F3C008ADDED /* CCClippingNode.m in Sources */,
-				F54A770B18A83F940087A1D1 /* GridCell.m in Sources */,
 				F559499918A56F3E008ADDED /* CCTexture2D.m in Sources */,
 				F55949AE18A56F3E008ADDED /* CCTMXTiledMap.m in Sources */,
 				F559496F18A56F3D008ADDED /* CCRenderTexture.m in Sources */,
@@ -1168,6 +1173,7 @@
 				F559496B18A56F3D008ADDED /* CCProgressTimer.m in Sources */,
 				F559494018A56F3D008ADDED /* CCLabelTTF.m in Sources */,
 				F56A654618A9516A00AE0884 /* Soldier.m in Sources */,
+				5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */,
 				F55949ED18A56F3F008ADDED /* CCFileUtils.m in Sources */,
 				F55949DA18A56F3F008ADDED /* CCEventDispatcher.m in Sources */,
 				F559499018A56F3E008ADDED /* CCSpriteBatchNode.m in Sources */,

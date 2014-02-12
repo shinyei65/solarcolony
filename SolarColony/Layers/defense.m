@@ -8,12 +8,11 @@
 
 #import "defense.h"
 #import "Soldier.h"
-#import "GridCell.h"
 #import "GridMap.h"
 
 @implementation defense
 
-+ (instancetype)defense
++ (instancetype)scene
 {
     return [[self alloc] init];
 }
@@ -31,6 +30,11 @@
     [self addChild:sol1];
     
     [self scheduleUpdate];
+    
+    // test square cell
+    GridMap *grid = [GridMap map];
+    [self addChild:grid z:1];
+    
     return self;
 }
 
