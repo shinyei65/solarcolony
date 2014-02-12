@@ -8,6 +8,9 @@
 
 #import "AbstractScene.h"
 
-@interface GameLandingScene : CCLayer<AbstractScene>
+@interface GameLandingScene : CCLayer<AbstractScene>{
+    TransitionManagerSingleton* transitionManagerSingleton;
+}
+
 
 @end

@@ -32,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-       // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         
@@ -48,7 +48,7 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScenee:)];
+    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=1;
     
     CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"
@@ -65,12 +65,16 @@
     
 }
 
--(void)moveToScenee:(id)sender{
-   /* CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    NSLog(menuItem.label.string);
-    //[transitionManagerSingleton transitionTo:menuItem.tag];
-    */
-    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
+-(void)moveToScene:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if ([menuItem.label.string isEqualToString:@"Start Game"]) {
+         [transitionManagerSingleton transitionTo:2];
+    } else if ([menuItem.label.string isEqualToString:@"Settings"])  {
+         [transitionManagerSingleton transitionTo:99];
+    }
+   // NSLog(menuItem.label.string);
+    
+    //[[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
  }
 -(void)moveToSettings:(id)sender{
     [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[Settings node]]];

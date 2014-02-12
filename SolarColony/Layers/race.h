@@ -8,7 +8,10 @@
 
 #import "AbstractScene.h"
 
-@interface race : CCLayer<AbstractScene>
+@interface race : CCLayer<AbstractScene>{
+    TransitionManagerSingleton* transitionManagerSingleton;
+}
+
 
 
 @end

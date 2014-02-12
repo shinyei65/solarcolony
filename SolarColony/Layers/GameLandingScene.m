@@ -30,6 +30,8 @@
     self = [super init];
     if (self) {
         
+        transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
@@ -60,7 +62,7 @@
     
 }
 
--(void)moveToScene:(int)scene{
+-(void)moveToScene:(id)scene{
     
 }
 

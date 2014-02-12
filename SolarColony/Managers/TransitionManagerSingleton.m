@@ -7,6 +7,12 @@
 //
 
 #import "TransitionManagerSingleton.h"
+#import "race.h"
+#import "HomeScene.h"
+#import "Friends.h"
+#import "Settings.h"
+#import "defense.h"
+#import "GameLandingScene.h"
 
 @implementation TransitionManagerSingleton
 
@@ -33,18 +39,22 @@ static TransitionManagerSingleton *sharedInstance = nil;
     return self;
 }
 
--(void) transitionTo:(int) scene{
+-(void) transitionTo:(int) nextScene{
   
-    switch(scene){
-        case 1:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 2:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLandingScene scene] ]]; break;
-        case 3:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 4:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 5:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 7:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-    }
+  //  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[race node] ]];
+       // [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[scenee scene] ]];
     
+    switch (nextScene) {
+       
+        case 1:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLandingScene scene] ]]; break;
+        case 2:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[race scene] ]]; break;
+        case 3:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[defense scene] ]]; break;
+        case 4:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
+        case 5:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Friends scene] ]]; break;
+      /*  case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
+        case 7:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;*/
+    
+    }
 }
 
 

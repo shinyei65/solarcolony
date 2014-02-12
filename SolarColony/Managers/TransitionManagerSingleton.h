@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "HomeScene.h"
-#import "GameLandingScene.h"
+
 
 @interface TransitionManagerSingleton : NSObject {
     
 }
 + (id)sharedInstance;
--(void) transitionTo:(int) scene;
+-(void) transitionTo:(int) nextScene;
 @end
 
