@@ -46,11 +46,11 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"Friends"];
+    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"Friends" target:self selector:@selector(moveToScene:)];
     
-    CCMenuItemFont *manuItemDefense=[CCMenuItemFont itemWithString:@"DeFense"];
+    CCMenuItemFont *manuItemDefense=[CCMenuItemFont itemWithString:@"DeFense" target:self selector:@selector(moveToScene:)];
     
-    CCMenuItemFont *manuItemattack=[CCMenuItemFont itemWithString:@"Attack"];
+    CCMenuItemFont *manuItemattack=[CCMenuItemFont itemWithString:@"Attack" target:self selector:@selector(moveToScene:)];
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, nil];
     
@@ -62,9 +62,19 @@
     
 }
 
--(void)moveToScene:(id)scene{
+-(void)moveToScene:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if ([menuItem.label.string isEqualToString:@"Friends"]) {
+        [transitionManagerSingleton transitionTo:5];
+    } else if ([menuItem.label.string isEqualToString:@"DeFense"])  {
+        [transitionManagerSingleton transitionTo:3];
+    } else if ([menuItem.label.string isEqualToString:@"Attack"])  {
+        [transitionManagerSingleton transitionTo:6];
+    }
+    // NSLog(menuItem.label.string);
     
 }
+
 
 - (void)dealloc
 {

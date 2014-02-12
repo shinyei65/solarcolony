@@ -9,7 +9,7 @@
 #import "AbstractScene.h"
 
 @interface HomeScene : CCLayer<AbstractScene>{
-TransitionManagerSingleton* transitionManagerSingleton;
+ TransitionManagerSingleton* transitionManagerSingleton;
 }
 @end
 
