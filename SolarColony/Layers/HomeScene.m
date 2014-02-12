@@ -51,7 +51,7 @@
     manuItemStart.tag=1;
     
     CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"
-        target:self selector:@selector(moveToSettings:)];
+        target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=2;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
@@ -70,7 +70,7 @@
     if ([menuItem.label.string isEqualToString:@"Start Game"]) {
          [transitionManagerSingleton transitionTo:2];
     } else if ([menuItem.label.string isEqualToString:@"Settings"])  {
-         [transitionManagerSingleton transitionTo:99];
+         [transitionManagerSingleton transitionTo:7];
     }
    // NSLog(menuItem.label.string);
 

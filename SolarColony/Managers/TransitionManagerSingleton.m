@@ -52,9 +52,8 @@ static TransitionManagerSingleton *sharedInstance = nil;
         case 3:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[defense scene] ]]; break;
         case 4:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
         case 5:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Friends scene] ]]; break;
-        case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[AttackScene scene] ]]; break;
-      /*  case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
-        case 7:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;*/
+        case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[AttackScene scene] ]]; break;;
+        case 7:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Settings scene] ]]; break;
     
     }
 }
