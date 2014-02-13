@@ -8,6 +8,8 @@
 
 #import "AbstractScene.h"
 
-@interface Friends : CCLayer<AbstractScene>
+@interface Friends : CCLayer<AbstractScene>{
+    TransitionManagerSingleton *transitionManagerSingleton;
+}
 
 @end

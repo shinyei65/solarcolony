@@ -33,21 +33,20 @@
     if (self) {
          transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-    //    CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Settings" fontName:@"Marker Felt" fontSize:64];
-       
-        
-   //     [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        
-  //      [self addChild:splash];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Settings" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
+        
+        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+        
+        [self addChild:splash];
         [self addChild:[self loadMenu]];
     }
     return self;
 }
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account" ];
+    CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
     manuItemAccount.tag=1;
     
     CCMenuItemFont *manuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
@@ -60,7 +59,7 @@
         target:self selector:@selector(moveToScene:)];
     manuItemBack.tag=4;
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemAccount,manuItemMusic, manuItemSound, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems: manuItemAccount, manuItemMusic, manuItemSound, manuItemBack, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     

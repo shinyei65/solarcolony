@@ -7,6 +7,7 @@
 //
 
 #import "Friends.h"
+#import "HomeScene.h"
 
 @implementation Friends
 @synthesize mobileDisplaySize;
@@ -31,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-        // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];
         
@@ -47,13 +48,10 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"" target:self selector:@selector(moveToScenee:)];
-    manuItemStart.tag=1;
+    CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
+    manuItemBack.tag=1;
     
-    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@""];
-    manuItemStart.tag=2;
-    
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
@@ -63,9 +61,12 @@
 
 }
 
--(void)moveToScene:(int)scene
+-(void)moveToScene:(id)sender
 {
-    
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if ([menuItem.label.string isEqualToString:@"Back"]) {
+        [transitionManagerSingleton transitionTo:4];
+    }
 }
 
 - (void)dealloc
