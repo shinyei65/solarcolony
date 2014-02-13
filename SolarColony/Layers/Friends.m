@@ -65,7 +65,7 @@
 {
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     if ([menuItem.label.string isEqualToString:@"Back"]) {
-        [transitionManagerSingleton transitionTo:4];
+        [transitionManagerSingleton transitionTo:1];
     }
 }
 
