@@ -1,15 +1,14 @@
 //
-//  HomeScene.m
+//  AttackScene.m
 //  SolarColony
 //
-//  Created by Student on 2/7/14.
+//  Created by Student on 2/12/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "HomeScene.h"
+#import "AttackScene.h"
 
-
-@implementation HomeScene
+@implementation AttackScene
 @synthesize mobileDisplaySize;
 
 +(CCScene *) scene
@@ -18,7 +17,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HomeScene *layer = [HomeScene node];
+	AttackScene *layer = [AttackScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -33,7 +32,7 @@
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"this is attacker layer" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
@@ -47,14 +46,10 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScene:)];
+    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=1;
     
-    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"
-        target:self selector:@selector(moveToScene:)];
-    manuItemStart.tag=2;
-    
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
@@ -64,17 +59,14 @@
     
 }
 
-
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    if ([menuItem.label.string isEqualToString:@"Start Game"]) {
-         [transitionManagerSingleton transitionTo:2];
-    } else if ([menuItem.label.string isEqualToString:@"Settings"])  {
-         [transitionManagerSingleton transitionTo:7];
-    }
-   // NSLog(menuItem.label.string);
+    if ([menuItem.label.string isEqualToString:@"Back"]) {
+        [transitionManagerSingleton transitionTo:1];
+    }  
 
- }
+}
+
 
 - (void)dealloc
 {

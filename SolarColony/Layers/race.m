@@ -34,7 +34,7 @@
 {
     self = [super init];
     if (self) {
-       // transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
        // CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
         
@@ -55,12 +55,11 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItem *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(maketransition:)];
-   
+    CCMenuItemFont *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(moveToScene:)];
     
-    CCMenuItem *MenuItemRobot=[CCMenuItemFont itemWithString:@"Robot"];
+    CCMenuItemFont *MenuItemRobot=[CCMenuItemFont itemWithString:@"Robot" target:self selector:@selector(moveToScene:)];
     
-    CCMenuItem *menuItemMagic=[CCMenuItemFont itemWithString:@"Magic"];
+    CCMenuItemFont *menuItemMagic=[CCMenuItemFont itemWithString:@"Magic" target:self selector:@selector(moveToScene:)];
     
     CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot,menuItemMagic, nil];
     
@@ -72,9 +71,17 @@
     
 }
 
--(void)maketransition:(id)sender{
-    [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[defense scene]]];
+-(void)moveToScene:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if ([menuItem.label.string isEqualToString:@"Human"]) {
+        [transitionManagerSingleton transitionTo:1];
+    } else if ([menuItem.label.string isEqualToString:@"Robot"])  {
+        [transitionManagerSingleton transitionTo:1];
+    } else if ([menuItem.label.string isEqualToString:@"Magic"])  {
+        [transitionManagerSingleton transitionTo:1];
+    }    // NSLog(menuItem.label.string);
     
+    //[[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
 }
 
 -(void)dealloc

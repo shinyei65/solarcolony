@@ -8,6 +8,8 @@
 
 #import "AbstractScene.h"
 
-@interface Settings : CCLayer<AbstractScene>
+@interface Settings : CCLayer<AbstractScene>{
+    TransitionManagerSingleton * transitionManagerSingleton;
+}
 
 @end

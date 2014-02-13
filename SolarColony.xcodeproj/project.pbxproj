@@ -149,6 +149,7 @@
 		F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5718A56F40008ADDED /* AppDelegate.m */; };
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
+		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
@@ -454,6 +455,8 @@
 		F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		F56A654418A9516A00AE0884 /* Soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soldier.h; sourceTree = "<group>"; };
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
+		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
+		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
@@ -990,8 +993,8 @@
 				F5C8460218A9647A0019F6F7 /* defense.m */,
 				F5080CB118A96AB800E99AD9 /* race.h */,
 				F5080CB218A96AB800E99AD9 /* race.m */,
-				21DD47BA18AA14CF009E55DC /* attacker.h */,
-				21DD47BB18AA14CF009E55DC /* attacker.m */,
+				F573783618AC2BA5008C9ADC /* AttackScene.h */,
+				F573783718AC2BA5008C9ADC /* AttackScene.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				F559492818A56F3C008ADDED /* CCFontDefinition.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,
 				F5594A4C18A56F40008ADDED /* vec2.c in Sources */,
+				F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */,
 				F5594A3C18A56F40008ADDED /* matrix.c in Sources */,
 				F559492218A56F3C008ADDED /* CCDrawingPrimitives.m in Sources */,
 				F559498A18A56F3E008ADDED /* ccShaders.m in Sources */,
@@ -1191,7 +1195,6 @@
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,
-				21DD47BC18AA14CF009E55DC /* attacker.m in Sources */,
 				F55949D018A56F3F008ADDED /* CCTouchDispatcher.m in Sources */,
 				F559495318A56F3D008ADDED /* CCNode.m in Sources */,
 			);
