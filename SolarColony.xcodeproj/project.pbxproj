@@ -154,6 +154,7 @@
 		F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52AA18AC78BB00B62B5D /* towerA.png */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B118AC86D100B62B5D /* bulletA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52B018AC86D100B62B5D /* bulletA.png */; };
+		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
@@ -467,6 +468,8 @@
 		F59D52AD18AC805A00B62B5D /* WorldColissionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldColissionsManager.h; sourceTree = "<group>"; };
 		F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldColissionsManager.m; sourceTree = "<group>"; };
 		F59D52B018AC86D100B62B5D /* bulletA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bulletA.png; sourceTree = "<group>"; };
+		F59D52B318AC8C8400B62B5D /* SoldierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldierController.h; sourceTree = "<group>"; };
+		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
@@ -568,10 +571,10 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
+				F59D52B218AC8C6E00B62B5D /* Controllers */,
 				F5DFA3B718A5AD04000F0A00 /* Layers */,
 				F5DFA3B018A5ACC8000F0A00 /* Managers */,
 				F5181D7D18A5A84A001F96F7 /* Models */,
-				F5594A6418A570A8008ADDED /* controllers */,
 				F5594A5618A56F40008ADDED /* AppDelegate.h */,
 				F5594A5718A56F40008ADDED /* AppDelegate.m */,
 				F5594A5918A56F40008ADDED /* HelloWorldLayer.h */,
@@ -966,15 +969,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F5594A6418A570A8008ADDED /* controllers */ = {
-			isa = PBXGroup;
-			children = (
-				F5C2832618AC72DD002564EC /* SoldierController.h */,
-				F5C2832718AC72DD002564EC /* SoldierController.m */,
-			);
-			path = controllers;
-			sourceTree = "<group>";
-		};
 		F5594A8218A57141008ADDED /* sounds */ = {
 			isa = PBXGroup;
 			children = (
@@ -982,6 +976,15 @@
 			);
 			name = sounds;
 			path = Resources/sounds;
+			sourceTree = "<group>";
+		};
+		F59D52B218AC8C6E00B62B5D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F59D52B318AC8C8400B62B5D /* SoldierController.h */,
+				F59D52B418AC8C8400B62B5D /* SoldierController.m */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F5DFA3B018A5ACC8000F0A00 /* Managers */ = {
@@ -1113,7 +1116,6 @@
 				F55949B118A56F3E008ADDED /* CCTMXXMLParser.m in Sources */,
 				F5594A4818A56F40008ADDED /* ray2.c in Sources */,
 				F55949E318A56F3F008ADDED /* base64.c in Sources */,
-				F5C2832818AC72DD002564EC /* SoldierController.m in Sources */,
 				F559490618A56F3C008ADDED /* CCActionTween.m in Sources */,
 				F559493D18A56F3D008ADDED /* CCLabelBMFont.m in Sources */,
 				F55949EA18A56F3F008ADDED /* ccCArray.m in Sources */,
@@ -1190,6 +1192,7 @@
 				F559499918A56F3E008ADDED /* CCTexture2D.m in Sources */,
 				F55949AE18A56F3E008ADDED /* CCTMXTiledMap.m in Sources */,
 				F559496F18A56F3D008ADDED /* CCRenderTexture.m in Sources */,
+				F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */,
 				F55948F718A56F3B008ADDED /* CCActionInterval.m in Sources */,
 				F559496518A56F3D008ADDED /* CCPhysicsDebugNode.m in Sources */,
 				F55948EB18A56F3B008ADDED /* CCActionEase.m in Sources */,
