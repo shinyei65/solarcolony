@@ -19,8 +19,13 @@
     float _width_step;
     float _height_step;
     BOOL _selected;
+    BOOL _isMoved;
     CGSize _screenSize;
     TowerMenu *_towermenu;
+    
+    //UI touch variable
+    CGPoint _touchPREVIOUS;
+    CGPoint _touchCURRENT;
 }
 
 #pragma mark - Create and Destroy
@@ -32,13 +37,14 @@
 
 - (instancetype) init
 {
-    self = [super init];
+    self = [super initWithColor:ccc4(0, 153, 0, 255)];
     if (!self) return(nil);
     
     _screenSize = [[CCDirector sharedDirector] winSize];
     _width_step = _screenSize.width/GridMapWidth;
     _height_step = _screenSize.height/GridMapHeight;
-    _selected = false;
+    _selected = FALSE;
+    _isMoved = FALSE;
     
     // initialize map array with default status 'X'
     for(int i=0; i<GridMapWidth; i++){
@@ -108,26 +114,66 @@
     index.y = (GridMapHeight - index.y) * _height_step;
     return index;
 }
+- (BOOL) isIndexInsideMap: (CGPoint) index
+{
+    if(index.x < 0 || index.x >= GridMapWidth)
+        return FALSE;
+    else if(index.y < 0 || index.y >= GridMapHeight)
+        return FALSE;
+    else
+        return TRUE;
+}
 
 #pragma mark - UI control
 
 - (void) draw
 {
+    [super draw];
     // draw a grid
-    for(int i=0; i<=_width_step; i++){
+    for(int i=0; i<=GridMapWidth; i++){
         ccDrawLine(ccp(i * _width_step, 0), ccp(i * _width_step, _screenSize.height));
     }
-    for(int i=0; i<=_height_step; i++){
+    for(int i=0; i<=GridMapHeight; i++){
         ccDrawLine(ccp(0, i * _height_step), ccp(_screenSize.width, i * _height_step));
     }
 }
 
-- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // stored touch loc
     UITouch *touch = [touches anyObject];
-    CGPoint loc = [touch locationInView:[touch view]];
-    loc = [self convertToMapIndex:[[CCDirector sharedDirector] convertToGL:loc]];
-    NSLog(@"Cell(%g,%g)", loc.x, loc.y);
-    [self selectCell: loc];
+    _touchCURRENT = [touch locationInView:[touch view]];
+    _touchPREVIOUS = _touchCURRENT;
+}
+
+- (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if(!_isMoved){
+        UITouch *touch = [touches anyObject];
+        CGPoint loc = [touch locationInView:[touch view]];
+        // calculate select cell
+        loc = [self convertToNodeSpace:[[CCDirector sharedDirector] convertToGL:loc]];
+        loc = [self convertToMapIndex:loc];
+        if([self isIndexInsideMap:loc]){
+            NSLog(@"Cell(%g,%g)", loc.x, loc.y);
+            [self selectCell: loc];
+        }
+    }else{
+        _isMoved = FALSE;
+    }
+}
+
+- (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    _isMoved = TRUE;
+    // calcualte move distane
+    UITouch *touch = [touches anyObject];
+    _touchPREVIOUS = _touchCURRENT;
+    _touchCURRENT = [touch locationInView:[touch view]];
+    CGPoint pos = self.position;
+    pos.x -= _touchCURRENT.x - _touchPREVIOUS.x;
+    pos.y += _touchCURRENT.y - _touchPREVIOUS.y;
+    [self setPosition:pos];
 }
 
 - (void) selectCell: (CGPoint) index

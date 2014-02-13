@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface GridMap : CCLayer
+@interface GridMap : CCLayerColor
 
 + (instancetype) map;
 - (instancetype) init;

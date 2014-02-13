@@ -11,6 +11,7 @@
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
+		21DD47BC18AA14CF009E55DC /* attacker.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DD47BB18AA14CF009E55DC /* attacker.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
@@ -164,6 +165,8 @@
 		5681771A18AAF70300E4D772 /* CCMenu+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMenu+Layout.m"; sourceTree = "<group>"; };
 		5681771C18AB07E600E4D772 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
 		5681771D18AB07E600E4D772 /* TowerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMenu.m; sourceTree = "<group>"; };
+		21DD47BA18AA14CF009E55DC /* attacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = attacker.h; sourceTree = "<group>"; };
+		21DD47BB18AA14CF009E55DC /* attacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = attacker.m; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
 		F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Dismounted Soldier - Gear.jpg"; sourceTree = "<group>"; };
