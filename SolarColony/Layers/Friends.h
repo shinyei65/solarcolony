@@ -12,6 +12,7 @@
     TransitionManagerSingleton *transitionManagerSingleton;
     //test
     WorldColissionsManager* colissionsManager;
+    CGPoint location;
 }
 
 @end
