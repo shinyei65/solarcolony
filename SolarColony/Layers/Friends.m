@@ -31,7 +31,11 @@
 - (id)init
 {
     self = [super init];
+    [self setTouchEnabled:YES];
+    
     if (self) {
+        
+        
          transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];
@@ -42,6 +46,13 @@
         
         [self addChild:splash];
         [self addChild:[self loadMenu]];
+        
+        //temp
+          [self scheduleUpdate];
+        colissionsManager= [[WorldColissionsManager alloc] init];
+        
+        
+       
     }
     return self;
 }
@@ -67,6 +78,45 @@
     if ([menuItem.label.string isEqualToString:@"Back"]) {
         [transitionManagerSingleton transitionTo:1];
     }
+}
+
+- (void)update:(ccTime)delta
+{
+    
+   
+}
+-(void) registerWithTouchDispatcher
+{
+    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+}
+
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
+    
+    CCLOG(@"ccTouchBeganRuby");
+    
+    
+    location = [touch locationInView: [touch view]];
+    location = [[CCDirector sharedDirector] convertToGL: location];
+ 
+    // end:
+    
+    CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
+    CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
+    return YES;
+}
+
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
+    CGPoint touchLocation = [touch locationInView: [touch view]];
+    CGPoint prevLocation = [touch previousLocationInView: [touch view]];
+    
+    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
+    prevLocation = [[CCDirector sharedDirector] convertToGL: prevLocation];
+    
+    CGPoint diff = ccpSub(touchLocation,prevLocation);
+    
+    CCLOG(@"End location.x %f", diff.x);   //I just get location.x = 0
+    CCLOG(@"End location.y %f", diff.y);   //I just get location.y = 0
 }
 
 - (void)dealloc
