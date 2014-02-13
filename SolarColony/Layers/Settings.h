@@ -7,6 +7,7 @@
 //
 
 #import "AbstractScene.h"
+#import "SimpleAudioEngine.h"
 
 @interface Settings : CCLayer<AbstractScene>{
     TransitionManagerSingleton * transitionManagerSingleton;

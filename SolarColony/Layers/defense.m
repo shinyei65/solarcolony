@@ -9,6 +9,7 @@
 #import "defense.h"
 #import "Soldier.h"
 #import "GridMap.h"
+#import "SoldierController.h"
 
 @implementation defense
 
@@ -35,6 +36,17 @@
     [self addChild:sol1];
     
     [self scheduleUpdate];
+    
+    SoldierController *solController = [SoldierController Controller];
+    
+    for (int i=0; i<5; i++) {
+        [solController addSoldier:[Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50]];
+    }
+    
+    
+    
+    
+    CCLOG(@"number of soldier: %d",[solController getArraylength]);
     
     return self;
 }

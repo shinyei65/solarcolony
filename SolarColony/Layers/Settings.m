@@ -8,6 +8,7 @@
 
 #import "Settings.h"
 #import "HomeScene.h"
+#import "SimpleAudioEngine.h"
 
 @implementation Settings
 @synthesize mobileDisplaySize;
@@ -38,7 +39,8 @@
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        
+        [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:@"braincandy.mp3"];
+        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"braincandy.mp3"];
         [self addChild:splash];
         [self addChild:[self loadMenu]];
     }
@@ -49,7 +51,7 @@
     CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
     manuItemAccount.tag=1;
     
-    CCMenuItemFont *manuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
+    CCMenuItemFont *manuItemMusic=[CCMenuItemFont itemWithString:@"Music" target:self selector:@selector(playmusic:)];
     manuItemMusic.tag=2;
     
     CCMenuItemFont *manuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
@@ -76,6 +78,9 @@
         [transitionManagerSingleton transitionTo:4];
     }
   //  [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
+}
+-(void)playmusic{
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"braincandy.mp3"];
 }
 - (void)dealloc
 {

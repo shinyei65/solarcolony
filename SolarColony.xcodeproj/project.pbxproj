@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
+		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
@@ -163,6 +164,7 @@
 /* Begin PBXFileReference section */
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
+		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		5681771918AAF70300E4D772 /* CCMenu+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMenu+Layout.h"; sourceTree = "<group>"; };
@@ -967,6 +969,8 @@
 		F5594A6418A570A8008ADDED /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F5C2832618AC72DD002564EC /* SoldierController.h */,
+				F5C2832718AC72DD002564EC /* SoldierController.m */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -974,6 +978,7 @@
 		F5594A8218A57141008ADDED /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				09D8B55D18AC891900EE54CB /* braincandy.mp3 */,
 			);
 			name = sounds;
 			path = Resources/sounds;
@@ -1077,6 +1082,7 @@
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
+				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F59D52B118AC86D100B62B5D /* bulletA.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
@@ -1107,6 +1113,7 @@
 				F55949B118A56F3E008ADDED /* CCTMXXMLParser.m in Sources */,
 				F5594A4818A56F40008ADDED /* ray2.c in Sources */,
 				F55949E318A56F3F008ADDED /* base64.c in Sources */,
+				F5C2832818AC72DD002564EC /* SoldierController.m in Sources */,
 				F559490618A56F3C008ADDED /* CCActionTween.m in Sources */,
 				F559493D18A56F3D008ADDED /* CCLabelBMFont.m in Sources */,
 				F55949EA18A56F3F008ADDED /* ccCArray.m in Sources */,
