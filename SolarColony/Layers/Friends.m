@@ -8,6 +8,7 @@
 
 #import "Friends.h"
 #import "HomeScene.h"
+#import "TowerBasic.h"
 
 @implementation Friends
 @synthesize mobileDisplaySize;
@@ -51,6 +52,14 @@
           [self scheduleUpdate];
         colissionsManager= [[WorldColissionsManager alloc] init];
         
+        TowerBasic* t1=[[TowerBasic alloc] initTower:ccp(20 , 20)];
+        [colissionsManager addTower:t1];
+        [self addChild:t1];
+        
+        
+        
+        
+        
         
        
     }
@@ -82,7 +91,7 @@
 
 - (void)update:(ccTime)delta
 {
-    
+    [colissionsManager surveliance];
    
 }
 -(void) registerWithTouchDispatcher
@@ -99,25 +108,13 @@
     location = [[CCDirector sharedDirector] convertToGL: location];
  
     // end:
+    [colissionsManager addSoldierTest:location] ;
     
     CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
     CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
     return YES;
 }
 
--(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
-{
-    CGPoint touchLocation = [touch locationInView: [touch view]];
-    CGPoint prevLocation = [touch previousLocationInView: [touch view]];
-    
-    touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
-    prevLocation = [[CCDirector sharedDirector] convertToGL: prevLocation];
-    
-    CGPoint diff = ccpSub(touchLocation,prevLocation);
-    
-    CCLOG(@"End location.x %f", diff.x);   //I just get location.x = 0
-    CCLOG(@"End location.y %f", diff.y);   //I just get location.y = 0
-}
 
 - (void)dealloc
 {

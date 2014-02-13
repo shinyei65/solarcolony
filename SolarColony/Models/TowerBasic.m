@@ -20,6 +20,11 @@
 @synthesize bullet;
 
 - (instancetype) initTower:(CGPoint)location{
+   
+    self = [super init];
+    if (!self) return(nil);
+    
+    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];    
     [self setLocation:ccp(200,200)];
      //[self setLocation:location];
     [self setLife:100];
@@ -27,9 +32,12 @@
     [self setSetSpeedAttack:20];
     [self setSetSpeedAttack:50];
     [self setIsAttacking:false];
-    self = [super initWithFile:@"towerA.png"];
+    
     bullet= [CCSprite spriteWithFile:@"bulletA.png"];
     [self setPosition:[self getLocation]];
+    [self addChild:bullet];
+    [self addChild:towerSprite];
+     return self;
 }
 
 - (void) surveilance{
@@ -40,9 +48,9 @@
 }
 - (void) attackTest:(CGPoint) soldier{
     
-    id move = [CCMoveBy actionWithDuration:3 position:soldier];
+    id move = [CCMoveTo actionWithDuration:3 position:soldier];
     
-    [bullet runAction:[CCRepeatForever actionWithAction:move]];
+    [bullet runAction:move];
     
 }
 

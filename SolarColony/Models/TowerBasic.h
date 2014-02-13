@@ -8,5 +8,5 @@
 
 #import "Tower.h"
 
-@interface TowerBasic : CCSprite<Tower>
+@interface TowerBasic : CCNode<Tower>
 @end

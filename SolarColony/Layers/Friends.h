@@ -8,6 +8,7 @@
 
 #import "AbstractScene.h"
 #import "WorldColissionsManager.h"
+
 @interface Friends : CCLayer<AbstractScene>{
     TransitionManagerSingleton *transitionManagerSingleton;
     //test

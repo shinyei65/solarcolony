@@ -15,6 +15,7 @@
 -(void) makeTowerSoldierFight:(TowerBasic*) tower :(Soldier*) soldier;
 -(void) makeTowerSoldierFightTest:(TowerBasic*) tower :(CGPoint) soldier;
 -(void)addSoldier:(Soldier*)soldier;
+-(void)addSoldierTest:(CGPoint)soldier;
 -(void)addTower:(TowerBasic*)tower;
 -(void)removeSoldier:(Soldier*)soldier;
 -(void)removeTower:(TowerBasic*)tower;

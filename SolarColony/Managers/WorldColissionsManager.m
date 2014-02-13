@@ -37,7 +37,7 @@
           
             soldierpoint = soldier.CGPointValue;
             
-            if ( (towerpoint.x>=soldierpoint.x-10||towerpoint.x<=soldierpoint.x+10)&&(towerpoint.y>=soldierpoint.y-10||towerpoint.y<=soldierpoint.y+10)) {
+            if ( (towerpoint.x>=soldierpoint.x-40&&towerpoint.x<=soldierpoint.x+40)&&(towerpoint.y>=soldierpoint.y-40&&towerpoint.y<=soldierpoint.y+40)) {
                 //reduce energy in soldier
                 
                 //animate attack from soldier
@@ -58,11 +58,18 @@
     
 }
 
--(void)addSoldier:(Soldier*)soldier{
-    
+
+-(void)addSoldierTest:(CGPoint)soldier{
+    NSValue* soldierr= [NSValue valueWithCGPoint:soldier];
+    [soldiers addObject:soldierr];
 }
--(void)addTower:(TowerBasic*)tower{
-    
+
+-(void)addSoldier:(Soldier*)soldier{
+    [soldier addObject:soldier];
+
+}
+-(void)addTower:(TowerBasic*)towerr{
+    [towers addObject:towerr];
 }
 
 -(void)removeSoldier:(Soldier*)soldier{
