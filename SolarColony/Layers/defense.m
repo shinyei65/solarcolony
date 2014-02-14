@@ -27,7 +27,8 @@
     
     // test square cell
     GridMap *grid = [GridMap map];
-    [grid setPosition:ccp(40, 60)];
+    CGSize cellSize = [grid getCellSize];
+    NSLog(@"Cell(%g,%g)", cellSize.width, cellSize.height);
     [self addChild:grid];
     
     //glClearColor(0, 0, 0, 1.0);
