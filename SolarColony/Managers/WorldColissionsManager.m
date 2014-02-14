@@ -28,26 +28,38 @@
 -(void) surveliance{
     CGPoint towerpoint;
     CGPoint soldierpoint;
+    CGPoint soldierpointtest;
     for (TowerBasic* tower in towers) {
         towerpoint=[tower getLocation];
         //need add is attacking
-        for (NSValue* soldier in soldiers) {
+        
+       
+            //tower is not attacking
+            //[tower setIsAttacking:true];
+            
+            for (NSValue* soldier in soldiers) {
            
             //[yourCGPointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(100, 10
           
-            soldierpoint = soldier.CGPointValue;
-            
-            if ( (towerpoint.x>=soldierpoint.x-40&&towerpoint.x<=soldierpoint.x+40)&&(towerpoint.y>=soldierpoint.y-40&&towerpoint.y<=soldierpoint.y+40)) {
+                soldierpoint = soldier.CGPointValue;
+                soldierpointtest = soldier.CGPointValue;
+                soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
+                if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)&&[tower isAttacking]==false) {
+                     CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
                 
                 //animate attack from soldier
                 
                 //animate attack from tower
-                [tower attackTest:soldierpoint];
+                   
+                    [tower attackTest:soldierpoint];
+                    [soldiers removeObject:soldier];
+                    break;
             //animates deaths is possible
-            }
+                }
             
-        }
+            }
+       
         // do stuff
     }
 }

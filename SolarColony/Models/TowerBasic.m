@@ -9,6 +9,7 @@
 #import "TowerBasic.h"
 
 @implementation TowerBasic
+@synthesize  targetLocation;
 @synthesize towerTowerId;
 
 @synthesize towerLife;
@@ -17,7 +18,7 @@
 @synthesize towerSpeed;
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
-@synthesize bullet;
+ 
 
 - (instancetype) initTower:(CGPoint)location{
    
@@ -25,18 +26,23 @@
     if (!self) return(nil);
     
     CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];    
-    [self setLocation:ccp(200,200)];
-     //[self setLocation:location];
+    //[self setLocation:ccp(200,200)];
+    [self setLocation:location];
     [self setLife:100];
     [self setPower:10];
     [self setSetSpeedAttack:20];
     [self setSetSpeedAttack:50];
     [self setIsAttacking:false];
     
-    bullet= [CCSprite spriteWithFile:@"bulletA.png"];
+    //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
+    
+    bullet = [[ BulletBasic alloc] initTower:location];
+    
     [self setPosition:[self getLocation]];
     [self addChild:bullet];
     [self addChild:towerSprite];
+    
+    
      return self;
 }
 
@@ -48,42 +54,96 @@
 }
 - (void) attackTest:(CGPoint) soldier{
     
-    id move = [CCMoveTo actionWithDuration:3 position:soldier];
+    [self setIsAttacking:true];
     
-    [bullet runAction:move];
+  //
+    targetLocation=soldier;
+    [self schedule: @selector(animatonAttack:) interval:2];
+
+    
+  //
+    
+
     
 }
 
--(bool) getIsattacking{
+-(void) animatonAttack: (ccTime) dt
+{
+    // bla bla bla
+    if (counterTest<=5) {
+         CCLOG(@"SHOTTING");
+        counterTest++;
+            if ([self numberOfRunningActions]==0) {
+                [bullet setVisible:true];
+                CCLOG(@"coord x %f",targetLocation.x);
+                CCLOG(@"coord x %f",targetLocation.y);
+                CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
+                CCLOG(@"coord x %f",targetLocations.x);
+                CCLOG(@"coord x %f",targetLocations.y);
+                CGPoint targetPrevious = [bullet position];
+             //   id appearAction = [CCFadeIn actionWithDuration:.1];
+               // id disappearAction = [CCFadeOut actionWithDuration:.1];
+                movePoint = [CCMoveTo actionWithDuration:.5 position:targetLocations];
+                returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+              
+                [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+                 
+            }
+      
+        
+    }else{
+        counterTest=0;
+        
+        [self unscheduleAllSelectors];
+        [self setIsAttacking:false];
+    }
+   
     
+}
+
+
+-(bool) getIsattacking{
+   
+    return nil;
 }
 -(void) setIsattacking:(bool) attack{
     
 }
 
--(CCMenu*)loadMenu{}
+-(CCMenu*)loadMenu{
+
+return nil;
+}
 
 -(void) setPower:(int) power{
     towerPower=power;
 }
 
--(int) getPower{}
+-(int) getPower{
+return nil;
+}
 
 -(void) setLife:(int) life{
     towerLife=life;
 }
 
--(int) getLife{}
+-(int) getLife{
+return nil;
+}
 
 -(void) setSetSpeedAttack:(int) speed{
     towerSpeed=speed;
 }
 
--(int) getSetSpeedAttack{}
+-(int) getSetSpeedAttack{
+return nil;
+}
 
 -(void) setClosesTarget:(Soldier*) soldier{}
 
--(Soldier*) getClosesTarget{}
+-(Soldier*) getClosesTarget{
+return nil;
+}
 
 -(void) setLocation:(CGPoint) location{
     towerLocation=location;

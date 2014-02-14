@@ -38,24 +38,29 @@
         
         
          transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
-        
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];
-        
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+        /*CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
-        [self addChild:splash];
+        [self addChild:splash];*/
         [self addChild:[self loadMenu]];
         
         //temp
           [self scheduleUpdate];
         colissionsManager= [[WorldColissionsManager alloc] init];
         
-        TowerBasic* t1=[[TowerBasic alloc] initTower:ccp(20 , 20)];
+        TowerBasic* t1=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
         [colissionsManager addTower:t1];
         [self addChild:t1];
         
+        
+        TowerBasic* t2=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(50 , 200)]];
+        [colissionsManager addTower:t2];
+        [self addChild:t2];
+        
+        TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
+        [colissionsManager addTower:t3];
+        [self addChild:t3];
         
         
         
@@ -105,7 +110,7 @@
     
     
     location = [touch locationInView: [touch view]];
-    location = [[CCDirector sharedDirector] convertToGL: location];
+    //location = [[CCDirector sharedDirector] convertToGL: location];
  
     // end:
     [colissionsManager addSoldierTest:location] ;

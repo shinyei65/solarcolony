@@ -151,6 +151,7 @@
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
+		F58E478118AEC86700204A79 /* BulletBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E478018AEC86700204A79 /* BulletBasic.m */; };
 		F59D52A718AC703000B62B5D /* TowerBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52A618AC703000B62B5D /* TowerBasic.m */; };
 		F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52AA18AC78BB00B62B5D /* towerA.png */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
@@ -464,6 +465,9 @@
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
 		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
+		F58E477C18AEC74D00204A79 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
+		F58E477F18AEC86700204A79 /* BulletBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletBasic.h; sourceTree = "<group>"; };
+		F58E478018AEC86700204A79 /* BulletBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletBasic.m; sourceTree = "<group>"; };
 		F59D52A218AC6BA200B62B5D /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F59D52A518AC703000B62B5D /* TowerBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerBasic.h; sourceTree = "<group>"; };
 		F59D52A618AC703000B62B5D /* TowerBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerBasic.m; sourceTree = "<group>"; };
@@ -533,6 +537,9 @@
 				F59D52A218AC6BA200B62B5D /* Tower.h */,
 				F59D52A518AC703000B62B5D /* TowerBasic.h */,
 				F59D52A618AC703000B62B5D /* TowerBasic.m */,
+				F58E477C18AEC74D00204A79 /* Bullet.h */,
+				F58E477F18AEC86700204A79 /* BulletBasic.h */,
+				F58E478018AEC86700204A79 /* BulletBasic.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1219,6 +1226,7 @@
 				F56A654618A9516A00AE0884 /* Soldier.m in Sources */,
 				5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */,
 				F55949ED18A56F3F008ADDED /* CCFileUtils.m in Sources */,
+				F58E478118AEC86700204A79 /* BulletBasic.m in Sources */,
 				F55949DA18A56F3F008ADDED /* CCEventDispatcher.m in Sources */,
 				F559499018A56F3E008ADDED /* CCSpriteBatchNode.m in Sources */,
 				F559491918A56F3C008ADDED /* CCConfiguration.m in Sources */,

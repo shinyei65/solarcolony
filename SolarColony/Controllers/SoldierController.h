@@ -14,7 +14,7 @@
 
 +(instancetype) Controller;
 -(instancetype)init;
--addSoldier:(Soldier *) newSoldier;
+-(void)addSoldier:(Soldier *) newSoldier;
 -(int)getArraylength;
 
 
