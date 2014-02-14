@@ -98,8 +98,23 @@
     return S_attack_flag;
 }
 
-- (void)move{
-    
+- (void)move:(char)direction{
+    /*
+    switch (direction) {
+        case 'U':
+            <#statements#>
+            break;
+        case 'D'
+            break;
+        case 'L'
+            break;
+        case 'R'
+            break;
+            
+        default:
+            break;
+    }
+     */
 }
 
 - (void)attack{

@@ -28,7 +28,8 @@
 - (void)setPOSITION:(int)x Y:(int)y; //set the position of soldier in grid coordinate
 - (CGPoint)getPOSITION;
 - (BOOL)getATTACK_FLAG;
-
+- (void)move:(char)direction;
+- (void)attack;
 
 
 
