@@ -72,6 +72,11 @@
 
 #pragma mark - operation of map
 
+- (CGSize) getCellSize
+{
+    return CGSizeMake(_width_step, _height_step);
+}
+
 - (char) getFullMap
 {
     return _map;
