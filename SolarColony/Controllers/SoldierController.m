@@ -30,12 +30,12 @@
 }
 
 
--addSoldier:(Soldier *) newSoldier{
+-(void)addSoldier:(Soldier *) newSoldier{
     [soldierarray addObject:newSoldier];
     
 }
 
--updateSoldier:(ccTime) time{
+-(void)updateSoldier:(ccTime) time{
     for (Soldier *sol in soldierarray) {
         GridMap *map = (GridMap *)[sol parent];
         char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
