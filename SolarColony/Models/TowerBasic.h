@@ -7,6 +7,11 @@
 //
 
 #import "Tower.h"
-
-@interface TowerBasic : CCNode<Tower>
+#import "BulletBasic.h"
+@interface TowerBasic : CCNode<Tower>{
+    int counterTest;
+    BulletBasic* bullet;
+    id movePoint, returnPoint ;
+}
+@property(assign, atomic) CGPoint targetLocation;
 @end
