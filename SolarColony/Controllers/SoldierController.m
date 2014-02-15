@@ -9,13 +9,15 @@
 #import "SoldierController.h"
 #import "Soldier.h"
 #import "GridMap.h"
+#import "ModelsConstants.h"
 
 
 
 
 @implementation SoldierController{
     NSMutableArray *soldierarray;
-    
+    float nextMoveTime;
+    float currentTime;
 }
 
 +Controller{
@@ -23,8 +25,9 @@
 }
 
 -init{
-   soldierarray = [NSMutableArray array];
-    
+    soldierarray = [[NSMutableArray alloc] init];
+    nextMoveTime = 0;
+    currentTime = 0;
     
     return self;
 }
@@ -36,18 +39,25 @@
 }
 
 -(void)updateSoldier:(ccTime) time{
-    for (Soldier *sol in soldierarray) {
-        GridMap *map = (GridMap *)[sol parent];
-        char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
-        if(status == ' ')
-            ;
+    currentTime += time;
+    if (currentTime > nextMoveTime) {
+            for (int i=0; i < [soldierarray count];i++) {
+            Soldier *sol = (Soldier *)[soldierarray objectAtIndex:i];
+            GridMap *map = (GridMap *)[sol parent];
+            char status = 'R';
+            //[map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
+            if(status == GOAL)
+                [sol dealloc];
+            else
+                [sol move:status gridSize:[map getCellSize]];
+            nextMoveTime += 1;
+        }
     }
-    
-    
 }
 
 
 -(int)getArraylength{
+    
     return [soldierarray count];
 }
 

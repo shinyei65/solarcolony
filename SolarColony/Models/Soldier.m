@@ -7,6 +7,8 @@
 //
 
 #import "Soldier.h"
+#import "GridMap.h"
+//#import "cocos2d.h"
 
 
 @implementation Soldier{
@@ -98,23 +100,42 @@
     return S_attack_flag;
 }
 
-- (void)move:(char)direction{
-    /*
+- (void)move:(char)direction gridSize:(CGSize)size{
+    
+    CGPoint original = self.position;
+
+    //CGPoint new = ccpAdd(original, ccp(size.width,size.height));
+    
     switch (direction) {
-        case 'U':
-            <#statements#>
+        case 'U':{
+            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(0,size.height))];
+            [self runAction:move];
+            S_position = ccpAdd(S_position, ccp(0,-1)); //update grid coordinate
             break;
-        case 'D'
+        }
+        case 'D':{
+            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(0,-size.height))];
+            [self runAction:move];
+            S_position = ccpAdd(S_position, ccp(0,1)); //update grid coordinate
             break;
-        case 'L'
+        }
+        case 'L':{
+            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(-size.width,0))];
+            [self runAction:move];
+            S_position = ccpAdd(S_position, ccp(-1,0)); //update grid coordinate
             break;
-        case 'R'
+        }
+        case 'R':{
+            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(size.width,0))];
+            [self runAction:move];
+            S_position = ccpAdd(S_position, ccp(1,0)); //update grid coordinate
             break;
+        }
             
         default:
             break;
     }
-     */
+    
 }
 
 - (void)attack{
@@ -128,12 +149,12 @@
     // clean up code goes here, should there be any
     
 }
-
+/*
 - (void)update:(ccTime)delta
 {
     
 }
-
+*/
 
 
 

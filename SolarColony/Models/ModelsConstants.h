@@ -14,7 +14,7 @@ static const int GridMapHeight = 10;
 static const char TOWER = 'T';
 static const char CLOSED = 'X'; // can't build and can't pass
 static const char UNAVAILABLE = 'U'; // can't build but can pass
-static const char EMPTY = ' '; // can build and pass
-
+static const char EMPTY = 'E'; // can build and pass
+static const char GOAL = 'G';
 
 

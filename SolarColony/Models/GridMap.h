@@ -21,5 +21,6 @@
 - (BOOL) canPassAtX:(int) x Y:(int) y;
 - (char) getFullMap;
 - (CGSize) getCellSize;
+- (CGPoint) convertMapIndexToGL: (CGPoint) index;
 
 @end

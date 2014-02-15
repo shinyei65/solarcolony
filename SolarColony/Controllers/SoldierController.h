@@ -10,12 +10,13 @@
 #import "cocos2d.h"
 #import "Soldier.h"
 
-@interface SoldierController : NSObject
+@interface SoldierController : CCNode
 
 +(instancetype) Controller;
 -(instancetype)init;
 -(void)addSoldier:(Soldier *) newSoldier;
 -(int)getArraylength;
+-(void)updateSoldier:(ccTime) time;
 
 
 @end
