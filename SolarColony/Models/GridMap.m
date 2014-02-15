@@ -53,11 +53,22 @@
         }
     }
     
+    // initialize map from file
+    NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"testmap" ofType:@"txt"];
+    NSString *contents = [NSString stringWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
+    NSArray* allLinedStrings = [contents componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+    for(int i=0; i<[allLinedStrings count]; i++){
+        NSString* line = [allLinedStrings objectAtIndex:i];
+        NSLog(@"line: %@", line);
+        for(int j=0; j<GridMapWidth; j++){
+            _map[j][i] = [line characterAtIndex:j];
+        }
+    }
+    
     // setup tower menu
     _towermenu = [TowerMenu menu];
     [_towermenu setVisible: FALSE];
     [self addChild: _towermenu];
-    
     [self setTouchEnabled: YES];
     
     // done
@@ -185,7 +196,15 @@
 {
     // hide tower menu if already selected
     if(!_selected){
-        [_towermenu setPosition: [self convertMapIndexToGL:index]];
+        CGPoint loc = [self convertMapIndexToGL:index];
+        // move the anchor to menu center
+        CGSize menuSize = [_towermenu boundingBox].size;
+        loc.x -= menuSize.width / 2;
+        loc.y -= menuSize.height / 2;
+        // move the menu to cell center
+        loc.x += _width_step / 2;
+        loc.y -= _height_step / 2;
+        [_towermenu setPosition: loc];
         [_towermenu setVisible: TRUE];
         _selected = TRUE;
     }else{
