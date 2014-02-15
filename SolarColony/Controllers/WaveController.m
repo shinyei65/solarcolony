@@ -9,7 +9,10 @@
 #import "WaveController.h"
 #import "GridMap.h"
 
+int MAX_TICK = 300;
+
 @implementation WaveController {
+    int _tick;
     BOOL _status;
     NSMutableArray *_queue;
 }
@@ -29,6 +32,7 @@
     // initialize variable
     _status = TRUE;
     _queue = [NSMutableArray array];
+    _tick = 0;
     
     return self;
 }
@@ -48,6 +52,12 @@
 
 - (void) update
 {
+    
+}
+
+- (BOOL) checkStatus
+{
+    _tick++;
     
 }
 

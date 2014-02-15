@@ -16,6 +16,7 @@
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F5584E4618AECA7700C81B59 /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5584E4518AECA7700C81B59 /* WaveController.m */; };
+		F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5584E4818AEDB8100C81B59 /* testmap.txt */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
 		F55948B418A56F3B008ADDED /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B318A56F3B008ADDED /* OpenGLES.framework */; };
 		F55948B618A56F3B008ADDED /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B518A56F3B008ADDED /* OpenAL.framework */; };
@@ -182,6 +183,7 @@
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
 		F5584E4418AECA7700C81B59 /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
 		F5584E4518AECA7700C81B59 /* WaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveController.m; sourceTree = "<group>"; };
+		F5584E4818AEDB8100C81B59 /* testmap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testmap.txt; sourceTree = "<group>"; };
 		F55948AE18A56F3B008ADDED /* SolarColony.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SolarColony.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F55948B118A56F3B008ADDED /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F55948B318A56F3B008ADDED /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -544,6 +546,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F5584E4718AEDB8100C81B59 /* maps */ = {
+			isa = PBXGroup;
+			children = (
+				F5584E4818AEDB8100C81B59 /* testmap.txt */,
+			);
+			name = maps;
+			path = Resources/maps;
+			sourceTree = "<group>";
+		};
 		F55948A518A56F3B008ADDED = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +610,7 @@
 		F55948C618A56F3B008ADDED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5584E4718AEDB8100C81B59 /* maps */,
 				F5080CB418A96B5E00E99AD9 /* images */,
 				F5594A8218A57141008ADDED /* sounds */,
 				F55948C718A56F3B008ADDED /* Default.png */,
@@ -1099,6 +1111,7 @@
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
+				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				F59D52B118AC86D100B62B5D /* bulletA.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
 			);
