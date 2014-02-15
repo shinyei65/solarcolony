@@ -10,6 +10,7 @@
 #import "CCLayer.h"
 #import <GameKit/GameKit.h>
 #import "TransitionManagerSingleton.h"
+#import "MusicManagerSingleton.h"
 
 @protocol  AbstractScene
 

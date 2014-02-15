@@ -38,6 +38,7 @@
         
         
          transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         /*CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];

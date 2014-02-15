@@ -32,6 +32,8 @@
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
+        
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"this is attacker layer" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];

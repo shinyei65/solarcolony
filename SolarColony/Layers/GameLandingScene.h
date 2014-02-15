@@ -10,6 +10,7 @@
 
 @interface GameLandingScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
+        MusicManagerSingleton* musicManagerSingleton;
 }
 
 

@@ -31,6 +31,7 @@
     if (self) {
         
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:64];
         

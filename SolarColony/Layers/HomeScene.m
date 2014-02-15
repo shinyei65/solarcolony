@@ -32,6 +32,7 @@
     self = [super init];
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         

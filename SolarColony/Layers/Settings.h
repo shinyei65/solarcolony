@@ -11,6 +11,7 @@
 
 @interface Settings : CCLayer<AbstractScene>{
     TransitionManagerSingleton * transitionManagerSingleton;
+        MusicManagerSingleton* musicManagerSingleton;
 }
 
 @end

@@ -35,7 +35,7 @@
     self = [super init];
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
-        
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
        // CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
         
         

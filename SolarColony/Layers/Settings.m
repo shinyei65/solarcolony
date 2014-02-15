@@ -32,38 +32,38 @@
 {
     self = [super init];
     if (self) {
-         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Settings" fontName:@"Marker Felt" fontSize:64];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:@"braincandy.mp3"];
-        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:@"braincandy.mp3"];
-        [self addChild:splash];
+        
         [self addChild:[self loadMenu]];
     }
     return self;
 }
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
-    manuItemAccount.tag=1;
+    CCMenuItemFont *menuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
+    menuItemAccount.tag=1;
     
-    CCMenuItemFont *manuItemMusic=[CCMenuItemFont itemWithString:@"Music" target:self selector:@selector(playmusic:)];
-    manuItemMusic.tag=2;
+    CCMenuItemFont *menuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
+    menuItemMusic.tag=2;
+    CCMenuItemFont *menuItemMusicOn=[CCMenuItemFont itemWithString:@"On" target:self selector:@selector(turnsound:)];
+    CCMenuItemFont *menuItemMusicOff=[CCMenuItemFont itemWithString:@"Off" target:self selector:@selector(turnsound:)];
+    CCMenuItemFont *menuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
+    menuItemSound.tag=3;
+    CCMenuItemFont *menuItemSoundOn=[CCMenuItemFont itemWithString:@"On"];
+    CCMenuItemFont *menuItemSoundOff=[CCMenuItemFont itemWithString:@"Off"];
+    CCMenuItemFont *menuItemBack=[CCMenuItemFont itemWithString:@"Back"
+                                                         target:self selector:@selector(moveToScene:)];
+    menuItemBack.tag=4;
     
-    CCMenuItemFont *manuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
-    manuItemSound.tag=3;
+    CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, menuItemMusicOn, menuItemMusicOff, menuItemSound, menuItemSoundOn, menuItemSoundOff, menuItemBack, nil];
     
-    CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"Back"
-        target:self selector:@selector(moveToScene:)];
-    manuItemBack.tag=4;
-    
-    CCMenu *mainMenu=[CCMenu menuWithItems: manuItemAccount, manuItemMusic, manuItemSound, manuItemBack, nil];
-    
-    [mainMenu alignItemsHorizontallyWithPadding:20];
+    [mainMenu alignItemsInColumns:[NSNumber numberWithInt:1],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:1], nil];
+    //[mainMenu alignItemsVerticallyWithPadding:20];
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
     
@@ -79,8 +79,16 @@
     }
   //  [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
 }
--(void)playmusic{
-    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"braincandy.mp3"];
+-(void)turnsound:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if([menuItem.label.string isEqualToString:@"Off"])
+    {
+        [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
+        
+    }
+    else {
+        [[SimpleAudioEngine sharedEngine]resumeBackgroundMusic];
+    }
 }
 - (void)dealloc
 {

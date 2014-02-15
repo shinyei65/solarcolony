@@ -10,5 +10,6 @@
 
 @interface AttackScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
+        MusicManagerSingleton* musicManagerSingleton;
 }
 @end

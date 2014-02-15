@@ -10,6 +10,7 @@
 
 @interface HomeScene : CCLayer<AbstractScene>{
  TransitionManagerSingleton* transitionManagerSingleton;
+    MusicManagerSingleton* musicManagerSingleton;
 }
 @end
 
