@@ -11,6 +11,7 @@
 #import "GridMap.h"
 #import "SoldierController.h"
 #import "TowerMenu.h"
+#import "TowerDestroyer.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -98,7 +99,17 @@
         
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) {      
 
- 
+
+
+        float pointX=grid.menuLocation.x;
+        float pointY=grid.menuLocation.y;
+        
+        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
+        
+        TowerDestroyer* t3=[[TowerDestroyer alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [colissionsManager addTower:t3];
+        [self addChild:t3];
         
 
     }

@@ -166,6 +166,8 @@
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
 		F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */; };
+		F5E4A3F118B2CE9E00C4FD22 /* TowerDestroyer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4A3F018B2CE9E00C4FD22 /* TowerDestroyer.m */; };
+		F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E4A3F218B2CF4F00C4FD22 /* towerB.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -497,6 +499,9 @@
 		F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLandingScene.m; sourceTree = "<group>"; };
 		F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
 		F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
+		F5E4A3EF18B2CE9E00C4FD22 /* TowerDestroyer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerDestroyer.h; sourceTree = "<group>"; };
+		F5E4A3F018B2CE9E00C4FD22 /* TowerDestroyer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerDestroyer.m; sourceTree = "<group>"; };
+		F5E4A3F218B2CF4F00C4FD22 /* towerB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerB.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -523,6 +528,7 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
 				F59D52B018AC86D100B62B5D /* bulletA.png */,
 				F59D52AA18AC78BB00B62B5D /* towerA.png */,
 				F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */,
@@ -546,6 +552,8 @@
 				F59D52A218AC6BA200B62B5D /* Tower.h */,
 				F59D52A518AC703000B62B5D /* TowerBasic.h */,
 				F59D52A618AC703000B62B5D /* TowerBasic.m */,
+				F5E4A3EF18B2CE9E00C4FD22 /* TowerDestroyer.h */,
+				F5E4A3F018B2CE9E00C4FD22 /* TowerDestroyer.m */,
 				F58E477C18AEC74D00204A79 /* Bullet.h */,
 				F58E477F18AEC86700204A79 /* BulletBasic.h */,
 				F58E478018AEC86700204A79 /* BulletBasic.m */,
@@ -1112,6 +1120,7 @@
 				F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */,
+				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
@@ -1176,6 +1185,7 @@
 				F55949F618A56F3F008ADDED /* CCVertex.m in Sources */,
 				F55949FC18A56F3F008ADDED /* NSThread+performBlock.m in Sources */,
 				F559490318A56F3C008ADDED /* CCActionTiledGrid.m in Sources */,
+				F5E4A3F118B2CE9E00C4FD22 /* TowerDestroyer.m in Sources */,
 				F559494A18A56F3D008ADDED /* CCMenuItem.m in Sources */,
 				F55948E518A56F3B008ADDED /* CCActionCamera.m in Sources */,
 				F5594A1718A56F40008ADDED /* CDXPropertyModifierAction.m in Sources */,
