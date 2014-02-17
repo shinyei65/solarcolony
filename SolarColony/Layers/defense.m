@@ -10,6 +10,7 @@
 #import "Soldier.h"
 #import "GridMap.h"
 #import "SoldierController.h"
+#import "TowerMenu.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -52,18 +53,64 @@
         [solController addSoldier:temp];
     }
     
+    //register self observer, will recieve notifications when a tower was created
+    // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
     
-    
+    //sets up world colision manager
+    colissionsManager= [[WorldColissionsManager alloc] init];
     
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
     [self scheduleUpdate];
     return self;
 }
 
+//creates tower and adds it to current active towers queue
+- (void)receivedNotificationTower:(NSNotification *) notification {
+    if ([[notification name] isEqualToString:@"TowerBasic"]) {
+     
+        //gets incomming point as string formatted point
+        NSString *interface = [notification.userInfo objectForKey:@"point"];
+        
+        //re format incomming string nd separated x and y coordinates
+        interface = [interface stringByReplacingOccurrencesOfString:@"{" withString:@""];
+        interface = [interface stringByReplacingOccurrencesOfString:@"}" withString:@""];
+        NSArray* myArray = [interface  componentsSeparatedByString:@","];
+        //X and  coordinates are separated
+        NSString* firstString = [myArray objectAtIndex:0];
+        NSString* secondString = [myArray objectAtIndex:1];
+        
+        float pointX=[firstString floatValue];
+        float pointY=[secondString floatValue];
+       // CCLOG(@"location at %@",firstString);
+        
+        //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
+        
+         pointX=grid.menuLocation.x;
+         pointY=grid.menuLocation.y;
+        
+        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
+        
+        TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [colissionsManager addTower:t3];
+        [self addChild:t3];
+        
+    } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) {      
+
+ 
+        
+
+    }
+}
+
 - (void)update:(ccTime)delta
 {
-        [solController updateSoldier:delta];
     
+    [solController updateSoldier:delta];
+    
+    //tower surveliance
+    [colissionsManager surveliance];
     
   /*
     for (CCNode *node in grid.children)

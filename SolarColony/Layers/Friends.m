@@ -37,7 +37,7 @@
     if (self) {
         
         
-         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
+        transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         

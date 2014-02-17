@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface TowerMenu : CCMenu
-    
+@interface TowerMenu : CCMenu    
 + (instancetype) menu;
 - (instancetype) init;
+- (void) createTowerofType:(id) towerType;
 
 @end

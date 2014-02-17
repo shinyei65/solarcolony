@@ -11,7 +11,7 @@
 
 #import "GridMap.h"
 #import "ModelsConstants.h"
-#import "TowerMenu.h"
+
 
 @implementation GridMap
 {
@@ -27,6 +27,7 @@
     CGPoint _touchPREVIOUS;
     CGPoint _touchCURRENT;
 }
+@synthesize menuLocation;
 
 #pragma mark - Create and Destroy
 
@@ -197,8 +198,15 @@
     // hide tower menu if already selected
     if(!_selected){
         CGPoint loc = [self convertMapIndexToGL:index];
+        
         // move the anchor to menu center
         CGSize menuSize = [_towermenu boundingBox].size;
+        
+        //drop tower in middle box
+        CGPoint locationItem = [self convertMapIndexToGL:index];
+        locationItem.x+= (menuSize.width*.33);
+        menuLocation=locationItem;
+        
         loc.x -= menuSize.width / 2;
         loc.y -= menuSize.height / 2;
         // move the menu to cell center
@@ -206,11 +214,16 @@
         loc.y -= _height_step / 2;
         [_towermenu setPosition: loc];
         [_towermenu setVisible: TRUE];
+        
         _selected = TRUE;
     }else{
         [_towermenu setVisible: FALSE];
         _selected = FALSE;
     }
+}
+//return tower menu
+- (TowerMenu*) getTowerMenu{
+    return _towermenu;
 }
 
 @end

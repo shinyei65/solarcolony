@@ -7,8 +7,11 @@
 //
 
 #import "AbstractScene.h"
+#import "WorldColissionsManager.h"
 
-@interface defense : CCScene<AbstractScene>
+@interface defense : CCScene<AbstractScene>{
+     WorldColissionsManager* colissionsManager;
+}
 
 + (instancetype)scene;
 - (instancetype)init;

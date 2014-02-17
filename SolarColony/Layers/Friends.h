@@ -14,7 +14,7 @@
     //test
     WorldColissionsManager* colissionsManager;
     CGPoint location;
-        MusicManagerSingleton* musicManagerSingleton;
+    MusicManagerSingleton* musicManagerSingleton;
 }
 
 @end

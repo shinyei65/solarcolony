@@ -25,7 +25,8 @@
     self = [super init];
     if (!self) return(nil);
     
-    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];    
+    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
+    [towerSprite setAnchorPoint:ccp(0.5,0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
     [self setLife:100];

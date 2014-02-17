@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "TowerMenu.h"
 
 @interface GridMap : CCLayerColor
 
@@ -22,5 +23,6 @@
 - (char) getFullMap;
 - (CGSize) getCellSize;
 - (CGPoint) convertMapIndexToGL: (CGPoint) index;
-
+- (TowerMenu*) getTowerMenu;
+@property(nonatomic,assign) CGPoint menuLocation;
 @end
