@@ -95,7 +95,7 @@
         
         TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
-        [self addChild:t3];
+        [grid addChild:t3];
         
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) {      
 
@@ -109,7 +109,7 @@
         
         TowerDestroyer* t3=[[TowerDestroyer alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
-        [self addChild:t3];
+        [grid addChild:t3];
         
 
     }
