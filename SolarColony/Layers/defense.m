@@ -118,7 +118,7 @@
 - (void)update:(ccTime)delta
 {
     
-    [solController updateSoldier:delta];
+    [solController updateSoldier:delta Map:grid];
     
     //tower surveliance
     [colissionsManager surveliance];
