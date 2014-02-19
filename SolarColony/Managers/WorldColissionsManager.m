@@ -89,8 +89,8 @@
             soldierpoint = [soldier getPOSITION];
             soldierpoint=[self convertToWorldSpace:soldierpoint];
            // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
-            CCLOG(@"Addres soldier x %f", soldierpoint.x);
-            CCLOG(@"addres soldier y %f", soldierpoint.y);
+          //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
+       //     CCLOG(@"addres soldier y %f", soldierpoint.y);
             if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
                 CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
