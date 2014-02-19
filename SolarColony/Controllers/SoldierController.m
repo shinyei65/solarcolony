@@ -39,10 +39,11 @@
 }
 
 -(void)updateSoldier:(ccTime) time Map:(GridMap *) map{
+    Soldier *sol;
     currentTime += time;
     if (currentTime > nextMoveTime) {
             for (int i=0; i < [soldierarray count];i++) {
-            Soldier *sol = (Soldier *)[soldierarray objectAtIndex:i];
+            sol = (Soldier *)[soldierarray objectAtIndex:i];
             char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL)
                 [sol setVisible:FALSE];
@@ -54,7 +55,7 @@
     
     if (currentTime > 2 && currentTime < 3) {
         for (int i=0; i < [soldierarray count];i++) {
-            Soldier *sol = (Soldier *)[soldierarray objectAtIndex:i];
+            sol = (Soldier *)[soldierarray objectAtIndex:i];
             [sol setHEALTH:45];
         }
     }

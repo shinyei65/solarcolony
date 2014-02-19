@@ -25,5 +25,7 @@
 - (CGPoint) convertMapIndexToGL: (CGPoint) index;
 - (CGPoint) convertMapIndexToCenterGL: (CGPoint) index;
 - (TowerMenu*) getTowerMenu;
+- (CGPoint) getTowerMenuPosition;
+- (void) setTowerMenuPosition:(CGPoint) loc;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end

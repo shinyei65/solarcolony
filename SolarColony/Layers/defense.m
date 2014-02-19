@@ -13,11 +13,14 @@
 #import "WaveController.h"
 #import "TowerMenu.h"
 #import "TowerRobot.h"
+#import "WorldColissionsManager.h"
 
 @implementation defense{
     SoldierController *solController;
     WaveController *waveController;
     GridMap *grid;
+    //eder dont delete
+    WorldColissionsManager* colissionsManager;
     
 }
 
@@ -41,6 +44,13 @@
     NSLog(@"Cell(%g,%g)", cellSize.width, cellSize.height);
     [self addChild:grid];
     
+    //EDER DONT DELETE THIS!
+    //register self observer, will recieve notifications when a tower was created
+    // Do any additional setup after loading the view, typically from a nib.
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
+    
+
+    
     /*for (int i=0; i<5; i++) {
         Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
         [temp setPOSITION:2 Y:0];
@@ -52,9 +62,15 @@
     // initialize wave controller
     waveController = [WaveController controller:solController Grid:grid];
     
+    //sets up world colision manager
+    colissionsManager= [[WorldColissionsManager alloc] init];
+    [colissionsManager setSoldierArray:[solController getSoldierArray]];
     
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
     [self scheduleUpdate];
+    
+    
+
     return self;
 }
 
@@ -78,7 +94,6 @@
        // CCLOG(@"location at %@",firstString);
         
         //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
-        
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
@@ -86,8 +101,11 @@
         CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
         
         TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+         
         [colissionsManager addTower:t3];
-        [grid addChild:t3 z:0];
+        [grid addChild:t3];
+       
+        
         
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
 
@@ -99,8 +117,9 @@
         
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
-        [grid addChild:t3 z:0];
+        [grid addChild:t3];
         
+       
 
     }
 }
@@ -108,14 +127,23 @@
 - (void)update:(ccTime)delta
 {
     
-    [solController updateSoldier:delta];
-    [waveController update];
+    //tower surveliance
+     [colissionsManager surveliance];
     
     //update soldiers
+    [solController updateSoldier:delta Map:grid];
+    [waveController update];
+    
+    
     [colissionsManager setSoldierArray:[solController getSoldierArray]];
+    
+   /* for (Soldier* s in [solController getSoldierArray] ) {
+        CCLOG(@"End location.x %f", [s getPOSITION].x);
+        CCLOG(@"End location.y %f", [s getPOSITION].x);
+    }*/
    // CCLOG(@"[solController getSoldierArray]  %f", [[[solController getSoldierArray] objectAtIndex:0] getPOSITION].x);
-    //tower surveliance
-    [colissionsManager surveliance];
+    
+   
     
      
     

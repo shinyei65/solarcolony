@@ -10,7 +10,8 @@
 #import "TowerHuman.h"
 #import "Soldier.h"
 
-@interface WorldColissionsManager : NSObject
+@interface WorldColissionsManager : CCNode
++(instancetype) Controller;
 -(void) surveliance;
 -(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier;
 -(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier;

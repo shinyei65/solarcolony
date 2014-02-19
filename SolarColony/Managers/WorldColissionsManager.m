@@ -24,6 +24,10 @@
     }
     return self;
 }
+
++Controller{
+    return ([[WorldColissionsManager alloc]init]);
+}
 /*
 -(void) surveliance{
     CGPoint towerpoint;
@@ -68,10 +72,12 @@
     CGPoint towerpoint;
     CGPoint soldierpoint;
     CGPoint soldierpointtest;
+     //   CCLOG(@"entering x %f", towerpoint.x);
     for (TowerHuman* tower in towers) {
         towerpoint=[tower getLocation];
         //need add is attacking
-        
+     //   CCLOG(@"Addres tower x %f", towerpoint.x);
+     //   CCLOG(@"addres tower y %f", towerpoint.y);
         
         //tower is not attacking
         //[tower setIsAttacking:true];
@@ -81,9 +87,10 @@
             //[yourCGPointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(100, 10
             
             soldierpoint = [soldier getPOSITION];
-            
+            soldierpoint=[self convertToWorldSpace:soldierpoint];
            // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
-            
+            CCLOG(@"Addres soldier x %f", soldierpoint.x);
+            CCLOG(@"addres soldier y %f", soldierpoint.y);
             if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
                 CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier

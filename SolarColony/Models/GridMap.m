@@ -216,6 +216,9 @@
         CGPoint locationItem = [self convertMapIndexToGL:index];
         locationItem.x+= (menuSize.width*.33);
         menuLocation=locationItem;
+               
+        CCLOG(@"wEnd location.x %f", menuLocation.x);   //I just get location.x = 0
+        CCLOG(@"wEnd location.y %f", menuLocation.y);   //I just get location.y = 0
         
         loc.x -= menuSize.width / 2;
         loc.y -= menuSize.height / 2;
@@ -234,6 +237,14 @@
 //return tower menu
 - (TowerMenu*) getTowerMenu{
     return _towermenu;
+}
+
+- (void)setTowerMenuPosition:(CGPoint) loc{
+    menuLocation=loc;
+}
+
+- (CGPoint) getTowerMenuPosition{
+    return menuLocation;
 }
 
 @end

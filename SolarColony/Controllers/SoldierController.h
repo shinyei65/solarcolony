@@ -19,5 +19,7 @@
 -(int)getArraylength;
 -(void)updateSoldier:(ccTime) time Map:(GridMap *) map;
 
+//eder logic dont delete
+-(NSMutableArray*)getSoldierArray;
 
 @end
