@@ -17,6 +17,6 @@
 -(void)addSoldier:(Soldier *) newSoldier;
 -(int)getArraylength;
 -(void)updateSoldier:(ccTime) time;
-
+-(NSMutableArray*)getSoldierArray;
 
 @end

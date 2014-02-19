@@ -61,4 +61,10 @@
     return [soldierarray count];
 }
 
+-(NSMutableArray*)getSoldierArray{
+    
+    return soldierarray;
+}
+
+
 @end

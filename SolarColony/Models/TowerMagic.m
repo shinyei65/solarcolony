@@ -1,14 +1,14 @@
 //
-//  TowerDestroyer.m
+//  TowerMagic.m
 //  SolarColony
 //
-//  Created by Student on 2/17/14.
+//  Created by Student on 2/18/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "TowerDestroyer.h"
+#import "TowerMagic.h"
 
-@implementation TowerDestroyer
+@implementation TowerMagic
 @synthesize  targetLocation;
 @synthesize towerTowerId;
 
