@@ -18,6 +18,7 @@
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
+		F551C4CF18B426F500943FE6 /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = F551C4CE18B426F500943FE6 /* Army.m */; };
 		F5584E4618AECA7700C81B59 /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5584E4518AECA7700C81B59 /* WaveController.m */; };
 		F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5584E4818AEDB8100C81B59 /* testmap.txt */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
@@ -190,6 +191,8 @@
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
+		F551C4CD18B426F500943FE6 /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Army.h; sourceTree = "<group>"; };
+		F551C4CE18B426F500943FE6 /* Army.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Army.m; sourceTree = "<group>"; };
 		F5584E4418AECA7700C81B59 /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
 		F5584E4518AECA7700C81B59 /* WaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveController.m; sourceTree = "<group>"; };
 		F5584E4818AEDB8100C81B59 /* testmap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testmap.txt; sourceTree = "<group>"; };
@@ -557,6 +560,8 @@
 				F58E477C18AEC74D00204A79 /* Bullet.h */,
 				F58E477F18AEC86700204A79 /* BulletBasic.h */,
 				F58E478018AEC86700204A79 /* BulletBasic.m */,
+				F551C4CD18B426F500943FE6 /* Army.h */,
+				F551C4CE18B426F500943FE6 /* Army.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1244,6 +1249,7 @@
 				F55948F718A56F3B008ADDED /* CCActionInterval.m in Sources */,
 				F559496518A56F3D008ADDED /* CCPhysicsDebugNode.m in Sources */,
 				F55948EB18A56F3B008ADDED /* CCActionEase.m in Sources */,
+				F551C4CF18B426F500943FE6 /* Army.m in Sources */,
 				F559492818A56F3C008ADDED /* CCFontDefinition.m in Sources */,
 				F5584E4618AECA7700C81B59 /* WaveController.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,

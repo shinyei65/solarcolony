@@ -78,8 +78,9 @@
 
 - (void) dealloc
 {
-    [super dealloc];
+    [_towermenu release]; _towermenu = nil;
     [self release];
+    [super dealloc];
 }
 
 #pragma mark - operation of map
@@ -129,6 +130,15 @@
 {
     index.x = index.x * _width_step;
     index.y = (GridMapHeight - index.y) * _height_step;
+    return index;
+}
+- (CGPoint) convertMapIndexToCenterGL: (CGPoint) index
+{
+    index.x = index.x * _width_step;
+    index.y = (GridMapHeight - index.y) * _height_step;
+    CGSize cellSize = [self getCellSize];
+    index.x += cellSize.width / 2;
+    index.y -= cellSize.height / 2;
     return index;
 }
 - (BOOL) isIndexInsideMap: (CGPoint) index

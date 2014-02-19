@@ -23,6 +23,7 @@
 - (char) getFullMap;
 - (CGSize) getCellSize;
 - (CGPoint) convertMapIndexToGL: (CGPoint) index;
+- (CGPoint) convertMapIndexToCenterGL: (CGPoint) index;
 - (TowerMenu*) getTowerMenu;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end

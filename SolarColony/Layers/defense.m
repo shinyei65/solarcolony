@@ -10,11 +10,13 @@
 #import "Soldier.h"
 #import "GridMap.h"
 #import "SoldierController.h"
+#import "WaveController.h"
 #import "TowerMenu.h"
 #import "TowerDestroyer.h"
 
 @implementation defense{
     SoldierController *solController;
+    WaveController *waveController;
     GridMap *grid;
     
 }
@@ -39,20 +41,16 @@
     NSLog(@"Cell(%g,%g)", cellSize.width, cellSize.height);
     [self addChild:grid];
     
-    //glClearColor(0, 0, 0, 1.0);
-    Soldier *sol1 = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
-    [sol1 setPOSITION:2 Y:0];
-    [sol1 setPosition:[grid convertMapIndexToGL:ccp(2, 0)]];
-    [grid addChild:sol1];
-    
-    
-    for (int i=0; i<5; i++) {
+    /*for (int i=0; i<5; i++) {
         Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
         [temp setPOSITION:2 Y:0];
         [temp setPosition:[grid convertMapIndexToGL:ccp(2, 0)]];
         [grid addChild:temp];
         [solController addSoldier:temp];
-    }
+    }*/
+    
+    // initialize wave controller
+    waveController = [WaveController controller:solController Grid:grid];
     
     //register self observer, will recieve notifications when a tower was created
     // Do any additional setup after loading the view, typically from a nib.
@@ -119,6 +117,7 @@
 {
     
     [solController updateSoldier:delta];
+    [waveController update];
     
     //tower surveliance
     [colissionsManager surveliance];
