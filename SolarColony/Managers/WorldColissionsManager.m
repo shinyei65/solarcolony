@@ -24,12 +24,12 @@
     }
     return self;
 }
-
+/*
 -(void) surveliance{
     CGPoint towerpoint;
     CGPoint soldierpoint;
     CGPoint soldierpointtest;
-    for (TowerBasic* tower in towers) {
+    for (TowerHuman* tower in towers) {
         towerpoint=[tower getLocation];
         //need add is attacking
         
@@ -44,7 +44,7 @@
                 soldierpoint = soldier.CGPointValue;
                 soldierpointtest = soldier.CGPointValue;
                 soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
-                if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)&&[tower isAttacking]==false) {
+                if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
                      CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
                 
@@ -62,11 +62,54 @@
        
         // do stuff
     }
+}*/
+
+-(void) surveliance{
+    CGPoint towerpoint;
+    CGPoint soldierpoint;
+    CGPoint soldierpointtest;
+    for (TowerHuman* tower in towers) {
+        towerpoint=[tower getLocation];
+        //need add is attacking
+        
+        
+        //tower is not attacking
+        //[tower setIsAttacking:true];
+        
+        for (Soldier* soldier in soldiers) {
+            
+            //[yourCGPointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(100, 10
+            
+            soldierpoint = [soldier getPOSITION];
+            
+           // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
+            
+            if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
+                CCLOG(@"PREPARE SHOT ONE POINT");
+                //reduce energy in soldier
+                
+                //animate attack from soldier
+                
+                //animate attack from tower
+                
+                [tower attackTest:soldierpoint];
+                
+                
+                //[soldiers removeObject:soldier];
+                break;
+                //animates deaths is possible
+            }
+            
+        }
+        
+        
+        // do stuff
+    }
 }
--(void) makeTowerSoldierFight:(TowerBasic*) tower :(Soldier*) soldier{
+-(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier{
     
 }
--(void) makeTowerSoldierFightTest:(TowerBasic*) tower :(CGPoint) soldier{
+-(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier{
     
 }
 
@@ -76,11 +119,25 @@
     [soldiers addObject:soldierr];
 }
 
+-(void)addSoldierTestB:(Soldier*)soldier{
+    [soldiers addObject:soldier];
+}
+
 -(void)addSoldier:(Soldier*)soldier{
+    
     [soldier addObject:soldier];
 
 }
--(void)addTower:(TowerBasic*)towerr{
+
+-(void)setSoldierArray:(NSMutableArray*) soldiersIncome{
+
+    [soldiers removeAllObjects];
+    [soldiers addObjectsFromArray:soldiersIncome];
+    //soldiers=soldiersIncome;
+ 
+    
+}
+-(void)addTower:(TowerHuman*)towerr{
     [towers addObject:towerr];
 }
 
@@ -88,7 +145,7 @@
     
 }
 
--(void)removeTower:(TowerBasic*)tower{
+-(void)removeTower:(TowerHuman*)tower{
     
 }
 

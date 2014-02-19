@@ -8,7 +8,7 @@
 
 #import "Friends.h"
 #import "HomeScene.h"
-#import "TowerBasic.h"
+#import "TowerHuman.h"
 
 @implementation Friends
 @synthesize mobileDisplaySize;
@@ -50,16 +50,16 @@
           [self scheduleUpdate];
         colissionsManager= [[WorldColissionsManager alloc] init];
         
-        TowerBasic* t1=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
+        TowerHuman* t1=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
         [colissionsManager addTower:t1];
         [self addChild:t1];
         
         
-        TowerBasic* t2=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(50 , 200)]];
+        TowerHuman* t2=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(50 , 200)]];
         [colissionsManager addTower:t2];
         [self addChild:t2];
         
-        TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
+        TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
         [colissionsManager addTower:t3];
         [self addChild:t3];
         

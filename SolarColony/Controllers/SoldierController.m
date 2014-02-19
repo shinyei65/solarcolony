@@ -38,19 +38,24 @@
     
 }
 
--(void)updateSoldier:(ccTime) time{
+-(void)updateSoldier:(ccTime) time Map:(GridMap *) map{
     currentTime += time;
     if (currentTime > nextMoveTime) {
             for (int i=0; i < [soldierarray count];i++) {
             Soldier *sol = (Soldier *)[soldierarray objectAtIndex:i];
-            GridMap *map = (GridMap *)[sol parent];
-            char status = 'R';
-            //[map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
+            char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL)
-                [sol dealloc];
+                [sol setVisible:FALSE];
             else
                 [sol move:status gridSize:[map getCellSize]];
-            nextMoveTime += 1;
+            nextMoveTime += 0.5;
+        }
+    }
+    
+    if (currentTime > 2 && currentTime < 3) {
+        for (int i=0; i < [soldierarray count];i++) {
+            Soldier *sol = (Soldier *)[soldierarray objectAtIndex:i];
+            [sol setHEALTH:45];
         }
     }
 }
@@ -60,5 +65,11 @@
     
     return [soldierarray count];
 }
+
+-(NSMutableArray*)getSoldierArray{
+    
+    return soldierarray;
+}
+
 
 @end

@@ -69,7 +69,7 @@
     // setup tower menu
     _towermenu = [TowerMenu menu];
     [_towermenu setVisible: FALSE];
-    [self addChild: _towermenu];
+    [self addChild: _towermenu z:1];
     [self setTouchEnabled: YES];
     
     // done

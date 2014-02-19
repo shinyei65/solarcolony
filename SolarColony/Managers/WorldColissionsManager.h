@@ -7,18 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TowerBasic.h"
+#import "TowerHuman.h"
 #import "Soldier.h"
 
 @interface WorldColissionsManager : NSObject
 -(void) surveliance;
--(void) makeTowerSoldierFight:(TowerBasic*) tower :(Soldier*) soldier;
--(void) makeTowerSoldierFightTest:(TowerBasic*) tower :(CGPoint) soldier;
+-(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier;
+-(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier;
 -(void)addSoldier:(Soldier*)soldier;
 -(void)addSoldierTest:(CGPoint)soldier;
--(void)addTower:(TowerBasic*)tower;
+-(void)addSoldierTestB:(Soldier*)soldier;
+-(void)addTower:(TowerHuman*)tower;
 -(void)removeSoldier:(Soldier*)soldier;
--(void)removeTower:(TowerBasic*)tower;
+-(void)removeTower:(TowerHuman*)tower;
+-(void)setSoldierArray:(NSMutableArray*) soldiersIncome;
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) NSMutableArray *towers;
 @end

@@ -16,6 +16,7 @@
     CCSprite *_hp;
     //soldier's attribute
     int S_health;
+    int S_health_max;
     int S_attack;
     int S_attack_sp;
     int S_speed;
@@ -34,17 +35,17 @@
     self = [super init];
     if (!self) return(nil);
     S_health = health;
+    S_health_max = health;
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
     S_attack_flag = TRUE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
+    _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+    _hp.position = ccp(0, 10);
     [self addChild:_soldier];
-  
-/*
-    _hp = [];
     [self addChild:_hp];
- */
+
     return self;
 }
 
@@ -52,21 +53,38 @@
     self = [super init];
     if (!self) return(nil);
     S_health = health;
+    S_health_max = health;
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
     S_attack_flag = FALSE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
+    _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+    _hp.position = ccp(0, 10);
     [self addChild:_soldier];
-/*
-     _hp = [];
-     [self addChild:_hp];
-*/
+    [self addChild:_hp];
+
     return self;
 }
 
 - (void)setHEALTH:(int)health{
     S_health = health;
+    if (health <= S_health_max*3/4 && health > S_health_max*1/2) {
+        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        [_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
+    }
+    if (health <= S_health_max*1/2 && health > S_health_max*1/4) {
+        [_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
+    }
+    if (health <= S_health_max*1/4 && health > S_health_max*1/10) {
+        [_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
+    }
+    if (health <= S_health_max*1/10 && health > S_health_max*1/20) {
+        [_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
+    }
+    if (health <= S_health_max*1/20){
+        [self setVisible:FALSE];
+    }
 }
 - (int)getHEALTH{
     return S_health;
@@ -108,25 +126,25 @@
     
     switch (direction) {
         case 'U':{
-            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(0,size.height))];
+            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(0,size.height))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(0,-1)); //update grid coordinate
             break;
         }
         case 'D':{
-            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(0,-size.height))];
+            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(0,-size.height))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(0,1)); //update grid coordinate
             break;
         }
         case 'L':{
-            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(-size.width,0))];
+            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(-size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(-1,0)); //update grid coordinate
             break;
         }
         case 'R':{
-            id move = [CCMoveTo actionWithDuration:1.5 position:ccpAdd(original, ccp(size.width,0))];
+            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(1,0)); //update grid coordinate
             break;
