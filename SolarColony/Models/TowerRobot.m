@@ -1,14 +1,14 @@
 //
-//  TowerBasic.m
+//  TowerDestroyer.m
 //  SolarColony
 //
-//  Created by Student on 2/12/14.
+//  Created by Student on 2/17/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "TowerBasic.h"
+#import "TowerRobot.h"
 
-@implementation TowerBasic
+@implementation TowerRobot
 @synthesize  targetLocation;
 @synthesize towerTowerId;
 
@@ -18,14 +18,14 @@
 @synthesize towerSpeed;
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
- 
+
 
 - (instancetype) initTower:(CGPoint)location{
-   
+    
     self = [super init];
     if (!self) return(nil);
     
-    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
+    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
     [towerSprite setAnchorPoint:ccp(0.5,0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
@@ -44,7 +44,7 @@
     [self addChild:towerSprite];
     
     
-     return self;
+    return self;
 }
 
 - (void) surveilance{
@@ -57,14 +57,14 @@
     
     [self setIsAttacking:true];
     
-  //
+    //
     targetLocation=soldier;
     [self schedule: @selector(animatonAttack:) interval:2];
-
     
-  //
     
-
+    //
+    
+    
     
 }
 
@@ -72,25 +72,25 @@
 {
     // bla bla bla
     if (counterTest<=5) {
-         CCLOG(@"SHOTTING");
+        CCLOG(@"SHOTTING");
         counterTest++;
-            if ([self numberOfRunningActions]==0) {
-                [bullet setVisible:true];
-                CCLOG(@"coord x %f",targetLocation.x);
-                CCLOG(@"coord x %f",targetLocation.y);
-                CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-                CCLOG(@"coord x %f",targetLocations.x);
-                CCLOG(@"coord x %f",targetLocations.y);
-                CGPoint targetPrevious = [bullet position];
-             //   id appearAction = [CCFadeIn actionWithDuration:.1];
-               // id disappearAction = [CCFadeOut actionWithDuration:.1];
-                movePoint = [CCMoveTo actionWithDuration:.5 position:targetLocations];
-                returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
-              
-                [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-                 
-            }
-      
+        if ([self numberOfRunningActions]==0) {
+            [bullet setVisible:true];
+            CCLOG(@"coord x %f",targetLocation.x);
+            CCLOG(@"coord x %f",targetLocation.y);
+            CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
+            CCLOG(@"coord x %f",targetLocations.x);
+            CCLOG(@"coord x %f",targetLocations.y);
+            CGPoint targetPrevious = [bullet position];
+            //   id appearAction = [CCFadeIn actionWithDuration:.1];
+            // id disappearAction = [CCFadeOut actionWithDuration:.1];
+            movePoint = [CCMoveTo actionWithDuration:.5 position:targetLocations];
+            returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+            
+            [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+            
+        }
+        
         
     }else{
         counterTest=0;
@@ -98,13 +98,13 @@
         [self unscheduleAllSelectors];
         [self setIsAttacking:false];
     }
-   
+    
     
 }
 
 
 -(bool) getIsattacking{
-   
+    
     return nil;
 }
 -(void) setIsattacking:(bool) attack{
@@ -112,8 +112,8 @@
 }
 
 -(CCMenu*)loadMenu{
-
-return nil;
+    
+    return nil;
 }
 
 -(void) setPower:(int) power{
@@ -121,7 +121,7 @@ return nil;
 }
 
 -(int) getPower{
-return nil;
+    return nil;
 }
 
 -(void) setLife:(int) life{
@@ -129,7 +129,7 @@ return nil;
 }
 
 -(int) getLife{
-return nil;
+    return nil;
 }
 
 -(void) setSetSpeedAttack:(int) speed{
@@ -137,13 +137,13 @@ return nil;
 }
 
 -(int) getSetSpeedAttack{
-return nil;
+    return nil;
 }
 
 -(void) setClosesTarget:(Soldier*) soldier{}
 
 -(Soldier*) getClosesTarget{
-return nil;
+    return nil;
 }
 
 -(void) setLocation:(CGPoint) location{

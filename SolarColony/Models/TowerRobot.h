@@ -1,14 +1,15 @@
 //
-//  TowerBasic.h
+//  TowerDestroyer.h
 //  SolarColony
 //
-//  Created by Student on 2/12/14.
+//  Created by Student on 2/17/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
 #import "Tower.h"
 #import "BulletBasic.h"
-@interface TowerBasic : CCNode<Tower>{
+
+@interface TowerRobot : CCNode<Tower>{
     int counterTest;
     BulletBasic* bullet;
     id movePoint, returnPoint ;
