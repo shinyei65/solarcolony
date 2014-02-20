@@ -30,10 +30,9 @@ static MusicManagerSingleton *shareSoundManager = nil;
     return shareSoundManager;
 }
 
-+(id)allocWithZone:(NSZone *)zone
-{
-    return [[self shareSoundManager] retain];
-}
+
+
+
 
 -(id)init
 {
@@ -41,50 +40,88 @@ static MusicManagerSingleton *shareSoundManager = nil;
     {
         NSString* BGStr = @"Military_Might.mp3";
         [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:BGStr];
+        [[SimpleAudioEngine sharedEngine]playBackgroundMusic:BGStr];
+        isPlayingSound=true;
         
-        if(BGon){
-            [[SimpleAudioEngine sharedEngine]playBackgroundMusic:BGStr];
-        }
-        else{
-            [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
-        }
     }
+    return self;
     
+}
+-(void) preLoadEffect{
+  //  [EffectArray removeAllObjects];
+    for(int i = 1 ; i <= musicNum ; i++){
+        NSString* musicName = [[NSString stringWithFormat:@"sound %d", i] stringByAppendingString:@".wav"];
+        [[SimpleAudioEngine sharedEngine]preloadEffect:musicName];
+        [EffectArray addObject:musicName];
+    }
 }
 
--(void) preLoadBackGroundMusic:(NSString *)filename fileExt:(NSString *)theFileExt{
-    
-}
--(void) BackGroundMusic{
-    [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
-    BGon = NO;
-    
-}
--(void) preLoadEffect:(NSString *)filename fileExt:(NSString *)theFileExt{
-    NSString* filePath = [[NSBundle mainBundle]pathForResource:filename ofType:theFileExt];
-    
-    [[SimpleAudioEngine sharedEngine]preloadEffect:filePath];
-    
-}
--(void) EffectMusic:(int)EffectState{
-    
-}
--(void) SetBackgroundVolume:(ALfloat)theVolume{
-    
-}
-
-
--(void) ShutDownManager{
-    if(shareSoundManager != nil)
+-(void) pauseEffect{
+     CCLOG(@"off off offf 2 %d" ,[EffectArray count]);
+    for (int i = 0 ; i < [EffectArray count] ; i++)
     {
-        [self dealloc];
+        NSString* musicName =(NSString*)[EffectArray objectAtIndex:i];
+        [[SimpleAudioEngine sharedEngine] unloadEffect:musicName];
+        
+        isPlayingSound=false;
+    }
+    
+    
+}
+-(void) resumeEffect{
+    for (int i = 0 ; i < [EffectArray count] ; i++)
+    {
+        
+        [[SimpleAudioEngine sharedEngine] resumeEffect:[[EffectArray objectAtIndex:i] intValue]];
+            isPlayingSound = TRUE;
+    }
+
+}
+-(void) playEffect:(NSString*)filePath {
+    if(isPlayingSound)
+    {
+        
+        [[SimpleAudioEngine sharedEngine]playEffect:filePath];
+    }
+    else{
+        [self pauseEffect];
     }
 }
 
--(void)dealloc{
-        [super release];
+
+
+
+-(void)dealloc
+{
+    
+    [super dealloc];
 }
 
+// We don't want to allocate a new instance, so return the current one.
++ (id)allocWithZone:(NSZone*)zone {
+    return [[self shareSoundManager] retain];
+}
+
+// Equally, we don't want to generate multiple copies of the singleton.
+- (id)copyWithZone:(NSZone *)zone {
+    return self;
+}
+
+// Once again - do nothing, as we don't have a retain counter for this object.
+- (id)retain {
+    return self;
+}
+
+// Replace the retain counter so we can never release this object.
+- (NSUInteger)retainCount {
+    return NSUIntegerMax;
+}
+
+
+//Do nothing, other than return the shared instance - as this is expected from autorelease.
+- (id)autorelease {
+    return self;
+}
 
 
 @end

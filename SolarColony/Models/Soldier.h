@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
+#import "BulletBasic.h"
 @interface Soldier : CCNode {
     
 }
@@ -34,5 +34,8 @@
 -(void)beingAttacked:(int)attack_power;
 
 
+- (void) attackTest:(CGPoint) tower;
+
+@property(assign, atomic) CGPoint targetLocation;
 
 @end

@@ -7,10 +7,9 @@
 //
 
 #import "WaveController.h"
-#import "SoldierController.h"
-#import "Soldier.h"
-#import "Army.h"
+#import "GameStatusEssentialsSingleton.h"
 
+static WaveController *sharedInstance = nil;
 int WAVE_GEN_RATE = 300; // 60 ticks per sec
 int SOL_GEN_RATE = 60; // 60 ticks per sec
 BOOL test = false;
@@ -23,17 +22,19 @@ BOOL test = false;
     NSMutableArray *_monitor;
     Army *_wave;
     NSObject *_mylock;
-    SoldierController *_sol_control;
 }
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) controller: (SoldierController *) sol_control
++ (instancetype) controller
 {
-    return [[self alloc] init: sol_control];
+    if(sharedInstance == nil){
+        sharedInstance = [[super allocWithZone:nil] init];
+    }
+    return sharedInstance;
 }
 
-- (instancetype) init: (SoldierController *) sol_control
+- (instancetype) init
 {
     self = [super init];
     if (!self) return(nil);
@@ -44,7 +45,6 @@ BOOL test = false;
     _monitor = [[NSMutableArray alloc] init];
     _tick = 0;
     _mylock = [[NSObject alloc] init];
-    _sol_control = sol_control;
     
     return self;
 }
@@ -83,15 +83,16 @@ BOOL test = false;
             }
         }
     }
-    if([_queue count] > 0 && !test){
+    /*if([_queue count] > 0 && !test){
         [self startWave];
         test = true;
-    }
+    }*/
 }
 
 - (void) addWave: (Army *) wave
 {
     [_queue addObject: wave];
+    NSLog(@"WaveController: %d waves in queue", [_queue count]);
 }
 
 - (void) genertateAIarmy
@@ -115,8 +116,8 @@ BOOL test = false;
     [_monitor addObject: sol];
     [sol setPOSITION:start.x Y:start.y];
     [sol setPosition:[gird convertMapIndexToCenterGL:start]];
-    [gird addChild:sol];
-    [_sol_control addSoldier: sol];
+    [gird addChild:sol z:1];
+    [[SoldierController Controller] addSoldier: sol];
 }
 
 - (BOOL) checkMonitor
@@ -144,9 +145,10 @@ BOOL test = false;
 {
     NSLog(@"WaveController: end a wave");
     [_queue removeObjectAtIndex: 0];
+    [_wave release]; _wave = nil;
     _tick = _hold_tick;
     _in_wave = FALSE;
-    _wave = nil;
+    [[WaveQueue layer] refreshTick];
 }
 
 @end

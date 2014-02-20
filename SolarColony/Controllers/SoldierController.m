@@ -7,8 +7,8 @@
 //
 
 #import "SoldierController.h"
-#import "Soldier.h"
 #import "GridMap.h"
+#import "Soldier.h"
 #import "ModelsConstants.h"
 
 
@@ -39,18 +39,18 @@ static SoldierController *sharedSoldierController = nil;
     
 }
 
--(void)updateSoldier:(ccTime) time Map:(GridMap *) map{
+-(void)updateSoldier:(ccTime) time{
     Soldier *sol;
     currentTime += time;
     
     for (int i=0; i < [soldierarray count];i++) {
         sol = (Soldier *)[soldierarray objectAtIndex:i];
         if (currentTime > [sol getNextMoveTime]) {
-            char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
+            char status = [[GridMap map] getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL)
                 [sol setVisible:FALSE];
             else
-                [sol move:status gridSize:[map getCellSize] currentTime:currentTime];
+                [sol move:status gridSize:[[GridMap map] getCellSize] currentTime:currentTime];
         }
     }
     

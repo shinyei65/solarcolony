@@ -51,6 +51,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     [soldiers addObject:soldier];
 }
 - (void) removeTowerAt:(int) index{
+     
     [towers removeObjectAtIndex:index];
 }
 
@@ -116,6 +117,17 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
 //Do nothing, other than return the shared instance - as this is expected from autorelease.
 - (id)autorelease {
     return self;
+}
+
+// get game map name
+- (NSString *) getGameMapName
+{
+    return @"testmap";
+}
+// get game map image name
+- (NSString *) getGameMapImagename
+{
+    return @"testmap.png";
 }
 
 @end

@@ -18,7 +18,7 @@
 @synthesize towerSpeed;
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
- 
+@synthesize selfLocation;
 
 - (instancetype) initTower:(CGPoint)location{
    
@@ -29,6 +29,7 @@
     [towerSprite setAnchorPoint:ccp(0.5,0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
+    selfLocation=location;
     [self setLife:100];
     [self setPower:10];
     [self setSetSpeedAttack:20];
@@ -59,7 +60,7 @@
     
   //
     targetLocation=soldier;
-    [self schedule: @selector(animatonAttack:) interval:2];
+    [self schedule: @selector(animatonAttack:) interval:1];
 
     
   //
@@ -67,6 +68,9 @@
 
     
 }
+
+ 
+
 
 -(void) animatonAttack: (ccTime) dt
 {
@@ -84,7 +88,7 @@
                 CGPoint targetPrevious = [bullet position];
              //   id appearAction = [CCFadeIn actionWithDuration:.1];
                // id disappearAction = [CCFadeOut actionWithDuration:.1];
-                movePoint = [CCMoveTo actionWithDuration:.3 position:targetLocations];
+                movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
                 returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
               
                 [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
@@ -154,6 +158,11 @@ return nil;
 }
 
 -(void) destroyedAnimation{}
+
+-(void)beingAttacked:(int)attack_power{
+  /*  int newHealth = [self getHEALTH] - attack_power;
+    [self setHEALTH:newHealth];*/
+}
 
 -(void)dealloc{}
 @end

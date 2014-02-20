@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
+#import "MusicManagerSingleton.h"
 
 @interface TransitionManagerSingleton : NSObject {
-    
+     MusicManagerSingleton* musicManagerSingleton;
 }
 + (id)sharedInstance;
 -(void) transitionTo:(int) nextScene;
