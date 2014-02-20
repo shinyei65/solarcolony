@@ -68,9 +68,9 @@
     waveController = [WaveController controller];
     
     //sets up world colision manager
-    colissionsManager= [[WorldColissionsManager alloc] init];
-    [colissionsManager setSoldierArray:[solController getSoldierArray]];
-    
+    colissionsManager= [WorldColissionsManager Controller:grid];
+   // [colissionsManager setSoldierArray:];
+    colissionsManager.soldiers=[solController getSoldierArray];
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
     [self scheduleUpdate];
     
@@ -108,7 +108,8 @@
         TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
          
         [colissionsManager addTower:t3];
-        [grid addChild:t3];
+        
+        [grid addTower:t3 index:[t3 position] z:1];
        
         
         
@@ -140,8 +141,8 @@
     [waveController update];
     
     
-    [colissionsManager setSoldierArray:[solController getSoldierArray]];
-    
+ //   [colissionsManager setSoldierArray:[solController getSoldierArray]];
+     colissionsManager.soldiers=[solController getSoldierArray];
    /* for (Soldier* s in [solController getSoldierArray] ) {
         CCLOG(@"End location.x %f", [s getPOSITION].x);
         CCLOG(@"End location.y %f", [s getPOSITION].x);

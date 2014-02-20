@@ -26,6 +26,7 @@
 }
 
 
+
 -(void) setLocation:(CGPoint) location{
     bulletLocation=location;
 }
