@@ -13,6 +13,8 @@
 #import "TowerMenu.h"
 #import "TowerRobot.h"
 #import "WorldColissionsManager.h"
+#import "GridMap.h"
+#import "WaveQueue.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -39,9 +41,13 @@
     solController = [SoldierController Controller];
     [self addChild:solController];
     grid = [GridMap map];
-    CGSize cellSize = [grid getCellSize];
-    NSLog(@"Cell(%g,%g)", cellSize.width, cellSize.height);
+    CGSize gsize = [grid getCellSize];
+    NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
+    
+    // initialize wave queue layer
+    WaveQueue *wqueue = [WaveQueue layer];
+    [self addChild:wqueue];
     
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
@@ -59,7 +65,7 @@
     }*/
     
     // initialize wave controller
-    waveController = [WaveController controller:solController];
+    waveController = [WaveController controller];
     
     //sets up world colision manager
     colissionsManager= [[WorldColissionsManager alloc] init];
@@ -130,7 +136,7 @@
      [colissionsManager surveliance];
     
     //update soldiers
-    [solController updateSoldier:delta Map:grid];
+    [solController updateSoldier:delta];
     [waveController update];
     
     

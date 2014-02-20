@@ -10,7 +10,10 @@
 #import "cocos2d.h"
 
 @interface WaveQueue : CCLayer {
-    
+    NSMutableArray *queue;
 }
+
++ (instancetype) layer;
+- (instancetype) init;
 
 @end

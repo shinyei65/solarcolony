@@ -8,6 +8,7 @@
 
 #import "WaveController.h"
 #import "SoldierController.h"
+#import "GridMap.h"
 #import "Soldier.h"
 #import "Army.h"
 
@@ -23,17 +24,16 @@ BOOL test = false;
     NSMutableArray *_monitor;
     Army *_wave;
     NSObject *_mylock;
-    SoldierController *_sol_control;
 }
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) controller: (SoldierController *) sol_control
++ (instancetype) controller
 {
-    return [[self alloc] init: sol_control];
+    return [[self alloc] init];
 }
 
-- (instancetype) init: (SoldierController *) sol_control
+- (instancetype) init
 {
     self = [super init];
     if (!self) return(nil);
@@ -44,7 +44,6 @@ BOOL test = false;
     _monitor = [[NSMutableArray alloc] init];
     _tick = 0;
     _mylock = [[NSObject alloc] init];
-    _sol_control = sol_control;
     
     return self;
 }
@@ -116,7 +115,7 @@ BOOL test = false;
     [sol setPOSITION:start.x Y:start.y];
     [sol setPosition:[gird convertMapIndexToCenterGL:start]];
     [gird addChild:sol];
-    [_sol_control addSoldier: sol];
+    [[SoldierController Controller] addSoldier: sol];
 }
 
 - (BOOL) checkMonitor

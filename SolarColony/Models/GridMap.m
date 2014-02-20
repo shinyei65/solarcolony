@@ -67,7 +67,7 @@ static GridMap *sharedInstance = nil;
     NSArray* allLinedStrings = [contents componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
     for(int i=0; i<[allLinedStrings count]; i++){
         NSString* line = [allLinedStrings objectAtIndex:i];
-        NSLog(@"line: %@", line);
+        //NSLog(@"line: %@", line);
         if(i == 0){
             NSArray *listItems = [line componentsSeparatedByString:@", "];
             _start = ccp([[listItems objectAtIndex:0] integerValue], [[listItems objectAtIndex:1] integerValue]);
@@ -79,11 +79,18 @@ static GridMap *sharedInstance = nil;
                 _goal = ccp(i-1, j);
         }
     }
+    CCSprite *background = [CCSprite spriteWithFile:@"testmap.png"];
+    background.anchorPoint = CGPointMake(0, 0);
+    [self addChild:background z:0];
+    
+    GridLinesLayer *lines = [GridLinesLayer layer];
+    lines.anchorPoint = CGPointMake(0, 0);
+    [self addChild:lines z:1];
     
     // setup tower menu
     _towermenu = [TowerMenu menu];
     [_towermenu setVisible: FALSE];
-    [self addChild: _towermenu z:1];
+    [self addChild: _towermenu z:99];
     [self setTouchEnabled: YES];
     
     // done
@@ -183,18 +190,6 @@ static GridMap *sharedInstance = nil;
 
 #pragma mark - UI control
 
-- (void) draw
-{
-    [super draw];
-    // draw a grid
-    for(int i=0; i<=GridMapWidth; i++){
-        ccDrawLine(ccp(i * _width_step, 0), ccp(i * _width_step, _screenSize.height));
-    }
-    for(int i=0; i<=GridMapHeight; i++){
-        ccDrawLine(ccp(0, i * _height_step), ccp(_screenSize.width, i * _height_step));
-    }
-}
-
 - (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     // stored touch loc
@@ -277,4 +272,35 @@ static GridMap *sharedInstance = nil;
     return menuLocation;
 }
 
+@end
+
+@implementation GridLinesLayer {
+    float _width_step;
+    float _height_step;
+    CGSize _screenSize;
+}
++(instancetype) layer
+{
+    return [[self alloc] init];
+}
+-(instancetype) init
+{
+    self = [super init];
+    if (!self) return(nil);
+    _screenSize = [[CCDirector sharedDirector] winSize];
+    _width_step = _screenSize.width/GridMapWidth;
+    _height_step = _screenSize.height/GridMapHeight;
+    return self;
+}
+- (void) draw
+{
+    [super draw];
+    // draw a grid
+    for(int i=0; i<=GridMapWidth; i++){
+        ccDrawLine(ccp(i * _width_step, 0), ccp(i * _width_step, _screenSize.height));
+    }
+    for(int i=0; i<=GridMapHeight; i++){
+        ccDrawLine(ccp(0, i * _height_step), ccp(_screenSize.width, i * _height_step));
+    }
+}
 @end
