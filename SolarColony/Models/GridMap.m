@@ -22,18 +22,25 @@
     BOOL _isMoved;
     CGSize _screenSize;
     TowerMenu *_towermenu;
+    CGPoint _start;
+    CGPoint _goal;
     
     //UI touch variable
     CGPoint _touchPREVIOUS;
     CGPoint _touchCURRENT;
 }
 @synthesize menuLocation;
+static GridMap *sharedInstance = nil;
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) map
++ (GridMap *) map
 {
-    return [[self alloc] init];
+    if (sharedInstance == nil) {
+        sharedInstance = [[super allocWithZone:NULL] init];
+    }
+    
+    return sharedInstance;
 }
 
 - (instancetype) init
@@ -48,11 +55,11 @@
     _isMoved = FALSE;
     
     // initialize map array with default status 'X'
-    for(int i=0; i<GridMapWidth; i++){
+    /*for(int i=0; i<GridMapWidth; i++){
         for(int j=0; j<GridMapHeight; j++){
             _map[i][j] = 'X';
         }
-    }
+    }*/
     
     // initialize map from file
     NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"testmap" ofType:@"txt"];
@@ -61,8 +68,15 @@
     for(int i=0; i<[allLinedStrings count]; i++){
         NSString* line = [allLinedStrings objectAtIndex:i];
         NSLog(@"line: %@", line);
+        if(i == 0){
+            NSArray *listItems = [line componentsSeparatedByString:@", "];
+            _start = ccp([[listItems objectAtIndex:0] integerValue], [[listItems objectAtIndex:1] integerValue]);
+            continue;
+        }
         for(int j=0; j<GridMapWidth; j++){
-            _map[j][i] = [line characterAtIndex:j];
+            _map[j][i-1] = [line characterAtIndex:j];
+            if(_map[j][i-1] == GOAL)
+                _goal = ccp(i-1, j);
         }
     }
     
@@ -84,6 +98,22 @@
 }
 
 #pragma mark - operation of map
+
+- (CGPoint) getStartIndex
+{
+    return _start;
+}
+
+- (CGPoint) getGoalIndex
+{
+    return _goal;
+}
+
+- (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z
+{
+    [self setMap:TOWER X:idx.x Y:idx.y];
+    [self addChild: tower z: z];
+}
 
 - (CGSize) getCellSize
 {

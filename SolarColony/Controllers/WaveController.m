@@ -8,7 +8,6 @@
 
 #import "WaveController.h"
 #import "SoldierController.h"
-#import "GridMap.h"
 #import "Soldier.h"
 #import "Army.h"
 
@@ -25,17 +24,16 @@ BOOL test = false;
     Army *_wave;
     NSObject *_mylock;
     SoldierController *_sol_control;
-    GridMap *_grid;
 }
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) controller: (SoldierController *) sol_control Grid: (GridMap *) grid
++ (instancetype) controller: (SoldierController *) sol_control
 {
-    return [[self alloc] init: sol_control Grid: grid];
+    return [[self alloc] init: sol_control];
 }
 
-- (instancetype) init: (SoldierController *) sol_control Grid: (GridMap *) grid
+- (instancetype) init: (SoldierController *) sol_control
 {
     self = [super init];
     if (!self) return(nil);
@@ -47,19 +45,12 @@ BOOL test = false;
     _tick = 0;
     _mylock = [[NSObject alloc] init];
     _sol_control = sol_control;
-    _grid = grid;
     
     return self;
 }
 
 - (void) dealloc
 {
-    [_queue release]; _queue = nil;
-    [_monitor release]; _monitor = nil;
-    [_wave release]; _wave = nil;
-    [_mylock release]; _mylock = nil;
-    [_sol_control release]; _sol_control = nil;
-    [_grid release]; _grid = nil;
     [self release];
     [super dealloc];
 }
@@ -98,26 +89,33 @@ BOOL test = false;
     }
 }
 
+- (void) addWave: (Army *) wave
+{
+    [_queue addObject: wave];
+}
+
 - (void) genertateAIarmy
 {
     NSLog(@"WaveController: generate AI army");
     // add one AI army in queue
     Army *army = [Army army];
     for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
+        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)2 ATTACK_SP:(int)50];
         [army addSoldier: temp];
     }
-    [_queue addObject: army];
+    [self addWave: army];
 }
 
 - (void) generateSoldier
 {
     NSLog(@"WaveController: generate a soldier");
+    GridMap *gird = [GridMap map];
+    CGPoint start = [gird getStartIndex];
     Soldier *sol = [_wave popSoldier];
     [_monitor addObject: sol];
-    [sol setPOSITION:2 Y:0];
-    [sol setPosition:[_grid convertMapIndexToCenterGL:ccp(2, 0)]];
-    [_grid addChild:sol];
+    [sol setPOSITION:start.x Y:start.y];
+    [sol setPosition:[gird convertMapIndexToCenterGL:start]];
+    [gird addChild:sol];
     [_sol_control addSoldier: sol];
 }
 
@@ -148,7 +146,7 @@ BOOL test = false;
     [_queue removeObjectAtIndex: 0];
     _tick = _hold_tick;
     _in_wave = FALSE;
-    [_wave dealloc];
+    _wave = nil;
 }
 
 @end

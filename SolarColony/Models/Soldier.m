@@ -20,6 +20,7 @@
     int S_attack;
     int S_attack_sp;
     int S_speed;
+    float nextMoveTime;
     BOOL S_attack_flag;
     CGPoint S_position;
 }
@@ -39,6 +40,7 @@
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
+    nextMoveTime = 0;
     S_attack_flag = TRUE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
@@ -57,6 +59,7 @@
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
+    nextMoveTime = 0;
     S_attack_flag = FALSE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
@@ -118,35 +121,39 @@
     return S_attack_flag;
 }
 
-- (void)move:(char)direction gridSize:(CGSize)size{
+- (void)move:(char)direction gridSize:(CGSize)size currentTime:(ccTime)currentTime{
     
     CGPoint original = self.position;
-
+    float moveTime = (float)1/[self getSPEED];
     //CGPoint new = ccpAdd(original, ccp(size.width,size.height));
     
     switch (direction) {
         case 'U':{
-            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(0,size.height))];
+            id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(0,size.height))];
             [self runAction:move];
-            S_position = ccpAdd(S_position, ccp(0,-1)); //update grid coordinate
+            S_position = ccpAdd(S_position, ccp(0,-1));//update grid coordinate
+            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'D':{
-            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(0,-size.height))];
+            id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(0,-size.height))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(0,1)); //update grid coordinate
+            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'L':{
-            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(-size.width,0))];
+            id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(-size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(-1,0)); //update grid coordinate
+            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'R':{
-            id move = [CCMoveTo actionWithDuration:1 position:ccpAdd(original, ccp(size.width,0))];
+            id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(1,0)); //update grid coordinate
+            nextMoveTime =  currentTime + moveTime;
             break;
         }
             
@@ -155,6 +162,16 @@
     }
     
 }
+
+-(float)getNextMoveTime{
+    return nextMoveTime;
+}
+
+-(void)beingAttacked:(int)attack_power{
+    int newHealth = [self getHEALTH] - attack_power;
+    [self setHEALTH:newHealth];
+}
+
 
 - (void)attack{
     
@@ -167,12 +184,7 @@
     // clean up code goes here, should there be any
     
 }
-/*
-- (void)update:(ccTime)delta
-{
-    
-}
-*/
+
 
 
 
