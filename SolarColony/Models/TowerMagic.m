@@ -79,8 +79,8 @@
             CCLOG(@"coord x %f",targetLocation.x);
             CCLOG(@"coord x %f",targetLocation.y);
             CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-            CCLOG(@"coord x %f",targetLocations.x);
-            CCLOG(@"coord x %f",targetLocations.y);
+            CCLOG(@"ctower in oord x %f",targetLocations.x);
+            CCLOG(@"ctower in coord x %f",targetLocations.y);
             CGPoint targetPrevious = [bullet position];
             //   id appearAction = [CCFadeIn actionWithDuration:.1];
             // id disappearAction = [CCFadeOut actionWithDuration:.1];

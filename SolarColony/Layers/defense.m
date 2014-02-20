@@ -16,13 +16,14 @@
 #import "GridMap.h"
 #import "WaveQueue.h"
 
+
 @implementation defense{
     SoldierController *solController;
     WaveController *waveController;
     GridMap *grid;
     //eder dont delete
     WorldColissionsManager* colissionsManager;
-    
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
 + (instancetype)scene
@@ -44,7 +45,7 @@
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
-    
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize wave queue layer
     WaveQueue *wqueue = [WaveQueue layer];
     [wqueue setPosition:ccp(40,[[CCDirector sharedDirector] winSize].height)];
@@ -70,8 +71,7 @@
     
     //sets up world colision manager
     colissionsManager= [WorldColissionsManager Controller:grid];
-   // [colissionsManager setSoldierArray:];
-    colissionsManager.soldiers=[solController getSoldierArray];
+
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
     [self scheduleUpdate];
     
@@ -114,6 +114,7 @@
        
         
         
+        [[grid getTowerMenu] setVisible:FALSE];
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
 
         float pointX=grid.menuLocation.x;

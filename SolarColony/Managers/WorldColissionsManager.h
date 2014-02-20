@@ -20,11 +20,7 @@
 -(void) surveliance;
 -(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier;
 -(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier;
--(void)addSoldier:(Soldier*)soldier;
--(void)addSoldierTest:(CGPoint)soldier;
--(void)addSoldierTestB:(Soldier*)soldier;
 -(void)addTower:(CCNode*)tower;
--(void)removeSoldier:(Soldier*)soldier;
 -(void)removeTower:(TowerHuman*)tower;
 -(void)setSoldierArray:(NSMutableArray*) soldiersIncome;
 @property(assign, nonatomic) NSMutableArray *soldiers;

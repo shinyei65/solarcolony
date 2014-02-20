@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-
+#import "BulletBasic.h"
 @interface Soldier : CCNode {
     
 }
@@ -28,11 +28,19 @@
 - (void)setPOSITION:(int)x Y:(int)y; //set the position of soldier in grid coordinate
 - (CGPoint)getPOSITION;
 - (BOOL)getATTACK_FLAG;
-- (void)move:(char)direction gridSize:(CGSize)size currentTime:(ccTime)currentTime;
+- (void)move:(char)direction gridSize:(CGSize)size;
 - (void)attack;
--(float)getNextMoveTime;
+-(float)getMoveTime;
+-(float)getMoveCD;
+-(void)acculMoveCD:(float)time;
+-(float)getAttackTime;
+-(float)getAttackCD;
+-(void)acculAttackCD:(float)time;
 -(void)beingAttacked:(int)attack_power;
 
 
+- (void) attackTest:(CGPoint) tower;
+
+@property(assign, atomic) CGPoint targetLocation;
 
 @end

@@ -9,8 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "Soldier.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @interface SoldierController : CCNode
+
 
 +(instancetype) Controller;
 -(instancetype)init;

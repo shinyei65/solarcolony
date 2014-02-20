@@ -21,8 +21,6 @@
     self = [super init];
     if (self) {
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-     
-        soldiers= [[NSMutableArray alloc] init];
         grid=gridMap;
         
     }
@@ -49,9 +47,11 @@
         //tower is not attacking
         //[tower setIsAttacking:true];
         
-        for (Soldier* soldier in soldiers) {
+        for (Soldier* soldier in gameStatusEssentialsSingleton.soldiers) {
+            if (![soldier visible]) {
+                   continue;
+            }
             
-                  
             soldierpoint = [soldier getPOSITION];
             //soldierpoint=[self convertToWorldSpace:soldierpoint];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
@@ -66,8 +66,9 @@
                 //animate attack from tower
                 
                 [tower attackTest:soldierpoint];
-                [soldier beingAttacked:5];
+                [soldier beingAttacked:10];
 
+                [soldier attackTest:towerpoint];
                 
                 //[soldiers removeObject:soldier];
                 break;
@@ -88,29 +89,6 @@
 }
 
 
--(void)addSoldierTest:(CGPoint)soldier{
-    NSValue* soldierr= [NSValue valueWithCGPoint:soldier];
-    [soldiers addObject:soldierr];
-}
-
--(void)addSoldierTestB:(Soldier*)soldier{
-    [soldiers addObject:soldier];
-}
-
--(void)addSoldier:(Soldier*)soldier{
-    
-    [soldier addObject:soldier];
-
-}
-
--(void)setSoldierArray:(NSMutableArray*) soldiersIncome{
-
-    [soldiers removeAllObjects];
-    [soldiers addObjectsFromArray:soldiersIncome];
-    //soldiers=soldiersIncome;
- 
-    
-}
 -(void)addTower:(CCNode*)towerr{
    // [towers addObject:towerr];
     [gameStatusEssentialsSingleton.towers addObject:towerr];

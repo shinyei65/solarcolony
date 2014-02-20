@@ -19,6 +19,7 @@
 @implementation GameStatusEssentialsSingleton
 @synthesize soldiers;
 @synthesize towers;
+ 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
@@ -51,6 +52,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     [soldiers addObject:soldier];
 }
 - (void) removeTowerAt:(int) index{
+     
     [towers removeObjectAtIndex:index];
 }
 
