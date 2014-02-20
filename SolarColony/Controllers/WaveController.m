@@ -98,6 +98,11 @@ BOOL test = false;
     }
 }
 
+- (void) addWave: (Army *) wave
+{
+    [_queue addObject: wave];
+}
+
 - (void) genertateAIarmy
 {
     NSLog(@"WaveController: generate AI army");
@@ -107,7 +112,7 @@ BOOL test = false;
         Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
         [army addSoldier: temp];
     }
-    [_queue addObject: army];
+    [self addWave: army];
 }
 
 - (void) generateSoldier
@@ -148,7 +153,7 @@ BOOL test = false;
     [_queue removeObjectAtIndex: 0];
     _tick = _hold_tick;
     _in_wave = FALSE;
-    [_wave dealloc];
+    _wave = nil;
 }
 
 @end

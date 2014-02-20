@@ -27,5 +27,6 @@
 - (TowerMenu*) getTowerMenu;
 - (CGPoint) getTowerMenuPosition;
 - (void) setTowerMenuPosition:(CGPoint) loc;
+- (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end

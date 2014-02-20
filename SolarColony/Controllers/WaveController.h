@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SoldierController.h"
 #import "GridMap.h"
+#import "Army.h"
 
 @interface WaveController : NSObject
 
@@ -17,5 +18,6 @@
 - (void) update;
 - (void) startWave;
 - (void) endWave;
+- (void) addWave: (Army *) wave;
 
 @end

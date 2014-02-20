@@ -85,6 +85,12 @@
 
 #pragma mark - operation of map
 
+- (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z
+{
+    [self setMap:TOWER X:idx.x Y:idx.y];
+    [self addChild: tower z: z];
+}
+
 - (CGSize) getCellSize
 {
     return CGSizeMake(_width_step, _height_step);
