@@ -181,6 +181,7 @@
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
+		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
@@ -535,6 +536,8 @@
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
+		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
+		F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefenseSettingsScene.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
@@ -1132,6 +1135,8 @@
 				F5080CB218A96AB800E99AD9 /* race.m */,
 				F573783618AC2BA5008C9ADC /* AttackScene.h */,
 				F573783718AC2BA5008C9ADC /* AttackScene.m */,
+				F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */,
+				F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1260,6 +1265,7 @@
 				F55948E818A56F3B008ADDED /* CCActionCatmullRom.m in Sources */,
 				F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */,
 				09E9FDC618A94B1C000082B0 /* Settings.m in Sources */,
+				F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */,
 				F559495F18A56F3D008ADDED /* CCParticleSystem.m in Sources */,
 				F55949B418A56F3E008ADDED /* CCTransition.m in Sources */,
 				F559495C18A56F3D008ADDED /* CCParticleExamples.m in Sources */,

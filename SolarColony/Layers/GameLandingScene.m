@@ -33,7 +33,7 @@
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:64];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
@@ -53,7 +53,9 @@
     
     CCMenuItemFont *manuItemattack=[CCMenuItemFont itemWithString:@"Attack" target:self selector:@selector(moveToScene:)];
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, nil];
+    CCMenuItemFont *manuItemdefenseSetting=[CCMenuItemFont itemWithString:@"TowersSet" target:self selector:@selector(moveToScene:)];
+    
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, manuItemdefenseSetting, nil];
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
@@ -71,6 +73,8 @@
         [transitionManagerSingleton transitionTo:3];
     } else if ([menuItem.label.string isEqualToString:@"Attack"])  {
         [transitionManagerSingleton transitionTo:6];
+    } else if ([menuItem.label.string isEqualToString:@"TowersSet"])  {
+        [transitionManagerSingleton transitionTo:8];
     }
     // NSLog(menuItem.label.string);
     

@@ -19,6 +19,7 @@
 @implementation GameStatusEssentialsSingleton
 @synthesize soldiers;
 @synthesize towers;
+ 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
