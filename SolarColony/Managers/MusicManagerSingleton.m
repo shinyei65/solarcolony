@@ -39,7 +39,7 @@ static MusicManagerSingleton *shareSoundManager = nil;
 {
     if(self = [super init])
     {
-        NSString* BGStr = @"background.mp3";
+        NSString* BGStr = @"Military_Might.mp3";
         [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:BGStr];
         
         if(BGon){
