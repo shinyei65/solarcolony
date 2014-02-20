@@ -63,8 +63,8 @@
     
     //sets up world colision manager
     colissionsManager= [WorldColissionsManager Controller:grid];
-    [colissionsManager setSoldierArray:[solController getSoldierArray]];
-    
+   // [colissionsManager setSoldierArray:];
+    colissionsManager.soldiers=[solController getSoldierArray];
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
     [self scheduleUpdate];
     
@@ -135,8 +135,8 @@
     [waveController update];
     
     
-    [colissionsManager setSoldierArray:[solController getSoldierArray]];
-    
+ //   [colissionsManager setSoldierArray:[solController getSoldierArray]];
+     colissionsManager.soldiers=[solController getSoldierArray];
    /* for (Soldier* s in [solController getSoldierArray] ) {
         CCLOG(@"End location.x %f", [s getPOSITION].x);
         CCLOG(@"End location.y %f", [s getPOSITION].x);

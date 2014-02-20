@@ -71,33 +71,33 @@
 -(void) animatonAttack: (ccTime) dt
 {
     // bla bla bla
-    if (counterTest<=5) {
+ //   if (counterTest<=5) {
          CCLOG(@"SHOTTING");
-        counterTest++;
-            if ([self numberOfRunningActions]==0) {
+    //    counterTest++;
+       //     if ([self numberOfRunningActions]==0) {
                 [bullet setVisible:true];
-                CCLOG(@"coord x %f",targetLocation.x);
-                CCLOG(@"coord x %f",targetLocation.y);
+             //   CCLOG(@"coord x %f",targetLocation.x);
+              //  CCLOG(@"coord x %f",targetLocation.y);
                 CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-                CCLOG(@"coord x %f",targetLocations.x);
-                CCLOG(@"coord x %f",targetLocations.y);
+             //   CCLOG(@"coord x %f",targetLocations.x);
+             //   CCLOG(@"coord x %f",targetLocations.y);
                 CGPoint targetPrevious = [bullet position];
              //   id appearAction = [CCFadeIn actionWithDuration:.1];
                // id disappearAction = [CCFadeOut actionWithDuration:.1];
-                movePoint = [CCMoveTo actionWithDuration:.5 position:targetLocations];
+                movePoint = [CCMoveTo actionWithDuration:.3 position:targetLocations];
                 returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
               
                 [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-                 
-            }
+     //
+        //    }
       
         
-    }else{
-        counterTest=0;
+ //   }else{
+     //   counterTest=0;
         
         [self unscheduleAllSelectors];
         [self setIsAttacking:false];
-    }
+   // }
    
     
 }

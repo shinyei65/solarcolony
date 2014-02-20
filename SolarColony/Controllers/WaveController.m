@@ -100,7 +100,7 @@ BOOL test = false;
     // add one AI army in queue
     Army *army = [Army army];
     for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)2 ATTACK_SP:(int)50];
+        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)50];
         [army addSoldier: temp];
     }
     [self addWave: army];
