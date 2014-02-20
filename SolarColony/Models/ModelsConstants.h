@@ -17,4 +17,3 @@ static const char UNAVAILABLE = 'U'; // can't build but can pass
 static const char EMPTY = 'E'; // can build and pass
 static const char GOAL = 'G';
 
-
