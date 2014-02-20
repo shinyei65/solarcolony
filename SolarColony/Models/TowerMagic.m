@@ -71,10 +71,10 @@
 -(void) animatonAttack: (ccTime) dt
 {
     // bla bla bla
-    if (counterTest<=5) {
+    //if (counterTest<=5) {
         CCLOG(@"SHOTTING");
-        counterTest++;
-        if ([self numberOfRunningActions]==0) {
+     //   counterTest++;
+       // if ([self numberOfRunningActions]==0) {
             [bullet setVisible:true];
             CCLOG(@"coord x %f",targetLocation.x);
             CCLOG(@"coord x %f",targetLocation.y);
@@ -89,15 +89,15 @@
             
             [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
             
-        }
+     //   }
         
         
-    }else{
-        counterTest=0;
+   // }else{
+      //  counterTest=0;
         
         [self unscheduleAllSelectors];
         [self setIsAttacking:false];
-    }
+   // }
     
     
 }

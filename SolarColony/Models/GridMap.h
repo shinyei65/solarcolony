@@ -32,3 +32,8 @@
 - (CGPoint) getGoalIndex;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end
+
+@interface GridLinesLayer : CCLayer
++(instancetype) layer;
+-(instancetype) init;
+@end

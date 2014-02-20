@@ -7,13 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SoldierController.h"
 #import "Army.h"
 
 @interface WaveController : NSObject
 
-+ (instancetype) controller: (SoldierController *) sol_control;
-- (instancetype) init: (SoldierController *) sol_control;
++ (instancetype) controller;
+- (instancetype) init;
 - (void) update;
 - (void) startWave;
 - (void) endWave;
