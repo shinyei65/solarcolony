@@ -81,11 +81,11 @@ static GridMap *sharedInstance = nil;
     }
     CCSprite *background = [CCSprite spriteWithFile:@"testmap.png"];
     background.anchorPoint = CGPointMake(0, 0);
-    [self addChild:background z:0];
+    [self addChild:background];
     
     GridLinesLayer *lines = [GridLinesLayer layer];
     lines.anchorPoint = CGPointMake(0, 0);
-    [self addChild:lines z:1];
+    [self addChild:lines];
     
     // setup tower menu
     _towermenu = [TowerMenu menu];
