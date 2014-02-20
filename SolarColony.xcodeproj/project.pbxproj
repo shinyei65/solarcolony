@@ -173,6 +173,11 @@
 		F59D52B118AC86D100B62B5D /* bulletA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52B018AC86D100B62B5D /* bulletA.png */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
+		F5D5F45918B5A9B5004D0CBA /* blood_1:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5D5F45418B5A9B5004D0CBA /* blood_1:4.jpg */; };
+		F5D5F45A18B5A9B5004D0CBA /* blood_3:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5D5F45518B5A9B5004D0CBA /* blood_3:4.jpg */; };
+		F5D5F45B18B5A9B5004D0CBA /* blood_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5D5F45618B5A9B5004D0CBA /* blood_empty.jpg */; };
+		F5D5F45C18B5A9B5004D0CBA /* blood_full.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5D5F45718B5A9B5004D0CBA /* blood_full.jpg */; };
+		F5D5F45D18B5A9B5004D0CBA /* blood_half.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5D5F45818B5A9B5004D0CBA /* blood_half.jpg */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
@@ -514,6 +519,11 @@
 		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
+		F5D5F45418B5A9B5004D0CBA /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
+		F5D5F45518B5A9B5004D0CBA /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
+		F5D5F45618B5A9B5004D0CBA /* blood_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_empty.jpg; sourceTree = "<group>"; };
+		F5D5F45718B5A9B5004D0CBA /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
+		F5D5F45818B5A9B5004D0CBA /* blood_half.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_half.jpg; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
@@ -554,6 +564,11 @@
 			children = (
 				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
 				09AB937018B575070064A95D /* Sam.plist */,
+				F5D5F45418B5A9B5004D0CBA /* blood_1:4.jpg */,
+				F5D5F45518B5A9B5004D0CBA /* blood_3:4.jpg */,
+				F5D5F45618B5A9B5004D0CBA /* blood_empty.jpg */,
+				F5D5F45718B5A9B5004D0CBA /* blood_full.jpg */,
+				F5D5F45818B5A9B5004D0CBA /* blood_half.jpg */,
 				09AB937118B575070064A95D /* Sam.png */,
 				09AB936C18B573890064A95D /* flamingo.plist */,
 				09AB936D18B573890064A95D /* flamingo.png */,
@@ -1160,6 +1175,7 @@
 				F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */,
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
+				F5D5F45B18B5A9B5004D0CBA /* blood_empty.jpg in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
@@ -1174,11 +1190,14 @@
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				09AB937218B575070064A95D /* Sam.plist in Resources */,
+				F5D5F45C18B5A9B5004D0CBA /* blood_full.jpg in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				F59D52B118AC86D100B62B5D /* bulletA.png in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
+				F5D5F45918B5A9B5004D0CBA /* blood_1:4.jpg in Resources */,
 				09AB936E18B573890064A95D /* flamingo.plist in Resources */,
+				F5D5F45A18B5A9B5004D0CBA /* blood_3:4.jpg in Resources */,
 				09AB936F18B573890064A95D /* flamingo.png in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
