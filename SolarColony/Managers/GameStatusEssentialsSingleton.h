@@ -35,4 +35,6 @@
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) NSMutableArray *towers;
+
+
 @end
