@@ -47,7 +47,8 @@
     
     // initialize wave queue layer
     WaveQueue *wqueue = [WaveQueue layer];
-    [self addChild:wqueue];
+    [wqueue setPosition:ccp(40,[[CCDirector sharedDirector] winSize].height)];
+    [self addChild:wqueue z:2];
     
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
@@ -139,6 +140,9 @@
     //update soldiers
     [solController updateSoldier:delta];
     [waveController update];
+    
+    // update wave queue
+    [[WaveQueue layer] updateTick];
     
     
  //   [colissionsManager setSoldierArray:[solController getSoldierArray]];
