@@ -12,6 +12,11 @@
 @interface Settings : CCLayer<AbstractScene>{
     TransitionManagerSingleton * transitionManagerSingleton;
         MusicManagerSingleton* musicManagerSingleton;
+    CCMenuItem *MusicOn;
+    CCMenuItem *MusicOff;
+    CCMenuItem *_SoundOn;
+    CCMenuItem *_SoundOff;
+    
 }
 
 @end

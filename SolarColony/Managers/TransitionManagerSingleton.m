@@ -34,6 +34,8 @@ static TransitionManagerSingleton *sharedInstance = nil;
     self = [super init];
     
     if (self) {
+        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
+ 
         // Work your initialising magic here as you normally would
     }
     
@@ -44,6 +46,8 @@ static TransitionManagerSingleton *sharedInstance = nil;
   
   //  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[race node] ]];
        // [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[scenee scene] ]];
+    
+    [musicManagerSingleton playEffect:@"sound 1.wav"];
     
     switch (nextScene) {
        

@@ -15,23 +15,24 @@
 #import "cocos2d.h"
 
 
-static BOOL BGon = YES;
 
+static int musicNum = 5;
 @interface MusicManagerSingleton : NSObject {
-    NSMutableDictionary *EffectDic;
-    
+    NSMutableArray *EffectArray;
+    bool isPlayingSound;
 }
 
-+(MusicManagerSingleton *)shareSoundManager;
++(id)shareSoundManager;
 
 -(id)init;
 -(void) preLoadBackGroundMusic:(NSString *)filename fileExt:(NSString *)theFileExt;
 -(void) BackGroundMusic;
--(void) preLoadEffect:(NSString *)filename fileExt:(NSString *)theFileExt;
--(void) EffectMusic:(int)EffectState;
+-(void) resumeEffect;
+-(void) playEffect:(NSString*)filePath;
+-(void) pauseEffect;
+-(void) preLoadEffect;
 
--(void) SetBackgroundVolume:(ALfloat)theVolume;
--(void) ShutDownManager;
+
 
 
 @end

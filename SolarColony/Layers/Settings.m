@@ -45,29 +45,47 @@
 }
 - (CCMenu*)loadMenu
 {
+    
+    
     CCMenuItemFont *menuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
     menuItemAccount.tag=1;
     
     CCMenuItemFont *menuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
     menuItemMusic.tag=2;
-    CCMenuItemFont *menuItemMusicOn=[CCMenuItemFont itemWithString:@"On" target:self selector:@selector(turnsound:)];
-    CCMenuItemFont *menuItemMusicOff=[CCMenuItemFont itemWithString:@"Off" target:self selector:@selector(turnsound:)];
+  /*  MusicOn = [[CCMenuItemImage itemFromNormalImage:@"soundOn.png"
+                                       selectedImage:@"soundOn.png" target:nil selector:nil]retain];
+    
+    
+    MusicOff = [[CCMenuItemImage itemFromNormalImage:@"soundOff.png"
+                                        selectedImage:@"soundOff.png" target:nil selector:nil]retain];
+    CCMenuItemToggle *musicToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                                selector:@selector(MusicButtonTapped:)
+                                                                   items:MusicOn, MusicOff, nil];
+   */
+    
     CCMenuItemFont *menuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
     menuItemSound.tag=3;
-    CCMenuItemFont *menuItemSoundOn=[CCMenuItemFont itemWithString:@"On"];
-    CCMenuItemFont *menuItemSoundOff=[CCMenuItemFont itemWithString:@"Off"];
+    _SoundOn = [CCMenuItemImage itemFromNormalImage:@"soundOn.png" selectedImage:@"soundOff" target:nil selector:nil];
+    _SoundOff = [CCMenuItemImage itemFromNormalImage:@"soundOff.png" selectedImage:@"soundOff.png" target:nil selector:nil];
+    CCMenuItemToggle *soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                                selector:@selector(SoundButtonTapped:)
+                                                                   items:_SoundOn, _SoundOff, nil];
+    
     CCMenuItemFont *menuItemBack=[CCMenuItemFont itemWithString:@"Back"
                                                          target:self selector:@selector(moveToScene:)];
     menuItemBack.tag=4;
     
-    CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, menuItemMusicOn, menuItemMusicOff, menuItemSound, menuItemSoundOn, menuItemSoundOff, menuItemBack, nil];
+    //CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, musicToggleItem, menuItemSound, soundToggleItem, menuItemBack, nil];
+    //CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, musicToggleItem, menuItemBack, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemSound, soundToggleItem, menuItemBack, nil];
     
-    [mainMenu alignItemsInColumns:[NSNumber numberWithInt:1],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:1], nil];
+    
+    [mainMenu alignItemsInColumns:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:1], nil];
     //[mainMenu alignItemsVerticallyWithPadding:20];
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
     
-    return mainMenu;
+          return mainMenu;
     
 }
 
@@ -77,22 +95,43 @@
     if ([menuItem.label.string isEqualToString:@"Back"]) {
         [transitionManagerSingleton transitionTo:4];
     }
-  //  [[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[HomeScene node]]];
 }
--(void)turnsound:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    if([menuItem.label.string isEqualToString:@"Off"])
-    {
-        [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
-        
-    }
-    else {
+
+-(void) MusicButtonTapped: (id)sender
+{
+    CCMenuItemToggle *menu = (CCMenuItemToggle *)sender;
+    if(menu.selectedItem == MusicOn){
         [[SimpleAudioEngine sharedEngine]resumeBackgroundMusic];
     }
+    else if(menu.selectedItem == MusicOff){
+        [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
+    }
+    
 }
+-(void) SoundButtonTapped: (id)sender
+{
+    CCMenuItemToggle *menu = (CCMenuItemToggle *)sender;
+    if(menu.selectedItem == _SoundOn){
+        [musicManagerSingleton resumeEffect];
+    }
+    else if(menu.selectedItem == _SoundOff){
+        [musicManagerSingleton pauseEffect];
+    }
+    
+}
+
 - (void)dealloc
 {
-    [super dealloc];
+  /*  [MusicOn release];
+    MusicOn = nil;
+    [MusicOff release];
+    MusicOff = nil;
+    [_SoundOn release];
+    _SoundOn = nil;
+    [_SoundOff release];
+    _SoundOff = nil;
+   */
+   [super dealloc];
 }
 
 
