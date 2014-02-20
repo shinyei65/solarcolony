@@ -8,6 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "ModelsConstants.h"
+#import "WaveController.h"
+#import "SoldierController.h"
+#import "GridMap.h"
+#import "Soldier.h"
+#import "Army.h"
+#import "WaveQueue.h"
+
 
 @interface GameStatusEssentialsSingleton : CCNode
 + (id)sharedInstance;
@@ -20,6 +28,9 @@
 - (void) removeAllSoldiers;
 - (void) removeAllTowers;
 
+// map property
+- (NSString *) getGameMapName;
+- (NSString *) getGameMapImagename;
 
 
 @property(assign, nonatomic) NSMutableArray *soldiers;

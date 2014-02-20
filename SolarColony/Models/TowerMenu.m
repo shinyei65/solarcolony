@@ -74,11 +74,7 @@
     } else if ([menuItem.label.string isEqualToString:@"B"])  {
        // [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerDestroyer" object:towerLocation];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerBasic" object:self userInfo:userInfo];
-
-        
-    }    
-
-    
+    }
 }
 
 

@@ -10,7 +10,7 @@
 //
 
 #import "GridMap.h"
-#import "ModelsConstants.h"
+#import "GameStatusEssentialsSingleton.h"
 
 
 @implementation GridMap
@@ -62,7 +62,8 @@ static GridMap *sharedInstance = nil;
     }*/
     
     // initialize map from file
-    NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"testmap" ofType:@"txt"];
+    NSString *mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapName];
+    NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:mapname ofType:@"txt"];
     NSString *contents = [NSString stringWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
     NSArray* allLinedStrings = [contents componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
     for(int i=0; i<[allLinedStrings count]; i++){
@@ -79,7 +80,8 @@ static GridMap *sharedInstance = nil;
                 _goal = ccp(i-1, j);
         }
     }
-    CCSprite *background = [CCSprite spriteWithFile:@"testmap.png"];
+    mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapImagename];
+    CCSprite *background = [CCSprite spriteWithFile:mapname];
     background.anchorPoint = CGPointMake(0, 0);
     [self addChild:background];
     

@@ -15,5 +15,6 @@
 
 + (instancetype) layer;
 - (instancetype) init;
-
+- (void) updateTick;
+- (void) refreshTick;
 @end

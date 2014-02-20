@@ -26,8 +26,6 @@
 		F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795118B5B58D0037A48A /* blood_3:4.jpg */; };
 		F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795318B5B58D0037A48A /* blood_full.jpg */; };
 		F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795418B5B58D0037A48A /* blood_half.jpg */; };
-		F53E795F18B5C17C0037A48A /* queue_back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795D18B5C17C0037A48A /* queue_back.jpg */; };
-		F53E796018B5C17C0037A48A /* queue_start.png in Resources */ = {isa = PBXBuildFile; fileRef = F53E795E18B5C17C0037A48A /* queue_start.png */; };
 		F53E796218B5CA030037A48A /* testmap.png in Resources */ = {isa = PBXBuildFile; fileRef = F53E796118B5CA030037A48A /* testmap.png */; };
 		F53E796518B5D16C0037A48A /* WaveQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F53E796418B5D16C0037A48A /* WaveQueue.m */; };
 		F53E796818B5D1A70037A48A /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = F53E796718B5D1A70037A48A /* Army.m */; };
@@ -211,14 +209,11 @@
 		F528C72D18B5B18D003B4FB8 /* ThreadSafeMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadSafeMutableArray.h; sourceTree = "<group>"; };
 		F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeMutableArray.m; sourceTree = "<group>"; };
 		F53E794918B5AABF0037A48A /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
-		F53E794B18B5ABDC0037A48A /* queue_arrow.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = queue_arrow.jpeg; sourceTree = "<group>"; };
 		F53E795018B5B58D0037A48A /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
 		F53E795118B5B58D0037A48A /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
 		F53E795318B5B58D0037A48A /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
 		F53E795418B5B58D0037A48A /* blood_half.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_half.jpg; sourceTree = "<group>"; };
 		F53E795A18B5B6270037A48A /* blood_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_empty.jpg; sourceTree = "<group>"; };
-		F53E795D18B5C17C0037A48A /* queue_back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = queue_back.jpg; sourceTree = "<group>"; };
-		F53E795E18B5C17C0037A48A /* queue_start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = queue_start.png; sourceTree = "<group>"; };
 		F53E796118B5CA030037A48A /* testmap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testmap.png; sourceTree = "<group>"; };
 		F53E796318B5D16C0037A48A /* WaveQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveQueue.h; sourceTree = "<group>"; };
 		F53E796418B5D16C0037A48A /* WaveQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveQueue.m; sourceTree = "<group>"; };
@@ -563,14 +558,11 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				F53E795D18B5C17C0037A48A /* queue_back.jpg */,
-				F53E795E18B5C17C0037A48A /* queue_start.png */,
 				F53E795A18B5B6270037A48A /* blood_empty.jpg */,
 				F53E795018B5B58D0037A48A /* blood_1:4.jpg */,
 				F53E795118B5B58D0037A48A /* blood_3:4.jpg */,
 				F53E795318B5B58D0037A48A /* blood_full.jpg */,
 				F53E795418B5B58D0037A48A /* blood_half.jpg */,
-				F53E794B18B5ABDC0037A48A /* queue_arrow.jpeg */,
 				F53E794918B5AABF0037A48A /* bulletA.gif */,
 				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
 				F59D52AA18AC78BB00B62B5D /* towerA.png */,
@@ -1182,7 +1174,6 @@
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
-				F53E795F18B5C17C0037A48A /* queue_back.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
@@ -1199,7 +1190,6 @@
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
-				F53E796018B5C17C0037A48A /* queue_start.png in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
