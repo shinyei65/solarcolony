@@ -12,7 +12,7 @@
 #import "ModelsConstants.h"
 
 
-
+static SoldierController *sharedSoldierController = nil;
 
 @implementation SoldierController{
     NSMutableArray *soldierarray;
@@ -20,7 +20,10 @@
 }
 
 +Controller{
-    return ([[SoldierController alloc]init]);
+    if(sharedSoldierController == nil){
+    sharedSoldierController = [[super allocWithZone:nil] init];
+    }
+    return sharedSoldierController;
 }
 
 -init{
