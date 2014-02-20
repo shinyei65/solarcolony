@@ -18,6 +18,13 @@
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
+		F528C72518B5A2C3003B4FB8 /* blood_1:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F528C72018B5A2C3003B4FB8 /* blood_1:4.jpg */; };
+		F528C72618B5A2C3003B4FB8 /* blood_3:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F528C72118B5A2C3003B4FB8 /* blood_3:4.jpg */; };
+		F528C72718B5A2C3003B4FB8 /* blood_empty.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F528C72218B5A2C3003B4FB8 /* blood_empty.jpg */; };
+		F528C72818B5A2C3003B4FB8 /* blood_full.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F528C72318B5A2C3003B4FB8 /* blood_full.jpg */; };
+		F528C72918B5A2C3003B4FB8 /* blood_half.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F528C72418B5A2C3003B4FB8 /* blood_half.jpg */; };
+		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
+		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
 		F551C4CF18B426F500943FE6 /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = F551C4CE18B426F500943FE6 /* Army.m */; };
 		F5584E4618AECA7700C81B59 /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5584E4518AECA7700C81B59 /* WaveController.m */; };
 		F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5584E4818AEDB8100C81B59 /* testmap.txt */; };
@@ -192,6 +199,15 @@
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
+		F528C72018B5A2C3003B4FB8 /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
+		F528C72118B5A2C3003B4FB8 /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
+		F528C72218B5A2C3003B4FB8 /* blood_empty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_empty.jpg; sourceTree = "<group>"; };
+		F528C72318B5A2C3003B4FB8 /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
+		F528C72418B5A2C3003B4FB8 /* blood_half.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_half.jpg; sourceTree = "<group>"; };
+		F528C72A18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusEssentialsSingleton.h; sourceTree = "<group>"; };
+		F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatusEssentialsSingleton.m; sourceTree = "<group>"; };
+		F528C72D18B5B18D003B4FB8 /* ThreadSafeMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadSafeMutableArray.h; sourceTree = "<group>"; };
+		F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeMutableArray.m; sourceTree = "<group>"; };
 		F551C4CD18B426F500943FE6 /* Army.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Army.h; sourceTree = "<group>"; };
 		F551C4CE18B426F500943FE6 /* Army.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Army.m; sourceTree = "<group>"; };
 		F5584E4418AECA7700C81B59 /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
@@ -534,13 +550,13 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F528C72018B5A2C3003B4FB8 /* blood_1:4.jpg */,
+				F528C72118B5A2C3003B4FB8 /* blood_3:4.jpg */,
+				F528C72218B5A2C3003B4FB8 /* blood_empty.jpg */,
+				F528C72318B5A2C3003B4FB8 /* blood_full.jpg */,
+				F528C72418B5A2C3003B4FB8 /* blood_half.jpg */,
 				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
 				F59D52B018AC86D100B62B5D /* bulletA.png */,
-				F519100218B42FC4002EC6D6 /* blood_1:4.jpg */,
-				F519100318B42FC4002EC6D6 /* blood_3:4.jpg */,
-				F519100418B42FC4002EC6D6 /* blood_empty.jpg */,
-				F519100518B42FC4002EC6D6 /* blood_full.jpg */,
-				F519100618B42FC4002EC6D6 /* blood_half.jpg */,
 				F59D52AA18AC78BB00B62B5D /* towerA.png */,
 				F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */,
 			);
@@ -572,6 +588,8 @@
 				F58E478018AEC86700204A79 /* BulletBasic.m */,
 				F551C4CD18B426F500943FE6 /* Army.h */,
 				F551C4CE18B426F500943FE6 /* Army.m */,
+				F528C72D18B5B18D003B4FB8 /* ThreadSafeMutableArray.h */,
+				F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1054,6 +1072,8 @@
 				F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */,
 				21DD4D0718AF5CA9009E55DC /* MusicManagerSingleton.h */,
 				21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */,
+				F528C72A18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.h */,
+				F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1138,20 +1158,20 @@
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
-				F519100A18B42FC4002EC6D6 /* blood_full.jpg in Resources */,
+				F528C72818B5A2C3003B4FB8 /* blood_full.jpg in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
-				F519100818B42FC4002EC6D6 /* blood_3:4.jpg in Resources */,
-				F519100B18B42FC4002EC6D6 /* blood_half.jpg in Resources */,
+				F528C72618B5A2C3003B4FB8 /* blood_3:4.jpg in Resources */,
+				F528C72918B5A2C3003B4FB8 /* blood_half.jpg in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
-				F519100918B42FC4002EC6D6 /* blood_empty.jpg in Resources */,
+				F528C72718B5A2C3003B4FB8 /* blood_empty.jpg in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
-				F519100718B42FC4002EC6D6 /* blood_1:4.jpg in Resources */,
+				F528C72518B5A2C3003B4FB8 /* blood_1:4.jpg in Resources */,
 				F59D52B118AC86D100B62B5D /* bulletA.png in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
@@ -1202,6 +1222,7 @@
 				F5080CB318A96AB800E99AD9 /* race.m in Sources */,
 				F559499C18A56F3E008ADDED /* CCTextureAtlas.m in Sources */,
 				F5594A4A18A56F40008ADDED /* utility.c in Sources */,
+				F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */,
 				F55949F618A56F3F008ADDED /* CCVertex.m in Sources */,
 				F55949FC18A56F3F008ADDED /* NSThread+performBlock.m in Sources */,
 				F559490318A56F3C008ADDED /* CCActionTiledGrid.m in Sources */,
@@ -1256,6 +1277,7 @@
 				F5C8460318A9647A0019F6F7 /* defense.m in Sources */,
 				F5594A1118A56F40008ADDED /* CDOpenALSupport.m in Sources */,
 				F55948F418A56F3B008ADDED /* CCActionInstant.m in Sources */,
+				F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */,
 				F559491518A56F3C008ADDED /* CCClippingNode.m in Sources */,
 				F559499918A56F3E008ADDED /* CCTexture2D.m in Sources */,
 				F55949AE18A56F3E008ADDED /* CCTMXTiledMap.m in Sources */,

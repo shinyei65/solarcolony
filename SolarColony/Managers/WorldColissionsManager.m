@@ -10,70 +10,37 @@
 
 
 @implementation WorldColissionsManager
+{
+    GridMap *grid;
+}
 @synthesize soldiers;
 @synthesize towers;
 
-- (id)init
+- (id)init:(GridMap *) gridMap
 {
     self = [super init];
     if (self) {
-        towers= [[NSMutableArray alloc] init];
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+     
         soldiers= [[NSMutableArray alloc] init];
-        
+        grid=gridMap;
         
     }
     return self;
 }
 
-+Controller{
-    return ([[WorldColissionsManager alloc]init]);
++Controller:(GridMap *) gridMap{
+    return ([[WorldColissionsManager alloc]init:gridMap]);
 }
-/*
--(void) surveliance{
-    CGPoint towerpoint;
-    CGPoint soldierpoint;
-    CGPoint soldierpointtest;
-    for (TowerHuman* tower in towers) {
-        towerpoint=[tower getLocation];
-        //need add is attacking
-        
-       
-            //tower is not attacking
-            //[tower setIsAttacking:true];
-            
-            for (NSValue* soldier in soldiers) {
-           
-            //[yourCGPointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(100, 10
-          
-                soldierpoint = soldier.CGPointValue;
-                soldierpointtest = soldier.CGPointValue;
-                soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
-                if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
-                     CCLOG(@"PREPARE SHOT ONE POINT");
-                //reduce energy in soldier
-                
-                //animate attack from soldier
-                
-                //animate attack from tower
-                   
-                    [tower attackTest:soldierpoint];
-                    [soldiers removeObject:soldier];
-                    break;
-            //animates deaths is possible
-                }
-            
-            }
-       
-        // do stuff
-    }
-}*/
+
 
 -(void) surveliance{
     CGPoint towerpoint;
     CGPoint soldierpoint;
-    CGPoint soldierpointtest;
+
      //   CCLOG(@"entering x %f", towerpoint.x);
-    for (TowerHuman* tower in towers) {
+    //for (TowerHuman* tower in towers) {
+    for (TowerHuman* tower in gameStatusEssentialsSingleton.towers) {
         towerpoint=[tower getLocation];
         //need add is attacking
      //   CCLOG(@"Addres tower x %f", towerpoint.x);
@@ -84,13 +51,13 @@
         
         for (Soldier* soldier in soldiers) {
             
-            //[yourCGPointsArray addObject:[NSValue valueWithCGPoint:CGPointMake(100, 10
-            
+                  
             soldierpoint = [soldier getPOSITION];
-            soldierpoint=[self convertToWorldSpace:soldierpoint];
+            //soldierpoint=[self convertToWorldSpace:soldierpoint];
+            soldierpoint=[grid convertMapIndexToGL:soldierpoint];
            // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
           //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
-       //     CCLOG(@"addres soldier y %f", soldierpoint.y);
+           // CCLOG(@"addres soldier y %f", soldierpoint.y);
             if ( (towerpoint.x>=soldierpoint.x-160&&towerpoint.x<=soldierpoint.x+160)&&(towerpoint.y>=soldierpoint.y-160&& towerpoint.y<=soldierpoint.y+160)&&[tower isAttacking]==false) {
                 CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
@@ -144,8 +111,9 @@
  
     
 }
--(void)addTower:(TowerHuman*)towerr{
-    [towers addObject:towerr];
+-(void)addTower:(CCNode*)towerr{
+   // [towers addObject:towerr];
+    [gameStatusEssentialsSingleton.towers addObject:towerr];
 }
 
 -(void)removeSoldier:(Soldier*)soldier{

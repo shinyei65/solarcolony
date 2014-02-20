@@ -9,16 +9,21 @@
 #import <Foundation/Foundation.h>
 #import "TowerHuman.h"
 #import "Soldier.h"
+#import "GridMap.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @interface WorldColissionsManager : CCNode
-+(instancetype) Controller;
+{
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+}
++Controller:(GridMap *) gridMap;
 -(void) surveliance;
 -(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier;
 -(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier;
 -(void)addSoldier:(Soldier*)soldier;
 -(void)addSoldierTest:(CGPoint)soldier;
 -(void)addSoldierTestB:(Soldier*)soldier;
--(void)addTower:(TowerHuman*)tower;
+-(void)addTower:(CCNode*)tower;
 -(void)removeSoldier:(Soldier*)soldier;
 -(void)removeTower:(TowerHuman*)tower;
 -(void)setSoldierArray:(NSMutableArray*) soldiersIncome;

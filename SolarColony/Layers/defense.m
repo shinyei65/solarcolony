@@ -63,7 +63,7 @@
     waveController = [WaveController controller:solController Grid:grid];
     
     //sets up world colision manager
-    colissionsManager= [[WorldColissionsManager alloc] init];
+    colissionsManager= [WorldColissionsManager Controller:grid];
     [colissionsManager setSoldierArray:[solController getSoldierArray]];
     
    // CCLOG(@"number of soldier: %d",[solController getArraylength]);
