@@ -31,6 +31,7 @@
 - (void)move:(char)direction gridSize:(CGSize)size currentTime:(ccTime)currentTime;
 - (void)attack;
 -(float)getNextMoveTime;
+-(void)beingAttacked:(int)attack_power;
 
 
 

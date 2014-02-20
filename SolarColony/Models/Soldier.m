@@ -167,6 +167,12 @@
     return nextMoveTime;
 }
 
+-(void)beingAttacked:(int)attack_power{
+    int newHealth = [self getHEALTH] - attack_power;
+    [self setHEALTH:newHealth];
+}
+
+
 - (void)attack{
     
 }

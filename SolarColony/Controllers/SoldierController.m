@@ -52,13 +52,14 @@
     }
     
     //simulate being attacked
+    /*
     if (currentTime > 12 && currentTime < 23) {
-        CCLOG(@"set Health");
         for (int i=0; i < [soldierarray count];i++) {
             sol = (Soldier *)[soldierarray objectAtIndex:i];
             [sol setHEALTH:45];
         }
     }
+    */
 }
 
 
