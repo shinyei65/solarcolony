@@ -16,7 +16,6 @@
 
 @implementation SoldierController{
     NSMutableArray *soldierarray;
-    float nextMoveTime;
     float currentTime;
 }
 
@@ -26,7 +25,6 @@
 
 -init{
     soldierarray = [[NSMutableArray alloc] init];
-    nextMoveTime = 0;
     currentTime = 0;
     
     return self;
@@ -41,24 +39,27 @@
 -(void)updateSoldier:(ccTime) time Map:(GridMap *) map{
     Soldier *sol;
     currentTime += time;
-    if (currentTime > nextMoveTime) {
-            for (int i=0; i < [soldierarray count];i++) {
-            sol = (Soldier *)[soldierarray objectAtIndex:i];
+    
+    for (int i=0; i < [soldierarray count];i++) {
+        sol = (Soldier *)[soldierarray objectAtIndex:i];
+        if (currentTime > [sol getNextMoveTime]) {
             char status = [map getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL)
                 [sol setVisible:FALSE];
             else
-                [sol move:status gridSize:[map getCellSize]];
-            nextMoveTime += 0.5;
+                [sol move:status gridSize:[map getCellSize] currentTime:currentTime];
         }
     }
     
-    if (currentTime > 2 && currentTime < 3) {
+    //simulate being attacked
+    /*
+    if (currentTime > 12 && currentTime < 23) {
         for (int i=0; i < [soldierarray count];i++) {
             sol = (Soldier *)[soldierarray objectAtIndex:i];
             [sol setHEALTH:45];
         }
     }
+    */
 }
 
 

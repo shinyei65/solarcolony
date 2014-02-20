@@ -63,11 +63,58 @@
         [colissionsManager addTower:t3];
         [self addChild:t3];
         
+        //Test sprite sheet
+        CCSpriteFrameCache *cache=[CCSpriteFrameCache sharedSpriteFrameCache];
+        [cache addSpriteFramesWithFile:@"Sam.plist"];
         
+        // frame array
+        NSMutableArray *framesArray=[NSMutableArray array];
+        for (int i=1; i<=4; i++) {
+            NSString *frameName=[NSString stringWithFormat:@"drummer%d.png", i];
+            id frameObject=[cache spriteFrameByName:frameName];
+            [framesArray addObject:frameObject];
+        }
         
+        // animation object
+        id animObject=[CCAnimation animationWithFrames:framesArray delay:0.1];
         
+        // animation action
+        id animAction=[CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
+        animAction=[CCRepeatForever actionWithAction:animAction];
         
-       
+        // sprite
+        CCSprite *drummer=[CCSprite spriteWithSpriteFrameName:@"drummer1.png"];
+        drummer.position=ccp(160,160);
+        [self addChild:drummer];
+        
+        [drummer runAction:animAction];
+        
+        CCSpriteFrameCache *cache_pink=[CCSpriteFrameCache sharedSpriteFrameCache];
+        [cache_pink addSpriteFramesWithFile:@"flamingo.plist"];
+        
+        // frame array
+        NSMutableArray *framesArray_pink=[NSMutableArray array];
+        for (int i=1; i<=3; i++) {
+            NSString *frameName=[NSString stringWithFormat:@"flamingo%d.png", i];
+            id frameObject=[cache_pink spriteFrameByName:frameName];
+            [framesArray_pink addObject:frameObject];
+        }
+        
+        // animation object
+        id animObject_pink=[CCAnimation animationWithFrames:framesArray_pink delay:0.1];
+        
+        // animation action
+        id animAction_pink=[CCAnimate actionWithAnimation:animObject_pink restoreOriginalFrame:NO];
+        animAction_pink=[CCRepeatForever actionWithAction:animAction_pink];
+        
+        // sprite
+        CCSprite *pink=[CCSprite spriteWithSpriteFrameName:@"drummer1.png"];
+        pink.position=ccp(300,100);
+        [self addChild:pink];
+        
+        [pink runAction:animAction_pink];
+
+
     }
     return self;
 }
