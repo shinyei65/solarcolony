@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "SoldierController.h"
-#import "GridMap.h"
 #import "Army.h"
 
 @interface WaveController : NSObject
 
-+ (instancetype) controller: (SoldierController *) sol_control Grid: (GridMap *) grid;
-- (instancetype) init: (SoldierController *) sol_control Grid: (GridMap *) grid;
++ (instancetype) controller: (SoldierController *) sol_control;
+- (instancetype) init: (SoldierController *) sol_control;
 - (void) update;
 - (void) startWave;
 - (void) endWave;

@@ -8,7 +8,6 @@
 
 #import "defense.h"
 #import "Soldier.h"
-#import "GridMap.h"
 #import "SoldierController.h"
 #import "WaveController.h"
 #import "TowerMenu.h"
@@ -60,7 +59,7 @@
     }*/
     
     // initialize wave controller
-    waveController = [WaveController controller:solController Grid:grid];
+    waveController = [WaveController controller:solController];
     
     //sets up world colision manager
     colissionsManager= [[WorldColissionsManager alloc] init];

@@ -17,7 +17,7 @@
     self = [super init];
     if (!self) return(nil);
     
-    CCSprite* towerSprite = [CCSprite spriteWithFile:@"bulletA.png"];
+    CCSprite* towerSprite = [CCSprite spriteWithFile:@"bulletA.gif"];
     [self setLocation:location];
    
     [self addChild:towerSprite];

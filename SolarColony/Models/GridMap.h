@@ -14,7 +14,7 @@
 
 @interface GridMap : CCLayerColor
 
-+ (instancetype) map;
++ (GridMap *) map;
 - (instancetype) init;
 - (void) setMap:(char) target X:(int) x Y:(int) y;
 - (char) getStatusAtX:(int) x Y:(int) y;
@@ -28,5 +28,7 @@
 - (CGPoint) getTowerMenuPosition;
 - (void) setTowerMenuPosition:(CGPoint) loc;
 - (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z;
+- (CGPoint) getStartIndex;
+- (CGPoint) getGoalIndex;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end
