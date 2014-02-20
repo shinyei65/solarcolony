@@ -50,8 +50,10 @@
         //[tower setIsAttacking:true];
         
         for (Soldier* soldier in soldiers) {
+            if (![soldier visible]) {
+                   continue;
+            }
             
-                  
             soldierpoint = [soldier getPOSITION];
             //soldierpoint=[self convertToWorldSpace:soldierpoint];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
@@ -66,8 +68,9 @@
                 //animate attack from tower
                 
                 [tower attackTest:soldierpoint];
-                [soldier beingAttacked:5];
+                [soldier beingAttacked:10];
 
+                [soldier attackTest:towerpoint];
                 
                 //[soldiers removeObject:soldier];
                 break;

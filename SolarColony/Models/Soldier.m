@@ -23,7 +23,10 @@
     float nextMoveTime;
     BOOL S_attack_flag;
     CGPoint S_position;
+     id movePoint, returnPoint ;
+    BulletBasic* bullet;
 }
+@synthesize targetLocation;
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     return([[Soldier alloc]attacker_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp]);
@@ -48,6 +51,7 @@
     [self addChild:_soldier];
     [self addChild:_hp];
 
+
     return self;
 }
 
@@ -67,6 +71,10 @@
     [self addChild:_soldier];
     [self addChild:_hp];
 
+    
+    bullet = [[ BulletBasic alloc] initTower:ccp(150, 150)];
+    [self addChild:bullet];
+    
     return self;
 }
 
@@ -173,9 +181,42 @@
 }
 
 
-- (void)attack{
+- (void) attackTest:(CGPoint) tower{
+     CCLOG(@"SHOTTING TOWERRRR*********");
+      targetLocation=tower;
+    [self schedule: @selector(animatonAttack:) interval:1];
+    
+   
     
 }
+
+-(void) animatonAttack: (ccTime) dt
+{
+    // bla bla bla
+    //   if (counterTest<=5) {
+    CCLOG(@"SHOTTING TOWERRRR*********99999595959595");
+ 
+    [bullet setVisible:true];
+       CCLOG(@"coord x %f",targetLocation.x);
+      CCLOG(@"coord x %f",targetLocation.y);
+    CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
+     //  CCLOG(@"coord x %f",targetLocations.x);
+       //CCLOG(@"coord x %f",targetLocations.y);
+    CGPoint targetPrevious = [bullet position];
+ 
+    movePoint = [CCMoveTo actionWithDuration:.2 position:targetLocations];
+    returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    
+    [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+ 
+    
+ 
+    [self unscheduleAllSelectors];
+ 
+  
+    
+}
+
 
 - (void)dealloc
 {

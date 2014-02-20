@@ -51,6 +51,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     [soldiers addObject:soldier];
 }
 - (void) removeTowerAt:(int) index{
+     
     [towers removeObjectAtIndex:index];
 }
 

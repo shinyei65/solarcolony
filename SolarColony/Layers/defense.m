@@ -110,9 +110,9 @@
         [colissionsManager addTower:t3];
         
         [grid addTower:t3 index:[t3 position] z:1];
-       
+        //GET CELL INDEX
         
-        
+        [[grid getTowerMenu] setVisible:FALSE];
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
 
         float pointX=grid.menuLocation.x;
