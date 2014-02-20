@@ -978,6 +978,24 @@ static BOOL _mixerRateSet = NO;
 	}
 	alGetError();//Clear error in case we stopped any sounds that couldn't be stopped
 }
+//sophia
+- (void)pauseSound:(ALuint) sourceId {
+	if (!functioning_) {
+		return;
+	}
+    alSourcePause(sourceId);
+	alGetError();//Clear error in case we stopped any sounds that couldn't be stopped
+}
+- (void)resumeSound:(ALuint) sourceId{
+    if (!functioning_) {
+		return;
+	}
+    alSourcePlay(sourceId);
+	alGetError();//Clear error in case we stopped any sounds that couldn't be stopped
+
+}
+
+
 
 /**
  * Set a source group as non interruptible.  Default is that source groups are interruptible.

@@ -12,6 +12,13 @@
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
+		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
+		210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506A18B5C0DA00F7A1DE /* sound 2.wav */; };
+		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
+		210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506C18B5C0DA00F7A1DE /* sound 4.wav */; };
+		210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506D18B5C0DA00F7A1DE /* sound 5.wav */; };
+		213D9A4718B688C700D9F63C /* soundOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 213D9A4518B688C700D9F63C /* soundOff.png */; };
+		213D9A4818B688C700D9F63C /* soundOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 213D9A4618B688C700D9F63C /* soundOn.png */; };
 		21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0318AF5C1C009E55DC /* background.mp3 */; };
 		21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0418AF5C1C009E55DC /* dark.mp3 */; };
 		21DD4D0918AF5CA9009E55DC /* MusicManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */; };
@@ -190,6 +197,13 @@
 		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
+		210D506A18B5C0DA00F7A1DE /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
+		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
+		210D506C18B5C0DA00F7A1DE /* sound 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 4.wav"; sourceTree = "<group>"; };
+		210D506D18B5C0DA00F7A1DE /* sound 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 5.wav"; sourceTree = "<group>"; };
+		213D9A4518B688C700D9F63C /* soundOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOff.png; sourceTree = "<group>"; };
+		213D9A4618B688C700D9F63C /* soundOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOn.png; sourceTree = "<group>"; };
 		21DD4D0318AF5C1C009E55DC /* background.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = background.mp3; sourceTree = "<group>"; };
 		21DD4D0418AF5C1C009E55DC /* dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dark.mp3; sourceTree = "<group>"; };
 		21DD4D0718AF5CA9009E55DC /* MusicManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicManagerSingleton.h; sourceTree = "<group>"; };
@@ -1051,6 +1065,11 @@
 		F5594A8218A57141008ADDED /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				210D506918B5C0DA00F7A1DE /* sound 1.wav */,
+				210D506A18B5C0DA00F7A1DE /* sound 2.wav */,
+				210D506B18B5C0DA00F7A1DE /* sound 3.wav */,
+				210D506C18B5C0DA00F7A1DE /* sound 4.wav */,
+				210D506D18B5C0DA00F7A1DE /* sound 5.wav */,
 				21DD4D0318AF5C1C009E55DC /* background.mp3 */,
 				09AB937718B5B2A40064A95D /* background.wav */,
 				09AB937818B5B2A40064A95D /* braincandy.wav */,
@@ -1167,18 +1186,24 @@
 			files = (
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
+				210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */,
 				F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */,
 				F53E796218B5CA030037A48A /* testmap.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */,
+				213D9A4718B688C700D9F63C /* soundOff.png in Resources */,
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
+				213D9A4818B688C700D9F63C /* soundOn.png in Resources */,
+				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
+				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
+				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
@@ -1191,6 +1216,7 @@
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
+				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
