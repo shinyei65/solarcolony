@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
+		09AB936A18B5725D0064A95D /* birdAtlas.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09AB936818B5725D0064A95D /* birdAtlas.plist */; };
+		09AB936B18B5725D0064A95D /* birdAtlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB936918B5725D0064A95D /* birdAtlas.png */; };
+		09AB936E18B573890064A95D /* flamingo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09AB936C18B573890064A95D /* flamingo.plist */; };
+		09AB936F18B573890064A95D /* flamingo.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB936D18B573890064A95D /* flamingo.png */; };
+		09AB937218B575070064A95D /* Sam.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937018B575070064A95D /* Sam.plist */; };
+		09AB937318B575070064A95D /* Sam.png in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937118B575070064A95D /* Sam.png */; };
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0318AF5C1C009E55DC /* background.mp3 */; };
@@ -175,6 +181,12 @@
 /* Begin PBXFileReference section */
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
+		09AB936818B5725D0064A95D /* birdAtlas.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = birdAtlas.plist; sourceTree = "<group>"; };
+		09AB936918B5725D0064A95D /* birdAtlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = birdAtlas.png; sourceTree = "<group>"; };
+		09AB936C18B573890064A95D /* flamingo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = flamingo.plist; sourceTree = "<group>"; };
+		09AB936D18B573890064A95D /* flamingo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flamingo.png; sourceTree = "<group>"; };
+		09AB937018B575070064A95D /* Sam.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sam.plist; sourceTree = "<group>"; };
+		09AB937118B575070064A95D /* Sam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sam.png; sourceTree = "<group>"; };
 		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -535,12 +547,13 @@
 			isa = PBXGroup;
 			children = (
 				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
+				09AB937018B575070064A95D /* Sam.plist */,
+				09AB937118B575070064A95D /* Sam.png */,
+				09AB936C18B573890064A95D /* flamingo.plist */,
+				09AB936D18B573890064A95D /* flamingo.png */,
+				09AB936818B5725D0064A95D /* birdAtlas.plist */,
+				09AB936918B5725D0064A95D /* birdAtlas.png */,
 				F59D52B018AC86D100B62B5D /* bulletA.png */,
-				F519100218B42FC4002EC6D6 /* blood_1:4.jpg */,
-				F519100318B42FC4002EC6D6 /* blood_3:4.jpg */,
-				F519100418B42FC4002EC6D6 /* blood_empty.jpg */,
-				F519100518B42FC4002EC6D6 /* blood_full.jpg */,
-				F519100618B42FC4002EC6D6 /* blood_half.jpg */,
 				F59D52AA18AC78BB00B62B5D /* towerA.png */,
 				F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */,
 			);
@@ -1138,22 +1151,23 @@
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
-				F519100A18B42FC4002EC6D6 /* blood_full.jpg in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
-				F519100818B42FC4002EC6D6 /* blood_3:4.jpg in Resources */,
-				F519100B18B42FC4002EC6D6 /* blood_half.jpg in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
-				F519100918B42FC4002EC6D6 /* blood_empty.jpg in Resources */,
+				09AB937318B575070064A95D /* Sam.png in Resources */,
+				09AB936A18B5725D0064A95D /* birdAtlas.plist in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
+				09AB936B18B5725D0064A95D /* birdAtlas.png in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
+				09AB937218B575070064A95D /* Sam.plist in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
-				F519100718B42FC4002EC6D6 /* blood_1:4.jpg in Resources */,
 				F59D52B118AC86D100B62B5D /* bulletA.png in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
+				09AB936E18B573890064A95D /* flamingo.plist in Resources */,
+				09AB936F18B573890064A95D /* flamingo.png in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
 			);
