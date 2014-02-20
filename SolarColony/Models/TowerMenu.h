@@ -13,5 +13,6 @@
 + (instancetype) menu;
 - (instancetype) init;
 - (void) createTowerofType:(id) towerType;
-
+- (void) setMapLocation: (CGPoint) index;
+- (CGPoint) getMapLocation;
 @end

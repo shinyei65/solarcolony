@@ -110,7 +110,7 @@
          
         [colissionsManager addTower:t3];
         
-        [grid addTower:t3 index:[t3 position] z:1];
+        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
         
         
@@ -124,7 +124,7 @@
         
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
-        [grid addChild:t3];
+        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
         
        
 

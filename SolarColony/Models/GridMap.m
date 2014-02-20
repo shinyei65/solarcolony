@@ -145,10 +145,10 @@ static GridMap *sharedInstance = nil;
 
 - (BOOL) canBuildTowerAtX:(int) x Y:(int) y
 {
-    if(_map[x][y] == CLOSED || _map[x][y] == UNAVAILABLE)
-        return FALSE;
-    else
+    if(_map[x][y] == EMPTY)
         return TRUE;
+    else
+        return FALSE;
 }
 
 - (BOOL) canPassAtX:(int) x Y:(int) y
@@ -234,6 +234,8 @@ static GridMap *sharedInstance = nil;
 {
     // hide tower menu if already selected
     if(!_selected){
+        if(![self canBuildTowerAtX:index.x Y:index.y])
+            return;
         CGPoint loc = [self convertMapIndexToGL:index];
         
         // move the anchor to menu center
@@ -252,6 +254,7 @@ static GridMap *sharedInstance = nil;
         // move the menu to cell center
         loc.x += _width_step / 2;
         loc.y -= _height_step / 2;
+        [_towermenu setMapLocation:index];
         [_towermenu setPosition: loc];
         [_towermenu setVisible: TRUE];
         
