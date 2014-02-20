@@ -20,7 +20,10 @@
     int S_attack;
     int S_attack_sp;
     int S_speed;
-    float nextMoveTime;
+    float MoveTime;
+    float moveCD;
+    float AttackTime;
+    float attackCD;
     BOOL S_attack_flag;
     CGPoint S_position;
      id movePoint, returnPoint ;
@@ -43,7 +46,10 @@
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
-    nextMoveTime = 0;
+    MoveTime = (float)1/speed;
+    moveCD = 0;
+    AttackTime = (float)1/attack_sp;
+    attackCD = 0;
     S_attack_flag = TRUE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
@@ -63,7 +69,10 @@
     S_attack = attack;
     S_attack_sp = attack_sp;
     S_speed = speed;
-    nextMoveTime = 0;
+    MoveTime = (float)1/speed;
+    moveCD = 0;
+    AttackTime = (float)1/attack_sp;
+    attackCD = 0;
     S_attack_flag = FALSE;
     _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
@@ -93,7 +102,7 @@
     if (health <= S_health_max*1/10 && health > S_health_max*1/20) {
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
-    if (health <= S_health_max*1/20){
+    if (health <= 0){
         [self setVisible:FALSE];
     }
 }
@@ -129,7 +138,7 @@
     return S_attack_flag;
 }
 
-- (void)move:(char)direction gridSize:(CGSize)size currentTime:(ccTime)currentTime{
+- (void)move:(char)direction gridSize:(CGSize)size{
     
     CGPoint original = self.position;
     float moveTime = (float)1/[self getSPEED];
@@ -140,28 +149,25 @@
             id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(0,size.height))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(0,-1));//update grid coordinate
-            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'D':{
             id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(0,-size.height))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(0,1)); //update grid coordinate
-            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'L':{
             id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(-size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(-1,0)); //update grid coordinate
-            nextMoveTime =  currentTime + moveTime;
             break;
         }
         case 'R':{
             id move = [CCMoveTo actionWithDuration:moveTime position:ccpAdd(original, ccp(size.width,0))];
             [self runAction:move];
             S_position = ccpAdd(S_position, ccp(1,0)); //update grid coordinate
-            nextMoveTime =  currentTime + moveTime;
+
             break;
         }
             
@@ -169,10 +175,31 @@
             break;
     }
     
+    moveCD = 0;
 }
 
--(float)getNextMoveTime{
-    return nextMoveTime;
+-(float)getMoveTime{
+    return MoveTime;
+}
+
+-(float)getMoveCD{
+    return moveCD;
+}
+
+-(void)acculMoveCD:(float)time{
+    moveCD += time;
+}
+
+-(float)getAttackTime{
+    return AttackTime;
+}
+
+-(float)getAttackCD{
+    return attackCD;
+}
+
+-(void)acculAttackCD:(float)time{
+    attackCD += time;
 }
 
 -(void)beingAttacked:(int)attack_power{
@@ -185,8 +212,7 @@
      CCLOG(@"SHOTTING TOWERRRR*********");
       targetLocation=tower;
     [self schedule: @selector(animatonAttack:) interval:1];
-    
-   
+   attackCD = 0;
     
 }
 
