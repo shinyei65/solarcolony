@@ -65,7 +65,7 @@
     
     CCMenuItemFont *menuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
     menuItemSound.tag=3;
-    _SoundOn = [CCMenuItemImage itemFromNormalImage:@"soundOn.png" selectedImage:@"soundOff" target:nil selector:nil];
+    _SoundOn = [CCMenuItemImage itemFromNormalImage:@"soundOn.png" selectedImage:@"soundOn.png" target:nil selector:nil];
     _SoundOff = [CCMenuItemImage itemFromNormalImage:@"soundOff.png" selectedImage:@"soundOff.png" target:nil selector:nil];
     CCMenuItemToggle *soundToggleItem = [CCMenuItemToggle itemWithTarget:self
                                                                 selector:@selector(SoundButtonTapped:)
@@ -122,15 +122,7 @@
 
 - (void)dealloc
 {
-  /*  [MusicOn release];
-    MusicOn = nil;
-    [MusicOff release];
-    MusicOff = nil;
-    [_SoundOn release];
-    _SoundOn = nil;
-    [_SoundOff release];
-    _SoundOff = nil;
-   */
+  
    [super dealloc];
 }
 

@@ -25,7 +25,6 @@ static int musicNum = 5;
 +(id)shareSoundManager;
 
 -(id)init;
--(void) preLoadBackGroundMusic:(NSString *)filename fileExt:(NSString *)theFileExt;
 -(void) BackGroundMusic;
 -(void) resumeEffect;
 -(void) playEffect:(NSString*)filePath;

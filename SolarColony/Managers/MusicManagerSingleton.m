@@ -57,7 +57,6 @@ static MusicManagerSingleton *shareSoundManager = nil;
 }
 
 -(void) pauseEffect{
-     CCLOG(@"off off offf 2 %d" ,[EffectArray count]);
     for (int i = 0 ; i < [EffectArray count] ; i++)
     {
         NSString* musicName =(NSString*)[EffectArray objectAtIndex:i];
