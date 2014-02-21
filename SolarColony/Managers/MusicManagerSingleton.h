@@ -16,23 +16,23 @@
 
 
 
-static int musicNum = 5;
+
 @interface MusicManagerSingleton : NSObject {
     NSMutableArray *EffectArray;
     bool isPlayingSound;
+    bool isBackGround;
 }
 
 +(id)shareSoundManager;
 
 -(id)init;
--(void) BackGroundMusic;
+-(void) playBackGroundMusic;
+-(void) pauseBackGroundMusic;
 -(void) resumeEffect;
 -(void) playEffect:(NSString*)filePath;
 -(void) pauseEffect;
 -(void) preLoadEffect;
-
-
-
-
+-(BOOL)isMusicButton;
+-(BOOL)isSoundButton;
 @end
 

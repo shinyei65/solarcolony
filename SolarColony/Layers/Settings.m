@@ -40,48 +40,63 @@
         
         
         [self addChild:[self loadMenu]];
+        
     }
     return self;
 }
 - (CCMenu*)loadMenu
 {
-    
-    
+   
+    CCMenuItemToggle *soundToggleItem;
+    CCMenuItemToggle *musicToggleItem;
     CCMenuItemFont *menuItemAccount=[CCMenuItemFont itemWithString:@"Account"];
     menuItemAccount.tag=1;
     
     CCMenuItemFont *menuItemMusic=[CCMenuItemFont itemWithString:@"Music"];
     menuItemMusic.tag=2;
-  /*  MusicOn = [[CCMenuItemImage itemFromNormalImage:@"soundOn.png"
-                                       selectedImage:@"soundOn.png" target:nil selector:nil]retain];
+    
+    MusicOn = [[CCMenuItemImage itemWithNormalImage:@"On.png"
+                                       selectedImage:@"On.png" target:nil selector:nil]retain];
     
     
-    MusicOff = [[CCMenuItemImage itemFromNormalImage:@"soundOff.png"
-                                        selectedImage:@"soundOff.png" target:nil selector:nil]retain];
-    CCMenuItemToggle *musicToggleItem = [CCMenuItemToggle itemWithTarget:self
-                                                                selector:@selector(MusicButtonTapped:)
-                                                                   items:MusicOn, MusicOff, nil];
-   */
+    MusicOff = [[CCMenuItemImage itemWithNormalImage:@"Off.png"
+                                        selectedImage:@"Off.png" target:nil selector:nil]retain];
+    if([musicManagerSingleton isMusicButton]){
+        musicToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                selector:@selector(MusicButtonTapped:)
+                                                    items:MusicOn, MusicOff, nil];
+    }
+    else{
+        musicToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                                  selector:@selector(MusicButtonTapped:)
+                                                     items:MusicOff, MusicOn, nil];
+    }
+  
+        
     
     CCMenuItemFont *menuItemSound=[CCMenuItemFont itemWithString:@"Sound"];
     menuItemSound.tag=3;
-    _SoundOn = [CCMenuItemImage itemFromNormalImage:@"soundOn.png" selectedImage:@"soundOn.png" target:nil selector:nil];
-    _SoundOff = [CCMenuItemImage itemFromNormalImage:@"soundOff.png" selectedImage:@"soundOff.png" target:nil selector:nil];
-    CCMenuItemToggle *soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+    
+    _SoundOn = [CCMenuItemImage itemWithNormalImage:@"On.png" selectedImage:@"On.png" target:nil selector:nil];
+    _SoundOff = [CCMenuItemImage itemWithNormalImage:@"Off.png" selectedImage:@"Off.png" target:nil selector:nil];
+    if([musicManagerSingleton isSoundButton]){
+        soundToggleItem = [CCMenuItemToggle itemWithTarget:self
                                                                 selector:@selector(SoundButtonTapped:)
                                                                    items:_SoundOn, _SoundOff, nil];
-    
+    }
+    else{
+        soundToggleItem = [CCMenuItemToggle itemWithTarget:self
+                                              selector:@selector(SoundButtonTapped:)
+                                                 items:_SoundOff, _SoundOn, nil];
+    }
     CCMenuItemFont *menuItemBack=[CCMenuItemFont itemWithString:@"Back"
                                                          target:self selector:@selector(moveToScene:)];
     menuItemBack.tag=4;
     
-    //CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, musicToggleItem, menuItemSound, soundToggleItem, menuItemBack, nil];
-    //CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, musicToggleItem, menuItemBack, nil];
-    CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemSound, soundToggleItem, menuItemBack, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems: menuItemAccount, menuItemMusic, musicToggleItem, menuItemSound, soundToggleItem, menuItemBack, nil];
     
     
-    [mainMenu alignItemsInColumns:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:1], nil];
-    //[mainMenu alignItemsVerticallyWithPadding:20];
+    [mainMenu alignItemsInColumns:[NSNumber numberWithInt:1],[NSNumber numberWithInt:2],[NSNumber numberWithInt:2],[NSNumber numberWithInt:1], nil];
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
     
@@ -101,10 +116,13 @@
 {
     CCMenuItemToggle *menu = (CCMenuItemToggle *)sender;
     if(menu.selectedItem == MusicOn){
-        [[SimpleAudioEngine sharedEngine]resumeBackgroundMusic];
+        
+        [musicManagerSingleton playBackGroundMusic];
+        
     }
     else if(menu.selectedItem == MusicOff){
-        [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
+        [musicManagerSingleton pauseBackGroundMusic];
+        
     }
     
 }
@@ -112,13 +130,16 @@
 {
     CCMenuItemToggle *menu = (CCMenuItemToggle *)sender;
     if(menu.selectedItem == _SoundOn){
+        
         [musicManagerSingleton resumeEffect];
     }
     else if(menu.selectedItem == _SoundOff){
+        
         [musicManagerSingleton pauseEffect];
     }
     
 }
+
 
 - (void)dealloc
 {
