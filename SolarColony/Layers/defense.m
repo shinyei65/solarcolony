@@ -112,8 +112,6 @@
         
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-        
-        [[grid getTowerMenu] setVisible:FALSE];
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
 
         float pointX=grid.menuLocation.x;
@@ -129,6 +127,7 @@
        
 
     }
+    [grid hideTowerMenu];
 }
 
 - (void)update:(ccTime)delta
