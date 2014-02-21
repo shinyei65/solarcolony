@@ -260,9 +260,14 @@ static GridMap *sharedInstance = nil;
         
         _selected = TRUE;
     }else{
-        [_towermenu setVisible: FALSE];
-        _selected = FALSE;
+        [self hideTowerMenu];
     }
+}
+//hide tower menu
+- (void) hideTowerMenu
+{
+    [_towermenu setVisible: FALSE];
+    _selected = FALSE;
 }
 //return tower menu
 - (TowerMenu*) getTowerMenu{
