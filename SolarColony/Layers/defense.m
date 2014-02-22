@@ -107,7 +107,11 @@
 
 //creates tower and adds it to current active towers queue
 - (void)receivedNotificationTower:(NSNotification *) notification {
-    if ([[notification name] isEqualToString:@"TowerBasic"] && [player getResource]>=humanPrice) {
+    if ([[notification name] isEqualToString:@"TowerOption"]) {
+        
+    NSString *interface = [notification.userInfo objectForKey:@"point"];
+    
+    if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
         int newResource = [player getResource] - humanPrice;
         [player setResource:newResource];
        /* //gets incomming point as string formatted point
@@ -141,14 +145,15 @@
         
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-    } else if ([[notification name] isEqualToString:@"TowerDestroyer"] && [player getResource]>=robotPrice) {
+    } else if ([interface isEqualToString:@"TowerB"] && [player getResource]>=robotPrice) {
 
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         int newResource = [player getResource] - robotPrice;
         [player setResource:newResource];
-        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
+        CCLOG(@"End location.x in B %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0
+        
         
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
