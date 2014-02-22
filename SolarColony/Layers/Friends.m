@@ -173,8 +173,10 @@
     loc=[[CCDirector sharedDirector] convertToGL:loc];
      NSLog(@"touch (%g,%g)",loc.x,loc.y);
     
+    CCSprite *drum = (CCSprite *)[self getChildByTag:77];
+    
    CCSprite *pink = (CCSprite *)[self getChildByTag:78];
-    if(pink_sel){
+    if(pink_sel && !(CGRectContainsPoint([drum textureRect], [drum convertToNodeSpace:loc]))){
         id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
         [pink runAction:move];
 
@@ -190,9 +192,8 @@
     
    
     
-    CCSprite *drum = (CCSprite *)[self getChildByTag:77];
     
-    if(drum_sel){
+    if(drum_sel && !(CGRectContainsPoint([pink textureRect], [pink convertToNodeSpace:loc]))){
         
         id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
         [drum runAction:move];
