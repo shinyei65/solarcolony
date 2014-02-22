@@ -15,6 +15,7 @@
 #import "WorldColissionsManager.h"
 #import "GridMap.h"
 #import "WaveQueue.h"
+#import "PlayerInfo.h"
 
 
 @implementation defense{
@@ -24,6 +25,13 @@
     //eder dont delete
     WorldColissionsManager* colissionsManager;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    PlayerInfo* player;
+    CCLabelTTF *resource_label;
+    CCLabelTTF *resource_number;
+    CCLabelTTF *life_label;
+    CCLabelTTF *life_number;
+    int humanPrice;
+    int robotPrice;
 }
 
 + (instancetype)scene
@@ -37,8 +45,12 @@
 {
     self = [super init];
     if (!self) return(nil);
-    
+    humanPrice = 100;
+    robotPrice = 200;
     // test square cell
+    player = [PlayerInfo Player];
+    [player setResource:1000];
+    [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];
     grid = [GridMap map];
@@ -63,7 +75,29 @@
     //sets up world colision manager
     colissionsManager= [WorldColissionsManager Controller:grid];
 
-   // CCLOG(@"number of soldier: %d",[solController getArraylength]);
+    //Jimmy test life and resource layer
+
+    resource_label = [CCLabelTTF labelWithString:@"Resource: " fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:resource_label];
+    resource_label.position = ccp(80,300);
+    resource_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getResource]] fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:resource_number];
+    resource_number.position = ccp(170,300);
+    life_label = [CCLabelTTF labelWithString:@"Life: " fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:life_label];
+    life_label.position = ccp(400,300);
+    
+    life_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getLife]] fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:life_number];
+    life_number.position = ccp(440,300);
+    //used to position the text, in this case the bottom left screen
+    /*
+    [label2 setScale:0.5];
+    [label2 setPosition:ccp(0,0)];
+    [label2 setOpacity:200];
+    
+    */
+   // [label2 setAnchorPoint:ccp(10, 100)];
     [self scheduleUpdate];
     
     
@@ -73,8 +107,9 @@
 
 //creates tower and adds it to current active towers queue
 - (void)receivedNotificationTower:(NSNotification *) notification {
-    if ([[notification name] isEqualToString:@"TowerBasic"]) {
-     
+    if ([[notification name] isEqualToString:@"TowerBasic"] && [player getResource]>=humanPrice) {
+        int newResource = [player getResource] - humanPrice;
+        [player setResource:newResource];
        /* //gets incomming point as string formatted point
         NSString *interface = [notification.userInfo objectForKey:@"point"];
         
@@ -103,11 +138,12 @@
         
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-    } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
+    } else if ([[notification name] isEqualToString:@"TowerDestroyer"] && [player getResource]>=robotPrice) {
 
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
-        
+        int newResource = [player getResource] - robotPrice;
+        [player setResource:newResource];
         CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
         CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
         
@@ -123,6 +159,8 @@
 
 - (void)update:(ccTime)delta
 {
+    [resource_number setString:[NSString stringWithFormat:@"%d", [player getResource]]];
+    [life_number setString:[NSString stringWithFormat:@"%d", [player getLife]]];
     
     //tower surveliance
      [colissionsManager surveliance];

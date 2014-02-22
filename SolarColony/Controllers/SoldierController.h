@@ -10,6 +10,7 @@
 #import "cocos2d.h"
 #import "Soldier.h"
 #import "GameStatusEssentialsSingleton.h"
+#import "PlayerInfo.h"
 
 @interface SoldierController : CCNode
 

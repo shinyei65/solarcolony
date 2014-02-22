@@ -45,8 +45,13 @@ static SoldierController *sharedSoldierController = nil;
         [sol acculAttackCD:time];
         if ([sol getMoveCD] > [sol getMoveTime]) {
             char status = [[GridMap map] getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
-            if(status == GOAL)
+            if(status == GOAL){
+                if([sol visible]){
                 [sol setVisible:FALSE];
+                int newLife = [[PlayerInfo Player] getLife]-1;
+                [[PlayerInfo Player] setLife:newLife];
+                }
+            }
             else
                 [sol move:status gridSize:[[GridMap map] getCellSize]];
         }
