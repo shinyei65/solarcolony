@@ -161,18 +161,20 @@ enum
 
 - (void) visit
 {
-    //clipp node visible
+    //clip node visible
     CGSize contentSize = [CCDirector sharedDirector].winSize;
-    //   glPushMatrix();
+    glPushMatrix();
     glEnable(GL_SCISSOR_TEST);
     glScissor(contentSize.width*1.1, contentSize.height*.6, contentSize.width*.7, contentSize.width*.5);
     
-#if SHOW_CLIPPED_REGION_IN_LIGHT_RED
+    #if SHOW_CLIPPED_REGION_IN_LIGHT_RED
     glColor4ub(64, 0, 0, 128);
     ccDrawSolidRect(ccp(0, 0), ccp(1024, 1024));
-#endif
+    #endif
     
     [super visit];//< Will draw after glPopScene.
+    glDisable(GL_SCISSOR_TEST);
+    glPopMatrix();
     
     if (self.showPagesIndicator)
     {
