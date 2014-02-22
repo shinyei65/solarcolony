@@ -25,7 +25,7 @@
     float AttackTime;
     float attackCD;
     BOOL S_attack_flag;
-    CGPoint S_position;
+    CGPoint S_position; // grid coordinate
      id movePoint, returnPoint ;
     BulletBasic* bullet;
 }
@@ -56,7 +56,8 @@
     _hp.position = ccp(0, 10);
     [self addChild:_soldier];
     [self addChild:_hp];
-
+    bullet = [[ BulletBasic alloc] initTower:ccp(150, 150)];
+    [self addChild:bullet];
 
     return self;
 }
@@ -81,8 +82,7 @@
     [self addChild:_hp];
 
     
-    bullet = [[ BulletBasic alloc] initTower:ccp(150, 150)];
-    [self addChild:bullet];
+   
     
     return self;
 }
@@ -203,13 +203,12 @@
 }
 
 -(void)beingAttacked:(int)attack_power{
-    int newHealth = [self getHEALTH] - attack_power;
+    int newHealth = S_health - attack_power;
     [self setHEALTH:newHealth];
 }
 
 
-- (void) attackTest:(CGPoint) tower{
-     CCLOG(@"SHOTTING TOWERRRR*********");
+- (void) attack:(CGPoint) tower{
       targetLocation=tower;
     [self schedule: @selector(animatonAttack:) interval:1];
    attackCD = 0;
@@ -220,7 +219,6 @@
 {
     // bla bla bla
     //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING TOWERRRR*********99999595959595");
  
     [bullet setVisible:true];
        CCLOG(@"coord x %f",targetLocation.x);

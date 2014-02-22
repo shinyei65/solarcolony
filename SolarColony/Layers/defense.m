@@ -54,17 +54,8 @@
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
     // Do any additional setup after loading the view, typically from a nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerOption" object:nil];
     
-
-    
-    /*for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
-        [temp setPOSITION:2 Y:0];
-        [temp setPosition:[grid convertMapIndexToGL:ccp(2, 0)]];
-        [grid addChild:temp];
-        [solController addSoldier:temp];
-    }*/
     
     // initialize wave controller
     waveController = [WaveController controller];
@@ -82,7 +73,11 @@
 
 //creates tower and adds it to current active towers queue
 - (void)receivedNotificationTower:(NSNotification *) notification {
-    if ([[notification name] isEqualToString:@"TowerBasic"]) {
+    if ([[notification name] isEqualToString:@"TowerOption"]) {
+        
+    NSString *interface = [notification.userInfo objectForKey:@"point"];
+    
+    if ([interface isEqualToString:@"TowerA"]) {
      
        /* //gets incomming point as string formatted point
         NSString *interface = [notification.userInfo objectForKey:@"point"];
@@ -100,6 +95,9 @@
        // CCLOG(@"location at %@",firstString);
         
         //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
+        
+        
+        
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
@@ -112,22 +110,22 @@
         
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-    } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
+    } else if ([interface isEqualToString:@"TowerB"]) {
 
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
-        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
+        CCLOG(@"End location.x in B %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0
         
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
-        
-       
 
     }
     [grid hideTowerMenu];
+        
+    }
 }
 
 - (void)update:(ccTime)delta

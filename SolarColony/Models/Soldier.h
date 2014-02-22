@@ -29,7 +29,7 @@
 - (CGPoint)getPOSITION;
 - (BOOL)getATTACK_FLAG;
 - (void)move:(char)direction gridSize:(CGSize)size;
-- (void)attack;
+- (void)attack:(CGPoint) tower;
 -(float)getMoveTime;
 -(float)getMoveCD;
 -(void)acculMoveCD:(float)time;
