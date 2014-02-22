@@ -28,6 +28,9 @@
     //UI touch variable
     CGPoint _touchPREVIOUS;
     CGPoint _touchCURRENT;
+    CGPoint _view_pos;
+    CGFloat initialDistance;
+    CGFloat zoomFactor;
 }
 @synthesize menuLocation;
 static GridMap *sharedInstance = nil;
@@ -53,6 +56,9 @@ static GridMap *sharedInstance = nil;
     _height_step = _screenSize.height/GridMapHeight;
     _selected = FALSE;
     _isMoved = FALSE;
+    initialDistance = 0;
+    zoomFactor = 1;
+    _view_pos = ccp(0,0);
     
     // initialize map array with default status 'X'
     /*for(int i=0; i<GridMapWidth; i++){
@@ -94,6 +100,7 @@ static GridMap *sharedInstance = nil;
     [_towermenu setVisible: FALSE];
     [self addChild: _towermenu z:99];
     [self setTouchEnabled: YES];
+    
     
     // done
     return self;
@@ -145,10 +152,10 @@ static GridMap *sharedInstance = nil;
 
 - (BOOL) canBuildTowerAtX:(int) x Y:(int) y
 {
-    if(_map[x][y] == CLOSED || _map[x][y] == UNAVAILABLE)
-        return FALSE;
-    else
+    if(_map[x][y] == EMPTY)
         return TRUE;
+    else
+        return FALSE;
 }
 
 - (BOOL) canPassAtX:(int) x Y:(int) y
@@ -194,46 +201,100 @@ static GridMap *sharedInstance = nil;
 
 - (void) ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    // stored touch loc
-    UITouch *touch = [touches anyObject];
-    _touchCURRENT = [touch locationInView:[touch view]];
-    _touchPREVIOUS = _touchCURRENT;
+    if([touches count] == 1) {
+        // stored touch loc
+        UITouch *touch = [touches anyObject];
+        _touchCURRENT = [touch locationInView:[touch view]];
+        _touchPREVIOUS = _touchCURRENT;
+    }else if([touches count] == 2) {
+        // Get points of both touches
+        NSArray *twoTouch = [touches allObjects];
+        UITouch *tOne = [twoTouch objectAtIndex:0];
+        UITouch *tTwo = [twoTouch objectAtIndex:1];
+        CGPoint firstTouch = [tOne locationInView:[tOne view]];
+        CGPoint secondTouch = [tTwo locationInView:[tTwo view]];
+        
+        // Find the distance between those two points
+        initialDistance = sqrt(pow(firstTouch.x - secondTouch.x, 2.0f) + pow(firstTouch.y - secondTouch.y, 2.0f));
+        NSLog(@"GridMap: two fingers touch began! initD=%f",initialDistance);
+    }
 }
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if(!_isMoved){
-        UITouch *touch = [touches anyObject];
-        CGPoint loc = [touch locationInView:[touch view]];
-        // calculate select cell
-        loc = [self convertToNodeSpace:[[CCDirector sharedDirector] convertToGL:loc]];
-        loc = [self convertToMapIndex:loc];
-        if([self isIndexInsideMap:loc]){
-            NSLog(@"Cell(%g,%g)", loc.x, loc.y);
-            [self selectCell: loc];
+    if([touches count] == 1) {
+        if(!_isMoved){
+            UITouch *touch = [touches anyObject];
+            CGPoint loc = [touch locationInView:[touch view]];
+            // calculate select cell
+            loc = [self convertToNodeSpace:[[CCDirector sharedDirector] convertToGL:loc]];
+            loc = [self convertToMapIndex:loc];
+            if([self isIndexInsideMap:loc]){
+                //NSLog(@"Cell(%g,%g)", loc.x, loc.y);
+                [self selectCell: loc];
+            }
+        }else{
+            _isMoved = FALSE;
         }
-    }else{
-        _isMoved = FALSE;
     }
 }
 
 - (void) ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    _isMoved = TRUE;
-    // calcualte move distane
-    UITouch *touch = [touches anyObject];
-    _touchPREVIOUS = _touchCURRENT;
-    _touchCURRENT = [touch locationInView:[touch view]];
-    CGPoint pos = self.position;
-    pos.x -= _touchCURRENT.x - _touchPREVIOUS.x;
-    pos.y += _touchCURRENT.y - _touchPREVIOUS.y;
-    [self setPosition:pos];
+    if ([touches count] == 1) {
+        _isMoved = TRUE;
+        // calcualte move distane
+        UITouch *touch = [touches anyObject];
+        _touchPREVIOUS = _touchCURRENT;
+        _touchCURRENT = [touch locationInView:[touch view]];
+        CGPoint pos = self.position;
+        pos.x -= _touchCURRENT.x - _touchPREVIOUS.x;
+        pos.y += _touchCURRENT.y - _touchPREVIOUS.y;
+        // if outside of visible area, don't pan
+        CGPoint world_pos = [self convertToNodeSpace:ccp(0,0)];
+        CGPoint world_pos1 = [self convertToWorldSpace:ccp(0,0)];
+        NSLog(@"GridMap: world_pos(%g,%g)", world_pos1.x, world_pos1.y);
+        NSLog(@"GridMap: position(%g,%g)", pos.x, pos.y);
+        //[self setPosition:ccp(0,0)];
+        [self setPosition:pos];
+    } else if ([touches count] == 2) {
+        NSArray *twoTouch = [touches allObjects];
+        
+        UITouch *tOne = [twoTouch objectAtIndex:0];
+        UITouch *tTwo = [twoTouch objectAtIndex:1];
+        CGPoint firstTouch = [tOne locationInView:[tOne view]];
+        CGPoint secondTouch = [tTwo locationInView:[tTwo view]];
+        CGFloat currentDistance = sqrt(pow(firstTouch.x - secondTouch.x, 2.0f) + pow(firstTouch.y - secondTouch.y, 2.0f));
+        if (initialDistance == 0) {
+            initialDistance = currentDistance;
+            // set to 0 in case the two touches weren't at the same time
+        } else if (currentDistance - initialDistance > 0) {
+            // zoom in
+            if (self.scale < 2.0f) {
+                zoomFactor += zoomFactor *0.05f;
+                self.scale = zoomFactor;
+            }
+            // Still To Do - make view centered on pinch
+            
+            initialDistance = currentDistance;
+        } else if (currentDistance - initialDistance < 0) {
+            // zoom out
+            if (self.scale > 1.0f) {
+                zoomFactor -= zoomFactor *0.05f;
+                self.scale = zoomFactor;
+            }
+            
+            initialDistance = currentDistance;
+        }
+    }
 }
 
 - (void) selectCell: (CGPoint) index
 {
     // hide tower menu if already selected
     if(!_selected){
+        if(![self canBuildTowerAtX:index.x Y:index.y])
+            return;
         CGPoint loc = [self convertMapIndexToGL:index];
         
         // move the anchor to menu center
@@ -252,14 +313,20 @@ static GridMap *sharedInstance = nil;
         // move the menu to cell center
         loc.x += _width_step / 2;
         loc.y -= _height_step / 2;
+        [_towermenu setMapLocation:index];
         [_towermenu setPosition: loc];
         [_towermenu setVisible: TRUE];
         
         _selected = TRUE;
     }else{
-        [_towermenu setVisible: FALSE];
-        _selected = FALSE;
+        [self hideTowerMenu];
     }
+}
+//hide tower menu
+- (void) hideTowerMenu
+{
+    [_towermenu setVisible: FALSE];
+    _selected = FALSE;
 }
 //return tower menu
 - (TowerMenu*) getTowerMenu{

@@ -21,8 +21,6 @@
     self = [super init];
     if (self) {
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-     
-        soldiers= [[NSMutableArray alloc] init];
         grid=gridMap;
         
     }
@@ -48,8 +46,8 @@
         
         //tower is not attacking
         //[tower setIsAttacking:true];
-        
-        for (Soldier* soldier in soldiers) {
+        //tower attacking
+        for (Soldier* soldier in gameStatusEssentialsSingleton.soldiers) {
             if (![soldier visible]) {
                    continue;
             }
@@ -60,7 +58,7 @@
            // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
           //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
            // CCLOG(@"addres soldier y %f", soldierpoint.y);
-            if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+        if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
                 CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
                                 //animate attack from soldier
@@ -69,14 +67,25 @@
                 
                 [tower attackTest:soldierpoint];
                 [soldier beingAttacked:10];
-
-                [soldier attackTest:towerpoint];
-                
-                //[soldiers removeObject:soldier];
                 break;
                 //animates deaths is possible
             }
             
+        }
+        
+        //soldier attacking
+        for (Soldier* soldier in gameStatusEssentialsSingleton.soldiers) {
+            if (![soldier visible] || [soldier getAttackCD] < [soldier getAttackTime] || ![soldier getATTACK_FLAG]) {
+                continue;
+            }
+            
+            soldierpoint = [soldier getPOSITION];
+            soldierpoint=[grid convertMapIndexToGL:soldierpoint];
+            
+            if ( (towerpoint.x>=soldierpoint.x-50&&towerpoint.x<=soldierpoint.x+50)&&(towerpoint.y>=soldierpoint.y-50&& towerpoint.y<=soldierpoint.y+50)) {
+                CCLOG(@"soldier attack!!!!!");
+                [soldier attack:towerpoint];
+            }
         }
         
         
@@ -91,29 +100,6 @@
 }
 
 
--(void)addSoldierTest:(CGPoint)soldier{
-    NSValue* soldierr= [NSValue valueWithCGPoint:soldier];
-    [soldiers addObject:soldierr];
-}
-
--(void)addSoldierTestB:(Soldier*)soldier{
-    [soldiers addObject:soldier];
-}
-
--(void)addSoldier:(Soldier*)soldier{
-    
-    [soldier addObject:soldier];
-
-}
-
--(void)setSoldierArray:(NSMutableArray*) soldiersIncome{
-
-    [soldiers removeAllObjects];
-    [soldiers addObjectsFromArray:soldiersIncome];
-    //soldiers=soldiersIncome;
- 
-    
-}
 -(void)addTower:(CCNode*)towerr{
    // [towers addObject:towerr];
     [gameStatusEssentialsSingleton.towers addObject:towerr];

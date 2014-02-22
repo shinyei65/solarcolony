@@ -35,4 +35,8 @@
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) NSMutableArray *towers;
+@property(assign, nonatomic) NSString *raceType;
+@property(assign, nonatomic) int resourcesQuantity;
+@property(assign, nonatomic) int score;
+
 @end

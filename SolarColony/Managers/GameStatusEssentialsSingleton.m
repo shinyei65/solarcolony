@@ -19,6 +19,10 @@
 @implementation GameStatusEssentialsSingleton
 @synthesize soldiers;
 @synthesize towers;
+@synthesize resourcesQuantity;
+@synthesize score;
+@synthesize raceType;
+ 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
@@ -39,6 +43,15 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         // Work your initialising magic here as you normally would
         soldiers=[[NSMutableArray alloc] init];
         towers=[[NSMutableArray alloc] init];
+        
+        //initiallize default values
+        resourcesQuantity=100;
+        score=0;
+        raceType=@"Robot";
+        
+        
+        //SHOULD READ ALL OF THIS FROM THE DB
+        
     }
     
     return self;

@@ -17,7 +17,7 @@
 @end
 
 @implementation MusicManagerSingleton
-
+static int musicNum = 5;
 static MusicManagerSingleton *shareSoundManager = nil;
 
 +(MusicManagerSingleton *)shareSoundManager{
@@ -39,16 +39,30 @@ static MusicManagerSingleton *shareSoundManager = nil;
     if(self = [super init])
     {
         NSString* BGStr = @"Military_Might.mp3";
+        EffectArray = [[NSMutableArray alloc]init];
+        [self preLoadEffect];
         [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:BGStr];
         [[SimpleAudioEngine sharedEngine]playBackgroundMusic:BGStr];
         isPlayingSound=true;
+        isBackGround = true;
         
     }
     return self;
     
 }
+-(void) playBackGroundMusic{
+    [[SimpleAudioEngine sharedEngine]resumeBackgroundMusic];
+    isBackGround = true;
+}
+-(void) pauseBackGroundMusic{
+    [[SimpleAudioEngine sharedEngine]pauseBackgroundMusic];
+    isBackGround = false;
+}
+
+
+
+
 -(void) preLoadEffect{
-  //  [EffectArray removeAllObjects];
     for(int i = 1 ; i <= musicNum ; i++){
         NSString* musicName = [[NSString stringWithFormat:@"sound %d", i] stringByAppendingString:@".wav"];
         [[SimpleAudioEngine sharedEngine]preloadEffect:musicName];
@@ -57,7 +71,6 @@ static MusicManagerSingleton *shareSoundManager = nil;
 }
 
 -(void) pauseEffect{
-     CCLOG(@"off off offf 2 %d" ,[EffectArray count]);
     for (int i = 0 ; i < [EffectArray count] ; i++)
     {
         NSString* musicName =(NSString*)[EffectArray objectAtIndex:i];
@@ -88,7 +101,17 @@ static MusicManagerSingleton *shareSoundManager = nil;
     }
 }
 
+-(BOOL)isSoundButton{
+    bool buttonOn;
+    buttonOn = isPlayingSound;
+    return buttonOn;
+}
 
+-(BOOL)isMusicButton{
+    bool buttonOn;
+    buttonOn = isBackGround;
+    return buttonOn;
+}
 
 
 -(void)dealloc

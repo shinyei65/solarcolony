@@ -16,7 +16,7 @@ static SoldierController *sharedSoldierController = nil;
 
 @implementation SoldierController{
     NSMutableArray *soldierarray;
-    float currentTime;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
 +Controller{
@@ -28,8 +28,7 @@ static SoldierController *sharedSoldierController = nil;
 
 -init{
     soldierarray = [[NSMutableArray alloc] init];
-    currentTime = 0;
-    
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     return self;
 }
 
@@ -40,17 +39,21 @@ static SoldierController *sharedSoldierController = nil;
 }
 
 -(void)updateSoldier:(ccTime) time{
-    Soldier *sol;
-    currentTime += time;
     
-    for (int i=0; i < [soldierarray count];i++) {
-        sol = (Soldier *)[soldierarray objectAtIndex:i];
-        if (currentTime > [sol getNextMoveTime]) {
+    for (Soldier* sol in gameStatusEssentialsSingleton.soldiers) {
+        [sol acculMoveCD:time];
+        [sol acculAttackCD:time];
+        if ([sol getMoveCD] > [sol getMoveTime]) {
             char status = [[GridMap map] getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
-            if(status == GOAL)
+            if(status == GOAL){
+                if([sol visible]){
                 [sol setVisible:FALSE];
+                int newLife = [[PlayerInfo Player] getLife]-1;
+                [[PlayerInfo Player] setLife:newLife];
+                }
+            }
             else
-                [sol move:status gridSize:[[GridMap map] getCellSize] currentTime:currentTime];
+                [sol move:status gridSize:[[GridMap map] getCellSize]];
         }
     }
     

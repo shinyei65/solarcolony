@@ -22,6 +22,7 @@ BOOL test = false;
     NSMutableArray *_monitor;
     Army *_wave;
     NSObject *_mylock;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
 #pragma mark - Create and Destroy
@@ -45,7 +46,8 @@ BOOL test = false;
     _monitor = [[NSMutableArray alloc] init];
     _tick = 0;
     _mylock = [[NSObject alloc] init];
-    
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    [self genertateAIarmy];
     return self;
 }
 
@@ -100,8 +102,14 @@ BOOL test = false;
     NSLog(@"WaveController: generate AI army");
     // add one AI army in queue
     Army *army = [Army army];
-    for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)50];
+    for (int i=0; i<3; i++) {
+        CCLOG(@"runner!!!");
+        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+        [army addSoldier: temp];
+    }
+    for (int i=0; i<3; i++) {
+        CCLOG(@"attacker!!!");
+        Soldier *temp = [Soldier attacker:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
         [army addSoldier: temp];
     }
     [self addWave: army];
@@ -117,7 +125,7 @@ BOOL test = false;
     [sol setPOSITION:start.x Y:start.y];
     [sol setPosition:[gird convertMapIndexToCenterGL:start]];
     [gird addChild:sol z:1];
-    [[SoldierController Controller] addSoldier: sol];
+    [gameStatusEssentialsSingleton addSoldier: sol];
 }
 
 - (BOOL) checkMonitor
@@ -145,6 +153,11 @@ BOOL test = false;
 {
     NSLog(@"WaveController: end a wave");
     [_queue removeObjectAtIndex: 0];
+    [gameStatusEssentialsSingleton removeAllSoldiers];
+    for(int i=0; i<[_wave count]; i++){
+        Soldier *sol = [_wave popSoldier];
+        [sol release];
+    }
     [_wave release]; _wave = nil;
     _tick = _hold_tick;
     _in_wave = FALSE;

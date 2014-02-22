@@ -15,6 +15,8 @@
 #import "WorldColissionsManager.h"
 #import "GridMap.h"
 #import "WaveQueue.h"
+#import "PlayerInfo.h"
+
 
 @implementation defense{
     SoldierController *solController;
@@ -22,7 +24,14 @@
     GridMap *grid;
     //eder dont delete
     WorldColissionsManager* colissionsManager;
-    
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    PlayerInfo* player;
+    CCLabelTTF *resource_label;
+    CCLabelTTF *resource_number;
+    CCLabelTTF *life_label;
+    CCLabelTTF *life_number;
+    int humanPrice;
+    int robotPrice;
 }
 
 + (instancetype)scene
@@ -36,15 +45,19 @@
 {
     self = [super init];
     if (!self) return(nil);
-    
+    humanPrice = 100;
+    robotPrice = 200;
     // test square cell
+    player = [PlayerInfo Player];
+    [player setResource:1000];
+    [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];
     grid = [GridMap map];
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
-    
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize wave queue layer
     WaveQueue *wqueue = [WaveQueue layer];
     [wqueue setPosition:ccp(40,[[CCDirector sharedDirector] winSize].height)];
@@ -53,26 +66,38 @@
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
     // Do any additional setup after loading the view, typically from a nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerOption" object:nil];
     
-
-    
-    /*for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
-        [temp setPOSITION:2 Y:0];
-        [temp setPosition:[grid convertMapIndexToGL:ccp(2, 0)]];
-        [grid addChild:temp];
-        [solController addSoldier:temp];
-    }*/
     
     // initialize wave controller
     waveController = [WaveController controller];
     
     //sets up world colision manager
     colissionsManager= [WorldColissionsManager Controller:grid];
-   // [colissionsManager setSoldierArray:];
-    colissionsManager.soldiers=[solController getSoldierArray];
-   // CCLOG(@"number of soldier: %d",[solController getArraylength]);
+
+    //Jimmy test life and resource layer
+
+    resource_label = [CCLabelTTF labelWithString:@"Resource: " fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:resource_label];
+    resource_label.position = ccp(80,300);
+    resource_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getResource]] fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:resource_number];
+    resource_number.position = ccp(170,300);
+    life_label = [CCLabelTTF labelWithString:@"Life: " fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:life_label];
+    life_label.position = ccp(400,300);
+    
+    life_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getLife]] fontName:@"Outlier.ttf" fontSize:15];
+    [self addChild:life_number];
+    life_number.position = ccp(440,300);
+    //used to position the text, in this case the bottom left screen
+    /*
+    [label2 setScale:0.5];
+    [label2 setPosition:ccp(0,0)];
+    [label2 setOpacity:200];
+    
+    */
+   // [label2 setAnchorPoint:ccp(10, 100)];
     [self scheduleUpdate];
     
     
@@ -82,8 +107,13 @@
 
 //creates tower and adds it to current active towers queue
 - (void)receivedNotificationTower:(NSNotification *) notification {
-    if ([[notification name] isEqualToString:@"TowerBasic"]) {
-     
+    if ([[notification name] isEqualToString:@"TowerOption"]) {
+        
+    NSString *interface = [notification.userInfo objectForKey:@"point"];
+    
+    if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
+        int newResource = [player getResource] - humanPrice;
+        [player setResource:newResource];
        /* //gets incomming point as string formatted point
         NSString *interface = [notification.userInfo objectForKey:@"point"];
         
@@ -100,6 +130,9 @@
        // CCLOG(@"location at %@",firstString);
         
         //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
+        
+        
+        
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
@@ -110,29 +143,32 @@
          
         [colissionsManager addTower:t3];
         
-        [grid addTower:t3 index:[t3 position] z:1];
-        //GET CELL INDEX
-        
-        [[grid getTowerMenu] setVisible:FALSE];
-    } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
+        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
+       
+    } else if ([interface isEqualToString:@"TowerB"] && [player getResource]>=robotPrice) {
 
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
+        int newResource = [player getResource] - robotPrice;
+        [player setResource:newResource];
+        CCLOG(@"End location.x in B %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0
         
-        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
         
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
-        [grid addChild:t3];
-        
-       
+        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
 
+    }
+    [grid hideTowerMenu];
+        
     }
 }
 
 - (void)update:(ccTime)delta
 {
+    [resource_number setString:[NSString stringWithFormat:@"%d", [player getResource]]];
+    [life_number setString:[NSString stringWithFormat:@"%d", [player getLife]]];
     
     //tower surveliance
      [colissionsManager surveliance];

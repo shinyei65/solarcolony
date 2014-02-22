@@ -25,6 +25,7 @@
 - (CGPoint) convertMapIndexToGL: (CGPoint) index;
 - (CGPoint) convertMapIndexToCenterGL: (CGPoint) index;
 - (TowerMenu*) getTowerMenu;
+- (void) hideTowerMenu;
 - (CGPoint) getTowerMenuPosition;
 - (void) setTowerMenuPosition:(CGPoint) loc;
 - (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z;

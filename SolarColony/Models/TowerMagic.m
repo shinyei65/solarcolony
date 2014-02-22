@@ -18,6 +18,7 @@
 @synthesize towerSpeed;
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
+@synthesize selfLocation;
 
 
 - (instancetype) initTower:(CGPoint)location{
@@ -29,6 +30,7 @@
     [towerSprite setAnchorPoint:ccp(0.5,0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
+    selfLocation=location;
     [self setLife:100];
     [self setPower:10];
     [self setSetSpeedAttack:20];
@@ -59,7 +61,7 @@
     
     //
     targetLocation=soldier;
-    [self schedule: @selector(animatonAttack:) interval:2];
+    [self schedule: @selector(animatonAttack:) interval:1];
     
     
     //
@@ -68,36 +70,39 @@
     
 }
 
+
+
+
 -(void) animatonAttack: (ccTime) dt
 {
     // bla bla bla
-    //if (counterTest<=5) {
-        CCLOG(@"SHOTTING");
-     //   counterTest++;
-       // if ([self numberOfRunningActions]==0) {
-            [bullet setVisible:true];
-            CCLOG(@"coord x %f",targetLocation.x);
-            CCLOG(@"coord x %f",targetLocation.y);
-            CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-            CCLOG(@"ctower in oord x %f",targetLocations.x);
-            CCLOG(@"ctower in coord x %f",targetLocations.y);
-            CGPoint targetPrevious = [bullet position];
-            //   id appearAction = [CCFadeIn actionWithDuration:.1];
-            // id disappearAction = [CCFadeOut actionWithDuration:.1];
-            movePoint = [CCMoveTo actionWithDuration:.5 position:targetLocations];
-            returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
-            
-            [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-            
-     //   }
-        
-        
-   // }else{
-      //  counterTest=0;
-        
-        [self unscheduleAllSelectors];
-        [self setIsAttacking:false];
-   // }
+    //   if (counterTest<=5) {
+    CCLOG(@"SHOTTING");
+    //    counterTest++;
+    //     if ([self numberOfRunningActions]==0) {
+    [bullet setVisible:true];
+    //   CCLOG(@"coord x %f",targetLocation.x);
+    //  CCLOG(@"coord x %f",targetLocation.y);
+    CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
+    //   CCLOG(@"coord x %f",targetLocations.x);
+    //   CCLOG(@"coord x %f",targetLocations.y);
+    CGPoint targetPrevious = [bullet position];
+    //   id appearAction = [CCFadeIn actionWithDuration:.1];
+    // id disappearAction = [CCFadeOut actionWithDuration:.1];
+    movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
+    returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    
+    [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+    //
+    //    }
+    
+    
+    //   }else{
+    //   counterTest=0;
+    
+    [self unscheduleAllSelectors];
+    [self setIsAttacking:false];
+    // }
     
     
 }
@@ -154,6 +159,11 @@
 }
 
 -(void) destroyedAnimation{}
+
+-(void)beingAttacked:(int)attack_power{
+    /*  int newHealth = [self getHEALTH] - attack_power;
+     [self setHEALTH:newHealth];*/
+}
 
 -(void)dealloc{}
 @end
