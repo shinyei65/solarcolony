@@ -187,6 +187,7 @@
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
+		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
@@ -548,6 +549,8 @@
 		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
 		F5ADFE8218B69F060004C3D5 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
+		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
+		F5B11AD618B803C6002FB681 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -694,6 +697,7 @@
 		F55948C518A56F3B008ADDED /* SolarColony */ = {
 			isa = PBXGroup;
 			children = (
+				F5B11AD418B8039E002FB681 /* Utils */,
 				F59D52B218AC8C6E00B62B5D /* Controllers */,
 				F5DFA3B718A5AD04000F0A00 /* Layers */,
 				F5DFA3B018A5ACC8000F0A00 /* Managers */,
@@ -1126,6 +1130,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		F5B11AD418B8039E002FB681 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F5B11AD518B803C6002FB681 /* CCScrollLayer.h */,
+				F5B11AD618B803C6002FB681 /* CCScrollLayer.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		F5DFA3B018A5ACC8000F0A00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1400,7 @@
 				F559498A18A56F3E008ADDED /* ccShaders.m in Sources */,
 				F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */,
 				F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */,
+				F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */,
 				F55949E018A56F3F008ADDED /* CCWindow.m in Sources */,
 				F53E796518B5D16C0037A48A /* WaveQueue.m in Sources */,
 				F55949BE18A56F3F008ADDED /* cocos2d.m in Sources */,

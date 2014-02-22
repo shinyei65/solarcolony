@@ -10,7 +10,8 @@
 
 @interface race : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-        MusicManagerSingleton* musicManagerSingleton;
+    MusicManagerSingleton* musicManagerSingleton;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
 

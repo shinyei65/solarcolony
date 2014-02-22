@@ -66,7 +66,7 @@
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
     // Do any additional setup after loading the view, typically from a nib.
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerOption" object:nil];
     
     
     // initialize wave controller
@@ -126,6 +126,9 @@
        // CCLOG(@"location at %@",firstString);
         
         //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
+        
+        
+        
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
@@ -150,11 +153,11 @@
         TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:t3];
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
-        
-       
 
     }
     [grid hideTowerMenu];
+        
+    }
 }
 
 - (void)update:(ccTime)delta

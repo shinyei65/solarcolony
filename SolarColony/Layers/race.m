@@ -34,18 +34,12 @@
 {
     self = [super init];
     if (self) {
+        //transition and music manager
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
-       // CCLabelTTF *splash = [CCLabelTTF labelWithString:@"RaceSelect" fontName:@"Marker Felt" fontSize:32];
         
-        
-        
-       // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        
-        // test square cell
-        
-        
-     //   [self addChild:splash];
+        //Game status global variables
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         [self addChild:[self loadMenu]];
@@ -74,14 +68,15 @@
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     if ([menuItem.label.string isEqualToString:@"Human"]) {
+        [gameStatusEssentialsSingleton setRaceType:@"Human"];
         [transitionManagerSingleton transitionTo:1];
     } else if ([menuItem.label.string isEqualToString:@"Robot"])  {
+        [gameStatusEssentialsSingleton setRaceType:@"Robot"];
         [transitionManagerSingleton transitionTo:1];
     } else if ([menuItem.label.string isEqualToString:@"Magic"])  {
+        [gameStatusEssentialsSingleton setRaceType:@"Magic"];
         [transitionManagerSingleton transitionTo:1];
-    }    // NSLog(menuItem.label.string);
-    
-    //[[CCDirector sharedDirector]replaceScene:[CCTransitionCrossFade transitionWithDuration:0.3 scene:[race node]]];
+    }
 }
 
 -(void)dealloc
