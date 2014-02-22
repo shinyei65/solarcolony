@@ -56,15 +56,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receivedNotificationTower:) name:@"TowerBasic" object:nil];
     
-
-    
-    /*for (int i=0; i<5; i++) {
-        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)50 ATTACK_SP:(int)50];
-        [temp setPOSITION:2 Y:0];
-        [temp setPosition:[grid convertMapIndexToGL:ccp(2, 0)]];
-        [grid addChild:temp];
-        [solController addSoldier:temp];
-    }*/
     
     // initialize wave controller
     waveController = [WaveController controller];
@@ -112,8 +103,6 @@
         
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-        
-        [[grid getTowerMenu] setVisible:FALSE];
     } else if ([[notification name] isEqualToString:@"TowerDestroyer"]) { 
 
         float pointX=grid.menuLocation.x;
@@ -129,6 +118,7 @@
        
 
     }
+    [grid hideTowerMenu];
 }
 
 - (void)update:(ccTime)delta
