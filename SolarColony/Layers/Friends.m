@@ -10,7 +10,11 @@
 #import "HomeScene.h"
 #import "TowerHuman.h"
 
-@implementation Friends
+@implementation Friends{
+    BOOL pink_sel;
+    
+    BOOL drum_sel;
+}
 @synthesize mobileDisplaySize;
 
 
@@ -32,11 +36,11 @@
 - (id)init
 {
     self = [super init];
-    [self setTouchEnabled:YES];
-    
+   
     if (self) {
-        
-        
+        pink_sel=FALSE;
+        drum_sel=FALSE;
+        [self setTouchEnabled:YES];
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
@@ -88,7 +92,9 @@
         [self addChild:drummer];
         
         [drummer runAction:animAction];
+        drummer.tag = 77;
         
+        //The flamingo sprite sheet
         CCSpriteFrameCache *cache_pink=[CCSpriteFrameCache sharedSpriteFrameCache];
         [cache_pink addSpriteFramesWithFile:@"flamingo.plist"];
         
@@ -108,12 +114,14 @@
         animAction_pink=[CCRepeatForever actionWithAction:animAction_pink];
         
         // sprite
-        CCSprite *pink=[CCSprite spriteWithSpriteFrameName:@"drummer1.png"];
+        CCSprite *pink=[CCSprite spriteWithSpriteFrameName:@"flamingo1.png"];
         pink.position=ccp(300,100);
         [self addChild:pink];
         
         [pink runAction:animAction_pink];
-
+        pink.tag=78;
+        
+        
 
     }
     return self;
@@ -147,10 +155,13 @@
     [colissionsManager surveliance];
    
 }
+/*
 -(void) registerWithTouchDispatcher
 {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
+
+
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
     
@@ -165,8 +176,65 @@
     
     CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
     CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
-    return YES;
+    
+  //  return YES;
 }
+*/
+
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+   
+    UITouch *touch=[touches anyObject];
+    CGPoint loc=[touch locationInView:[touch view]];
+    loc=[[CCDirector sharedDirector] convertToGL:loc];
+     NSLog(@"touch (%g,%g)",loc.x,loc.y);
+    
+   CCSprite *pink = (CCSprite *)[self getChildByTag:78];
+    if(pink_sel){
+        id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
+        [pink runAction:move];
+
+    }
+    else{
+        
+        if(CGRectContainsPoint([pink textureRect], [pink convertToNodeSpace:loc])){
+              NSLog(@"Flam selected");
+            pink_sel=TRUE;
+            drum_sel=FALSE;
+        }
+    }
+    
+   
+    
+    CCSprite *drum = (CCSprite *)[self getChildByTag:77];
+    
+    if(drum_sel){
+        
+        id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
+        [drum runAction:move];
+        
+    }
+    else{
+        
+        if(CGRectContainsPoint([drum textureRect], [drum convertToNodeSpace:loc])){
+            NSLog(@"Drum selected");
+            drum_sel=TRUE;
+            pink_sel=FALSE;
+        }
+    }
+    
+}
+
+-(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch=[touches anyObject];
+    CGPoint loc=[touch locationInView:[touch view]];
+    loc=[[CCDirector sharedDirector] convertToGL:loc];
+    
+    NSLog(@"move (%g,%g)",loc.x,loc.y);
+   
+    
+}
+
 
 
 - (void)dealloc
