@@ -10,7 +10,7 @@
 #import "WaveController.h"
 
 static WaveQueue *sharedInstance = nil;
-int WAVE_START_RATE = 12;
+int WAVE_START_RATE = 5;
 
 @implementation WaveQueue {
     CCLabelTTF *_min;

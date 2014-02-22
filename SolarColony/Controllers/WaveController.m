@@ -47,6 +47,7 @@ BOOL test = false;
     _tick = 0;
     _mylock = [[NSObject alloc] init];
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    [self genertateAIarmy];
     return self;
 }
 
