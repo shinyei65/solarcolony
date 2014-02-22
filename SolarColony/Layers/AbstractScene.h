@@ -11,6 +11,7 @@
 #import <GameKit/GameKit.h>
 #import "TransitionManagerSingleton.h"
 #import "MusicManagerSingleton.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @protocol  AbstractScene
 

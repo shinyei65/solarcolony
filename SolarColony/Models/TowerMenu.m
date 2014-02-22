@@ -83,17 +83,20 @@
     CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
     CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
     
-    NSString *myPoint = NSStringFromCGPoint(menuItem.position);
+    //NSString *myPoint = NSStringFromCGPoint(menuItem.position);
     
-    NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:myPoint,@"point", nil];
+   // NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:myPoint,@"point", nil];
     
     if ([menuItem.label.string isEqualToString:@"A"]) {
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerBasic" object:self userInfo:userInfo];
+        NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerA",@"point", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
         
     } else if ([menuItem.label.string isEqualToString:@"B"])  {
+         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerB",@"point", nil];
        // [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerDestroyer" object:towerLocation];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerBasic" object:self userInfo:userInfo];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
     }
+    
 }
 
 

@@ -43,7 +43,7 @@
         [self addChild:[self scrollLayer]];
         [self addChild:[self loadMenu]];
         [self addChild:[self loadMutableTowersMenu]];
-      //  [self addChild:[self loadSelectorTowersMenu]];
+  
         
     }
     return self;
@@ -82,24 +82,6 @@
    
 }
 
--(CCMenu*) loadSelectorTowersMenu{
-    CCMenuItemFont *Titem1=[CCMenuItemFont itemWithString:@"TowerA" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem2=[CCMenuItemFont itemWithString:@"TowerB" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem3=[CCMenuItemFont itemWithString:@"TowerC" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem4=[CCMenuItemFont itemWithString:@"TowerD" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem5=[CCMenuItemFont itemWithString:@"TowerE" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem6=[CCMenuItemFont itemWithString:@"TowerF" target:self selector:@selector(setTowerofType:)];
-    CCMenuItemFont *Titem7=[CCMenuItemFont itemWithString:@"TowerG" target:self selector:@selector(setTowerofType:)];
-  
-    CCMenu *towerMenus = [CCMenu menuWithItems:Titem1, Titem2, Titem3, Titem4, Titem5, Titem6, Titem7,  nil];
-    
-    [towerMenus  alignItemsVertically];
-    
-    [towerMenus setPosition:ccp( mobileDisplaySize.width*.8, mobileDisplaySize.height*.3)];
-    
-    return towerMenus;
-    
-}
 
 - (void) setTowerofType:(id) towerType{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)towerType;

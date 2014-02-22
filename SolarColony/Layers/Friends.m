@@ -41,16 +41,9 @@
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        /*CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Friends" fontName:@"Marker Felt" fontSize:64];        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        
-        [self addChild:splash];*/
         [self addChild:[self loadMenu]];
         
-        //temp
-          [self scheduleUpdate];
-        colissionsManager= [[WorldColissionsManager alloc] init];
-        
-        TowerHuman* t1=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
+       /*  TowerHuman* t1=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
         [colissionsManager addTower:t1];
         [self addChild:t1];
         
@@ -61,7 +54,7 @@
         
         TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
         [colissionsManager addTower:t3];
-        [self addChild:t3];
+        [self addChild:t3];*/
         
         //Test sprite sheet
         CCSpriteFrameCache *cache=[CCSpriteFrameCache sharedSpriteFrameCache];
@@ -142,11 +135,6 @@
     }
 }
 
-- (void)update:(ccTime)delta
-{
-    [colissionsManager surveliance];
-   
-}
 -(void) registerWithTouchDispatcher
 {
     [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
@@ -154,17 +142,10 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
     
-    CCLOG(@"ccTouchBeganRuby");
-    
-    
-    location = [touch locationInView: [touch view]];
-    //location = [[CCDirector sharedDirector] convertToGL: location];
- 
-    // end:
-    [colissionsManager addSoldierTest:location] ;
     
     CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
     CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
+    
     return YES;
 }
 

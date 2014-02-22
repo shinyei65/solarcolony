@@ -11,8 +11,10 @@
 
 @interface TowerRobot : CCNode<Tower>{
     int counterTest;
+    int health;
     BulletBasic* bullet;
     id movePoint, returnPoint ;
 }
 @property(assign, atomic) CGPoint targetLocation;
+@property(assign, atomic) CGPoint selfLocation;
 @end
