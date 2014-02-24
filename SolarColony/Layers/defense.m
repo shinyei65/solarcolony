@@ -167,9 +167,10 @@
 
 - (void)update:(ccTime)delta
 {
+    [player increaseResource:delta];
     [resource_number setString:[NSString stringWithFormat:@"%d", [player getResource]]];
     [life_number setString:[NSString stringWithFormat:@"%d", [player getLife]]];
-    
+
     //tower surveliance
      [colissionsManager surveliance];
     

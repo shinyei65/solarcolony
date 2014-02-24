@@ -49,7 +49,8 @@ static SoldierController *sharedSoldierController = nil;
                 if([sol visible]){
                 [sol setVisible:FALSE];
                 int newLife = [[PlayerInfo Player] getLife]-1;
-                [[PlayerInfo Player] setLife:newLife];
+                if(newLife >= 0)
+                    [[PlayerInfo Player] setLife:newLife];
                 }
             }
             else

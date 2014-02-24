@@ -11,9 +11,12 @@
 @implementation PlayerInfo{
     int player_resource;
     int player_life;
+    float resource_increase_CD_time;
 }
 
 static PlayerInfo* sharedInstance = nil;
+static const int resource_inc_amount = 10;
+static const float resource_inc_time = 1;
 
 +(instancetype)Player{
     if (sharedInstance == nil) {
@@ -25,6 +28,7 @@ static PlayerInfo* sharedInstance = nil;
 
 -(instancetype)init{
     self = [super init];
+    resource_increase_CD_time = 0;
     return self;
 }
 -(int)getLife{
@@ -38,6 +42,14 @@ static PlayerInfo* sharedInstance = nil;
 }
 -(void)setResource:(int)resource{
     player_resource = resource;
+}
+
+-(void)increaseResource:(ccTime)time{
+    resource_increase_CD_time += time;
+    if(resource_increase_CD_time >= resource_inc_time){
+        player_resource += resource_inc_amount;
+        resource_increase_CD_time = 0;
+    }
 }
 
 

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "cocos2d.h"
 
 @interface PlayerInfo : NSObject
 
@@ -16,5 +17,6 @@
 -(void)setLife:(int)life;
 -(int)getResource;
 -(void)setResource:(int)resource;
+-(void)increaseResource:(ccTime)time;
 
 @end
