@@ -54,6 +54,7 @@
     solController = [SoldierController Controller];
     [self addChild:solController];
     grid = [GridMap map];
+    [grid setPosition:ccp(0,0)];
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];

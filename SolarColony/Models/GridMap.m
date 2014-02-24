@@ -204,8 +204,13 @@ static GridMap *sharedInstance = nil;
     if([touches count] == 1) {
         // stored touch loc
         UITouch *touch = [touches anyObject];
-        _touchCURRENT = [touch locationInView:[touch view]];
+        _touchCURRENT = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
         _touchPREVIOUS = _touchCURRENT;
+        CGPoint world_pos = [self convertToNodeSpace:ccp(0,0)];
+        CGPoint top_right = [self convertToNodeSpace:ccp([self boundingBox].size.width,[self boundingBox].size.height)];
+        NSLog(@"GridMap: top_right(%g,%g)", top_right.x, top_right.y);
+        NSLog(@"GridMap: world_pos(%g,%g)", world_pos.x, world_pos.y);
+        NSLog(@"GridMap: self(%g,%g)", self.position.x, self.position.y);
     }else if([touches count] == 2) {
         // Get points of both touches
         NSArray *twoTouch = [touches allObjects];
@@ -246,17 +251,43 @@ static GridMap *sharedInstance = nil;
         // calcualte move distane
         UITouch *touch = [touches anyObject];
         _touchPREVIOUS = _touchCURRENT;
-        _touchCURRENT = [touch locationInView:[touch view]];
-        CGPoint pos = self.position;
-        pos.x -= _touchCURRENT.x - _touchPREVIOUS.x;
-        pos.y += _touchCURRENT.y - _touchPREVIOUS.y;
+        _touchCURRENT = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
+        CGPoint prev_pos = self.position;
+        CGPoint new_pos = self.position;
+        CGFloat diff_x = _touchCURRENT.x - _touchPREVIOUS.x;
+        CGFloat diff_y = _touchCURRENT.y - _touchPREVIOUS.y;
         // if outside of visible area, don't pan
-        CGPoint world_pos = [self convertToNodeSpace:ccp(0,0)];
-        CGPoint world_pos1 = [self convertToWorldSpace:ccp(0,0)];
-        NSLog(@"GridMap: world_pos(%g,%g)", world_pos1.x, world_pos1.y);
-        NSLog(@"GridMap: position(%g,%g)", pos.x, pos.y);
-        //[self setPosition:ccp(0,0)];
-        [self setPosition:pos];
+        CGPoint node_pos = [self convertToWorldSpace:ccp(0,0)];
+        CGPoint view_bot_left = [self convertToNodeSpace:ccp(0,0)]; // view bot left
+        CGPoint map_top_right = [self convertToNodeSpace:ccp([self boundingBox].size.width,[self boundingBox].size.height)];
+        //NSLog(@"GridMap: view_bot_left(%g,%g)", view_bot_left.x, view_bot_left.y);
+        //NSLog(@"GridMap: node_pos(%g,%g)", node_pos.x, node_pos.y);
+        //NSLog(@"GridMap: prev_pos(%g,%g)", prev_pos.x, prev_pos.y);
+        //NSLog(@"GridMap: new_pos(%g,%g)", new_pos.x, new_pos.y);
+        //NSLog(@"GridMap: diff(%g,%g)", [self boundingBox].size.width, [self boundingBox].size.height);
+        if (diff_x < 0) { // move left
+            NSLog(@"GridMap: move left");
+            NSLog(@"GridMap: view_bot_left(%g,%g)", view_bot_left.x, view_bot_left.y);
+            NSLog(@"GridMap: map_top_right(%g,%g)", map_top_right.x, map_top_right.y);
+            if((view_bot_left.x+_screenSize.width) < map_top_right.x)
+                new_pos.x += diff_x;
+        } else if (diff_x > 0) { // move right
+            NSLog(@"GridMap: move right");
+        }
+        if (diff_y < 0) { // move down
+            NSLog(@"GridMap: move down");
+        } else if (diff_y > 0) { // move up
+            NSLog(@"GridMap: move up");
+        }
+        /*if(world_pos.x < 0)
+            pos.x = prev_pos.x - node_pos.x;
+        else if(world_pos.x > (top_right.x-_screenSize.width))
+            pos.x -= world_pos.x;
+        if(world_pos.y < 0)
+            pos.y += world_pos.y;
+        else if(world_pos.y >= (top_right.y-_screenSize.height))
+            pos.y += world_pos.y;*/
+        [self setPosition:new_pos];
     } else if ([touches count] == 2) {
         NSArray *twoTouch = [touches allObjects];
         
@@ -272,15 +303,19 @@ static GridMap *sharedInstance = nil;
             // zoom in
             if (self.scale < 2.0f) {
                 zoomFactor += zoomFactor *0.05f;
+                if(zoomFactor > 2.0f)
+                    zoomFactor = 2.0f;
                 self.scale = zoomFactor;
             }
             // Still To Do - make view centered on pinch
-            
+            CGPoint world_pos = [self convertToNodeSpace:ccp(0,0)];
             initialDistance = currentDistance;
         } else if (currentDistance - initialDistance < 0) {
             // zoom out
-            if (self.scale > 1.0f) {
+            if (self.scale >= 1.0f) {
                 zoomFactor -= zoomFactor *0.05f;
+                if(zoomFactor < 1.0f)
+                    zoomFactor = 1.0f;
                 self.scale = zoomFactor;
             }
             
