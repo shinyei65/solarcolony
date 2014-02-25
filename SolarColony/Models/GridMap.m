@@ -252,41 +252,36 @@ static GridMap *sharedInstance = nil;
         UITouch *touch = [touches anyObject];
         _touchPREVIOUS = _touchCURRENT;
         _touchCURRENT = [[CCDirector sharedDirector] convertToGL:[touch locationInView:[touch view]]];
-        CGPoint prev_pos = self.position;
         CGPoint new_pos = self.position;
         CGFloat diff_x = _touchCURRENT.x - _touchPREVIOUS.x;
         CGFloat diff_y = _touchCURRENT.y - _touchPREVIOUS.y;
         // if outside of visible area, don't pan
-        CGPoint node_pos = [self convertToWorldSpace:ccp(0,0)];
-        CGPoint view_bot_left = [self convertToNodeSpace:ccp(0,0)]; // view bot left
-        CGPoint map_top_right = [self convertToNodeSpace:ccp([self boundingBox].size.width,[self boundingBox].size.height)];
-        //NSLog(@"GridMap: view_bot_left(%g,%g)", view_bot_left.x, view_bot_left.y);
-        //NSLog(@"GridMap: node_pos(%g,%g)", node_pos.x, node_pos.y);
-        //NSLog(@"GridMap: prev_pos(%g,%g)", prev_pos.x, prev_pos.y);
-        //NSLog(@"GridMap: new_pos(%g,%g)", new_pos.x, new_pos.y);
-        //NSLog(@"GridMap: diff(%g,%g)", [self boundingBox].size.width, [self boundingBox].size.height);
+        CGPoint view_bot_left = [self convertToNodeSpace:ccp(0,0)];
+        CGPoint view_top_right = [self convertToNodeSpace:ccp(_screenSize.width, _screenSize.height)];
+        CGPoint map_bot_left = [self convertToNodeSpace:ccp(self.position.x,self.position.y)];
+        NSLog(@"GridMap: map_bot_left(%g,%g)", map_bot_left.x, map_bot_left.y);
         if (diff_x < 0) { // move left
             NSLog(@"GridMap: move left");
-            NSLog(@"GridMap: view_bot_left(%g,%g)", view_bot_left.x, view_bot_left.y);
-            NSLog(@"GridMap: map_top_right(%g,%g)", map_top_right.x, map_top_right.y);
-            if((view_bot_left.x+_screenSize.width) < map_top_right.x)
+            // if top right of view still in the map area
+            if(view_top_right.x < _screenSize.width)
                 new_pos.x += diff_x;
         } else if (diff_x > 0) { // move right
             NSLog(@"GridMap: move right");
+            // if bot left of view still in the map area
+            if(view_bot_left.x > 0)
+                new_pos.x += diff_x;
         }
         if (diff_y < 0) { // move down
             NSLog(@"GridMap: move down");
+            // if top right of view still in the map area
+            if(view_top_right.y < _screenSize.height)
+                new_pos.y += diff_y;
         } else if (diff_y > 0) { // move up
             NSLog(@"GridMap: move up");
+            // if bot left of view still in the map area
+            if(view_bot_left.y > 0)
+                new_pos.y += diff_y;
         }
-        /*if(world_pos.x < 0)
-            pos.x = prev_pos.x - node_pos.x;
-        else if(world_pos.x > (top_right.x-_screenSize.width))
-            pos.x -= world_pos.x;
-        if(world_pos.y < 0)
-            pos.y += world_pos.y;
-        else if(world_pos.y >= (top_right.y-_screenSize.height))
-            pos.y += world_pos.y;*/
         [self setPosition:new_pos];
     } else if ([touches count] == 2) {
         NSArray *twoTouch = [touches allObjects];
