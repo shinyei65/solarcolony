@@ -8,12 +8,12 @@
 
 
 #import "Tower.h"
-#import "BulletBasic.h"
+#import "NormalBullet.h"
 
 @interface TowerMagic : CCNode<Tower>{
     int counterTest;
     int health;
-    BulletBasic* bullet;
+    NormalBullet* bullet;
     id movePoint, returnPoint ;
 }
 @property(assign, atomic) CGPoint targetLocation;

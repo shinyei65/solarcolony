@@ -25,6 +25,8 @@
     
     self = [super init];
     if (!self) return(nil);
+    //Game status global variables
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     
     CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
     [towerSprite setAnchorPoint:ccp(.8, 0.5)];
@@ -39,10 +41,12 @@
     
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
     
-    bullet = [[ BulletBasic alloc] initTower:location];
+    bullet = [[ NormalBullet alloc] initTower:location];
+    [bullet setPosition:ccp(location.x+10,location.y+10)];
     
     [self setPosition:[self getLocation]];
-    [self addChild:bullet];
+    //[self addChild:bullet];
+   [[GridMap map] addChild:bullet];
     [self addChild:towerSprite];
     
     
@@ -77,7 +81,7 @@
 {
     // bla bla bla
     //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
+   /* CCLOG(@"SHOTTING");
     //    counterTest++;
     //     if ([self numberOfRunningActions]==0) {
     [bullet setVisible:true];
@@ -95,7 +99,20 @@
     [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
     //
     //    }
+    */
     
+    CCLOG(@"SHOTTING");
+    [bullet setVisible:true];
+    //   CCLOG(@"coord x %f",targetLocation.x);
+    //  CCLOG(@"coord x %f",targetLocation.y);
+    CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
+    //   CCLOG(@"coord x %f",targetLocations.x);
+    //   CCLOG(@"coord x %f",targetLocations.y);
+    CGPoint targetPrevious = [bullet position];
+    //   id appearAction = [CCFadeIn actionWithDuration:.1];
+    // id disappearAction = [CCFadeOut actionWithDuration:.1];
+    bullet.targetLocation=targetLocations ;
+    [bullet startAttackTarget];
     
     //   }else{
     //   counterTest=0;

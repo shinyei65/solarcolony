@@ -12,21 +12,24 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol Bullet  
+@protocol Bullet
 
 @required
 
-    -(void) setLocation:(CGPoint) location;
-    -(CGPoint) getLocation;
-    -(void) appearSpriteBullet;
-    -(void) disappearSpriteBullet;
-
+-(void) setLocation:(CGPoint) location;
+-(CGPoint) getLocation;
+-(void) appearSpriteBullet;
+-(void) disappearSpriteBullet;
+- (void)followTarget:(ccTime)delta;
+- (void)startAttackTarget;
 
 @optional
-    -(int)dummyMethodForReference:(int) value;
+-(int)dummyMethodForReference:(int) value;
 
 @property  CGSize mobileDisplaySize;
- @property(assign, nonatomic) CGPoint bulletLocation;
+@property(assign, nonatomic) CGPoint bulletLocation;
+@property(assign, nonatomic) CGPoint initBulletLocation;
+@property(assign, nonatomic) CGPoint targetLocation;
 
-
+@property(assign, nonatomic) double gametime;
 @end

@@ -30,6 +30,7 @@
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
+		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
 		F521428618B699120085BD47 /* soundOff.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428418B699120085BD47 /* soundOff.png */; };
 		F521428718B699120085BD47 /* soundOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428518B699120085BD47 /* soundOn.png */; };
 		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
@@ -181,7 +182,6 @@
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
 		F58AC63118B42932009B6422 /* TowerMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58AC63018B42932009B6422 /* TowerMagic.m */; };
-		F58E478118AEC86700204A79 /* BulletBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58E478018AEC86700204A79 /* BulletBasic.m */; };
 		F59D52A718AC703000B62B5D /* TowerHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52A618AC703000B62B5D /* TowerHuman.m */; };
 		F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52AA18AC78BB00B62B5D /* towerA.png */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
@@ -230,6 +230,8 @@
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
+		F51C381818BEE7AC00AFD1BA /* NormalBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalBullet.h; sourceTree = "<group>"; };
+		F51C381918BEE7AD00AFD1BA /* NormalBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalBullet.m; sourceTree = "<group>"; };
 		F521428418B699120085BD47 /* soundOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOff.png; sourceTree = "<group>"; };
 		F521428518B699120085BD47 /* soundOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOn.png; sourceTree = "<group>"; };
 		F528C72A18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusEssentialsSingleton.h; sourceTree = "<group>"; };
@@ -538,8 +540,6 @@
 		F58AC62F18B42932009B6422 /* TowerMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMagic.h; sourceTree = "<group>"; };
 		F58AC63018B42932009B6422 /* TowerMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMagic.m; sourceTree = "<group>"; };
 		F58E477C18AEC74D00204A79 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
-		F58E477F18AEC86700204A79 /* BulletBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulletBasic.h; sourceTree = "<group>"; };
-		F58E478018AEC86700204A79 /* BulletBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BulletBasic.m; sourceTree = "<group>"; };
 		F59D52A518AC703000B62B5D /* TowerHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerHuman.h; sourceTree = "<group>"; };
 		F59D52A618AC703000B62B5D /* TowerHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerHuman.m; sourceTree = "<group>"; };
 		F59D52AA18AC78BB00B62B5D /* towerA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerA.png; sourceTree = "<group>"; };
@@ -633,10 +633,10 @@
 				F58AC62F18B42932009B6422 /* TowerMagic.h */,
 				F58AC63018B42932009B6422 /* TowerMagic.m */,
 				F58E477C18AEC74D00204A79 /* Bullet.h */,
-				F58E477F18AEC86700204A79 /* BulletBasic.h */,
-				F58E478018AEC86700204A79 /* BulletBasic.m */,
 				F528C72D18B5B18D003B4FB8 /* ThreadSafeMutableArray.h */,
 				F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */,
+				F51C381818BEE7AC00AFD1BA /* NormalBullet.h */,
+				F51C381918BEE7AD00AFD1BA /* NormalBullet.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1372,6 +1372,7 @@
 				F559490918A56F3C008ADDED /* CCAnimation.m in Sources */,
 				F5594A3418A56F40008ADDED /* aabb.c in Sources */,
 				F55949AB18A56F3E008ADDED /* CCTMXObjectGroup.m in Sources */,
+				F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */,
 				F5594A0D18A56F40008ADDED /* CDAudioManager.m in Sources */,
 				F55949BA18A56F3E008ADDED /* CCTransitionProgress.m in Sources */,
 				F55949DD18A56F3F008ADDED /* CCGLView.m in Sources */,
@@ -1409,7 +1410,6 @@
 				F56A654618A9516A00AE0884 /* Soldier.m in Sources */,
 				5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */,
 				F55949ED18A56F3F008ADDED /* CCFileUtils.m in Sources */,
-				F58E478118AEC86700204A79 /* BulletBasic.m in Sources */,
 				F55949DA18A56F3F008ADDED /* CCEventDispatcher.m in Sources */,
 				F559499018A56F3E008ADDED /* CCSpriteBatchNode.m in Sources */,
 				21DD4D0918AF5CA9009E55DC /* MusicManagerSingleton.m in Sources */,

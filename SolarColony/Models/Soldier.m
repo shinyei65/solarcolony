@@ -27,7 +27,7 @@
     BOOL S_attack_flag;
     CGPoint S_position; // grid coordinate
      id movePoint, returnPoint ;
-    BulletBasic* bullet;
+    NormalBullet* bullet;
 }
 @synthesize targetLocation;
 
@@ -56,7 +56,7 @@
     _hp.position = ccp(0, 10);
     [self addChild:_soldier];
     [self addChild:_hp];
-    bullet = [[ BulletBasic alloc] initTower:ccp(150, 150)];
+    bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
     [self addChild:bullet];
 
     return self;

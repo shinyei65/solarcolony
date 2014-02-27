@@ -10,7 +10,7 @@
 #import "GameStatusEssentialsSingleton.h"
 
 static WaveController *sharedInstance = nil;
-int WAVE_GEN_RATE = 300; // 60 ticks per sec
+int WAVE_GEN_RATE = 60; // 60 ticks per sec
 int SOL_GEN_RATE = 60; // 60 ticks per sec
 BOOL test = false;
 

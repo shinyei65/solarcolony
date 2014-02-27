@@ -39,7 +39,7 @@
     
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
     
-    bullet = [[ BulletBasic alloc] initTower:location];
+    bullet = [[ NormalBullet alloc] initTower:location];
     
     [self setPosition:[self getLocation]];
     [self addChild:bullet];

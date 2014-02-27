@@ -7,13 +7,15 @@
 //
 
 #import "Tower.h"
-#import "BulletBasic.h"
+#import "NormalBullet.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @interface TowerRobot : CCNode<Tower>{
     int counterTest;
     int health;
-    BulletBasic* bullet;
+    NormalBullet* bullet;
     id movePoint, returnPoint ;
+    GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
