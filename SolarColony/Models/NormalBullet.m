@@ -38,7 +38,7 @@
     
     
     
-    gravity = 9.8; // metres per second square
+    gravity = 19.8; // metres per second square
     X = 0;
     Y = 0;
     V0 = 50; // meters per second -- elevation
@@ -50,13 +50,26 @@
 
 -(void)startAttackTarget{
     //calculate initial angles velocities
-    float angleRadians = atan2(initBulletLocation.x - 480, initBulletLocation.y -   320)* 180 / 3.14;
-   // float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
-    //angle = -1 * angleDegrees;
-    angle = angleRadians;
+   // float angleRadians = atan2(initBulletLocation.x - 00, initBulletLocation.y -   0);
+    float angleRadians = atan2(targetLocation.x-initBulletLocation.x , targetLocation.x-initBulletLocation.y );
+    float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
+    angle = -1 * angleDegrees;
+    CCLOG(@"ANGLE RADIANS %f",angleDegrees);
+    angle = angleDegrees;
     bulletLocation=initBulletLocation;
     //2) call folow target
-    [self schedule: @selector(followTarget:) interval:1];
+    
+    
+    
+    
+    //bezier test
+    
+    //
+    
+    
+    
+    
+    [self schedule: @selector(followTarget:) interval:1/60];
 }
 -(void) decreaseSpeed{
     
@@ -65,27 +78,30 @@
 - (void)followTarget:(ccTime)delta{
     
     //if ((targetLocation.x==bulletLocation.x)&&(targetLocation.y==bulletLocation.y)) {
-    if ((targetLocation.x<=bulletLocation.x)&&(targetLocation.y<=bulletLocation.y)) {
+   // if ((targetLocation.x<=bulletLocation.x)&&(targetLocation.y<=bulletLocation.y)) {
+    if (((targetLocation.x>=bulletLocation.x-20&&targetLocation.x<=bulletLocation.x+20)&&(targetLocation.y>=bulletLocation.y-20&&targetLocation.y<=bulletLocation.y+20))
+        /*||(bulletLocation.x<0||bulletLocation.y<0)*/){
         self.position = initBulletLocation;
         bulletLocation=initBulletLocation;
+        gametime=0.0;
         [self unscheduleAllSelectors];
         
     }else{
-        gametime += (delta*1);
+        gametime += (delta*5);
         
         // x = v0 * t * cos(angle)
         bulletLocation.x = (V0 * gametime * cos(angle));
         
         // y = v0 * t * sin(angle) - 0.5 * g * t^2
-        bulletLocation.y = (V0 * gametime * sin(angle) - 0.5 * gravity * pow(gametime, 2));
+        bulletLocation.y = -(V0 * gametime * sin(angle) - 0.5 * gravity * pow(gametime, 2));
         
         
         // bulletLocation.x+=10;
         
         //  bulletLocation.y+=10;
         
-        CCLOG(@"coord x %f",bulletLocation.x);
-        CCLOG(@"coord y %f",bulletLocation.y);
+      //  CCLOG(@"coord x %f",bulletLocation.x);
+      //  CCLOG(@"coord y %f",bulletLocation.y);
         //   X = (V0 * gameTime * cos(angle))/2+120;
         
         // y = v0 * t * sin(angle) - 0.5 * g * t^2

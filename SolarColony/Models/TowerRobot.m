@@ -42,13 +42,13 @@
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
     
     bullet = [[ NormalBullet alloc] initTower:location];
-    [bullet setPosition:ccp(location.x+10,location.y+10)];
+    //[bullet setPosition:ccp(location.x+10,location.y+10)];
     
     [self setPosition:[self getLocation]];
-    //[self addChild:bullet];
-   [[GridMap map] addChild:bullet];
-    [self addChild:towerSprite];
     
+   //[[GridMap map] addChild:bullet];
+    [self addChild:towerSprite];
+    [self addChild:bullet];
     
     return self;
 }
@@ -111,7 +111,7 @@
     CGPoint targetPrevious = [bullet position];
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
-    bullet.targetLocation=targetLocations ;
+    bullet.targetLocation=targetLocations;
     [bullet startAttackTarget];
     
     //   }else{

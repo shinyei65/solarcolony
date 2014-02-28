@@ -59,7 +59,7 @@
           //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
            // CCLOG(@"addres soldier y %f", soldierpoint.y);
         if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
-                CCLOG(@"PREPARE SHOT ONE POINT");
+             //   CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
                                 //animate attack from soldier
                 

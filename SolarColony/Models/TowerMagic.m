@@ -20,13 +20,12 @@
 @synthesize isAttacking;
 @synthesize selfLocation;
 
-
 - (instancetype) initTower:(CGPoint)location{
     
     self = [super init];
     if (!self) return(nil);
     
-    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
+    CCSprite* towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
     [towerSprite setAnchorPoint:ccp(0.5,0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
@@ -92,10 +91,22 @@
     movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
     returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
     
-    [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+    //[bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+    
+    //  [bullet runAction:[CCJumpBy actionWithDuration:0.75 position:targetLocations height:25 jumps:4]];
     //
     //    }
     
+      ccBezierConfig bezier;
+     bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
+     bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
+     bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
+     CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
+     
+     
+     
+     [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
+     
     
     //   }else{
     //   counterTest=0;

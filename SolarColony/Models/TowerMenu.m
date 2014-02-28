@@ -95,6 +95,10 @@
          NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerB",@"point", nil];
        // [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerDestroyer" object:towerLocation];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
+    }else if ([menuItem.label.string isEqualToString:@"C"])  {
+        NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerC",@"point", nil];
+        // [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerDestroyer" object:towerLocation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
     }
     
 }

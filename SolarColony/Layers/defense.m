@@ -16,6 +16,7 @@
 #import "GridMap.h"
 #import "WaveQueue.h"
 #import "PlayerInfo.h"
+#import "TowerMagic.h"
 
 
 @implementation defense{
@@ -160,6 +161,20 @@
         [colissionsManager addTower:t3];
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
 
+    }else if ([interface isEqualToString:@"TowerC"] && [player getResource]>=robotPrice) {
+        
+        float pointX=grid.menuLocation.x;
+        float pointY=grid.menuLocation.y;
+        int newResource = [player getResource] - robotPrice;
+        [player setResource:newResource];
+        CCLOG(@"End location.x in C %f", pointX);   //I just get location.x = 0
+        CCLOG(@"End location.y in C %f", pointY);   //I just get location.y = 0
+        
+        
+        TowerMagic* t3=[[TowerMagic alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [colissionsManager addTower:t3];
+        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
+        
     }
     [grid hideTowerMenu];
         
