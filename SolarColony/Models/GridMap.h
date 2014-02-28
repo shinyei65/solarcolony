@@ -12,7 +12,7 @@
 #import "cocos2d.h"
 #import "TowerMenu.h"
 
-@interface GridMap : CCLayerColor
+@interface GridMap : CCLayer
 
 + (GridMap *) map;
 - (instancetype) init;
