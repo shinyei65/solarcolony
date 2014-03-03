@@ -51,9 +51,9 @@
     AttackTime = (float)1/attack_sp;
     attackCD = 0;
     S_attack_flag = TRUE;
-    _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
+    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Special.gif"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
-    _hp.position = ccp(0, 10);
+    _hp.position = ccp(0, 15);
     [self addChild:_soldier];
     [self addChild:_hp];
     bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
@@ -75,9 +75,9 @@
     AttackTime = (float)1/attack_sp;
     attackCD = 0;
     S_attack_flag = FALSE;
-    _soldier = [CCSprite spriteWithFile:@"Dismounted Soldier - Gear.jpg"];
+    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Basic.gif"];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
-    _hp.position = ccp(0, 10);
+    _hp.position = ccp(0, 15);
     [self addChild:_soldier];
     [self addChild:_hp];
 

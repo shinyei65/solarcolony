@@ -34,13 +34,13 @@
         
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"this is attacker layer" fontName:@"Marker Felt" fontSize:64];
+       
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+       // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
-        [self addChild:splash];
+
         [self addChild:[self loadMenu]];
     }
     return self;
@@ -50,15 +50,22 @@
 {
     CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=1;
+    CCMenuItem *attackBotton=[CCMenuItemImage itemWithNormalImage:@"attackBotton.png" selectedImage:@"attackBotton_select.png" target:self selector:@selector(sendAttack)];
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart, nil];
+    attackBotton.position=ccp(50,100);
     
-    [mainMenu alignItemsHorizontallyWithPadding:20];
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,attackBotton, nil];
+    
+   // [mainMenu alignItemsHorizontallyWithPadding:20];
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
     
     return mainMenu;
     
+}
+
+-(void)sendAttack{
+    CCLOG(@"SEND ATTACK!!!");
 }
 
 -(void)moveToScene:(id)sender{
