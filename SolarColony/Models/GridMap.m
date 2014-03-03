@@ -290,8 +290,8 @@ static GridMap *sharedInstance = nil;
         UITouch *tTwo = [twoTouch objectAtIndex:1];
         CGPoint firstTouch = [tOne locationInView:[tOne view]];
         CGPoint secondTouch = [tTwo locationInView:[tTwo view]];
+        CGPoint pinchCenter = ccpMidpoint(firstTouch, secondTouch);
         CGFloat currentDistance = sqrt(pow(firstTouch.x - secondTouch.x, 2.0f) + pow(firstTouch.y - secondTouch.y, 2.0f));
-        CGPoint view_mid = [self convertToNodeSpace:ccp(_screenSize.width*0.5f,_screenSize.height*0.5f)];
         if (initialDistance == 0) {
             initialDistance = currentDistance;
             // set to 0 in case the two touches weren't at the same time
@@ -302,7 +302,7 @@ static GridMap *sharedInstance = nil;
                 if(zoomFactor > 2.0f)
                     zoomFactor = 2.0f;
                 //self.scale = zoomFactor;
-                [self scale:zoomFactor scaleCenter:view_mid];
+                [self scale:zoomFactor scaleCenter:pinchCenter];
             }
             initialDistance = currentDistance;
         } else if (currentDistance - initialDistance < 0) {
@@ -312,16 +312,11 @@ static GridMap *sharedInstance = nil;
                 if(zoomFactor < 1.0f)
                     zoomFactor = 1.0f;
                 //self.scale = zoomFactor;
-                [self scale:zoomFactor scaleCenter:view_mid];
+                [self scale:zoomFactor scaleCenter:pinchCenter];
             }
             
             initialDistance = currentDistance;
         }
-        // make view centered on pinch
-        //CGPoint cur_view_bot_left = [self convertToNodeSpace:ccp(0,0)];
-        //CGFloat diff_x = cur_view_bot_left.x - prev_view_bot_left.x;
-        //CGFloat diff_y = cur_view_bot_left.y - prev_view_bot_left.y;
-        //CGPoint map_bot_left = [self convertToWorldSpace:ccp(0,0)];
     }
 }
 
@@ -330,19 +325,33 @@ static GridMap *sharedInstance = nil;
     // If you are doing a pinch zoom, this should be the center of your pinch.
     
     // Get the original center point.
-    CGPoint oldCenterPoint = [self convertToWorldSpace:scaleCenter];
+    //CGPoint oldCenterPoint = ccp(scaleCenter.x * self.scale, scaleCenter.y * self.scale);
     
     // Set the scale.
     self.scale = newScale;
     
     // Get the new center point.
-    CGPoint newCenterPoint = [self convertToWorldSpace:scaleCenter];
+    //CGPoint newCenterPoint = ccp(scaleCenter.x * self.scale, scaleCenter.y * self.scale);
     
     // Then calculate the delta.
-    CGPoint centerPointDelta  = ccpSub(oldCenterPoint, newCenterPoint);
+    //CGPoint centerPointDelta  = ccpSub(oldCenterPoint, newCenterPoint);
     
     // Now adjust your layer by the delta.
-    self.position = ccpAdd(self.position, centerPointDelta);
+    //self.position = ccpAdd(self.position, centerPointDelta);
+    
+    // move the map back to view area
+    CGPoint new_pos = self.position;
+    CGPoint view_bot_left = [self convertToNodeSpace:ccp(0,0)];
+    CGPoint view_top_right = [self convertToNodeSpace:ccp(_screenSize.width, _screenSize.height)];
+    if(view_top_right.x > _screenSize.width)
+        new_pos.x += (view_top_right.x - _screenSize.width);
+    if(view_bot_left.x < 0)
+        new_pos.x += view_bot_left.x;
+    if(view_top_right.y > _screenSize.height)
+        new_pos.y += (view_top_right.y - _screenSize.height);
+    if(view_bot_left.y < 0)
+        new_pos.y += view_bot_left.y;
+    [self setPosition:new_pos];
 }
 
 - (void) selectCell: (CGPoint) index
