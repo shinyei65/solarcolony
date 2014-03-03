@@ -57,21 +57,24 @@
 - (void) attackTest:(CGPoint) soldier{
     
     [self setIsAttacking:true];
-    
-  //
+
     targetLocation=soldier;
-    [self schedule: @selector(animatonAttack:) interval:1];
+    bullet.targetLocation=soldier;
+    [self schedule: @selector(animatonAttackTest:) interval:1];
+    
+}
 
-    
-  //
-    
-
-    
+-(void) animatonAttackTest: (ccTime) dt
+{
+    //  bullet.targetLocation=soldier;
+    [bullet delegateRaceAttack];
+    [self unscheduleAllSelectors];
+    [self setIsAttacking:false];
 }
 
  
 
-
+/*
 -(void) animatonAttack: (ccTime) dt
 {
     // bla bla bla
@@ -93,30 +96,10 @@
               
                 [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
     
-    //  [bullet runAction:[CCJumpBy actionWithDuration:0.75 position:targetLocations height:25 jumps:4]];
-     //
-        //    }
-      
-  /*  ccBezierConfig bezier;
-    bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
-    bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
-    bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-    CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
-    
-    
- 
-     [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-   */
-
- //   }else{
-     //   counterTest=0;
-        
         [self unscheduleAllSelectors];
         [self setIsAttacking:false];
-   // }
-   
     
-}
+}*/
 
 
 -(bool) getIsattacking{

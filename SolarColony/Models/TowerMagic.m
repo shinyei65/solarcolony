@@ -60,19 +60,24 @@
     
     //
     targetLocation=soldier;
-    [self schedule: @selector(animatonAttack:) interval:1];
-    
-    
-    //
-    
-    
+  //  [self schedule: @selector(animatonAttack:) interval:1];
+    bullet.targetLocation=soldier;
+    [self schedule: @selector(animatonAttackTest:) interval:1];
+
     
 }
 
+-(void) animatonAttackTest: (ccTime) dt
+{
+  //  bullet.targetLocation=soldier;
+    [bullet delegateRaceAttack];
+    [self unscheduleAllSelectors];
+    [self setIsAttacking:false];
+}
 
 
-
--(void) animatonAttack: (ccTime) dt
+/*
+ -(void) animatonAttack: (ccTime) dt
 {
     // bla bla bla
     //   if (counterTest<=5) {
@@ -89,7 +94,7 @@
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
     movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];
     
     //[bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
     
@@ -97,14 +102,19 @@
     //
     //    }
     
-      ccBezierConfig bezier;
-     bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
-     bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
-     bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-     CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
+     // ccBezierConfig bezier;
+    // bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
+     //bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
+     //bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
+     //CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
      
-     
-     
+    ccBezierConfig bezier;
+    bezier.controlPoint_1 = ccp(targetLocations.x*.05, targetLocations.y*.75);
+ //   bezier.controlPoint_2 = ccp(targetPrevious.x*.5, targetLocations.y*.5);
+    bezier.controlPoint_2 = ccp(targetLocations.x*.75, targetLocations.y*.85);
+    bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
+    CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.4 bezier:bezier];
+    
      [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
      
     
@@ -115,9 +125,9 @@
     [self setIsAttacking:false];
     // }
     
-    
-}
 
+}
+*/
 
 -(bool) getIsattacking{
     
