@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975524618C522B200194099 /* WavesOfSoldiers.m */; };
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937818B5B2A40064A95D /* braincandy.wav */; };
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
@@ -199,6 +200,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0975524518C522B200194099 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WavesOfSoldiers.h; path = ../../WavesOfSoldiers.h; sourceTree = "<group>"; };
+		0975524618C522B200194099 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WavesOfSoldiers.m; path = ../../WavesOfSoldiers.m; sourceTree = "<group>"; };
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		09AB937718B5B2A40064A95D /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -1167,6 +1170,8 @@
 				F5DFA3B918A5AD04000F0A00 /* GameLandingScene.h */,
 				F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */,
 				F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */,
+				0975524518C522B200194099 /* WavesOfSoldiers.h */,
+				0975524618C522B200194099 /* WavesOfSoldiers.m */,
 				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
 				09A7183118A6249800FC9BB2 /* Friends.h */,
 				09A7183218A6249800FC9BB2 /* Friends.m */,
@@ -1365,6 +1370,7 @@
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
+				0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */,
 				F55949F918A56F3F008ADDED /* CGPointExtension.m in Sources */,
 				F55948FD18A56F3C008ADDED /* CCActionPageTurn3D.m in Sources */,
 				F5594A4E18A56F40008ADDED /* vec3.c in Sources */,

@@ -15,6 +15,7 @@
 #import "GameLandingScene.h"
 #import "AttackScene.h"
 #import "DefenseSettingsScene.h"
+#import "WavesOfSoldiers.h"
 
 @implementation TransitionManagerSingleton
 
@@ -60,6 +61,7 @@ static TransitionManagerSingleton *sharedInstance = nil;
         case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[AttackScene scene] ]]; break;
         case 7:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Settings scene] ]]; break;
         case 8:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[DefenseSettingsScene scene] ]]; break;
+        case 9:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[WavesOfSoldiers scene] ]]; break;
     }
 }
 
