@@ -59,7 +59,7 @@
         TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
         [colissionsManager addTower:t3];
         [self addChild:t3];*/
-        
+  /*
         //Test sprite sheet
         CCSpriteFrameCache *cache=[CCSpriteFrameCache sharedSpriteFrameCache];
         [cache addSpriteFramesWithFile:@"Sam.plist"];
@@ -113,7 +113,7 @@
         
         [pink runAction:animAction_pink];
         pink.tag=78;
-        
+      */
         
 
     }
@@ -124,12 +124,13 @@
 {
     CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
     manuItemBack.tag=1;
+    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"This is Friends page" target:self selector:@selector(moveToScene:)];
+    manuItemBack.tag=1;
+    CCMenu *mainMenu=[CCMenu menuWithItems: manuItemFriends, manuItemBack, nil];
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
+    [mainMenu alignItemsVerticallyWithPadding:20];
     
-    [mainMenu alignItemsHorizontallyWithPadding:20];
-    
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
+    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     
     return mainMenu;
 
