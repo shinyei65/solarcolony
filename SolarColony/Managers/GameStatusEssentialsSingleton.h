@@ -14,7 +14,7 @@
 #import "GridMap.h"
 #import "Soldier.h"
 #import "Army.h"
-#import "WaveQueue.h"
+#import "ArmyQueue.h"
 
 
 @interface GameStatusEssentialsSingleton : CCNode

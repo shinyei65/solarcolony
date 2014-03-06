@@ -20,7 +20,7 @@ BOOL test = false;
     BOOL _in_wave;
     NSMutableArray *_queue;
     NSMutableArray *_monitor;
-    Army *_wave;
+    Wave *_wave;
     NSObject *_mylock;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
@@ -91,7 +91,7 @@ BOOL test = false;
     }*/
 }
 
-- (void) addWave: (Army *) wave
+- (void) addWave: (Wave *) wave
 {
     [_queue addObject: wave];
     NSLog(@"WaveController: %d waves in queue", [_queue count]);
@@ -101,18 +101,18 @@ BOOL test = false;
 {
     NSLog(@"WaveController: generate AI army");
     // add one AI army in queue
-    Army *army = [Army army];
+    Wave *wave = [Wave wave];
     for (int i=0; i<3; i++) {
         CCLOG(@"runner!!!");
         Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-        [army addSoldier: temp];
+        [wave addSoldier: temp];
     }
     for (int i=0; i<3; i++) {
         CCLOG(@"attacker!!!");
         Soldier *temp = [Soldier attacker:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-        [army addSoldier: temp];
+        [wave addSoldier: temp];
     }
-    [self addWave: army];
+    [self addWave: wave];
 }
 
 - (void) generateSoldier
@@ -142,7 +142,7 @@ BOOL test = false;
 {
     NSLog(@"WaveController: start a wave");
     @synchronized(_mylock){
-        _wave = (Army *)[_queue objectAtIndex: 0];
+        _wave = (Wave *)[_queue objectAtIndex: 0];
         _hold_tick = _tick;
         _tick = SOL_GEN_RATE - 1;
         _in_wave = TRUE;
@@ -161,7 +161,7 @@ BOOL test = false;
     [_wave release]; _wave = nil;
     _tick = _hold_tick;
     _in_wave = FALSE;
-    [[WaveQueue layer] refreshTick];
+    [[ArmyQueue layer] refreshTick];
 }
 
 @end

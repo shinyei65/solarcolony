@@ -1,24 +1,27 @@
 //
-//  WaveQueue.m
+//  ArmyQueue.m
 //  SolarColony
 //
-//  Created by Student on 2/19/14.
+//  Created by Charles on 2/19/14.
 //  Copyright 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "WaveQueue.h"
+#import "ArmyQueue.h"
 #import "WaveController.h"
+#import "Wave.h"
 
-static WaveQueue *sharedInstance = nil;
+static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 1;
+int WAVE_GEN_RATE = 1;
 
-@implementation WaveQueue {
+@implementation ArmyQueue {
     CCLabelTTF *_min;
     CCLabelTTF *_sec;
     int _min_tick;
     int _sec_tick;
     int _tick;
     BOOL _hold;
+    NSMutableArray *_queue;
 }
 + (instancetype) layer
 {
@@ -32,6 +35,7 @@ int WAVE_START_RATE = 1;
 {
     self = [super init];
     if (self) {
+        _queue = [[NSMutableArray alloc] init];
         _hold = FALSE;
         _tick = 0;
         _min_tick = 0;
@@ -75,5 +79,33 @@ int WAVE_START_RATE = 1;
 {
     _hold = FALSE;
     [_sec setString:[self getSecString]];
+}
+
+#pragma mark - Army operation
+
+- (void) addArmy: (Army *) army
+{
+    [_queue addObject: army];
+    NSLog(@"ArmyQueue: %d armies in queue", [_queue count]);
+}
+
+- (void) genertateAIarmy
+{
+    NSLog(@"ArmyQueue: generate AI army");
+    // add one AI army in queue
+    Army *army = [Army army];
+    Wave *wave = [Wave wave];
+    for (int i=0; i<3; i++) {
+        CCLOG(@"runner!!!");
+        Soldier *temp = [Soldier runner:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+        [wave addSoldier: temp];
+    }
+    for (int i=0; i<3; i++) {
+        CCLOG(@"attacker!!!");
+        Soldier *temp = [Soldier attacker:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+        [wave addSoldier: temp];
+    }
+    [army addWave: wave];
+    [self addArmy: army];
 }
 @end
