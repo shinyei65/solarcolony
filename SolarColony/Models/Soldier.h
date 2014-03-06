@@ -8,8 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "NormalBullet.h"
+@class NormalBullet;
+//#import "NormalBullet.h"
+
 @interface Soldier : CCNode {
+    CCSprite *_soldier;
+    CCSprite *_hp;
+    //soldier's attribute
+    int S_health;
+    int S_health_max;
+    int S_attack;
+    int S_attack_sp;
+    int S_speed;
+    float MoveTime;
+    float moveCD;
+    float AttackTime;
+    float attackCD;
+    BOOL S_attack_flag;
+    CGPoint S_position; // grid coordinate
+    id movePoint, returnPoint;
+    NormalBullet* bullet;
     
 }
 
@@ -37,9 +55,7 @@
 -(float)getAttackCD;
 -(void)acculAttackCD:(float)time;
 -(void)beingAttacked:(int)attack_power;
-
-
-- (void) attackTest:(CGPoint) tower;
+-(void)bulletDisapp;
 
 @property(assign, atomic) CGPoint targetLocation;
 

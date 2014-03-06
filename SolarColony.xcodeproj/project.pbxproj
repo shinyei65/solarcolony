@@ -189,6 +189,14 @@
 		F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */; };
 		F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */; };
 		F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */; };
+		F5A6ECE118C824BE00308F11 /* RobotSoldier_Basic.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECDF18C824BE00308F11 /* RobotSoldier_Basic.png */; };
+		F5A6ECE218C824BE00308F11 /* RobotSoldier_Special.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECE018C824BE00308F11 /* RobotSoldier_Special.png */; };
+		F5A6ECE518C8287900308F11 /* BasicSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6ECE418C8287900308F11 /* BasicSoldier.m */; };
+		F5A6ECE818C8366400308F11 /* MageSoldier_Basic.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECE618C8366400308F11 /* MageSoldier_Basic.png */; };
+		F5A6ECE918C8366400308F11 /* MageSoldier_Special.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECE718C8366400308F11 /* MageSoldier_Special.png */; };
+		F5A6ECEC18C836AF00308F11 /* HumanSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6ECEB18C836AF00308F11 /* HumanSoldier.m */; };
+		F5A6ECEF18C8384800308F11 /* RobotSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6ECEE18C8384800308F11 /* RobotSoldier.m */; };
+		F5A6ECF218C8385600308F11 /* MageSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6ECF118C8385600308F11 /* MageSoldier.m */; };
 		F5A75A6518C5062000B9F093 /* goshty.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6418C5062000B9F093 /* goshty.png */; };
 		F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6618C523F700B9F093 /* angrybomb.png */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
@@ -551,12 +559,24 @@
 		F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldColissionsManager.m; sourceTree = "<group>"; };
 		F59D52B318AC8C8400B62B5D /* SoldierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldierController.h; sourceTree = "<group>"; };
 		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
-		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
-		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
 		F5A6ECD318C50A6A00308F11 /* attackBotton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton.png; sourceTree = "<group>"; };
 		F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton_select.png; sourceTree = "<group>"; };
 		F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Basic.gif; sourceTree = "<group>"; };
 		F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Special.gif; sourceTree = "<group>"; };
+		F5A6ECDF18C824BE00308F11 /* RobotSoldier_Basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Basic.png; sourceTree = "<group>"; };
+		F5A6ECE018C824BE00308F11 /* RobotSoldier_Special.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Special.png; sourceTree = "<group>"; };
+		F5A6ECE318C8287900308F11 /* BasicSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicSoldier.h; sourceTree = "<group>"; };
+		F5A6ECE418C8287900308F11 /* BasicSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicSoldier.m; sourceTree = "<group>"; };
+		F5A6ECE618C8366400308F11 /* MageSoldier_Basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MageSoldier_Basic.png; sourceTree = "<group>"; };
+		F5A6ECE718C8366400308F11 /* MageSoldier_Special.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MageSoldier_Special.png; sourceTree = "<group>"; };
+		F5A6ECEA18C836AF00308F11 /* HumanSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanSoldier.h; sourceTree = "<group>"; };
+		F5A6ECEB18C836AF00308F11 /* HumanSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanSoldier.m; sourceTree = "<group>"; };
+		F5A6ECED18C8384800308F11 /* RobotSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSoldier.h; sourceTree = "<group>"; };
+		F5A6ECEE18C8384800308F11 /* RobotSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotSoldier.m; sourceTree = "<group>"; };
+		F5A6ECF018C8385600308F11 /* MageSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MageSoldier.h; sourceTree = "<group>"; };
+		F5A6ECF118C8385600308F11 /* MageSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MageSoldier.m; sourceTree = "<group>"; };
+		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
+		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
 		F5ADFE8218B69F060004C3D5 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
@@ -607,8 +627,12 @@
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
 				21152FF318B779F000C1274C /* On.png */,
+				F5A6ECE618C8366400308F11 /* MageSoldier_Basic.png */,
+				F5A6ECE718C8366400308F11 /* MageSoldier_Special.png */,
 				F521428418B699120085BD47 /* soundOff.png */,
 				F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */,
+				F5A6ECDF18C824BE00308F11 /* RobotSoldier_Basic.png */,
+				F5A6ECE018C824BE00308F11 /* RobotSoldier_Special.png */,
 				F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */,
 				F521428518B699120085BD47 /* soundOn.png */,
 				F53E795A18B5B6270037A48A /* blood_empty.jpg */,
@@ -652,6 +676,14 @@
 				F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */,
 				F51C381818BEE7AC00AFD1BA /* NormalBullet.h */,
 				F51C381918BEE7AD00AFD1BA /* NormalBullet.m */,
+				F5A6ECE318C8287900308F11 /* BasicSoldier.h */,
+				F5A6ECE418C8287900308F11 /* BasicSoldier.m */,
+				F5A6ECEA18C836AF00308F11 /* HumanSoldier.h */,
+				F5A6ECEB18C836AF00308F11 /* HumanSoldier.m */,
+				F5A6ECED18C8384800308F11 /* RobotSoldier.h */,
+				F5A6ECEE18C8384800308F11 /* RobotSoldier.m */,
+				F5A6ECF018C8385600308F11 /* MageSoldier.h */,
+				F5A6ECF118C8385600308F11 /* MageSoldier.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1262,6 +1294,7 @@
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
+				F5A6ECE218C824BE00308F11 /* RobotSoldier_Special.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
@@ -1270,10 +1303,13 @@
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
+				F5A6ECE818C8366400308F11 /* MageSoldier_Basic.png in Resources */,
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
+				F5A6ECE918C8366400308F11 /* MageSoldier_Special.png in Resources */,
+				F5A6ECE118C824BE00308F11 /* RobotSoldier_Basic.png in Resources */,
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
@@ -1350,6 +1386,7 @@
 				F5E4A3F118B2CE9E00C4FD22 /* TowerRobot.m in Sources */,
 				F559494A18A56F3D008ADDED /* CCMenuItem.m in Sources */,
 				F55948E518A56F3B008ADDED /* CCActionCamera.m in Sources */,
+				F5A6ECEF18C8384800308F11 /* RobotSoldier.m in Sources */,
 				F5594A1718A56F40008ADDED /* CDXPropertyModifierAction.m in Sources */,
 				F55949E718A56F3F008ADDED /* CCArray.m in Sources */,
 				F5594A4418A56F40008ADDED /* plane.c in Sources */,
@@ -1381,6 +1418,7 @@
 				F559499618A56F3E008ADDED /* CCSpriteFrameCache.m in Sources */,
 				F559491F18A56F3C008ADDED /* CCDirector.m in Sources */,
 				F559490F18A56F3C008ADDED /* CCAtlasNode.m in Sources */,
+				F5A6ECEC18C836AF00308F11 /* HumanSoldier.m in Sources */,
 				F5594A5518A56F40008ADDED /* main.m in Sources */,
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
@@ -1414,6 +1452,7 @@
 				F5584E4618AECA7700C81B59 /* WaveController.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,
 				F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */,
+				F5A6ECE518C8287900308F11 /* BasicSoldier.m in Sources */,
 				F5594A4C18A56F40008ADDED /* vec2.c in Sources */,
 				F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */,
 				F5594A3C18A56F40008ADDED /* matrix.c in Sources */,
@@ -1444,6 +1483,7 @@
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,
 				F55949D018A56F3F008ADDED /* CCTouchDispatcher.m in Sources */,
 				F559495318A56F3D008ADDED /* CCNode.m in Sources */,
+				F5A6ECF218C8385600308F11 /* MageSoldier.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

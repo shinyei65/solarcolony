@@ -9,25 +9,11 @@
 #import "Soldier.h"
 #import "GridMap.h"
 //#import "cocos2d.h"
+#import "NormalBullet.h"
 
 
 @implementation Soldier{
-    CCSprite *_soldier;
-    CCSprite *_hp;
-    //soldier's attribute
-    int S_health;
-    int S_health_max;
-    int S_attack;
-    int S_attack_sp;
-    int S_speed;
-    float MoveTime;
-    float moveCD;
-    float AttackTime;
-    float attackCD;
-    BOOL S_attack_flag;
-    CGPoint S_position; // grid coordinate
-     id movePoint, returnPoint ;
-    NormalBullet* bullet;
+
 }
 @synthesize targetLocation;
 
@@ -51,13 +37,14 @@
     AttackTime = (float)1/attack_sp;
     attackCD = 0;
     S_attack_flag = TRUE;
-    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Special.gif"];
+    _soldier = [[CCSprite alloc] init];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
     [self addChild:_soldier];
     [self addChild:_hp];
     bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
     [self addChild:bullet];
+    [bullet setVisible:false];
 
     return self;
 }
@@ -75,7 +62,7 @@
     AttackTime = (float)1/attack_sp;
     attackCD = 0;
     S_attack_flag = FALSE;
-    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Basic.gif"];
+    _soldier = [[CCSprite alloc] init];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
     [self addChild:_soldier];
@@ -210,12 +197,14 @@
 
 - (void) attack:(CGPoint) tower{
       targetLocation=tower;
-    [self schedule: @selector(animatonAttack:) interval:1];
-   attackCD = 0;
+    //[self schedule: @selector(animatonAttack:) interval:1];
+    [self animatonAttack];
+    //[bullet setVisible:false];
+    attackCD = 0;
     
 }
 
--(void) animatonAttack: (ccTime) dt
+-(void) animatonAttack
 {
     // bla bla bla
     //   if (counterTest<=5) {
@@ -231,16 +220,24 @@
     movePoint = [CCMoveTo actionWithDuration:.2 position:targetLocations];
     returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
     
-    [bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
+    
+    [bullet runAction:[CCSequence actions: movePoint,returnPoint,[CCCallFunc actionWithTarget:self selector:@selector(bulletDisapp)],nil]];
  
     
- 
-    [self unscheduleAllSelectors];
+   // [self unscheduleAllSelectors];
  
   
     
 }
 
+-(void)bulletDisapp
+{
+    [bullet setVisible:false];
+}
+
+-(NormalBullet*)getBullet{
+    return bullet;
+}
 
 - (void)dealloc
 {
