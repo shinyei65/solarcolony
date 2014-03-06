@@ -29,7 +29,6 @@
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
-		F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
 		F521428618B699120085BD47 /* soundOff.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428418B699120085BD47 /* soundOff.png */; };
@@ -187,6 +186,12 @@
 		F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */ = {isa = PBXBuildFile; fileRef = F59D52AA18AC78BB00B62B5D /* towerA.png */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
+		F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD318C50A6A00308F11 /* attackBotton.png */; };
+		F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */; };
+		F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */; };
+		F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */; };
+		F5A75A6518C5062000B9F093 /* goshty.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6418C5062000B9F093 /* goshty.png */; };
+		F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6618C523F700B9F093 /* angrybomb.png */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
 		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
@@ -229,7 +234,6 @@
 		5681771D18AB07E600E4D772 /* TowerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMenu.m; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
-		F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Dismounted Soldier - Gear.jpg"; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -550,6 +554,12 @@
 		F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldColissionsManager.m; sourceTree = "<group>"; };
 		F59D52B318AC8C8400B62B5D /* SoldierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldierController.h; sourceTree = "<group>"; };
 		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
+		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
+		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
+		F5A6ECD318C50A6A00308F11 /* attackBotton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton.png; sourceTree = "<group>"; };
+		F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton_select.png; sourceTree = "<group>"; };
+		F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Basic.gif; sourceTree = "<group>"; };
+		F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Special.gif; sourceTree = "<group>"; };
 		F5ADFE8218B69F060004C3D5 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
@@ -596,11 +606,17 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F5A75A6618C523F700B9F093 /* angrybomb.png */,
+				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
 				21152FF318B779F000C1274C /* On.png */,
 				F521428418B699120085BD47 /* soundOff.png */,
+				F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */,
+				F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */,
 				F521428518B699120085BD47 /* soundOn.png */,
 				F53E795A18B5B6270037A48A /* blood_empty.jpg */,
+				F5A6ECD318C50A6A00308F11 /* attackBotton.png */,
+				F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */,
 				F53E795018B5B58D0037A48A /* blood_1:4.jpg */,
 				F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */,
 				F53E795118B5B58D0037A48A /* blood_3:4.jpg */,
@@ -608,7 +624,6 @@
 				F53E795418B5B58D0037A48A /* blood_half.jpg */,
 				F5E4A3F218B2CF4F00C4FD22 /* towerB.png */,
 				F59D52AA18AC78BB00B62B5D /* towerA.png */,
-				F5080CB518A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg */,
 			);
 			name = images;
 			path = Resources/images;
@@ -1250,8 +1265,8 @@
 				F59D52AB18AC78BB00B62B5D /* towerA.png in Resources */,
 				F53E796218B5CA030037A48A /* testmap.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
-				F5080CB618A96B5E00E99AD9 /* Dismounted Soldier - Gear.jpg in Resources */,
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
+				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
@@ -1260,15 +1275,20 @@
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
+				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
+				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
+				F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */,
+				F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */,
 				F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
+				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
