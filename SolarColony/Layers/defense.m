@@ -62,7 +62,7 @@
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize wave queue layer
     ArmyQueue *aqueue = [ArmyQueue layer];
-    [aqueue setPosition:ccp(40,[[CCDirector sharedDirector] winSize].height)];
+    [aqueue setPosition:ccp([[CCDirector sharedDirector] winSize].width-165,25)];
     [self addChild:aqueue z:2];
     
     //EDER DONT DELETE THIS!
