@@ -7,12 +7,12 @@
 //
 
 #import "ArmyQueue.h"
-#import "WaveController.h"
-#import "Wave.h"
+
+
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 1;
-int WAVE_GEN_RATE = 1;
+int ARMY_GEN_RATE = 1;
 
 @implementation ArmyQueue {
     CCLabelTTF *_min;
