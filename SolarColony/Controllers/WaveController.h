@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Army.h"
+#import "Wave.h"
 
 @interface WaveController : NSObject
 
@@ -16,6 +16,6 @@
 - (void) update;
 - (void) startWave;
 - (void) endWave;
-- (void) addWave: (Army *) wave;
+- (void) addWave: (Wave *) wave;
 
 @end
