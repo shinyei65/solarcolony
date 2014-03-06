@@ -16,8 +16,9 @@
 - (instancetype) typeA_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super attacker_init:health ATTACK:attack Speed:speed ATTACK_SP:attack_sp];
     if (!self) return(nil);
-    self->_soldier = [CCSprite spriteWithFile:@"HumanSoldier_Special.gif"];
-
+    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Special.gif"];
+    [self addChild:_soldier];
+    return self;
 }
 
 

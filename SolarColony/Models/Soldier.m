@@ -40,7 +40,6 @@
     _soldier = [[CCSprite alloc] init];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
-    [self addChild:_soldier];
     [self addChild:_hp];
     bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
     [self addChild:bullet];
@@ -65,7 +64,6 @@
     _soldier = [[CCSprite alloc] init];
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
-    [self addChild:_soldier];
     [self addChild:_hp];
 
     

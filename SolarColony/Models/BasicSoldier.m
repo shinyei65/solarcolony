@@ -25,20 +25,29 @@
 - (instancetype) human_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super runner_init:health ATTACK:attack Speed:speed ATTACK_SP:attack_sp];
     if (!self) return(nil);
-    self->_soldier = [CCSprite spriteWithFile:@"HumanSoldier_Basic.gif"];
-    
+    _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Basic.gif"];
+    [self addChild:_soldier];
+    return self;
 }
 - (instancetype) robot_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp];
     if (!self) return(nil);
-    self->_soldier = [CCSprite spriteWithFile:@"RobotSoldier_Basic.png"];
-
+    _soldier = [CCSprite spriteWithFile:@"RobotSoldier_Basic.png"];
+    [self addChild:_soldier];
+    return self;
 }
 - (instancetype) mage_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp];
     if (!self) return(nil);
-    self->_soldier = [CCSprite spriteWithFile:@"MageSoldier_Basic.png"];
+    _soldier = [CCSprite spriteWithFile:@"MageSoldier_Basic.png"];
+    [self addChild:_soldier];
+    return self;
 }
+
+
+
+
+
 
 
 @end
