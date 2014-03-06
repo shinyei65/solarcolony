@@ -72,8 +72,7 @@
     } else if ([menuItem.label.string isEqualToString:@"DeFense"])  {
         [transitionManagerSingleton transitionTo:3];
     } else if ([menuItem.label.string isEqualToString:@"Attack"])  {
-        [transitionManagerSingleton transitionTo:9];
-        //[transitionManagerSingleton transitionTo:6];
+        [transitionManagerSingleton transitionTo:6];
     } else if ([menuItem.label.string isEqualToString:@"TowersSet"])  {
         [transitionManagerSingleton transitionTo:8];
     }

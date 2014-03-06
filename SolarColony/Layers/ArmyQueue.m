@@ -7,8 +7,8 @@
 //
 
 #import "ArmyQueue.h"
-#import "WaveController.h"
-#import "Wave.h"
+
+
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;

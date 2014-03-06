@@ -134,7 +134,7 @@
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     if ([menuItem.label.string isEqualToString:@"back"]) {
-        [transitionManagerSingleton transitionTo:1];
+        [transitionManagerSingleton transitionTo:6];
     }
 }
 
