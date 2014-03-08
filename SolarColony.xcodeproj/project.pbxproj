@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975524618C522B200194099 /* WavesOfSoldiers.m */; };
+		0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553118CB01DC00194099 /* SoldiersLayer.m */; };
+		0975553518CB036300194099 /* WavesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553418CB036300194099 /* WavesLayer.m */; };
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937818B5B2A40064A95D /* braincandy.wav */; };
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
@@ -207,6 +209,10 @@
 /* Begin PBXFileReference section */
 		0975524518C522B200194099 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WavesOfSoldiers.h; path = ../../WavesOfSoldiers.h; sourceTree = "<group>"; };
 		0975524618C522B200194099 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WavesOfSoldiers.m; path = ../../WavesOfSoldiers.m; sourceTree = "<group>"; };
+		0975553018CB01DC00194099 /* SoldiersLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldiersLayer.h; sourceTree = "<group>"; };
+		0975553118CB01DC00194099 /* SoldiersLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldiersLayer.m; sourceTree = "<group>"; };
+		0975553318CB036300194099 /* WavesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesLayer.h; sourceTree = "<group>"; };
+		0975553418CB036300194099 /* WavesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesLayer.m; sourceTree = "<group>"; };
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		09AB937718B5B2A40064A95D /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -554,12 +560,12 @@
 		F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldColissionsManager.m; sourceTree = "<group>"; };
 		F59D52B318AC8C8400B62B5D /* SoldierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldierController.h; sourceTree = "<group>"; };
 		F59D52B418AC8C8400B62B5D /* SoldierController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldierController.m; sourceTree = "<group>"; };
-		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
-		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
 		F5A6ECD318C50A6A00308F11 /* attackBotton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton.png; sourceTree = "<group>"; };
 		F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = attackBotton_select.png; sourceTree = "<group>"; };
 		F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Basic.gif; sourceTree = "<group>"; };
 		F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Special.gif; sourceTree = "<group>"; };
+		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
+		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
 		F5ADFE8218B69F060004C3D5 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
@@ -1200,6 +1206,10 @@
 				F573783718AC2BA5008C9ADC /* AttackScene.m */,
 				F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */,
 				F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */,
+				0975553018CB01DC00194099 /* SoldiersLayer.h */,
+				0975553118CB01DC00194099 /* SoldiersLayer.m */,
+				0975553318CB036300194099 /* WavesLayer.h */,
+				0975553418CB036300194099 /* WavesLayer.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1319,6 +1329,7 @@
 				F59D52A718AC703000B62B5D /* TowerHuman.m in Sources */,
 				F559491C18A56F3C008ADDED /* ccDeprecated.m in Sources */,
 				F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */,
+				0975553518CB036300194099 /* WavesLayer.m in Sources */,
 				F55949D718A56F3F008ADDED /* CCDirectorMac.m in Sources */,
 				F559493118A56F3C008ADDED /* ccGLStateCache.m in Sources */,
 				F5594A0318A56F3F008ADDED /* TransformUtils.m in Sources */,
@@ -1447,6 +1458,7 @@
 				F559491218A56F3C008ADDED /* CCCamera.m in Sources */,
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
+				0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */,
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,
 				F55949D018A56F3F008ADDED /* CCTouchDispatcher.m in Sources */,
 				F559495318A56F3D008ADDED /* CCNode.m in Sources */,

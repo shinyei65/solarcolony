@@ -9,17 +9,10 @@
 
 #import "AbstractScene.h"
 
+
 @interface WavesOfSoldiers : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-    CCMenuItemFont *item1;
-    CCMenuItemFont *item2;
-    CCMenuItemFont *item3;
-  //  CCMenuItemFont *item4;
-  //  CCMenuItemFont *item5;
-  //  CCMenuItemFont *item6;
-  //  CCMenuItemFont *item7;
-  //  CCMenuItemFont *item8;
-  //  CCMenuItemFont *item9;
+
 }
 
 @end
