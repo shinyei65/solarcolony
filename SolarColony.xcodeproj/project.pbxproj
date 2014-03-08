@@ -211,6 +211,7 @@
 		F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */; };
 		F5E4A3F118B2CE9E00C4FD22 /* TowerRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4A3F018B2CE9E00C4FD22 /* TowerRobot.m */; };
 		F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E4A3F218B2CF4F00C4FD22 /* towerB.png */; };
+		FC99236B18CA90A00015F57C /* ArmyNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = FC99236A18CA90A00015F57C /* ArmyNetwork.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -603,6 +604,8 @@
 		F5E4A3EF18B2CE9E00C4FD22 /* TowerRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerRobot.h; sourceTree = "<group>"; };
 		F5E4A3F018B2CE9E00C4FD22 /* TowerRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerRobot.m; sourceTree = "<group>"; };
 		F5E4A3F218B2CF4F00C4FD22 /* towerB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerB.png; sourceTree = "<group>"; };
+		FC99236918CA90A00015F57C /* ArmyNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyNetwork.h; sourceTree = "<group>"; };
+		FC99236A18CA90A00015F57C /* ArmyNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyNetwork.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -692,6 +695,8 @@
 				F5A6ECF118C8385600308F11 /* MageSoldier.m */,
 				F566881118C80D3300A2D1F7 /* Wave.h */,
 				F566881218C80D3300A2D1F7 /* Wave.m */,
+				FC99236918CA90A00015F57C /* ArmyNetwork.h */,
+				FC99236A18CA90A00015F57C /* ArmyNetwork.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1382,6 +1387,7 @@
 				F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */,
 				09E9FDC618A94B1C000082B0 /* Settings.m in Sources */,
 				F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */,
+				FC99236B18CA90A00015F57C /* ArmyNetwork.m in Sources */,
 				F559495F18A56F3D008ADDED /* CCParticleSystem.m in Sources */,
 				F55949B418A56F3E008ADDED /* CCTransition.m in Sources */,
 				F559495C18A56F3D008ADDED /* CCParticleExamples.m in Sources */,
