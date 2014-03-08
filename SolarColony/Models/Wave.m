@@ -1,20 +1,20 @@
 //
-//  Army.m
+//  Wave.m
 //  SolarColony
 //
-//  Created by Charles on 2/18/14.
+//  Created by Charles on 3/5/14.
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "Army.h"
+#import "Wave.h"
 
-@implementation Army {
+@implementation Wave {
     NSMutableArray *_list;
 }
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) army
++ (instancetype) wave
 {
     return [[self alloc] init];
 }
@@ -40,16 +40,16 @@
 {
     return [_list count];
 }
-- (void) addWave: (Wave *) wave
+- (void) addSoldier: (Soldier *) sol
 {
-    [_list addObject: wave];
+    [_list addObject: sol];
 }
 
-- (Wave *) popWave
+- (Soldier *) popSoldier
 {
-    Wave *wave = (Wave *)[_list objectAtIndex: 0];
+    Soldier *sol = (Soldier *)[_list objectAtIndex: 0];
     [_list removeObjectAtIndex: 0];
-    return wave;
+    return sol;
 }
 
 @end

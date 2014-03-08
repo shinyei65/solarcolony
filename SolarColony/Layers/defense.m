@@ -14,7 +14,7 @@
 #import "TowerRobot.h"
 #import "WorldColissionsManager.h"
 #import "GridMap.h"
-#import "WaveQueue.h"
+#import "ArmyQueue.h"
 #import "PlayerInfo.h"
 #import "TowerMagic.h"
 
@@ -61,9 +61,9 @@
     [self addChild:grid];
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize wave queue layer
-    WaveQueue *wqueue = [WaveQueue layer];
-    [wqueue setPosition:ccp(40,[[CCDirector sharedDirector] winSize].height)];
-    [self addChild:wqueue z:2];
+    ArmyQueue *aqueue = [ArmyQueue layer];
+    [aqueue setPosition:ccp([[CCDirector sharedDirector] winSize].width-165,25)];
+    [self addChild:aqueue z:2];
     
     //EDER DONT DELETE THIS!
     //register self observer, will recieve notifications when a tower was created
@@ -195,7 +195,7 @@
     [waveController update];
     
     // update wave queue
-    [[WaveQueue layer] updateTick];
+    [[ArmyQueue layer] updateTick];
     
     
  //   [colissionsManager setSoldierArray:[solController getSoldierArray]];

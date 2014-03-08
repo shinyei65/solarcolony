@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Soldier.h";
+#import "Wave.h"
 
 @interface Army : NSObject
 + (instancetype) army;
 - (instancetype) init;
 - (int) count;
-- (void) addSoldier: (Soldier *) sol;
-- (Soldier *) popSoldier;
+- (void) addWave: (Wave *) sol;
+- (Wave *) popWave;
 @end

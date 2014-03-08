@@ -51,17 +51,24 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
-    manuItemStart.tag=1;
+    CCMenuItemFont *menuItemStart=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
+    [menuItemStart setFontSize:20];
+    menuItemStart.tag=1;
+    CCMenuItemFont *menuItemSoldierSelect=[CCMenuItemFont itemWithString:@"Manage your soldiers" target:self selector:@selector(moveToScene:)];
+    [menuItemSoldierSelect setFontSize:20];
+    menuItemSoldierSelect.tag=2;
     CCMenuItem *attackBotton=[CCMenuItemImage itemWithNormalImage:@"attackBotton.png" selectedImage:@"attackBotton_select.png" target:self selector:@selector(sendAttack)];
     
+    menuItemStart.position=ccp(0,0);
+    menuItemSoldierSelect.position=ccp(0,50);
     attackBotton.position=ccp(50,100);
+
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,attackBotton, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems:menuItemStart,menuItemSoldierSelect,attackBotton, nil];
     
    // [mainMenu alignItemsHorizontallyWithPadding:20];
     
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
+    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 100)];
     
     return mainMenu;
     
@@ -75,7 +82,9 @@
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     if ([menuItem.label.string isEqualToString:@"Back"]) {
         [transitionManagerSingleton transitionTo:1];
-    }  
+    } else if ([menuItem.label.string isEqualToString:@"Manage your soldiers"]) {
+        [transitionManagerSingleton transitionTo:9];
+    }
 
 }
 
