@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Army.h"
 
 @interface NetWorkManager : NSObject
+
++(id)NetWorkManager;
+-(id)init;
+-(void)sendAttackRequest:(Army*)sendingArmy;
 
 @end

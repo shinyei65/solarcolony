@@ -25,6 +25,7 @@
     float AttackTime;
     float attackCD;
     BOOL S_attack_flag;
+    NSString* type;
     CGPoint S_position; // grid coordinate
     id movePoint, returnPoint;
     NormalBullet* bullet;
@@ -56,6 +57,7 @@
 -(void)acculAttackCD:(float)time;
 -(void)beingAttacked:(int)attack_power;
 -(void)bulletDisapp;
+-(NSString*)getType;
 
 @property(assign, atomic) CGPoint targetLocation;
 

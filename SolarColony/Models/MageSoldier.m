@@ -17,6 +17,7 @@
     self = [super attacker_init:health ATTACK:attack Speed:speed ATTACK_SP:attack_sp];
     if (!self) return(nil);
     _soldier = [CCSprite spriteWithFile:@"MageSoldier_Special.png"];
+    type = @"M2";
     [self addChild:_soldier];
     return self;
 }

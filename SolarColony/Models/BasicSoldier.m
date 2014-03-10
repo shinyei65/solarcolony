@@ -26,6 +26,7 @@
     self = [super runner_init:health ATTACK:attack Speed:speed ATTACK_SP:attack_sp];
     if (!self) return(nil);
     _soldier = [CCSprite spriteWithFile:@"HumanSoldier_Basic.gif"];
+    type = @"H1";
     [self addChild:_soldier];
     return self;
 }
@@ -33,6 +34,7 @@
     self = [super runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp];
     if (!self) return(nil);
     _soldier = [CCSprite spriteWithFile:@"RobotSoldier_Basic.png"];
+    type = @"R1";
     [self addChild:_soldier];
     return self;
 }
@@ -40,6 +42,7 @@
     self = [super runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp];
     if (!self) return(nil);
     _soldier = [CCSprite spriteWithFile:@"MageSoldier_Basic.png"];
+    type = @"M1";
     [self addChild:_soldier];
     return self;
 }

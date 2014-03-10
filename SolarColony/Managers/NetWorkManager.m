@@ -10,9 +10,13 @@
 
 static NetWorkManager *sharedNetWorkManager = nil;
 
-@implementation NetWorkManager
+@implementation NetWorkManager{
+    NSURL *url;
+    
+    
+}
 
-+NetWorkManager{
++(id)NetWorkManager{
     if(sharedNetWorkManager == nil){
         sharedNetWorkManager = [[super allocWithZone:nil] init];
     }
@@ -22,21 +26,30 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 -(id)init{
 
-    NSString *jsonRequest = @"attacker=[Jimmy]&army=[ \"waves\": [ { \"soldiers\": [ { \"type\": \"attacker\", \"number\": 2 }, { \"type\": \"runner\", \"number\": 2 } ] } ] ]";
+    self = [super init];
+    return self;
+}
+
+-(void)sendAttackRequest:(Army*)sendingArmy
+{
     
-    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
-    
+    url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSString *jsonRequest = @"attacker=Jimmy&army={ \"waves\": [ { \"soldiers\": [ { \"type\": \"RobotSoldier_Basic\", \"number\": 5 }, { \"type\": \"RobotSoldier_Special\", \"number\": 6 } ] } ]}";
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
     
+    
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody: requestData];
     
-    [NSURLConnection connectionWithRequest:[request autorelease] delegate:self];
-    return self;
+    [NSURLConnection connectionWithRequest:request delegate:self];
+    NSLog(@"-------send request------- ");
+    [request release];
+    [url release];
 }
+
 
 @end

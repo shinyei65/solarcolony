@@ -114,7 +114,7 @@ int ARMY_GEN_RATE = 12;
     for(int i=0; i<count; i++){
         [_queue addObject:[army popWave]];
     }
-    [army release];
+    [army autorelease];
     NSLog(@"ArmyQueue: %d waves in queue", [_queue count]);
 }
 

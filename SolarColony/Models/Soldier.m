@@ -245,7 +245,9 @@
     
 }
 
-
+-(NSString*)getType{
+    return type;
+}
 
 
 

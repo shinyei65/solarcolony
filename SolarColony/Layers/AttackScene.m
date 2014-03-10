@@ -36,7 +36,7 @@
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
-        
+        networkManager = [NetWorkManager NetWorkManager];
        
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
@@ -75,6 +75,8 @@
 }
 
 -(void)sendAttack{
+    Army* test;
+    [[NetWorkManager NetWorkManager] sendAttackRequest:test];
     CCLOG(@"SEND ATTACK!!!");
 }
 

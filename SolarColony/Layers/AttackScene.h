@@ -7,9 +7,13 @@
 //
 
 #import "AbstractScene.h"
+#import "NetWorkManager.h"
+#import "NetWorkManager.h"
+
 
 @interface AttackScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-        MusicManagerSingleton* musicManagerSingleton;
+    MusicManagerSingleton* musicManagerSingleton;
+    NetWorkManager* networkManager;
 }
 @end
