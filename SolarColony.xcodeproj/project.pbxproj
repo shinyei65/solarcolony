@@ -208,6 +208,11 @@
 		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
+		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
+		F5DA46BC18CE34B700291A0A /* HumanSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B718CE34B700291A0A /* HumanSoldier.m */; };
+		F5DA46BD18CE34B700291A0A /* MageSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B918CE34B700291A0A /* MageSoldier.m */; };
+		F5DA46BE18CE34B700291A0A /* RobotSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46BB18CE34B700291A0A /* RobotSoldier.m */; };
+		F5DA46C118CE34D000291A0A /* BasicSoldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46C018CE34D000291A0A /* BasicSoldier.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
@@ -589,6 +594,16 @@
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
 		F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefenseSettingsScene.m; sourceTree = "<group>"; };
+		F5DA46B318CE2D4500291A0A /* NetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
+		F5DA46B418CE2D4500291A0A /* NetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
+		F5DA46B618CE34B700291A0A /* HumanSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HumanSoldier.h; sourceTree = "<group>"; };
+		F5DA46B718CE34B700291A0A /* HumanSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HumanSoldier.m; sourceTree = "<group>"; };
+		F5DA46B818CE34B700291A0A /* MageSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MageSoldier.h; sourceTree = "<group>"; };
+		F5DA46B918CE34B700291A0A /* MageSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MageSoldier.m; sourceTree = "<group>"; };
+		F5DA46BA18CE34B700291A0A /* RobotSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RobotSoldier.h; sourceTree = "<group>"; };
+		F5DA46BB18CE34B700291A0A /* RobotSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RobotSoldier.m; sourceTree = "<group>"; };
+		F5DA46BF18CE34D000291A0A /* BasicSoldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicSoldier.h; sourceTree = "<group>"; };
+		F5DA46C018CE34D000291A0A /* BasicSoldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BasicSoldier.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
@@ -661,6 +676,14 @@
 				F56A654418A9516A00AE0884 /* Soldier.h */,
 				F56A654518A9516A00AE0884 /* Soldier.m */,
 				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
+				F5DA46B618CE34B700291A0A /* HumanSoldier.h */,
+				F5DA46BF18CE34D000291A0A /* BasicSoldier.h */,
+				F5DA46C018CE34D000291A0A /* BasicSoldier.m */,
+				F5DA46B718CE34B700291A0A /* HumanSoldier.m */,
+				F5DA46B818CE34B700291A0A /* MageSoldier.h */,
+				F5DA46B918CE34B700291A0A /* MageSoldier.m */,
+				F5DA46BA18CE34B700291A0A /* RobotSoldier.h */,
+				F5DA46BB18CE34B700291A0A /* RobotSoldier.m */,
 				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
 				5681771918AAF70300E4D772 /* CCMenu+Layout.h */,
@@ -1201,6 +1224,8 @@
 				21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */,
 				F528C72A18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.h */,
 				F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */,
+				F5DA46B318CE2D4500291A0A /* NetWorkManager.h */,
+				F5DA46B418CE2D4500291A0A /* NetWorkManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1373,6 +1398,7 @@
 				F5594A0818A56F40008ADDED /* ZipUtils.m in Sources */,
 				F55948FA18A56F3C008ADDED /* CCActionManager.m in Sources */,
 				F559496218A56F3D008ADDED /* CCParticleSystemQuad.m in Sources */,
+				F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */,
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
 				F55949B718A56F3E008ADDED /* CCTransitionPageTurn.m in Sources */,
 				F55948E818A56F3B008ADDED /* CCActionCatmullRom.m in Sources */,
@@ -1392,6 +1418,7 @@
 				F55949FC18A56F3F008ADDED /* NSThread+performBlock.m in Sources */,
 				F53F539918B836F900FCDB4E /* PlayerInfo.m in Sources */,
 				F559490318A56F3C008ADDED /* CCActionTiledGrid.m in Sources */,
+				F5DA46C118CE34D000291A0A /* BasicSoldier.m in Sources */,
 				F5E4A3F118B2CE9E00C4FD22 /* TowerRobot.m in Sources */,
 				F559494A18A56F3D008ADDED /* CCMenuItem.m in Sources */,
 				F55948E518A56F3B008ADDED /* CCActionCamera.m in Sources */,
@@ -1420,6 +1447,7 @@
 				F55948E218A56F3B008ADDED /* CCAction.m in Sources */,
 				F5594A1A18A56F40008ADDED /* CocosDenshion.m in Sources */,
 				F559499F18A56F3E008ADDED /* CCTextureCache.m in Sources */,
+				F5DA46BE18CE34B700291A0A /* RobotSoldier.m in Sources */,
 				F5594A4218A56F40008ADDED /* neon_matrix_impl.c in Sources */,
 				F559497218A56F3D008ADDED /* CCScene.m in Sources */,
 				F55948F118A56F3B008ADDED /* CCActionGrid3D.m in Sources */,
@@ -1450,6 +1478,7 @@
 				F55948F418A56F3B008ADDED /* CCActionInstant.m in Sources */,
 				F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */,
 				F566881618C816B500A2D1F7 /* ArmyQueue.m in Sources */,
+				F5DA46BD18CE34B700291A0A /* MageSoldier.m in Sources */,
 				F559491518A56F3C008ADDED /* CCClippingNode.m in Sources */,
 				F559499918A56F3E008ADDED /* CCTexture2D.m in Sources */,
 				F55949AE18A56F3E008ADDED /* CCTMXTiledMap.m in Sources */,
@@ -1489,6 +1518,7 @@
 				F559494718A56F3D008ADDED /* CCMenu.m in Sources */,
 				F5594A5018A56F40008ADDED /* vec4.c in Sources */,
 				F559491218A56F3C008ADDED /* CCCamera.m in Sources */,
+				F5DA46BC18CE34B700291A0A /* HumanSoldier.m in Sources */,
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
 				0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */,
