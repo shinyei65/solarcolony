@@ -180,6 +180,8 @@
 		F5594A5518A56F40008ADDED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5418A56F40008ADDED /* main.m */; };
 		F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5718A56F40008ADDED /* AppDelegate.m */; };
 		F5594A5B18A56F40008ADDED /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */; };
+		F562E4ED18CE36440006063B /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = F562E4EC18CE36440006063B /* JSONKit.m */; };
+		F562E4EF18CE3A550006063B /* serialization todo.m in Sources */ = {isa = PBXBuildFile; fileRef = F562E4EE18CE3A550006063B /* serialization todo.m */; };
 		F566881318C80D3300A2D1F7 /* Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = F566881218C80D3300A2D1F7 /* Wave.m */; };
 		F566881618C816B500A2D1F7 /* ArmyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F566881518C816B500A2D1F7 /* ArmyQueue.m */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
@@ -563,6 +565,9 @@
 		F5594A5718A56F40008ADDED /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		F5594A5918A56F40008ADDED /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
 		F5594A5A18A56F40008ADDED /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
+		F562E4EB18CE36440006063B /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
+		F562E4EC18CE36440006063B /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		F562E4EE18CE3A550006063B /* serialization todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "serialization todo.m"; sourceTree = "<group>"; };
 		F566881118C80D3300A2D1F7 /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
 		F566881218C80D3300A2D1F7 /* Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wave.m; sourceTree = "<group>"; };
 		F566881418C816B500A2D1F7 /* ArmyQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyQueue.h; sourceTree = "<group>"; };
@@ -1210,6 +1215,9 @@
 		F5B11AD418B8039E002FB681 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F562E4EE18CE3A550006063B /* serialization todo.m */,
+				F562E4EB18CE36440006063B /* JSONKit.h */,
+				F562E4EC18CE36440006063B /* JSONKit.m */,
 				F5B11AD518B803C6002FB681 /* CCScrollLayer.h */,
 				F5B11AD618B803C6002FB681 /* CCScrollLayer.m */,
 			);
@@ -1450,6 +1458,7 @@
 				F55948EE18A56F3B008ADDED /* CCActionGrid.m in Sources */,
 				F559493718A56F3C008ADDED /* CCGrid.m in Sources */,
 				F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */,
+				F562E4ED18CE36440006063B /* JSONKit.m in Sources */,
 				F5594A4618A56F40008ADDED /* quaternion.c in Sources */,
 				F559499318A56F3E008ADDED /* CCSpriteFrame.m in Sources */,
 				F559490018A56F3C008ADDED /* CCActionProgressTimer.m in Sources */,
@@ -1474,6 +1483,7 @@
 				0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */,
 				F55949F918A56F3F008ADDED /* CGPointExtension.m in Sources */,
 				F55948FD18A56F3C008ADDED /* CCActionPageTurn3D.m in Sources */,
+				F562E4EF18CE3A550006063B /* serialization todo.m in Sources */,
 				F5594A4E18A56F40008ADDED /* vec3.c in Sources */,
 				F5594A0018A56F3F008ADDED /* TGAlib.m in Sources */,
 				F559490918A56F3C008ADDED /* CCAnimation.m in Sources */,
