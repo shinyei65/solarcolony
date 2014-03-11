@@ -9,20 +9,14 @@
 #import "ArmyNetwork.h"
 
 @implementation ArmyNetwork
-@synthesize numberOfsoldiers;
-@synthesize idFriendSend;
-@synthesize idFriendRecieve;
-@synthesize soldierTypeRace;
+
 @synthesize waveComplexStructure;
 
 - (id)init
 {
     self = [super init];
     if (self) {
-         numberOfsoldiers=0;
-         idFriendSend=0;
-         idFriendRecieve=0;
-         soldierTypeRace=[[NSMutableDictionary alloc] init];
+
          waveComplexStructure=[[NSMutableDictionary alloc] init];
         
         //set up all waves
@@ -103,48 +97,7 @@
     }
     return self;
 }
-/*
--(void) setNumberOfSoldiers:(int) numSoldiers{
-    numberOfsoldiers=numSoldiers;
-}
 
--(int) getNumberOfSoldiers{
-    return numberOfsoldiers;
-}
-
--(void) setIdFriendSend:(int) idFriend{
-    idFriendSend=idFriend;
-}
-
--(int) getIdFriendSend{
-    return idFriendSend;
-}
-
--(void) setIdFriendRecieve:(int) idFriend{
-    idFriendRecieve=idFriend;
-}
-
--(int) getIdFriendRecieve{
-     return idFriendRecieve;
-}
-
--(void) setSoldierTypeRace:(NSMutableDictionary*) soldiers{
-    SoldierTypeRace=soldiers;
-}
-
--(NSMutableDictionary*) getSoldierTypeRace{
-    return SoldierTypeRace;
-}
-
--(void) addSoldierTypeRace:(NSString*) soldierRace NumSoldiers:(int) numsoldiers{
-    [SoldierTypeRace setObject:numsoldiers forKey:soldierRace];
-}
-
--(int) addSoldierTypeRace:(NSString*) soldierRace{
-    
-    return  [SoldierTypeRace objectForKey:soldierRace];
-}
-*/
 @end
 
 

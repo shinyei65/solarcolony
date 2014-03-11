@@ -10,10 +10,6 @@
 
 @interface ArmyNetwork : JSONModel
 
-    @property(assign, atomic) int numberOfsoldiers;
-    @property(assign, atomic) int idFriendSend;
-    @property(assign, atomic) int idFriendRecieve;
-    @property (nonatomic, strong) NSMutableDictionary *soldierTypeRace;
     @property (nonatomic, strong) NSMutableDictionary *waveComplexStructure;
 /*
 -(void) setNumberOfSoldiers:(int) numSoldiers;

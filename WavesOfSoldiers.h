@@ -12,7 +12,7 @@
 
 @interface WavesOfSoldiers : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
 @end

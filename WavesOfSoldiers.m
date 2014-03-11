@@ -11,6 +11,7 @@
 #import "WavesLayer.h"
 #import "SoldiersLayer.h"
 #import "cocos2d.h"
+#import "ArmyNetwork.h"
 
 @implementation WavesOfSoldiers
 @synthesize mobileDisplaySize;
@@ -43,6 +44,9 @@
         //Put the position of Assign Waves
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
+        //Game status global variables
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+        
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Assign Waves" fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
@@ -50,7 +54,7 @@
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
         
         //Put the position of Back
-        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(moveToScene:)];
+        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveRequest:)];
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
         CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
         
@@ -162,6 +166,11 @@
     if ([menuItem.label.string isEqualToString:@"back"]) {
         [transitionManagerSingleton transitionTo:6];
     }
+}
+-(void)saveRequest:(id)sender{
+    ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
+    NSString * jsonstring= [army toJSONString];
+    CCLOG(jsonstring);
 }
 
 - (void)dealloc
