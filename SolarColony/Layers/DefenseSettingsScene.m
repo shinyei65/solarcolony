@@ -88,18 +88,25 @@
     CCLOG(@"clicke**");
     if ([menuItem.label.string isEqualToString:@"TowerA"]) {
         [item1 setString:@"TowerA"];
+        [[item1 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerB"]) {
         [item2 setString:@"TowerB"];
+        [[item2 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerC"]) {
         [item3 setString:@"TowerC"];
+        [[item3 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerD"]) {
         [item4 setString:@"TowerD"];
+        [[item4 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerE"]) {
         [item5 setString:@"TowerE"];
+        [[item5 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerF"]) {
         [item6 setString:@"TowerF"];
+        [[item6 label] setScale:.5];
     } else if ([menuItem.label.string isEqualToString:@"TowerG"]) {
         [item7 setString:@"TowerG"];
+        [[item7 label] setScale:.5];
     }
 }
 

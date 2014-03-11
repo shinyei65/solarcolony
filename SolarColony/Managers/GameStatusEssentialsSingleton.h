@@ -15,6 +15,7 @@
 #import "Soldier.h"
 #import "Army.h"
 #import "ArmyQueue.h"
+#import "ArmyNetwork.h"
 
 
 @interface GameStatusEssentialsSingleton : CCNode
@@ -34,8 +35,10 @@
 
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
+@property(assign, nonatomic) ArmyNetwork* armynetwork;
 @property(assign, nonatomic) NSMutableArray *towers;
 @property(assign, nonatomic) NSString *raceType;
+@property(assign, nonatomic) NSString *currentWave;
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
 

@@ -10,6 +10,7 @@
 
 @interface WavesLayer : CCLayer <AbstractScene> {
     TransitionManagerSingleton* transitionManagerSingleton;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     CCMenuItemFont *item1;
     CCMenuItemFont *item2;
     CCMenuItemFont *item3;

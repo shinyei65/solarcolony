@@ -6,15 +6,16 @@
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "JSONModel.h"
 
-@interface ArmyNetwork : NSObject
-{
-    int numberOfsoldiers;
-    int idFriendSend;
-    int idFriendRecieve;
-    NSMutableDictionary *SoldierTypeRace;
-}
+@interface ArmyNetwork : JSONModel
+
+    @property(assign, atomic) int numberOfsoldiers;
+    @property(assign, atomic) int idFriendSend;
+    @property(assign, atomic) int idFriendRecieve;
+    @property (nonatomic, strong) NSMutableDictionary *soldierTypeRace;
+    @property (nonatomic, strong) NSMutableDictionary *waveComplexStructure;
+/*
 -(void) setNumberOfSoldiers:(int) numSoldiers;
 
 -(int) getNumberOfSoldiers;
@@ -25,5 +26,5 @@
 -(void) setSoldierTypeRace:(NSMutableDictionary*) soldiers;
 -(NSMutableDictionary*) getSoldierTypeRace;
 -(void) addSoldierTypeRace:(NSString*) soldierRace NumSoldiers:(int) numsoldiers;
--(int) addSoldierTypeRace:(NSString*) soldierRace;
+-(int) addSoldierTypeRace:(NSString*) soldierRace;*/
 @end

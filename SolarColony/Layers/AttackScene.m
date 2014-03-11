@@ -20,7 +20,6 @@
 	AttackScene *layer = [AttackScene node];
     
     AttackScene *selectlayer = [AttackScene node];
-    
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -89,6 +88,8 @@
     }
 
 }
+
+
 
 
 - (void)dealloc

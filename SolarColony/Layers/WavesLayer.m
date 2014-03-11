@@ -12,7 +12,7 @@
 @implementation WavesLayer
 @synthesize mobileDisplaySize;
 
--(id)init{
+/*-(id)init{
 
     if(self=[super init]){
 
@@ -49,7 +49,63 @@
 
     return self;
 }
+*/
+-(id)init{
+    
+    if(self=[super init]){
+        
+        transitionManagerSingleton = [TransitionManagerSingleton sharedInstance];
+        //Game status global variables
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+        
+        CCMenuItemFont *wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
+        item1=[CCMenuItemFont itemWithString:@"Wave 2" target:self selector:@selector(setSoldierinWave:)];
+        item2=[CCMenuItemFont itemWithString:@"Wave 3" target:self selector:@selector(setSoldierinWave:)];
+        item3=[CCMenuItemFont itemWithString:@"Wave 4" target:self selector:@selector(setSoldierinWave:)];
+        item4=[CCMenuItemFont itemWithString:@"Wave 5" target:self selector:@selector(setSoldierinWave:)];
+        item5=[CCMenuItemFont itemWithString:@"Wave 6" target:self selector:@selector(setSoldierinWave:)];
+       
+        
+        [wave1 setFontSize:20];
+        [item1 setFontSize:20];
+        [item2 setFontSize:20];
+        [item3 setFontSize:20];
+        [item4 setFontSize:20];
+        [item5 setFontSize:20];
+        
+        CCMenu *waveMenus= [CCMenu menuWithItems: wave1,item1, item2, item3, item4, item5, nil];
+        //[WaveMenus  alignItemsInGridWithPadding:ccp(25, 25) columns:3];
+        
+        [waveMenus alignItemsVertically];
+        
+        [waveMenus setPosition:ccp( 0, mobileDisplaySize.height*.8)];
+        
+        [self addChild:waveMenus];
+        
+    }
+    
+    return self;
+}
 
+-(void) setSoldierinWave:(id) soldierType{
+    CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
+    
+    if ([menuItem.label.string isEqualToString:@"Wave 1"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 2"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w2"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 3"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w3"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 4"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w4"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 5"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w5"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 6"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w6"];
+    }else if ([menuItem.label.string isEqualToString:@"Wave 7"]) {
+        [gameStatusEssentialsSingleton setCurrentWave:@"w7"];
+    }
+}
 -(void)dealloc{
     [super dealloc];
 }

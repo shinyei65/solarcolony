@@ -50,21 +50,21 @@
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
         
         //Put the position of Back
+        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(moveToScene:)];
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
-        
-        CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
+        CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
         
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
         [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
         
         
-        WavesLayer *waveslayer = [WavesLayer node];
-        [waveslayer setPosition:ccp( mobileDisplaySize.width/3, mobileDisplaySize.height-45)];
+        WavesLayer *waveslayer = [[WavesLayer alloc] init];
+        [waveslayer setPosition:ccp( mobileDisplaySize.width*.3, mobileDisplaySize.height*.6)];
         [self addChild: waveslayer z:3];
         
-        SoldiersLayer *soldierlayer = [SoldiersLayer node];
-        [soldierlayer setPosition:ccp(mobileDisplaySize.width*.75, mobileDisplaySize.height*.4)];
+        SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
+        [soldierlayer setPosition:ccp(mobileDisplaySize.width*.65, mobileDisplaySize.height*.6)];
         [self addChild: soldierlayer z:4];
         
         [self addChild:splash z:1];
