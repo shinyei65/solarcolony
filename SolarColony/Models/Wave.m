@@ -11,6 +11,8 @@
 @implementation Wave {
     NSMutableArray *_list;
 }
+@synthesize race;
+@synthesize request_id;
 
 #pragma mark - Create and Destroy
 

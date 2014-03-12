@@ -11,18 +11,20 @@
 @implementation Army {
     NSMutableArray *_list;
 }
+@synthesize request_id;
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) army
++ (instancetype) army: (NSString *) rid
 {
-    return [[self alloc] init];
+    return [[self alloc] init: rid];
 }
 
-- (instancetype) init
+- (instancetype) init: (NSString *) rid
 {
     self = [super init];
     if (!self) return(nil);
+    request_id = rid;
     _list = [[NSMutableArray alloc] init];
     return self;
 }
@@ -42,6 +44,7 @@
 }
 - (void) addWave: (Wave *) wave
 {
+    wave.request_id = request_id;
     [_list addObject: wave];
 }
 

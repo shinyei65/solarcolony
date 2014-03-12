@@ -34,6 +34,7 @@
 		21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0318AF5C1C009E55DC /* background.mp3 */; };
 		21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0418AF5C1C009E55DC /* dark.mp3 */; };
 		21DD4D0918AF5CA9009E55DC /* MusicManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */; };
+		566F28D018D123C600E297D3 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */; };
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
@@ -201,11 +202,7 @@
 		F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD418C50A6A00308F11 /* attackBotton_select.png */; };
 		F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */; };
 		F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */; };
-		F5A6ECE118C824BE00308F11 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		F5A6ECE218C824BE00308F11 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		F5A6ECE518C8287900308F11 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		F5A6ECE818C8366400308F11 /* (null) in Resources */ = {isa = PBXBuildFile; };
-		F5A6ECE918C8366400308F11 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		F5A6ECEC18C836AF00308F11 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F5A6ECEF18C8384800308F11 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		F5A6ECF218C8385600308F11 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -280,6 +277,8 @@
 		21DD4D0418AF5C1C009E55DC /* dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dark.mp3; sourceTree = "<group>"; };
 		21DD4D0718AF5CA9009E55DC /* MusicManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicManagerSingleton.h; sourceTree = "<group>"; };
 		21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicManagerSingleton.m; sourceTree = "<group>"; };
+		566F28CE18D123C600E297D3 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesOfSoldiers.h; sourceTree = "<group>"; };
+		566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesOfSoldiers.m; sourceTree = "<group>"; };
 		5681771918AAF70300E4D772 /* CCMenu+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMenu+Layout.h"; sourceTree = "<group>"; };
 		5681771A18AAF70300E4D772 /* CCMenu+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMenu+Layout.m"; sourceTree = "<group>"; };
 		5681771C18AB07E600E4D772 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
@@ -1309,14 +1308,14 @@
 		F5DFA3B718A5AD04000F0A00 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				566F28CE18D123C600E297D3 /* WavesOfSoldiers.h */,
+				566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */,
 				F566881418C816B500A2D1F7 /* ArmyQueue.h */,
 				F566881518C816B500A2D1F7 /* ArmyQueue.m */,
 				F5DFA3B818A5AD04000F0A00 /* AbstractScene.h */,
 				F5DFA3B918A5AD04000F0A00 /* GameLandingScene.h */,
 				F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */,
 				F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */,
-				0975524518C522B200194099 /* WavesOfSoldiers.h */,
-				0975524618C522B200194099 /* WavesOfSoldiers.m */,
 				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
 				09A7183118A6249800FC9BB2 /* Friends.h */,
 				09A7183218A6249800FC9BB2 /* Friends.m */,
@@ -1464,7 +1463,6 @@
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
-				F5A6ECE218C824BE00308F11 /* (null) in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
@@ -1474,7 +1472,6 @@
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
-				F5A6ECE818C8366400308F11 /* (null) in Resources */,
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
@@ -1503,7 +1500,6 @@
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				F5DA46C918CE387400291A0A /* RobotSoldier_Special.png in Resources */,
-				0941DF0518D1158A00AA3DA4 /* iPhoneIcon_Big.png in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
@@ -1546,6 +1542,7 @@
 				F5594A1418A56F40008ADDED /* CDXMacOSXSupport.m in Sources */,
 				F5594A0818A56F40008ADDED /* ZipUtils.m in Sources */,
 				F55948FA18A56F3C008ADDED /* CCActionManager.m in Sources */,
+				566F28D018D123C600E297D3 /* WavesOfSoldiers.m in Sources */,
 				F559496218A56F3D008ADDED /* CCParticleSystemQuad.m in Sources */,
 				F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */,
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
@@ -1615,7 +1612,6 @@
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
-				0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */,
 				F55949F918A56F3F008ADDED /* CGPointExtension.m in Sources */,
 				F55948FD18A56F3C008ADDED /* CCActionPageTurn3D.m in Sources */,
 				F562E4EF18CE3A550006063B /* serialization todo.m in Sources */,

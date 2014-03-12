@@ -15,4 +15,6 @@
 - (int) count;
 - (void) addSoldier: (Soldier *) sol;
 - (Soldier *) popSoldier;
+@property(assign, atomic) NSString *race;
+@property(assign, atomic) NSString *request_id;
 @end
