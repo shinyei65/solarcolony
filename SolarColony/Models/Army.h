@@ -10,9 +10,10 @@
 #import "Wave.h"
 
 @interface Army : NSObject
-+ (instancetype) army;
-- (instancetype) init;
++ (instancetype) army: (NSString *) rid;
+- (instancetype) init: (NSString *) rid;
 - (int) count;
 - (void) addWave: (Wave *) sol;
 - (Wave *) popWave;
+@property(assign, atomic) NSString *request_id;
 @end

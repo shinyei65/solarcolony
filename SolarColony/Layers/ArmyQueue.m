@@ -17,6 +17,7 @@ static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_ADD_RATE = 1;
 int ARMY_GEN_RATE = 12;
+NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
     CCLabelTTF *_min;
@@ -122,18 +123,22 @@ int ARMY_GEN_RATE = 12;
 {
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
-    Army *army = [Army army];
+    Army *army = [Army army: AI_REQUEST];
     for(int x=0; x<3; x++){
         Wave *wave = [Wave wave];
         for (int i=0; i<3; i++) {
             //CCLOG(@"runner!!!");
             Soldier *temp;
-            if(x ==0)
+            if(x ==0){
+                wave.race = @"human";
                 temp = [BasicSoldier human:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            else if(x == 1)
+            }else if(x == 1){
+                wave.race = @"robot";
                 temp = [BasicSoldier robot:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            else
+            }else{
+                wave.race = @"magic";
                 temp = [BasicSoldier mage:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }
             [wave addSoldier: temp];
         }
         for (int i=0; i<3; i++) {
