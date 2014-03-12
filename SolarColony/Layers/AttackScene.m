@@ -41,7 +41,9 @@
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
        // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
-        
+        CCSprite *bg = [CCSprite spriteWithFile:@"AttackPage_wallpaper.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        [self addChild:bg];
 
         [self addChild:[self loadMenu]];
     }
