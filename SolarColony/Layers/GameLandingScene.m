@@ -39,6 +39,10 @@
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
         
+        CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper6.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        [self addChild:bg];
+        
         [self addChild:splash];
         [self addChild:[self loadMenu]];
     }

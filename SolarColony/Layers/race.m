@@ -61,6 +61,10 @@
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     
+    CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper2.jpg"];
+    bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+    [self addChild:bg];
+    
     return mainMenu;
     
 }
