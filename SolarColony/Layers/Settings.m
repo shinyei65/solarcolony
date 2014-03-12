@@ -38,6 +38,9 @@
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
+        CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper5.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        [self addChild:bg];
         
         [self addChild:[self loadMenu]];
         
