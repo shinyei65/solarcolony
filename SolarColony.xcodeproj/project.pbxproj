@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975524618C522B200194099 /* WavesOfSoldiers.m */; };
 		0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553118CB01DC00194099 /* SoldiersLayer.m */; };
 		0975553518CB036300194099 /* WavesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553418CB036300194099 /* WavesLayer.m */; };
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
@@ -28,6 +27,7 @@
 		21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0318AF5C1C009E55DC /* background.mp3 */; };
 		21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 21DD4D0418AF5C1C009E55DC /* dark.mp3 */; };
 		21DD4D0918AF5CA9009E55DC /* MusicManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */; };
+		566F28D018D123C600E297D3 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */; };
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
@@ -237,15 +237,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0941DEFA18D1154400AA3DA4 /* universe-wallpaper2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper2.jpg"; path = "../../../../Background pics/universe-wallpaper2.jpg"; sourceTree = "<group>"; };
-		0941DEFB18D1154400AA3DA4 /* universe-wallpaper3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper3.jpg"; path = "../../../../Background pics/universe-wallpaper3.jpg"; sourceTree = "<group>"; };
-		0941DEFC18D1154400AA3DA4 /* universe-wallpaper4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper4.jpg"; path = "../../../../Background pics/universe-wallpaper4.jpg"; sourceTree = "<group>"; };
-		0941DEFD18D1154400AA3DA4 /* universe-wallpaper5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper5.jpg"; path = "../../../../Background pics/universe-wallpaper5.jpg"; sourceTree = "<group>"; };
-		0941DEFE18D1154400AA3DA4 /* universe-wallpaper6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper6.jpg"; path = "../../../../Background pics/universe-wallpaper6.jpg"; sourceTree = "<group>"; };
-		0941DF0418D1158A00AA3DA4 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../../../../iPhoneIcon_Big.png; sourceTree = "<group>"; };
-		0941DF0618D1159D00AA3DA4 /* universe-wallpaper1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "universe-wallpaper1.jpg"; path = "../../../../../../Documents/solarcolony/SolarColony/Resources/images/universe-wallpaper1.jpg"; sourceTree = "<group>"; };
-		0975524518C522B200194099 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WavesOfSoldiers.h; path = ../../WavesOfSoldiers.h; sourceTree = "<group>"; };
-		0975524618C522B200194099 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WavesOfSoldiers.m; path = ../../WavesOfSoldiers.m; sourceTree = "<group>"; };
 		0975553018CB01DC00194099 /* SoldiersLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldiersLayer.h; sourceTree = "<group>"; };
 		0975553118CB01DC00194099 /* SoldiersLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldiersLayer.m; sourceTree = "<group>"; };
 		0975553318CB036300194099 /* WavesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesLayer.h; sourceTree = "<group>"; };
@@ -271,6 +262,8 @@
 		21DD4D0418AF5C1C009E55DC /* dark.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dark.mp3; sourceTree = "<group>"; };
 		21DD4D0718AF5CA9009E55DC /* MusicManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicManagerSingleton.h; sourceTree = "<group>"; };
 		21DD4D0818AF5CA9009E55DC /* MusicManagerSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicManagerSingleton.m; sourceTree = "<group>"; };
+		566F28CE18D123C600E297D3 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesOfSoldiers.h; sourceTree = "<group>"; };
+		566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesOfSoldiers.m; sourceTree = "<group>"; };
 		5681771918AAF70300E4D772 /* CCMenu+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCMenu+Layout.h"; sourceTree = "<group>"; };
 		5681771A18AAF70300E4D772 /* CCMenu+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMenu+Layout.m"; sourceTree = "<group>"; };
 		5681771C18AB07E600E4D772 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
@@ -697,13 +690,6 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				0941DF0418D1158A00AA3DA4 /* iPhoneIcon_Big.png */,
-				0941DF0618D1159D00AA3DA4 /* universe-wallpaper1.jpg */,
-				0941DEFA18D1154400AA3DA4 /* universe-wallpaper2.jpg */,
-				0941DEFB18D1154400AA3DA4 /* universe-wallpaper3.jpg */,
-				0941DEFC18D1154400AA3DA4 /* universe-wallpaper4.jpg */,
-				0941DEFD18D1154400AA3DA4 /* universe-wallpaper5.jpg */,
-				0941DEFE18D1154400AA3DA4 /* universe-wallpaper6.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
@@ -1301,14 +1287,14 @@
 		F5DFA3B718A5AD04000F0A00 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
+				566F28CE18D123C600E297D3 /* WavesOfSoldiers.h */,
+				566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */,
 				F566881418C816B500A2D1F7 /* ArmyQueue.h */,
 				F566881518C816B500A2D1F7 /* ArmyQueue.m */,
 				F5DFA3B818A5AD04000F0A00 /* AbstractScene.h */,
 				F5DFA3B918A5AD04000F0A00 /* GameLandingScene.h */,
 				F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */,
 				F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */,
-				0975524518C522B200194099 /* WavesOfSoldiers.h */,
-				0975524618C522B200194099 /* WavesOfSoldiers.m */,
 				F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */,
 				09A7183118A6249800FC9BB2 /* Friends.h */,
 				09A7183218A6249800FC9BB2 /* Friends.m */,
@@ -1528,6 +1514,7 @@
 				F5594A1418A56F40008ADDED /* CDXMacOSXSupport.m in Sources */,
 				F5594A0818A56F40008ADDED /* ZipUtils.m in Sources */,
 				F55948FA18A56F3C008ADDED /* CCActionManager.m in Sources */,
+				566F28D018D123C600E297D3 /* WavesOfSoldiers.m in Sources */,
 				F559496218A56F3D008ADDED /* CCParticleSystemQuad.m in Sources */,
 				F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */,
 				F559492518A56F3C008ADDED /* CCDrawNode.m in Sources */,
@@ -1597,7 +1584,6 @@
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
-				0975524718C522B200194099 /* WavesOfSoldiers.m in Sources */,
 				F55949F918A56F3F008ADDED /* CGPointExtension.m in Sources */,
 				F55948FD18A56F3C008ADDED /* CCActionPageTurn3D.m in Sources */,
 				F562E4EF18CE3A550006063B /* serialization todo.m in Sources */,
