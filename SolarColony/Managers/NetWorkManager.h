@@ -17,4 +17,5 @@
 -(void)getAttackRequest;
 -(void)deleteAttackRequest:(NSString*)datetime;
 
+-(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy;
 @end

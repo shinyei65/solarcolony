@@ -11,6 +11,7 @@
 @interface ArmyNetwork : JSONModel
 
     @property (nonatomic, strong) NSMutableDictionary *waveComplexStructure;
+    @property (nonatomic, strong) NSString *race;
 /*
 -(void) setNumberOfSoldiers:(int) numSoldiers;
 
