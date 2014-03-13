@@ -128,6 +128,11 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
         Soldier *sol = [_wave popSoldier];
         [sol release];
     }
+    if([_wave getEndFlag]){
+        [[NetWorkManager NetWorkManager] getAttackRequest];
+        [[NetWorkManager NetWorkManager] deleteAttackRequest:@"03-05-2015%2000:00:00"];
+    }
+    
     [_wave release]; _wave = nil;
     _tick = _hold_tick;
     _in_wave = FALSE;

@@ -716,7 +716,6 @@
 				0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */,
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
 				0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */,
-				09939D2918D145B9004EFF55 /* AttackPage_wallpaper.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Wave.h"
+#import "NetWorkManager.h"
 
 @interface WaveController : NSObject
 
