@@ -45,6 +45,7 @@
     [_list release]; _list = nil;
     [self release];
     [super dealloc];
+    //CCLOG(@"A wave was deallocated");
 }
 
 #pragma mark - operation of soldiers

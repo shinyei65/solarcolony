@@ -15,8 +15,7 @@
 + (instancetype) controller;
 - (instancetype) init;
 - (void) update;
-- (void) startWave;
+- (void) startWave: (Wave *) target;
 - (void) endWave;
-- (void) addWave: (Wave *) wave;
 
 @end

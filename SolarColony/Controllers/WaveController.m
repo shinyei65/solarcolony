@@ -10,13 +10,10 @@
 #import "GameStatusEssentialsSingleton.h"
 
 static WaveController *sharedInstance = nil;
-int SOL_GEN_RATE = 60; // 60 ticks per sec
+int SOL_GEN_RATE = 1;
 
 @implementation WaveController {
     int _tick;
-    int _hold_tick;
-    BOOL _in_wave;
-    NSMutableArray *_queue;
     NSMutableArray *_monitor;
     Wave *_wave;
     NSObject *_mylock;
@@ -39,11 +36,8 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
     if (!self) return(nil);
     
     // initialize variable
-    _in_wave = FALSE;
-    _queue = [[NSMutableArray alloc] init];
     _monitor = [[NSMutableArray alloc] init];
     _tick = 0;
-    _mylock = [[NSObject alloc] init];
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     return self;
 }
@@ -58,31 +52,19 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
 
 - (void) update
 {
-    @synchronized(_mylock){
-        //NSLog(@"WaveController: tick = %d", _tick);
-        //NSLog(@"WaveController: number of %d wave in queue", [_queue count]);
-        if(_in_wave){
-            _tick++;
-            if([_wave count]){
-                if(_tick == SOL_GEN_RATE){
-                    // add to monitor and soldier controller
-                    _tick = 0;
-                    [self generateSoldier];
-                }
-            }else{
-                // if all monitored soldiers died, end wave
-                if(![self checkMonitor]){
-                    [self endWave];
-                }
-            }
+    _tick++;
+    if([_wave count]){
+        if(_tick == SOL_GEN_RATE){
+            // add to monitor and soldier controller
+            _tick = 0;
+            [self generateSoldier];
+        }
+    }else{
+        // if all monitored soldiers died, end wave
+        if(![self checkMonitor]){
+            [self endWave];
         }
     }
-}
-
-- (void) addWave: (Wave *) wave
-{
-    [_queue addObject: wave];
-    NSLog(@"WaveController: %d waves in queue", [_queue count]);
 }
 
 - (void) generateSoldier
@@ -108,25 +90,23 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
     return FALSE;
 }
 
-- (void) startWave
+- (void) startWave: (Wave *) target
 {
     NSLog(@"WaveController: start a wave");
-    @synchronized(_mylock){
-        _wave = (Wave *)[_queue objectAtIndex: 0];
-        _hold_tick = _tick;
-        _tick = SOL_GEN_RATE - 1;
-        _in_wave = TRUE;
-    }
+    _wave = target;
+    _tick = SOL_GEN_RATE - 1;
 }
 
 - (void) endWave
 {
     NSLog(@"WaveController: end a wave");
-    [_queue removeObjectAtIndex: 0];
     [gameStatusEssentialsSingleton removeAllSoldiers];
-    for(int i=0; i<[_wave count]; i++){
-        Soldier *sol = [_wave popSoldier];
-        [sol removeFromParent];
+    int count = [_monitor count];
+    NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
+    for(int i=0; i<count; i++){
+        Soldier *sol = (Soldier *)[_monitor objectAtIndex:0];
+        [_monitor removeObjectAtIndex:0];
+        [[GridMap map] removeChild:sol cleanup:YES];
         [sol release];
     }
     if([_wave getEndFlag]){
@@ -135,9 +115,7 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
     }
     
     [_wave release]; _wave = nil;
-    _tick = _hold_tick;
-    _in_wave = FALSE;
-    [[ArmyQueue layer] refreshTick];
+    [[ArmyQueue layer] endWave];
 }
 
 @end

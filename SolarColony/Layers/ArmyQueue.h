@@ -18,6 +18,6 @@
 + (instancetype) layer;
 - (instancetype) init;
 - (void) updateTick;
-- (void) refreshTick;
+- (void) endWave;
 - (void) addArmy: (Army *) army;
 @end

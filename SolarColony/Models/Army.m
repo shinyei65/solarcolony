@@ -36,6 +36,7 @@
     [_list release]; _list = nil;
     [self release];
     [super dealloc];
+    //CCLOG(@"A army was deallocated");
 }
 
 #pragma mark - operation of soldiers

@@ -192,10 +192,6 @@
     
     //update soldiers
     [solController updateSoldier:delta];
-    [waveController update];
-    
-    // update wave queue
-    [[ArmyQueue layer] updateTick];
     
     
  //   [colissionsManager setSoldierArray:[solController getSoldierArray]];

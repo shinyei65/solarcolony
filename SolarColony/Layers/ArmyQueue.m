@@ -21,14 +21,9 @@ int ARMY_GEN_RATE = 6;
 NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
-    //CCLabelTTF *_min;
-    //CCLabelTTF *_sec;
-    int _min_tick;
-    int _sec_tick;
-    int _tick;
+    BOOL _inWave;
     int _army_gen_tick;
     int _wave_show_tick;
-    BOOL _hold;
     NSMutableArray *_queue;
     NSMutableArray *_show_queue;
     NSMutableArray *_sprite_queue;
@@ -48,70 +43,52 @@ NSString *AI_REQUEST = @"AI";
         _queue = [[NSMutableArray alloc] init];
         _show_queue = [[NSMutableArray alloc] init];
         _sprite_queue = [[NSMutableArray alloc] init];
-        _hold = FALSE;
+        _inWave = FALSE;
         _army_gen_tick = 0;
         _wave_show_tick = 0;
-        _tick = 0;
-        _min_tick = 0;
-        _sec_tick = WAVE_START_RATE;
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
         [label setAnchorPoint:ccp(0,1)];
         [label setPosition:ccp(-100,0)];
         [self setAnchorPoint:ccp(0,1)];
         [self addChild:label];
-        //_min = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:12];
-        //_sec = [CCLabelTTF labelWithString:[self getSecString] fontName:@"Outlier.ttf" fontSize:15];
-        //[_sec setAnchorPoint:ccp(0,1)];
-        //[_sec setPosition:ccp([label boundingBox].size.width, 0)];
-        //[self addChild:_sec];
         [self genertateAIarmy];
+        [self schedule:@selector(update:) interval:1];
     }
 
     return self;
 }
-- (NSString *) getSecString
+- (void) update:(ccTime)delta
 {
-    return [NSString stringWithFormat:@"%2d", _sec_tick];
+    if(!_inWave){
+        _army_gen_tick++;
+        _wave_show_tick++;
+        [self updateTick];
+    }else{
+        [[WaveController controller] update];
+    }
 }
 - (void) updateTick
 {
-    if(!_hold){
-        if(_sec_tick == 0){
-            _sec_tick = WAVE_START_RATE;
-            //[self startWave];
-        }
-        _tick++;
-        if(_tick == 60){
-            _army_gen_tick++;
-            _wave_show_tick++;
-            _sec_tick--;
-            _tick = 0;
-            //[_sec setString:[self getSecString]];
-        }
         if(_army_gen_tick == ARMY_GEN_RATE){
             _army_gen_tick = 0;
             [self genertateAIarmy];
         }
         if(_wave_show_tick == WAVE_SHOW_RATE){
-            // TO DO: still need to implement show the queue in here
             _wave_show_tick = 0;
             [self showArmy];
-            // TO DO: add wave in _queue into show queue
         }
-    }
 }
-- (void) refreshTick
+- (void) endWave
 {
-    
-    _hold = FALSE;
+    _inWave = FALSE;
     [self resumeAnimate];
-    //[_sec setString:[self getSecString]];
 }
 
 #pragma mark - Army operation
 
 - (void) pauseAnimate
 {
+    //[self pauseSchedulerAndActions];
     int count = [_sprite_queue count];
     for(int i=0; i<count; i++){
         CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:i];
@@ -121,6 +98,7 @@ NSString *AI_REQUEST = @"AI";
 
 - (void) resumeAnimate
 {
+    //[self resumeSchedulerAndActions];
     int count = [_sprite_queue count];
     for(int i=0; i<count; i++){
         CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:i];
@@ -131,17 +109,16 @@ NSString *AI_REQUEST = @"AI";
 
 - (void) startWave
 {
-    _hold = TRUE;
+    _inWave = TRUE;
     [self pauseAnimate];
     Wave *target = (Wave *)[_show_queue objectAtIndex:0];
     [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
-    [[WaveController controller] addWave:target];
     [_show_queue removeObjectAtIndex:0];
     CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:0];
     [_sprite_queue removeObjectAtIndex:0];
     [qitem setVisible:FALSE];
     [self removeChild:qitem cleanup:YES];
-    [[WaveController controller] startWave];
+    [[WaveController controller] startWave:target];
 }
 
 - (void) showArmy
@@ -162,7 +139,8 @@ NSString *AI_REQUEST = @"AI";
     id wrapperAction = [CCCallFunc actionWithTarget:self selector:@selector(startWave)];
     id sequence = [CCSequence actions: move, wrapperAction, nil];
     [qitem runAction:sequence];
-    NSLog(@"ArmyQueue: %d waves in show queue", [_show_queue count]);
+    //NSLog(@"ArmyQueue: %d waves in show queue", [_show_queue count]);
+    //NSLog(@"ArmyQueue: %d waves in sprite queue", [_sprite_queue count]);
 }
 
 - (void) addArmy: (Army *) army

@@ -227,7 +227,6 @@
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
 		F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */; };
-		F5E0C21A18D162910061E364 /* AttackPage_wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5E0C21918D162910061E364 /* AttackPage_wallpaper.jpg */; };
 		F5E4A3F118B2CE9E00C4FD22 /* TowerRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E4A3F018B2CE9E00C4FD22 /* TowerRobot.m */; };
 		F5E4A3F318B2CF4F00C4FD22 /* towerB.png in Resources */ = {isa = PBXBuildFile; fileRef = F5E4A3F218B2CF4F00C4FD22 /* towerB.png */; };
 		F5EA8D0518CE7F11009EF24B /* JSONModel+CoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EA8CEC18CE7F11009EF24B /* JSONModel+CoreData.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
@@ -301,7 +300,6 @@
 		F52FFD9B18D15C8700AA6C19 /* TestArmyNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestArmyNetwork.h; sourceTree = "<group>"; };
 		F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestArmyNetwork.m; sourceTree = "<group>"; };
 		F52FFDA018D1611A00AA6C19 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
-		F52FFDA218D1619700AA6C19 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AttackPage_wallpaper.jpg; path = SolarColony/Resources/images/AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
 		F53E795018B5B58D0037A48A /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
 		F53E795118B5B58D0037A48A /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
 		F53E795318B5B58D0037A48A /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
@@ -653,7 +651,6 @@
 		F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLandingScene.m; sourceTree = "<group>"; };
 		F5DFA3BB18A5AD04000F0A00 /* HomeScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeScene.h; sourceTree = "<group>"; };
 		F5DFA3BC18A5AD04000F0A00 /* HomeScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeScene.m; sourceTree = "<group>"; };
-		F5E0C21918D162910061E364 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AttackPage_wallpaper.jpg; path = SolarColony/Resources/images/AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
 		F5E4A3EF18B2CE9E00C4FD22 /* TowerRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerRobot.h; sourceTree = "<group>"; };
 		F5E4A3F018B2CE9E00C4FD22 /* TowerRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerRobot.m; sourceTree = "<group>"; };
 		F5E4A3F218B2CF4F00C4FD22 /* towerB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerB.png; sourceTree = "<group>"; };
@@ -813,7 +810,6 @@
 		F55948A518A56F3B008ADDED = {
 			isa = PBXGroup;
 			children = (
-				F52FFDA218D1619700AA6C19 /* AttackPage_wallpaper.jpg */,
 				F55948C518A56F3B008ADDED /* SolarColony */,
 				F55948B018A56F3B008ADDED /* Frameworks */,
 				F55948AF18A56F3B008ADDED /* Products */,
