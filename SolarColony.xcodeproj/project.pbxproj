@@ -45,6 +45,7 @@
 		F521428718B699120085BD47 /* soundOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428518B699120085BD47 /* soundOn.png */; };
 		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
 		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
+		F52FFD9D18D15C8700AA6C19 /* TestArmyNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */; };
 		F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795018B5B58D0037A48A /* blood_1:4.jpg */; };
 		F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795118B5B58D0037A48A /* blood_3:4.jpg */; };
 		F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795318B5B58D0037A48A /* blood_full.jpg */; };
@@ -297,6 +298,8 @@
 		F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatusEssentialsSingleton.m; sourceTree = "<group>"; };
 		F528C72D18B5B18D003B4FB8 /* ThreadSafeMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThreadSafeMutableArray.h; sourceTree = "<group>"; };
 		F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreadSafeMutableArray.m; sourceTree = "<group>"; };
+		F52FFD9B18D15C8700AA6C19 /* TestArmyNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestArmyNetwork.h; sourceTree = "<group>"; };
+		F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestArmyNetwork.m; sourceTree = "<group>"; };
 		F53E795018B5B58D0037A48A /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
 		F53E795118B5B58D0037A48A /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
 		F53E795318B5B58D0037A48A /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
@@ -779,6 +782,8 @@
 				F566881218C80D3300A2D1F7 /* Wave.m */,
 				FC99236918CA90A00015F57C /* ArmyNetwork.h */,
 				FC99236A18CA90A00015F57C /* ArmyNetwork.m */,
+				F52FFD9B18D15C8700AA6C19 /* TestArmyNetwork.h */,
+				F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1646,6 +1651,7 @@
 				F559496518A56F3D008ADDED /* CCPhysicsDebugNode.m in Sources */,
 				F55948EB18A56F3B008ADDED /* CCActionEase.m in Sources */,
 				F559492818A56F3C008ADDED /* CCFontDefinition.m in Sources */,
+				F52FFD9D18D15C8700AA6C19 /* TestArmyNetwork.m in Sources */,
 				F5584E4618AECA7700C81B59 /* WaveController.m in Sources */,
 				F559496818A56F3D008ADDED /* CCPhysicsSprite.mm in Sources */,
 				F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */,

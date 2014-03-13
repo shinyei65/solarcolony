@@ -7,7 +7,7 @@
 //
 
 #import "NetWorkManager.h"
-
+#import "ArmyNetwork.h"
 static NetWorkManager *sharedNetWorkManager = nil;
 
 @implementation NetWorkManager{
@@ -50,8 +50,20 @@ static NetWorkManager *sharedNetWorkManager = nil;
     [request release];
     [url release];
 }
-
-
+/*
+-(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
+    NSString * test=@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}";
+    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test];
+    CCLOG(@"mente");
+    return nil;
+}*/
+-(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
+    NSString * test=[NSString stringWithString:sendingArmy];
+    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
+    
+    CCLOG(test);
+    return nil;
+}
 
 
 @end

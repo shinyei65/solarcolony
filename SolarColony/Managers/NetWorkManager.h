@@ -14,5 +14,5 @@
 +(id)NetWorkManager;
 -(id)init;
 -(void)sendAttackRequest:(Army*)sendingArmy;
-
+-(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy;
 @end
