@@ -115,7 +115,8 @@ NSString *AI_REQUEST = @"AI";
     int count = [army count];
     for(int i=0; i<count; i++){
         Wave* temp = [army popWave];
-        [temp setEndFlag:TRUE];
+        if(i==count-1)
+            [temp setEndFlag:TRUE];
         [_queue addObject:temp];
     }
     [army autorelease];
