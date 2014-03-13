@@ -31,6 +31,7 @@
     CGPoint _view_pos;
     CGFloat initialDistance;
     CGFloat zoomFactor;
+    CCLabelTTF *message;
 }
 @synthesize menuLocation;
 static GridMap *sharedInstance = nil;
@@ -101,9 +102,30 @@ static GridMap *sharedInstance = nil;
     [self addChild: _towermenu z:99];
     [self setTouchEnabled: YES];
     
+    // set up message
+    message = [CCLabelTTF labelWithString:@"AI Attck!!" fontName:@"Outlier.ttf" fontSize:15];
+    [message setAnchorPoint:ccp(0.5,0.5)];
+    [message setPosition: ccp(_screenSize.width*0.5,_screenSize.height*0.5)];
+    [message setVisible:FALSE];
+    [self addChild: message];
     
     // done
     return self;
+}
+
+- (void) showMessage: (NSString *) str
+{
+    [message setString:str];
+    [message setVisible:TRUE];
+    id delay = [CCDelayTime actionWithDuration: 1.0f];
+    id wrapperAction = [CCCallFunc actionWithTarget:self selector:@selector(hideMessage)];
+    id sequence = [CCSequence actions: delay, wrapperAction, nil];
+    [self runAction:sequence];
+}
+
+- (void) hideMessage
+{
+    [message setVisible:FALSE];
 }
 
 - (void) dealloc

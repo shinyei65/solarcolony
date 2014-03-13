@@ -12,19 +12,21 @@
     NSMutableArray *_list;
 }
 @synthesize request_id;
+@synthesize attacker;
 
 #pragma mark - Create and Destroy
 
-+ (instancetype) army: (NSString *) rid
++ (instancetype) army: (NSString *) rid Attacker: (NSString *) att
 {
-    return [[self alloc] init: rid];
+    return [[self alloc] init: rid Attacker:att];
 }
 
-- (instancetype) init: (NSString *) rid
+- (instancetype) init: (NSString *) rid Attacker: (NSString *) att
 {
     self = [super init];
     if (!self) return(nil);
     request_id = rid;
+    attacker = att;
     _list = [[NSMutableArray alloc] init];
     return self;
 }
@@ -45,6 +47,7 @@
 - (void) addWave: (Wave *) wave
 {
     wave.request_id = request_id;
+    wave.attacker = attacker;
     [_list addObject: wave];
 }
 

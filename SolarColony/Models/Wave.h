@@ -17,4 +17,5 @@
 - (Soldier *) popSoldier;
 @property(assign, atomic) NSString *race;
 @property(assign, atomic) NSString *request_id;
+@property(assign, atomic) NSString *attacker;
 @end

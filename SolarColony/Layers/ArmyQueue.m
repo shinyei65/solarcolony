@@ -11,24 +11,27 @@
 #import "HumanSoldier.h"
 #import "RobotSoldier.h"
 #import "MageSoldier.h"
+#import "GridMap.h"
 
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
-int WAVE_ADD_RATE = 1;
-int ARMY_GEN_RATE = 12;
+int WAVE_SHOW_RATE = 2;
+int ARMY_GEN_RATE = 6;
 NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
-    CCLabelTTF *_min;
-    CCLabelTTF *_sec;
+    //CCLabelTTF *_min;
+    //CCLabelTTF *_sec;
     int _min_tick;
     int _sec_tick;
     int _tick;
     int _army_gen_tick;
-    int _wave_between_tick;
+    int _wave_show_tick;
     BOOL _hold;
     NSMutableArray *_queue;
+    NSMutableArray *_show_queue;
+    NSMutableArray *_sprite_queue;
 }
 + (instancetype) layer
 {
@@ -43,21 +46,24 @@ NSString *AI_REQUEST = @"AI";
     self = [super init];
     if (self) {
         _queue = [[NSMutableArray alloc] init];
+        _show_queue = [[NSMutableArray alloc] init];
+        _sprite_queue = [[NSMutableArray alloc] init];
         _hold = FALSE;
         _army_gen_tick = 0;
-        _wave_between_tick = 0;
+        _wave_show_tick = 0;
         _tick = 0;
         _min_tick = 0;
         _sec_tick = WAVE_START_RATE;
-        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Next Wave: " fontName:@"Outlier.ttf" fontSize:15];
+        CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
         [label setAnchorPoint:ccp(0,1)];
+        [label setPosition:ccp(-100,0)];
         [self setAnchorPoint:ccp(0,1)];
         [self addChild:label];
         //_min = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:12];
-        _sec = [CCLabelTTF labelWithString:[self getSecString] fontName:@"Outlier.ttf" fontSize:15];
-        [_sec setAnchorPoint:ccp(0,1)];
-        [_sec setPosition:ccp([label boundingBox].size.width, 0)];
-        [self addChild:_sec];
+        //_sec = [CCLabelTTF labelWithString:[self getSecString] fontName:@"Outlier.ttf" fontSize:15];
+        //[_sec setAnchorPoint:ccp(0,1)];
+        //[_sec setPosition:ccp([label boundingBox].size.width, 0)];
+        //[self addChild:_sec];
         [self genertateAIarmy];
     }
 
@@ -71,25 +77,25 @@ NSString *AI_REQUEST = @"AI";
 {
     if(!_hold){
         if(_sec_tick == 0){
-            _hold = TRUE;
             _sec_tick = WAVE_START_RATE;
-            [self startWave];
+            //[self startWave];
         }
         _tick++;
         if(_tick == 60){
             _army_gen_tick++;
-            _wave_between_tick++;
+            _wave_show_tick++;
             _sec_tick--;
             _tick = 0;
-            [_sec setString:[self getSecString]];
+            //[_sec setString:[self getSecString]];
         }
         if(_army_gen_tick == ARMY_GEN_RATE){
             _army_gen_tick = 0;
             [self genertateAIarmy];
         }
-        if(_wave_between_tick == WAVE_ADD_RATE){
+        if(_wave_show_tick == WAVE_SHOW_RATE){
             // TO DO: still need to implement show the queue in here
-            _wave_between_tick = 0;
+            _wave_show_tick = 0;
+            [self showArmy];
             // TO DO: add wave in _queue into show queue
         }
     }
@@ -97,16 +103,65 @@ NSString *AI_REQUEST = @"AI";
 - (void) refreshTick
 {
     _hold = FALSE;
-    [_sec setString:[self getSecString]];
+    [self resumeAnimate];
+    //[_sec setString:[self getSecString]];
 }
 
 #pragma mark - Army operation
 
+- (void) pauseAnimate
+{
+    int count = [_sprite_queue count];
+    for(int i=0; i<count; i++){
+        CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:i];
+        [qitem pauseSchedulerAndActions];
+    }
+}
+
+- (void) resumeAnimate
+{
+    int count = [_sprite_queue count];
+    for(int i=0; i<count; i++){
+        CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:i];
+        [qitem resumeSchedulerAndActions];
+    }
+    
+}
+
 - (void) startWave
 {
-    [[WaveController controller] addWave:(Wave *)[_queue objectAtIndex:0]];
-    [_queue removeObjectAtIndex:0];
+    _hold = TRUE;
+    [self pauseAnimate];
+    Wave *target = (Wave *)[_show_queue objectAtIndex:0];
+    [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
+    [[WaveController controller] addWave:target];
+    [_show_queue removeObjectAtIndex:0];
+    CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:0];
+    [_sprite_queue removeObjectAtIndex:0];
+    [qitem setVisible:FALSE];
+    [self removeChild:qitem cleanup:YES];
     [[WaveController controller] startWave];
+}
+
+- (void) showArmy
+{
+    int count = [_queue count];
+    if(count == 0) {
+        _wave_show_tick = WAVE_SHOW_RATE - 1;
+        return;
+    }
+    Wave *target = (Wave *)[_queue objectAtIndex:0];
+    [_queue removeObjectAtIndex:0];
+    [_show_queue addObject:target];
+    CCSprite *qitem = [CCSprite spriteWithFile:@"angrybomb.png"];
+    [qitem setPosition:ccp(0,-5)];
+    [self addChild: qitem];
+    [_sprite_queue addObject:qitem];
+    id move = [CCMoveTo actionWithDuration:WAVE_START_RATE position:ccp(125,-5)];
+    id wrapperAction = [CCCallFunc actionWithTarget:self selector:@selector(startWave)];
+    id sequence = [CCSequence actions: move, wrapperAction, nil];
+    [qitem runAction:sequence];
+    NSLog(@"ArmyQueue: %d waves in show queue", [_show_queue count]);
 }
 
 - (void) addArmy: (Army *) army
@@ -123,7 +178,7 @@ NSString *AI_REQUEST = @"AI";
 {
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
-    Army *army = [Army army: AI_REQUEST];
+    Army *army = [Army army: AI_REQUEST Attacker:AI_REQUEST];
     for(int x=0; x<3; x++){
         Wave *wave = [Wave wave];
         for (int i=0; i<3; i++) {

@@ -13,6 +13,7 @@
 }
 @synthesize race;
 @synthesize request_id;
+@synthesize attacker;
 
 #pragma mark - Create and Destroy
 
