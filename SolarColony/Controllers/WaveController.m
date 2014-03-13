@@ -87,14 +87,14 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
 
 - (void) generateSoldier
 {
-    NSLog(@"WaveController: generate a soldier");
-    GridMap *gird = [GridMap map];
-    CGPoint start = [gird getStartIndex];
+    //NSLog(@"WaveController: generate a soldier");
+    GridMap *grid = [GridMap map];
+    CGPoint start = [grid getStartIndex];
     Soldier *sol = [_wave popSoldier];
     [_monitor addObject: sol];
     [sol setPOSITION:start.x Y:start.y];
-    [sol setPosition:[gird convertMapIndexToCenterGL:start]];
-    [gird addChild:sol z:1];
+    [sol setPosition:[grid convertMapIndexToCenterGL:start]];
+    [grid addChild:sol z:1];
     [gameStatusEssentialsSingleton addSoldier: sol];
 }
 
@@ -126,6 +126,7 @@ int SOL_GEN_RATE = 60; // 60 ticks per sec
     [gameStatusEssentialsSingleton removeAllSoldiers];
     for(int i=0; i<[_wave count]; i++){
         Soldier *sol = [_wave popSoldier];
+        [sol removeFromParent];
         [sol release];
     }
     if([_wave getEndFlag]){
