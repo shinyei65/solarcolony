@@ -11,9 +11,7 @@
 static NetWorkManager *sharedNetWorkManager = nil;
 
 @implementation NetWorkManager{
-    NSURL *url;
-    
-    
+    NSOperationQueue *queue;
 }
 
 +(id)NetWorkManager{
@@ -27,13 +25,14 @@ static NetWorkManager *sharedNetWorkManager = nil;
 -(id)init{
 
     self = [super init];
+    queue = [[NSOperationQueue alloc] init];
     return self;
 }
 
 -(void)sendAttackRequest:(Army*)sendingArmy
 {
-    
-    url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
+ 
+    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString *jsonRequest = @"attacker=Jimmy&army={ \"waves\": [ { \"soldiers\": [ { \"type\": \"RobotSoldier_Basic\", \"number\": 5 }, { \"type\": \"RobotSoldier_Special\", \"number\": 6 } ] } ]}";
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
@@ -45,12 +44,89 @@ static NetWorkManager *sharedNetWorkManager = nil;
     [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody: requestData];
     
-    [NSURLConnection connectionWithRequest:request delegate:self];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
+        
+        if ([ResponseData length] >0 && error == nil)
+        {
+            [request release];
+            
+        }
+        else if ([ResponseData length] == 0 && error == nil)
+        {
+            NSLog(@"Nothing was downloaded.");
+            [request release];
+        }
+        else if (error != nil){
+            NSLog(@"Error = %@", error);
+            [request release];
+        }
+        
+        
+    }];
+
     NSLog(@"-------send request------- ");
-    [request release];
-    [url release];
+
 }
 
+-(void)getAttackRequest{
+    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    
+   [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
+       
+       if ([ResponseData length] >0 && error == nil)
+       {
+
+           
+           [request release];
+           CCLOG([[NSString alloc] initWithData:ResponseData encoding:NSUTF8StringEncoding]);
+           
+       }
+       else if ([ResponseData length] == 0 && error == nil)
+       {
+           NSLog(@"Nothing was downloaded.");
+           [request release];
+       }
+       else if (error != nil){
+           NSLog(@"Error = %@", error);
+           [request release];
+       }
+       
+       
+    }];
+    
+}
+
+-(void)deleteAttackRequest:(NSString*)datetime{
+    
+    NSString *url_string =@"http://solarcolony-back.appspot.com/request?user_name=default_user&&date=";
+    url_string = [url_string stringByAppendingString:datetime];
+    NSURL *url = [NSURL URLWithString:url_string];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"DELETE"];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
+        
+        if ([ResponseData length] >0 && error == nil)
+        {
+            [request release];
+        }
+        else if ([ResponseData length] == 0 && error == nil)
+        {
+            NSLog(@"Nothing was downloaded.");
+            [request release];
+        }
+        else if (error != nil){
+            NSLog(@"Error = %@", error);
+            [request release];
+        }
+        
+        
+    }];
+    
+}
 
 
 
