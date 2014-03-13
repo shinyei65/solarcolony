@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0941DF0B18D1240100AA3DA4 /* AttackPage_wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0A18D1240100AA3DA4 /* AttackPage_wallpaper.jpg */; };
 		0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */; };
 		0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */; };
 		0941DF1618D1276200AA3DA4 /* universe-wallpaper5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */; };
@@ -16,6 +15,8 @@
 		0975553518CB036300194099 /* WavesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553418CB036300194099 /* WavesLayer.m */; };
 		09939D2618D14416004EFF55 /* universe-wallpaper1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */; };
 		09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */; };
+		09939D2A18D145B9004EFF55 /* AttackPage_wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2918D145B9004EFF55 /* AttackPage_wallpaper.jpg */; };
+		09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */; };
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937818B5B2A40064A95D /* braincandy.wav */; };
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
@@ -244,8 +245,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0941DF0418D1158A00AA3DA4 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPhoneIcon_Big.png; path = ../../../../iPhoneIcon_Big.png; sourceTree = "<group>"; };
-		0941DF0A18D1240100AA3DA4 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = AttackPage_wallpaper.jpg; path = ../../../../../../Downloads/AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
 		0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper2.jpg"; sourceTree = "<group>"; };
 		0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper3.jpg"; sourceTree = "<group>"; };
 		0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper5.jpg"; sourceTree = "<group>"; };
@@ -256,6 +255,8 @@
 		0975553418CB036300194099 /* WavesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesLayer.m; sourceTree = "<group>"; };
 		09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper1.jpg"; sourceTree = "<group>"; };
 		09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper4.jpg"; sourceTree = "<group>"; };
+		09939D2918D145B9004EFF55 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
+		09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big.png; sourceTree = "<group>"; };
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		09AB937718B5B2A40064A95D /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -705,14 +706,14 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */,
 				09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */,
 				09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */,
 				0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */,
 				0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */,
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
 				0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */,
-				0941DF0A18D1240100AA3DA4 /* AttackPage_wallpaper.jpg */,
-				0941DF0418D1158A00AA3DA4 /* iPhoneIcon_Big.png */,
+				09939D2918D145B9004EFF55 /* AttackPage_wallpaper.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
@@ -1455,6 +1456,7 @@
 				21152FF518B779F000C1274C /* On.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				F521428618B699120085BD47 /* soundOff.png in Resources */,
+				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
 				F521428718B699120085BD47 /* soundOn.png in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
@@ -1493,9 +1495,9 @@
 				F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */,
 				F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */,
 				F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */,
-				0941DF0B18D1240100AA3DA4 /* AttackPage_wallpaper.jpg in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
+				09939D2A18D145B9004EFF55 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
