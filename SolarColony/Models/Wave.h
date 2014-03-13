@@ -15,6 +15,8 @@
 - (int) count;
 - (void) addSoldier: (Soldier *) sol;
 - (Soldier *) popSoldier;
+-(BOOL)getEndFlag;
+-(void)setEndFlag:(BOOL)flag;
 @property(assign, atomic) NSString *race;
 @property(assign, atomic) NSString *request_id;
 @property(assign, atomic) NSString *attacker;

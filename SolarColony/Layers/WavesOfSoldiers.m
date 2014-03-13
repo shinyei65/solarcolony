@@ -12,7 +12,7 @@
 #import "SoldiersLayer.h"
 #import "cocos2d.h"
 #import "ArmyNetwork.h"
-
+#import "JSONModel.h"
 @implementation WavesOfSoldiers
 @synthesize mobileDisplaySize;
 
@@ -55,8 +55,9 @@
         
         //Put the position of Back
         CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveRequest:)];
+        CCMenuItemFont *menuTest=[CCMenuItemFont itemWithString:@"test" target:self selector:@selector(generateArmyFromNetworkResource)];
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
-        CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
+        CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack,menuTest, nil];
         
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
@@ -86,80 +87,6 @@
 }
 
 
-/*
--(CCMenu*) WavesMenu{
-    CCMenuItemFont *wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:nil];
-//    CCMenuItemFont *wave2=[CCMenuItemFont itemWithString:@"Wave 2" target:self selector:nil];
-//    CCMenuItemFont *wave3=[CCMenuItemFont itemWithString:@"Wave 3" target:self selector:nil];
-    item1=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-    item2=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-    item3=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-    item4=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-    item5=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-    item6=[CCMenuItemFont itemWithString:@" " target:self selector:nil];
-//    item7=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(setTowerofTypes:)];
-//    item8=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(setTowerofTypes:)];
-//    item9=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(setTowerofTypes:)];
-    [wave1 setFontSize:20];
-    [item1 setFontSize:15];
-    [item2 setFontSize:15];
-    [item3 setFontSize:15];
-    [item4 setFontSize:15];
-    [item5 setFontSize:15];
-    [item6 setFontSize:15];
-    CCMenu *WaveMenus;
-    
-    WaveMenus = [CCMenu menuWithItems: wave1,item1, item2, item3, item4, item5, item6, nil];
-    //[WaveMenus  alignItemsInGridWithPadding:ccp(25, 25) columns:3];
-   
-    [WaveMenus alignItemsInColumns:[NSNumber numberWithInt:1], [NSNumber numberWithInt:3], [NSNumber numberWithInt:3], nil];
-    
-    [WaveMenus setPosition:ccp( mobileDisplaySize.width/3, mobileDisplaySize.height-65)];
-    
-    return WaveMenus;
-   
-    
-}
-
--(CCMenu*) SoldierMenu{
-    CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierC=[CCMenuItemFont itemWithString:@"Soldier C" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierD=[CCMenuItemFont itemWithString:@"Soldier D" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierE=[CCMenuItemFont itemWithString:@"Soldier E" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierF=[CCMenuItemFont itemWithString:@"Soldier F" target:self selector:@selector(setSoldierinWave:)];
-    [soldierA setFontSize:20];
-    [soldierB setFontSize:20];
-    [soldierC setFontSize:20];
-    [soldierD setFontSize:20];
-    [soldierE setFontSize:20];
-    [soldierF setFontSize:20];
-    CCMenu *SoldierMenu = [CCMenu menuWithItems:soldierA, soldierB, soldierC,soldierD, soldierE, soldierF, nil];
-   [SoldierMenu  alignItemsInGridWithPadding:ccp(0, 0) columns:1];
-    [SoldierMenu setPosition:ccp(mobileDisplaySize.width*.75, mobileDisplaySize.height*.4)];
-    
-    return SoldierMenu;
-}
-
--(void) setSoldierinWave:(id) soldierType{
-    CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
-    
-    if ([menuItem.label.string isEqualToString:@"Soldier A"]) {
-        [item1 setString:@"SoldierA"];
-    }else if([menuItem.label.string isEqualToString:@"Soldier B"]){
-        [item2 setString:@"SoldierB"];
-    }else if([menuItem.label.string isEqualToString:@"Soldier C"]){
-        [item3 setString:@"SoldierC"];
-    }else if([menuItem.label.string isEqualToString:@"Soldier D"]){
-        [item4 setString:@"SoldierD"];
-    }else if([menuItem.label.string isEqualToString:@"Soldier E"]){
-        [item5 setString:@"SoldierE"];
-    }else if([menuItem.label.string isEqualToString:@"Soldier F"]){
-        [item6 setString:@"SoldierF"];
-    }
-
-}
-*/
 
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
@@ -169,8 +96,16 @@
 }
 -(void)saveRequest:(id)sender{
     ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
+    army.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstring= [army toJSONString];
     CCLOG(jsonstring);
+}
+-(Army*)generateArmyFromNetworkResource{
+    NSString * test=[NSString stringWithString:@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}"];
+    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
+    
+    CCLOG(test);
+    return nil;
 }
 
 - (void)dealloc

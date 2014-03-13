@@ -102,6 +102,7 @@ NSString *AI_REQUEST = @"AI";
 }
 - (void) refreshTick
 {
+    
     _hold = FALSE;
     [self resumeAnimate];
     //[_sec setString:[self getSecString]];
@@ -168,7 +169,9 @@ NSString *AI_REQUEST = @"AI";
 {
     int count = [army count];
     for(int i=0; i<count; i++){
-        [_queue addObject:[army popWave]];
+        Wave* temp = [army popWave];
+        [temp setEndFlag:TRUE];
+        [_queue addObject:temp];
     }
     [army autorelease];
     NSLog(@"ArmyQueue: %d waves in queue", [_queue count]);

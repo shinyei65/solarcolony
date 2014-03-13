@@ -11,7 +11,7 @@
 @implementation ArmyNetwork
 
 @synthesize waveComplexStructure;
-
+@synthesize race;
 - (id)init
 {
     self = [super init];

@@ -10,6 +10,7 @@
 
 @implementation Wave {
     NSMutableArray *_list;
+    BOOL endofArmy;
 }
 @synthesize race;
 @synthesize request_id;
@@ -27,7 +28,16 @@
     self = [super init];
     if (!self) return(nil);
     _list = [[NSMutableArray alloc] init];
+    endofArmy = FALSE;
     return self;
+}
+
+-(BOOL)getEndFlag{
+    return endofArmy;
+}
+
+-(void)setEndFlag:(BOOL)flag{
+    endofArmy = flag;
 }
 
 - (void) dealloc
