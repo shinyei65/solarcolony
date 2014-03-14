@@ -22,9 +22,9 @@ NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
     BOOL _inWave;
+    BOOL _showMSG;
     int _army_gen_tick;
     int _wave_show_tick;
-    NSMutableArray *_queue;
     NSMutableArray *_show_queue;
     NSMutableArray *_sprite_queue;
 }
@@ -44,6 +44,7 @@ NSString *AI_REQUEST = @"AI";
         _show_queue = [[NSMutableArray alloc] init];
         _sprite_queue = [[NSMutableArray alloc] init];
         _inWave = FALSE;
+        _showMSG = TRUE;
         _army_gen_tick = 0;
         _wave_show_tick = 0;
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
@@ -112,9 +113,15 @@ NSString *AI_REQUEST = @"AI";
     _inWave = TRUE;
     [self pauseAnimate];
     Wave *target = (Wave *)[_show_queue objectAtIndex:0];
-    [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
+    if(_showMSG){
+        [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
+        _showMSG = FALSE;
+    }else{
+        if ([target getEndFlag])
+            _showMSG = TRUE;
+    }
     [_show_queue removeObjectAtIndex:0];
-    CCSprite *qitem = (CCSprite*)[_sprite_queue objectAtIndex:0];
+    WaveSprite *qitem = (WaveSprite*)[_sprite_queue objectAtIndex:0];
     [_sprite_queue removeObjectAtIndex:0];
     [qitem setVisible:FALSE];
     [self removeChild:qitem cleanup:YES];
@@ -131,7 +138,7 @@ NSString *AI_REQUEST = @"AI";
     Wave *target = (Wave *)[_queue objectAtIndex:0];
     [_queue removeObjectAtIndex:0];
     [_show_queue addObject:target];
-    CCSprite *qitem = [CCSprite spriteWithFile:@"angrybomb.png"];
+    WaveSprite *qitem = [WaveSprite sprtieWithUserID:target.attacker Race:target.race];
     [qitem setPosition:ccp(0,-5)];
     [self addChild: qitem];
     [_sprite_queue addObject:qitem];
@@ -193,4 +200,40 @@ NSString *AI_REQUEST = @"AI";
     }
     [self addArmy: army];
 }
+@end
+
+@implementation WaveSprite
+
++ (id) sprtieWithUserID: (NSString *) uid Race: (NSString *) race
+{
+    return [[[self alloc] init: uid Race:race] autorelease];
+}
+- (id) init: (NSString *) uid Race: (NSString *) race
+{
+    self = [super init];
+    if (!self) return(nil);
+    // initial sprite and label
+    CCSprite *sprite;
+    if([race isEqualToString: @"human"]){
+        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+    }else if ([race isEqualToString: @"robot"]){
+        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+    }else{
+        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+    }
+    [self addChild:sprite];
+    CCLabelTTF *label = [CCLabelTTF labelWithString:uid fontName:@"Outlier.ttf" fontSize:10];
+    [label setAnchorPoint:ccp(0.5,0.5)];
+    CGSize size = sprite.boundingBox.size;
+    [label setPosition:ccp(size.width*0.5, 0)];
+    [self addChild:label];
+    return self;
+}
+
+- (void) dealloc
+{
+    [self release];
+    [super dealloc];
+}
+
 @end

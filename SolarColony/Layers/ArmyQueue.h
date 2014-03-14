@@ -12,7 +12,7 @@
 #import "Army.h"
 
 @interface ArmyQueue : CCLayer {
-    NSMutableArray *queue;
+    NSMutableArray *_queue;
 }
 
 + (instancetype) layer;
@@ -20,4 +20,9 @@
 - (void) updateTick;
 - (void) endWave;
 - (void) addArmy: (Army *) army;
+@end
+
+@interface WaveSprite : CCNode
++ (id) sprtieWithUserID: (NSString *) uid Race: (NSString *) race;
+- (id) init: (NSString *) uid Race: (NSString *) race;
 @end
