@@ -8,7 +8,8 @@
 
 #import "TestArmyNetwork.h"
 
-@implementation TestArmyNetwork
+@implementation SoldierTypeNetwork
+
 @synthesize soldiertype;
 @synthesize quantity;
 
@@ -25,23 +26,34 @@
 @end
 
 @implementation WaveNetwork
-@synthesize races;
-@synthesize waves;
+@synthesize soldiersArray;
 
 - (id)init
 {
     self = [super init];
     if (self) {
          //http://stackoverflow.com/questions/14958883/ios-serialize-deserialize-complex-json-generically-from-nsobject-class
+        soldiersArray=[[NSMutableArray alloc] init];
+    }
+    return self;
+}
+@end
+
+
+@implementation ArmyNetworkRequest
+@synthesize race;
+@synthesize wavesArray;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        //http://stackoverflow.com/questions/14958883/ios-serialize-deserialize-complex-json-generically-from-nsobject-class
+        wavesArray=[[NSMutableArray alloc] init];
+        race=[[NSString alloc] init];
     }
     return self;
 }
 
--(void) addNewWave{
-    
-}
 
--(void) addSoldier{
-    
-}
 @end

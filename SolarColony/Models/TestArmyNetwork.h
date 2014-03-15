@@ -8,15 +8,22 @@
 
 #import "JSONModel.h"
 
-@interface TestArmyNetwork : JSONModel
+@interface SoldierTypeNetwork : JSONModel
 @property (nonatomic, strong) NSString *soldiertype;
 @property (nonatomic, strong) NSString *quantity;
- 
+
 @end
 
-@protocol TestArmyNetwork;
+@protocol SoldierTypeNetwork;
 
 @interface WaveNetwork : JSONModel
-@property (nonatomic, strong) NSMutableArray<TestArmyNetwork> *waves;
-@property (nonatomic, strong) NSString *races;
+@property (nonatomic, strong) NSMutableArray<SoldierTypeNetwork> *soldiersArray;
+
+@end
+
+@protocol WaveNetwork;
+
+@interface ArmyNetworkRequest : JSONModel
+@property (nonatomic, strong) NSMutableArray<WaveNetwork> *wavesArray;
+@property (nonatomic, strong) NSString *race;
 @end

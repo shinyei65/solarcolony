@@ -13,6 +13,8 @@
 #import "cocos2d.h"
 #import "ArmyNetwork.h"
 #import "JSONModel.h"
+#import "TestArmyNetwork.h"
+
 @implementation WavesOfSoldiers
 @synthesize mobileDisplaySize;
 
@@ -99,6 +101,34 @@
     army.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstring= [army toJSONString];
     CCLOG(jsonstring);
+    
+    
+    
+    //test save request
+    ArmyNetworkRequest *armyNetwork = [[ArmyNetworkRequest alloc] init];
+    
+    
+    
+    for(id key in army.waveComplexStructure) {
+        NSMutableDictionary* value = [army.waveComplexStructure objectForKey:key];
+        WaveNetwork *waveNetwork = [[WaveNetwork alloc] init];
+        
+        for(id keyInner in value) {
+            NSString* valueInner = [value objectForKey:keyInner];
+            // CCLOG(valueInner);
+            SoldierTypeNetwork *soldiersNetwork = [[SoldierTypeNetwork alloc] init];
+            soldiersNetwork.quantity=valueInner;
+            soldiersNetwork.soldiertype=keyInner;
+            [waveNetwork.soldiersArray addObject:soldiersNetwork];
+        }
+        
+        [armyNetwork.wavesArray addObject:waveNetwork];
+    }
+    armyNetwork.race=gameStatusEssentialsSingleton.raceType;
+    NSString * jsonstringFixed= [armyNetwork toJSONString];
+
+    CCLOG(jsonstringFixed);
+    
 }
 -(Army*)generateArmyFromNetworkResource{
     NSString * test=[NSString stringWithString:@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}"];
