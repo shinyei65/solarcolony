@@ -82,7 +82,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
         {
             NSLog(@"length: %d",[ResponseData length]);
             [self deleteAttackRequest:@"03-05-2015%2000:00:00"];
-            //[[ArmyQueue layer] ]
+            [[ArmyQueue layer] genertateTestarmy];
             [request release];
             
         }

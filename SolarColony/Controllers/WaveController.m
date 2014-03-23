@@ -110,9 +110,7 @@ int SOL_GEN_RATE = 1;
         [sol release];
     }
     if([_wave getEndFlag]){
-        int status = [[NetWorkManager NetWorkManager] getAttackRequest];
-        [[NetWorkManager NetWorkManager] deleteAttackRequest:@"03-05-2015%2000:00:00"];
-        NSLog(@"----status: %d",status);
+        [[NetWorkManager NetWorkManager] getAttackRequest];
     }
     
     [_wave release]; _wave = nil;
