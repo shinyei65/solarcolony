@@ -68,34 +68,40 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 }
 
--(void)getAttackRequest
+-(int)getAttackRequest
 {
     
     NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    __block int responseType=5;
     
     [request setHTTPMethod:@"GET"];
 
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
         
-        if ([ResponseData length] >0 && error == nil)
+        if ([ResponseData length] >35 && error == nil)
         {
+            NSLog(@"length: %d",[ResponseData length]);
+            responseType = 1;
             [request release];
             
         }
-        else if ([ResponseData length] == 0 && error == nil)
+        else if ([ResponseData length] == 35 && error == nil)
         {
             NSLog(@"Nothing was downloaded.");
+            responseType = 2;
             [request release];
         }
         else if (error != nil){
             NSLog(@"Error = %@", error);
+            responseType = 3;
             [request release];
         }
         
         
     }];
     
+    return responseType;
 }
 
 -(void)deleteAttackRequest:(NSString*)datetime
@@ -112,18 +118,12 @@ static NetWorkManager *sharedNetWorkManager = nil;
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
         
-        if ([ResponseData length] >0 && error == nil)
-        {
-            [request release];
-            
-        }
-        else if ([ResponseData length] == 0 && error == nil)
-        {
-            NSLog(@"Nothing was downloaded.");
-            [request release];
-        }
-        else if (error != nil){
+        if (error != nil){
             NSLog(@"Error = %@", error);
+            [request release];
+        }
+        
+        else{
             [request release];
         }
         
