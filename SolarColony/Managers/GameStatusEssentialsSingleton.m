@@ -22,6 +22,7 @@
 @synthesize resourcesQuantity;
 @synthesize score;
 @synthesize raceType;
+@synthesize userID;
 @synthesize armynetwork;
 @synthesize currentWave;
 

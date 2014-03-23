@@ -73,12 +73,15 @@
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
     if ([menuItem.label.string isEqualToString:@"Human"]) {
         [gameStatusEssentialsSingleton setRaceType:@"Human"];
+        [gameStatusEssentialsSingleton setUserID:@"User1"];
         [transitionManagerSingleton transitionTo:1];
     } else if ([menuItem.label.string isEqualToString:@"Robot"])  {
         [gameStatusEssentialsSingleton setRaceType:@"Robot"];
+        [gameStatusEssentialsSingleton setUserID:@"User2"];
         [transitionManagerSingleton transitionTo:1];
     } else if ([menuItem.label.string isEqualToString:@"Magic"])  {
         [gameStatusEssentialsSingleton setRaceType:@"Magic"];
+        [gameStatusEssentialsSingleton setUserID:@"User3"];
         [transitionManagerSingleton transitionTo:1];
     }
 }

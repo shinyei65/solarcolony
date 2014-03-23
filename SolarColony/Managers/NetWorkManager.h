@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Army.h"
+#import "ArmyQueue.h"
 
 @interface NetWorkManager : NSObject
 

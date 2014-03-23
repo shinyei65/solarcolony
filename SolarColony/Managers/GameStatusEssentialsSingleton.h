@@ -37,6 +37,7 @@
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) ArmyNetwork* armynetwork;
 @property(assign, nonatomic) NSMutableArray *towers;
+@property(assign, nonatomic) NSString *userID;
 @property(assign, nonatomic) NSString *raceType;
 @property(assign, nonatomic) NSString *currentWave;
 @property(assign, nonatomic) int resourcesQuantity;
