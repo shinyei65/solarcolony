@@ -18,7 +18,7 @@
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 2;
-int ARMY_GEN_RATE = 6;
+int ARMY_GEN_RATE = 12;
 float AI_HEALTH = 15;
 NSString *AI_REQUEST = @"AI";
 
@@ -208,7 +208,7 @@ NSString *AI_REQUEST = @"AI";
 
 - (void) genertateTestarmy
 {
-    NSLog(@"ArmyQueue: generate AI army");
+    NSLog(@"ArmyQueue: generate Test army");
     // add one AI army in queue
     NSString *att;
     if([[[GameStatusEssentialsSingleton sharedInstance] userID] isEqualToString:@"User1"])
