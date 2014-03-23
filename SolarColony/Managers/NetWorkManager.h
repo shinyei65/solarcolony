@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "Army.h"
+#import "ArmyQueue.h"
 
 @interface NetWorkManager : NSObject
 
 +(id)NetWorkManager;
 -(id)init;
 -(void)sendAttackRequest:(Army*)sendingArmy;
--(int)getAttackRequest;
+-(void)getAttackRequest;
 -(void)deleteAttackRequest:(NSString*)datetime;
 
 -(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy;

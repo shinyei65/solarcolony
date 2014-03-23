@@ -68,12 +68,11 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 }
 
--(int)getAttackRequest
+-(void)getAttackRequest
 {
     
     NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    __block int responseType=5;
     
     [request setHTTPMethod:@"GET"];
 
@@ -82,26 +81,24 @@ static NetWorkManager *sharedNetWorkManager = nil;
         if ([ResponseData length] >35 && error == nil)
         {
             NSLog(@"length: %d",[ResponseData length]);
-            responseType = 1;
+            [self deleteAttackRequest:@"03-05-2015%2000:00:00"];
+            //[[ArmyQueue layer] ]
             [request release];
             
         }
         else if ([ResponseData length] == 35 && error == nil)
         {
             NSLog(@"Nothing was downloaded.");
-            responseType = 2;
             [request release];
         }
         else if (error != nil){
             NSLog(@"Error = %@", error);
-            responseType = 3;
             [request release];
         }
         
         
     }];
     
-    return responseType;
 }
 
 -(void)deleteAttackRequest:(NSString*)datetime
