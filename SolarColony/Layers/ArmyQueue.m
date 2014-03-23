@@ -18,6 +18,7 @@ static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 2;
 int ARMY_GEN_RATE = 6;
+float AI_HEALTH = 15;
 NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
@@ -175,13 +176,13 @@ NSString *AI_REQUEST = @"AI";
             Soldier *temp;
             if(x ==0){
                 wave.race = @"human";
-                temp = [BasicSoldier human:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             }else if(x == 1){
                 wave.race = @"robot";
-                temp = [BasicSoldier robot:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             }else{
                 wave.race = @"magic";
-                temp = [BasicSoldier mage:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             }
             [wave addSoldier: temp];
         }
@@ -189,16 +190,19 @@ NSString *AI_REQUEST = @"AI";
             //CCLOG(@"attacker!!!");
             Soldier *temp;
             if(x ==0)
-                temp = [HumanSoldier typeA:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             else if(x == 1)
-                temp = [RobotSoldier typeA:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             else
-                temp = [MageSoldier typeA:(int)100 ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+                temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
             [wave addSoldier: temp];
         }
         [army addWave: wave];
     }
     [self addArmy: army];
+    if(AI_HEALTH < 100)
+        AI_HEALTH *= 1.5f;
+    
 }
 @end
 
