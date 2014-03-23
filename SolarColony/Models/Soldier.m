@@ -241,7 +241,7 @@
 {
     [self release];
     [super dealloc];
-    CCLOG(@"A soldier was deallocated");
+    //CCLOG(@"A soldier was deallocated");
     // clean up code goes here, should there be any
     
 }

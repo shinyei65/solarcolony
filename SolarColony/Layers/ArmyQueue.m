@@ -11,13 +11,14 @@
 #import "HumanSoldier.h"
 #import "RobotSoldier.h"
 #import "MageSoldier.h"
-#import "GridMap.h"
+//#import "GridMap.h"
+#import "GameStatusEssentialsSingleton.h"
 
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 2;
-int ARMY_GEN_RATE = 6;
+int ARMY_GEN_RATE = 12;
 float AI_HEALTH = 15;
 NSString *AI_REQUEST = @"AI";
 
@@ -169,6 +170,52 @@ NSString *AI_REQUEST = @"AI";
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
     Army *army = [Army army: AI_REQUEST Attacker:AI_REQUEST];
+    for(int x=0; x<3; x++){
+        Wave *wave = [Wave wave];
+        for (int i=0; i<3; i++) {
+            //CCLOG(@"runner!!!");
+            Soldier *temp;
+            if(x ==0){
+                wave.race = @"human";
+                temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }else if(x == 1){
+                wave.race = @"robot";
+                temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }else{
+                wave.race = @"magic";
+                temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }
+            [wave addSoldier: temp];
+        }
+        for (int i=0; i<3; i++) {
+            //CCLOG(@"attacker!!!");
+            Soldier *temp;
+            if(x ==0)
+                temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            else if(x == 1)
+                temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            else
+                temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            [wave addSoldier: temp];
+        }
+        [army addWave: wave];
+    }
+    [self addArmy: army];
+    if(AI_HEALTH < 100)
+        AI_HEALTH *= 1.5f;
+    
+}
+
+- (void) genertateTestarmy
+{
+    NSLog(@"ArmyQueue: generate Test army");
+    // add one AI army in queue
+    NSString *att;
+    if([[[GameStatusEssentialsSingleton sharedInstance] userID] isEqualToString:@"User1"])
+        att = @"User2";
+    else
+        att = @"User1";
+    Army *army = [Army army: att Attacker:att];
     for(int x=0; x<3; x++){
         Wave *wave = [Wave wave];
         for (int i=0; i<3; i++) {

@@ -102,7 +102,7 @@ int SOL_GEN_RATE = 1;
     NSLog(@"WaveController: end a wave");
     [gameStatusEssentialsSingleton removeAllSoldiers];
     int count = [_monitor count];
-    NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
+    //NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
     for(int i=0; i<count; i++){
         Soldier *sol = (Soldier *)[_monitor objectAtIndex:0];
         [_monitor removeObjectAtIndex:0];
