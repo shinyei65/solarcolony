@@ -22,9 +22,13 @@
         CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
         CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
         CCMenuItemFont *soldierC=[CCMenuItemFont itemWithString:@"Soldier C" target:self selector:@selector(setSoldierinWave:)];
+        soldierC.visible = false;
         CCMenuItemFont *soldierD=[CCMenuItemFont itemWithString:@"Soldier D" target:self selector:@selector(setSoldierinWave:)];
+        soldierD.visible = false;
         CCMenuItemFont *soldierE=[CCMenuItemFont itemWithString:@"Soldier E" target:self selector:@selector(setSoldierinWave:)];
+        soldierE.visible = false;
         CCMenuItemFont *soldierF=[CCMenuItemFont itemWithString:@"Soldier F" target:self selector:@selector(setSoldierinWave:)];
+        soldierF.visible = false;
         [soldierA setFontSize:20];
         [soldierB setFontSize:20];
         [soldierC setFontSize:20];
@@ -58,12 +62,16 @@
     [item2 setFontSize:20];
     item3=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item3 setFontSize:20];
+    item3.visible = false;
     item4=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item4 setFontSize:20];
+    item4.visible = false;
     item5=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item5 setFontSize:20];
+    item5.visible = false;
     item6=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item6 setFontSize:20];
+    item6.visible = false;
  
     soldierMenus = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, nil];
     

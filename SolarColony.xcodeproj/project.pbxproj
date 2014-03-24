@@ -21,6 +21,8 @@
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
+		09EAA58218DFA83200F4E07B /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EAA58118DFA83200F4E07B /* StartGame.png */; };
+		09EAA58418DFA9D800F4E07B /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EAA58318DFA9D800F4E07B /* Settings.png */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
 		210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506A18B5C0DA00F7A1DE /* sound 2.wav */; };
 		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
@@ -268,6 +270,8 @@
 		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		09EAA58118DFA83200F4E07B /* StartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame.png; sourceTree = "<group>"; };
+		09EAA58318DFA9D800F4E07B /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
 		210D506A18B5C0DA00F7A1DE /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
 		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
@@ -1489,6 +1493,7 @@
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
+				09EAA58218DFA83200F4E07B /* StartGame.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
@@ -1517,6 +1522,7 @@
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
+				09EAA58418DFA9D800F4E07B /* Settings.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,

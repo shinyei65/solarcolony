@@ -7,6 +7,7 @@
 //
 
 #import "WavesLayer.h"
+#import "SoldiersLayer.h"
 
 
 @implementation WavesLayer
@@ -61,27 +62,33 @@
         item1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
         item2=[CCMenuItemFont itemWithString:@"Wave 2" target:self selector:@selector(setSoldierinWave:)];
         item3=[CCMenuItemFont itemWithString:@"Wave 3" target:self selector:@selector(setSoldierinWave:)];
-        item4=[CCMenuItemFont itemWithString:@"Wave 4" target:self selector:@selector(setSoldierinWave:)];
-        item5=[CCMenuItemFont itemWithString:@"Wave 5" target:self selector:@selector(setSoldierinWave:)];
-        item6=[CCMenuItemFont itemWithString:@"Wave 6" target:self selector:@selector(setSoldierinWave:)];
+       // item4=[CCMenuItemFont itemWithString:@"Wave 4" target:self selector:@selector(setSoldierinWave:)];
+       // item5=[CCMenuItemFont itemWithString:@"Wave 5" target:self selector:@selector(setSoldierinWave:)];
+       // item6=[CCMenuItemFont itemWithString:@"Wave 6" target:self selector:@selector(setSoldierinWave:)];
        
         
         [item1 setFontSize:20];
         [item2 setFontSize:20];
         [item3 setFontSize:20];
-        [item4 setFontSize:20];
-        [item5 setFontSize:20];
-        [item6 setFontSize:20];
+      //  [item4 setFontSize:20];
+      //  [item5 setFontSize:20];
+      //  [item6 setFontSize:20];
+        [item1 setColor:ccc3(255, 0, 0)];
         
         CCMenu *waveMenus= [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, nil];
         //[WaveMenus  alignItemsInGridWithPadding:ccp(25, 25) columns:3];
         
         [waveMenus alignItemsVertically];
         
-        [waveMenus setPosition:ccp( 0, mobileDisplaySize.height*.8)];
+        [waveMenus setPosition:ccp( 0, mobileDisplaySize.height/2)];
         
-        [self addChild:waveMenus];
+        SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
+        [soldierlayer setPosition:ccp(mobileDisplaySize.width + 200, mobileDisplaySize.height/2)];
         
+        
+        [self addChild: waveMenus z:1];
+        [self addChild: soldierlayer z:2];
+                
     }
     
     return self;
