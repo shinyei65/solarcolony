@@ -10,7 +10,9 @@
 #import "SoldiersLayer.h"
 
 
-@implementation WavesLayer
+@implementation WavesLayer {
+    SoldiersLayer *soldierlayer;
+}
 @synthesize mobileDisplaySize;
 
 /*-(id)init{
@@ -82,7 +84,7 @@
         
         [waveMenus setPosition:ccp( 0, mobileDisplaySize.height/2)];
         
-        SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
+        soldierlayer = [[SoldiersLayer alloc] init];
         [soldierlayer setPosition:ccp(mobileDisplaySize.width + 200, mobileDisplaySize.height/2)];
         
         
@@ -100,6 +102,7 @@
     if ([menuItem.label.string isEqualToString:@"Wave 1"]) {
         [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
          [menuItem setColor:ccc3(255,0,0)];
+        [soldierlayer loadWave:0];
         
         [item2 setColor:ccc3(255,255,255)];
         [item3 setColor:ccc3(255,255,255)];
@@ -110,6 +113,7 @@
     }else if ([menuItem.label.string isEqualToString:@"Wave 2"]) {
         [gameStatusEssentialsSingleton setCurrentWave:@"w2"];
          [menuItem setColor:ccc3(255,0,0)];
+        [soldierlayer loadWave:1];
         
         [item1 setColor:ccc3(255,255,255)];
         [item3 setColor:ccc3(255,255,255)];
@@ -119,6 +123,7 @@
     }else if ([menuItem.label.string isEqualToString:@"Wave 3"]) {
         [gameStatusEssentialsSingleton setCurrentWave:@"w3"];
          [menuItem setColor:ccc3(255,0,0)];
+        [soldierlayer loadWave:2];
         
         [item1 setColor:ccc3(255,255,255)];
         [item2 setColor:ccc3(255,255,255)];

@@ -20,5 +20,5 @@
     int counterA, counterB,counterC,counterD,counterE,counterF;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
-
+- (void) loadWave: (int) waveID;
 @end

@@ -9,7 +9,10 @@
 #import "SoldiersLayer.h"
 #import "WavesLayer.h"
 
-@implementation SoldiersLayer
+@implementation SoldiersLayer{
+    int wave_sol[3][2];
+    int cur_wave;
+}
 @synthesize mobileDisplaySize;
 
 -(id)init{
@@ -86,6 +89,7 @@
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
     
     if ([menuItem.label.string isEqualToString:@"Soldier A"]) {
+        wave_sol[cur_wave][0]++;
         counterA++;
         [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
         NSString* wave= [gameStatusEssentialsSingleton currentWave];
@@ -95,6 +99,7 @@
         CCLOG(@"%@",[tempdictonary objectForKey:@"SA"]);
         [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
     }else if([menuItem.label.string isEqualToString:@"Soldier B"]){
+         wave_sol[cur_wave][1]++;
         counterB++;
         [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
         NSString* wave= [gameStatusEssentialsSingleton currentWave];
@@ -143,7 +148,14 @@
     
 }
 
-
+- (void) loadWave: (int) waveID
+{
+    cur_wave = waveID;
+    counterA = wave_sol[cur_wave][0];
+    counterB = wave_sol[cur_wave][1];
+    [item1 setString:[NSString stringWithFormat:@"%d", wave_sol[cur_wave][0]]];
+    [item2 setString:[NSString stringWithFormat:@"%d", wave_sol[cur_wave][1]]];
+}
 
 -(void)dealloc{
     [super dealloc];
