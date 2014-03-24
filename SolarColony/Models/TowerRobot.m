@@ -19,7 +19,8 @@
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
 @synthesize selfLocation;
-
+@synthesize isCharging;
+@synthesize isDeath;
 
 - (instancetype) initTower:(CGPoint)location{
     
@@ -32,24 +33,35 @@
     [towerSprite setAnchorPoint:ccp(.8, 0.5)];
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
+    towerTowerId=2;
     selfLocation=location;
-    [self setLife:100];
+    [self setLife:50];
     [self setPower:50];
     [self setSetSpeedAttack:20];
     [self setSetSpeedAttack:50];
     [self setIsAttacking:false];
     
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
-    
+    isDeath=false;
     bullet = [[ NormalBullet alloc] initTower:location];
-    //[bullet setPosition:ccp(location.x+10,location.y+10)];
+    isCharging=false;
+    
+    //progress
+    
+  /*  CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerBcharge.png"];
+    timeBar = [CCProgressTimer progressWithSprite:progressSprite];
+    [timeBar setAnchorPoint:ccp(.8, 0.5)];
+    counter=0;
+    [self addChild:timeBar];*/
+    
+    
     
     [self setPosition:[self getLocation]];
     
    //[[GridMap map] addChild:bullet];
     [self addChild:towerSprite];
     [self addChild:bullet];
-    
+ 
     return self;
 }
 
@@ -61,8 +73,7 @@
 }
 - (void) attackTest:(CGPoint) soldier{
     
-    [self setIsAttacking:true];
-    
+    [self setIsAttacking:true];    
     //
     targetLocation=soldier;
     //  [self schedule: @selector(animatonAttack:) interval:1];
@@ -80,58 +91,48 @@
     [self setIsAttacking:false];
 }
 
+-(void) reloadAnimation
+{
+    
+    if (isCharging==false) {
+        isCharging=true;
+        CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:1 from:100 to:0];
+        CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerBcharge.png"];
+        timeBar = [CCProgressTimer progressWithSprite:progressSprite];
+        [timeBar setAnchorPoint:ccp(.8, 0.5)];
+        counter=0;
+        [self addChild:timeBar];
+        [timeBar runAction:to1];
+        [self schedule: @selector(doNothingCharge:) interval:.3];
+    }
+    
+}
 
-/*
--(void) animatonAttack: (ccTime) dt
-    {
-        // bla bla bla
-        //   if (counterTest<=5) {
-        CCLOG(@"SHOTTING");
-        //    counterTest++;
-        //     if ([self numberOfRunningActions]==0) {
-        [bullet setVisible:true];
-        //   CCLOG(@"coord x %f",targetLocation.x);
-        //  CCLOG(@"coord x %f",targetLocation.y);
-        CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-        //   CCLOG(@"coord x %f",targetLocations.x);
-        //   CCLOG(@"coord x %f",targetLocations.y);
-        CGPoint targetPrevious = bullet.initBulletLocation;
-        //   id appearAction = [CCFadeIn actionWithDuration:.1];
-        // id disappearAction = [CCFadeOut actionWithDuration:.1];
-        movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-        returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
-        
-        //[bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-        
-        //  [bullet runAction:[CCJumpBy actionWithDuration:0.75 position:targetLocations height:25 jumps:4]];
-        //
-        //    }
-        
-          ccBezierConfig bezier;
-         bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
-         bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
-         bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-         CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
-        
-        ccBezierConfig bezier;
-        bezier.controlPoint_1 = ccp(targetPrevious.x*.25, targetPrevious.y*.75);
-        //   bezier.controlPoint_2 = ccp(targetPrevious.x*.5, targetLocations.y*.5);
-        bezier.controlPoint_2 = ccp(targetPrevious.x*.75, targetLocations.y*.25);
-        bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-        CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
-        
-        [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-        
-        
-        //   }else{
-        //   counterTest=0;
-        
-        [self unscheduleAllSelectors];
-        [self setIsAttacking:false];
-        // }
+-(void) doNothingCharge: (ccTime) dt{
 
-}*/
+    NSLog(@" waitting to charge %d", counter);
+    
+    if (counter > 1) {
+        
+        NSLog(@"stopped 1st scheduler");
+        isCharging=false;
+        counter=0;
+        [self unschedule:@selector(doNothingCharge:)];
+    }else{
+         counter++;
+    }
+ 
+}
 
+
+-(void)beignattacked{
+    
+    if ([self getLife]<=0) {
+        isDeath=true;
+    }else{
+       [self setLife:([self getLife]-10)];
+    }
+}
 
 -(bool) getIsattacking{
     
@@ -159,7 +160,7 @@
 }
 
 -(int) getLife{
-    return nil;
+    return towerLife;
 }
 
 -(void) setSetSpeedAttack:(int) speed{

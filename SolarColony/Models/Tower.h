@@ -35,7 +35,8 @@
     -(void) setIsattacking:(bool) attack;
 
     -(void) destroyedAnimation;
-
+    -(void) beignattacked;
+    -(void) reloadAnimation;
     -(void)dealloc;
 
 
@@ -50,9 +51,11 @@
     @property(assign, nonatomic) int towerActiveRadius;
     @property(assign, nonatomic) bool isAttacking;
     @property(assign, nonatomic) CCSprite* bullet;
-
+    @property(assign, atomic) bool isCharging;
+    @property(assign, atomic) bool isDeath;
 
     @property  CGSize mobileDisplaySize;
+
 
 
 @end

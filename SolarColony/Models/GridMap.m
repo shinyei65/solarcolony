@@ -153,6 +153,12 @@ static GridMap *sharedInstance = nil;
     [self addChild: tower z: z];
 }
 
+- (void) removeTower: (id) tower
+{
+    //[self removeChild:tower];
+    [tower setVisible:false];
+}
+
 - (CGSize) getCellSize
 {
     return CGSizeMake(_width_step, _height_step);

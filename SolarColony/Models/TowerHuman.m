@@ -19,6 +19,8 @@
 @synthesize towerActiveRadius;
 @synthesize isAttacking;
 @synthesize selfLocation;
+@synthesize isCharging;
+@synthesize isDeath;
 
 - (instancetype) initTower:(CGPoint)location{
    
@@ -30,14 +32,15 @@
     //[self setLocation:ccp(200,200)];
     [self setLocation:location];
     selfLocation=location;
-    [self setLife:100];
+    towerTowerId=1;
+    [self setLife:70];
     [self setPower:10];
     [self setSetSpeedAttack:20];
     [self setSetSpeedAttack:50];
     [self setIsAttacking:false];
     
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
-    
+    isDeath=false;
     bullet = [[ NormalBullet alloc] initTower:location];
     
     [self setPosition:[self getLocation]];
@@ -72,7 +75,15 @@
     [self setIsAttacking:false];
 }
 
- 
+-(void)beignattacked{
+    
+    if ([self getLife]<=0) {
+        isDeath=true;
+        
+    }else{
+        [self setLife:([self getLife]-10)];
+    }
+}
 
 /*
 -(void) animatonAttack: (ccTime) dt
@@ -128,7 +139,7 @@ return nil;
 }
 
 -(int) getLife{
-return nil;
+return towerLife;
 }
 
 -(void) setSetSpeedAttack:(int) speed{

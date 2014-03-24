@@ -46,6 +46,9 @@
 		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
 		F52FFD9D18D15C8700AA6C19 /* TestArmyNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */; };
 		F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F52FFDA018D1611A00AA6C19 /* AttackPage_wallpaper.jpg */; };
+		F53E306018DFB51F007A2A3A /* progress.png in Resources */ = {isa = PBXBuildFile; fileRef = F53E305F18DFB51F007A2A3A /* progress.png */; };
+		F53E306218DFB99D007A2A3A /* towerBcharge.png in Resources */ = {isa = PBXBuildFile; fileRef = F53E306118DFB99D007A2A3A /* towerBcharge.png */; };
+		F53E306518DFD243007A2A3A /* PauseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F53E306418DFD243007A2A3A /* PauseScene.m */; };
 		F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795018B5B58D0037A48A /* blood_1:4.jpg */; };
 		F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795118B5B58D0037A48A /* blood_3:4.jpg */; };
 		F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F53E795318B5B58D0037A48A /* blood_full.jpg */; };
@@ -300,6 +303,10 @@
 		F52FFD9B18D15C8700AA6C19 /* TestArmyNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestArmyNetwork.h; sourceTree = "<group>"; };
 		F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestArmyNetwork.m; sourceTree = "<group>"; };
 		F52FFDA018D1611A00AA6C19 /* AttackPage_wallpaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AttackPage_wallpaper.jpg; sourceTree = "<group>"; };
+		F53E305F18DFB51F007A2A3A /* progress.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress.png; sourceTree = "<group>"; };
+		F53E306118DFB99D007A2A3A /* towerBcharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerBcharge.png; sourceTree = "<group>"; };
+		F53E306318DFD243007A2A3A /* PauseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseScene.h; sourceTree = "<group>"; };
+		F53E306418DFD243007A2A3A /* PauseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseScene.m; sourceTree = "<group>"; };
 		F53E795018B5B58D0037A48A /* blood_1:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_1:4.jpg"; sourceTree = "<group>"; };
 		F53E795118B5B58D0037A48A /* blood_3:4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "blood_3:4.jpg"; sourceTree = "<group>"; };
 		F53E795318B5B58D0037A48A /* blood_full.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blood_full.jpg; sourceTree = "<group>"; };
@@ -709,6 +716,8 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F53E306118DFB99D007A2A3A /* towerBcharge.png */,
+				F53E305F18DFB51F007A2A3A /* progress.png */,
 				F52FFDA018D1611A00AA6C19 /* AttackPage_wallpaper.jpg */,
 				09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */,
 				09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */,
@@ -1341,6 +1350,8 @@
 				0975553118CB01DC00194099 /* SoldiersLayer.m */,
 				0975553318CB036300194099 /* WavesLayer.h */,
 				0975553418CB036300194099 /* WavesLayer.m */,
+				F53E306318DFD243007A2A3A /* PauseScene.h */,
+				F53E306418DFD243007A2A3A /* PauseScene.m */,
 			);
 			path = Layers;
 			sourceTree = "<group>";
@@ -1481,11 +1492,13 @@
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
+				F53E306218DFB99D007A2A3A /* towerBcharge.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
+				F53E306018DFB51F007A2A3A /* progress.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
 				0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */,
@@ -1673,6 +1686,7 @@
 				5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */,
 				F5EA8D0D18CE7F11009EF24B /* JSONModel+networking.m in Sources */,
 				F55949ED18A56F3F008ADDED /* CCFileUtils.m in Sources */,
+				F53E306518DFD243007A2A3A /* PauseScene.m in Sources */,
 				F55949DA18A56F3F008ADDED /* CCEventDispatcher.m in Sources */,
 				F559499018A56F3E008ADDED /* CCSpriteBatchNode.m in Sources */,
 				F5EA8D0718CE7F11009EF24B /* JSONModelArray.m in Sources */,

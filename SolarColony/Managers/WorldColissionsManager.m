@@ -36,9 +36,22 @@
     CGPoint towerpoint;
     CGPoint soldierpoint;
 
-     //   CCLOG(@"entering x %f", towerpoint.x);
-    //for (TowerHuman* tower in towers) {
+    //remove towers
     for (TowerHuman* tower in gameStatusEssentialsSingleton.towers) {
+        if ([tower isDeath]) {
+            [grid removeTower:tower];
+           // [gameStatusEssentialsSingleton.towers removeObject:tower];
+            
+        }
+        
+    }
+    
+    for (TowerHuman* tower in gameStatusEssentialsSingleton.towers) {
+        if (![tower visible]) {
+            continue;
+        }
+        
+        
         towerpoint=[tower getLocation];
         //need add is attacking
      //   CCLOG(@"Addres tower x %f", towerpoint.x);
@@ -58,19 +71,50 @@
            // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
           //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
            // CCLOG(@"addres soldier y %f", soldierpoint.y);
-        if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+      //  if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
              //   CCLOG(@"PREPARE SHOT ONE POINT");
                 //reduce energy in soldier
-                                //animate attack from soldier
+                //animate attack from soldier
                 
                 //animate attack from tower
+                
+            
+            
+            if (tower.towerTowerId==1) {
+                
+                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+                    [tower attackTest:soldierpoint];
+                
+                [soldier beingAttacked:2];
+                break;
+                     }
+            } else if(tower.towerTowerId==2) {
+                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+
+                    if (tower.isCharging) {
+ 
+                       
+                    } else {
+                        [soldier beingAttacked:5];
+                        [tower attackTest:soldierpoint];
+                         [tower  reloadAnimation];
+                        break;
+     
+                    }
+                    
+               }
+            } else {
+                
+                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+
                 
                 [tower attackTest:soldierpoint];
                 [soldier beingAttacked:10];
                 break;
-                //animates deaths is possible
+                     }
             }
             
+           
         }
         
         //soldier attacking
@@ -85,12 +129,14 @@
             if ( (towerpoint.x>=soldierpoint.x-50&&towerpoint.x<=soldierpoint.x+50)&&(towerpoint.y>=soldierpoint.y-50&& towerpoint.y<=soldierpoint.y+50)) {
                 CCLOG(@"soldier attack!!!!!");
                 [soldier attack:towerpoint];
+                [tower beignattacked];
             }
         }
         
         
-        // do stuff
+        
     }
+
 }
 -(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier{
     

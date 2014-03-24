@@ -32,6 +32,7 @@
 - (CGPoint) getStartIndex;
 - (CGPoint) getGoalIndex;
 - (void) showMessage: (NSString *) str;
+- (void) removeTower: (id) tower;
 @property(nonatomic,assign) CGPoint menuLocation;
 @end
 

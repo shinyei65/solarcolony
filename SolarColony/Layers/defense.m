@@ -17,7 +17,7 @@
 #import "ArmyQueue.h"
 #import "PlayerInfo.h"
 #import "TowerMagic.h"
-
+#import "PauseScene.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -33,6 +33,7 @@
     CCLabelTTF *life_number;
     int humanPrice;
     int robotPrice;
+    CCLayerColor *pauseLayer;
 }
 
 + (instancetype)scene
@@ -46,8 +47,8 @@
 {
     self = [super init];
     if (!self) return(nil);
-    humanPrice = 100;
-    robotPrice = 200;
+    humanPrice = 300;
+    robotPrice = 400;
     // test square cell
     player = [PlayerInfo Player];
     [player setResource:1000];
@@ -100,6 +101,8 @@
     
     */
    // [label2 setAnchorPoint:ccp(10, 100)];
+
+    
     [self scheduleUpdate];
     
     
@@ -196,40 +199,30 @@
     
  //   [colissionsManager setSoldierArray:[solController getSoldierArray]];
      colissionsManager.soldiers=[solController getSoldierArray];
-   /* for (Soldier* s in [solController getSoldierArray] ) {
-        CCLOG(@"End location.x %f", [s getPOSITION].x);
-        CCLOG(@"End location.y %f", [s getPOSITION].x);
-    }*/
-   // CCLOG(@"[solController getSoldierArray]  %f", [[[solController getSoldierArray] objectAtIndex:0] getPOSITION].x);
-    
-   
-    
-     
-    
-  /*
-    for (CCNode *node in grid.children)
-    {
-        if([node isKindOfClass:[Soldier class]]){
-            Soldier *soldier = (Soldier *)node;
-            [soldier move:'R' gridSize:[grid getCellSize]];
-   
-
-        if(lroundf(delta)%2 == 0){
-            if(soldier.position.x < [[CCDirector sharedDirector] winSize].width)
-                soldier.position = ccpAdd(soldier.position, ccp(1,0));
-        }
+ 
+    if ([player getLife]==0) {
         
-        else{
-            if(soldier.position.y < [[CCDirector sharedDirector] winSize].height)
-                soldier.position = ccpAdd(soldier.position, ccp(0,1));
-            
-        }
-   
-        }
 
-    }*/
+        
+        [gameStatusEssentialsSingleton setPaused:true];
+        CCLayerColor *pauseLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 75)];
+        //add menu;
+        CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"BACK!" target:self selector:@selector(resume)];
+        
+        CCMenu *menu = [CCMenu menuWithItems:item1, nil];
+        [pauseLayer addChild:menu z:110];
+        
+        [self addChild:pauseLayer z:15];
+
+        // [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
+        [[CCDirector sharedDirector] pause];
+    }
     
+}
+
+-(void) resume{
     
+    [gameStatusEssentialsSingleton setPaused:false];
 }
 
 

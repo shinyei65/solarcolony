@@ -16,7 +16,10 @@
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
+    CCProgressTimer *timeBar;
+    int counter;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
+
 @end

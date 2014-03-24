@@ -25,6 +25,7 @@
 @synthesize userID;
 @synthesize armynetwork;
 @synthesize currentWave;
+@synthesize paused;
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
@@ -52,7 +53,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         score=0;
         raceType=@"Robot";
         currentWave=@"w1";
-        
+        paused=false;
         //SHOULD READ ALL OF THIS FROM THE DB
         
     }

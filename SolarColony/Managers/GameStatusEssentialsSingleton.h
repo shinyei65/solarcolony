@@ -42,5 +42,5 @@
 @property(assign, nonatomic) NSString *currentWave;
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
-
+@property(assign, nonatomic) bool paused;
 @end

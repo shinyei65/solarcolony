@@ -128,7 +128,7 @@
 {
     // bla bla bla
     //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
+   // CCLOG(@"SHOTTING");
     //    counterTest++;
     //     if ([self numberOfRunningActions]==0) {
     [self setVisible:true];
@@ -151,7 +151,7 @@
 {
     // bla bla bla
     //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
+   // CCLOG(@"SHOTTING");
     //    counterTest++;
     //     if ([self numberOfRunningActions]==0) {
     [self setVisible:true];
@@ -183,7 +183,7 @@
 {
     // bla bla bla
     //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
+   // CCLOG(@"SHOTTING");
     //    counterTest++;
     //     if ([self numberOfRunningActions]==0) {
     [self setVisible:true];
