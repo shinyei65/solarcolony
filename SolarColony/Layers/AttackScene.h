@@ -15,5 +15,6 @@
     TransitionManagerSingleton* transitionManagerSingleton;
     MusicManagerSingleton* musicManagerSingleton;
     NetWorkManager* networkManager;
+    int army_num;
 }
 @end

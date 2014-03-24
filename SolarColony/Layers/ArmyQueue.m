@@ -11,13 +11,14 @@
 #import "HumanSoldier.h"
 #import "RobotSoldier.h"
 #import "MageSoldier.h"
-#import "GridMap.h"
+//#import "GridMap.h"
+#import "GameStatusEssentialsSingleton.h"
 
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 2;
-int ARMY_GEN_RATE = 6;
+int ARMY_GEN_RATE = 12;
 float AI_HEALTH = 15;
 NSString *AI_REQUEST = @"AI";
 
@@ -204,6 +205,78 @@ NSString *AI_REQUEST = @"AI";
         AI_HEALTH *= 1.5f;
     
 }
+
+- (void) genertateTestarmy
+{
+    NSLog(@"ArmyQueue: generate Test army");
+    // add one AI army in queue
+    NSString *att;
+    int type;
+    int basic_num;
+    int spec_num;
+    if([[[GameStatusEssentialsSingleton sharedInstance] userID] isEqualToString:@"User1"]){
+        att = @"User2";
+        type = 2;
+    }else{
+        att = @"User1";
+        type = 1;
+    }
+    Army *army = [Army army: att Attacker:att];
+    for(int x=0; x<3; x++){
+        Wave *wave = [Wave wave];
+        if(x == 0){
+            if(type == 1){
+                basic_num = 5;
+                spec_num = 0;
+            }else if(type == 2){
+                basic_num = 5;
+                spec_num = 0;
+            }
+        }else if(x == 1){
+            if(type == 1){
+                basic_num = 0;
+                spec_num = 5;
+            }else if(type == 2){
+                basic_num = 0;
+                spec_num = 5;
+            }
+        }else{
+            if(type == 1){
+                basic_num = 5;
+                spec_num = 5;
+            }else if(type == 2){
+                basic_num = 5;
+                spec_num = 5;
+            }
+        }
+        for (int i=0; i<basic_num; i++) {
+            //CCLOG(@"runner!!!");
+            Soldier *temp;
+            if(type == 1){
+                wave.race = @"human";
+                temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }else if(type == 2){
+                wave.race = @"robot";
+                temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            }
+            [wave addSoldier: temp];
+        }
+        for (int i=0; i<spec_num; i++) {
+            //CCLOG(@"attacker!!!");
+            Soldier *temp;
+            if(type == 1)
+                temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            else if(type == 2)
+                temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
+            [wave addSoldier: temp];
+        }
+        [army addWave: wave];
+    }
+    [self addArmy: army];
+    if(AI_HEALTH < 100)
+        AI_HEALTH *= 1.5f;
+    
+}
 @end
 
 @implementation WaveSprite
@@ -229,7 +302,7 @@ NSString *AI_REQUEST = @"AI";
     CCLabelTTF *label = [CCLabelTTF labelWithString:uid fontName:@"Outlier.ttf" fontSize:10];
     [label setAnchorPoint:ccp(0.5,0.5)];
     CGSize size = sprite.boundingBox.size;
-    [label setPosition:ccp(size.width*0.5, 0)];
+    [label setPosition:ccp(size.width*0.5, size.height*0.5)];
     [self addChild:label];
     return self;
 }

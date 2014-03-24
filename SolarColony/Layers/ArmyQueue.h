@@ -20,6 +20,7 @@
 - (void) updateTick;
 - (void) endWave;
 - (void) addArmy: (Army *) army;
+- (void) genertateTestarmy;
 @end
 
 @interface WaveSprite : CCNode

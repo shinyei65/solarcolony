@@ -102,7 +102,7 @@ int SOL_GEN_RATE = 1;
     NSLog(@"WaveController: end a wave");
     [gameStatusEssentialsSingleton removeAllSoldiers];
     int count = [_monitor count];
-    NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
+    //NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
     for(int i=0; i<count; i++){
         Soldier *sol = (Soldier *)[_monitor objectAtIndex:0];
         [_monitor removeObjectAtIndex:0];
@@ -111,7 +111,6 @@ int SOL_GEN_RATE = 1;
     }
     if([_wave getEndFlag]){
         [[NetWorkManager NetWorkManager] getAttackRequest];
-        [[NetWorkManager NetWorkManager] deleteAttackRequest:@"03-05-2015%2000:00:00"];
     }
     
     [_wave release]; _wave = nil;

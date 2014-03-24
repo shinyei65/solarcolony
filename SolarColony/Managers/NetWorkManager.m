@@ -78,12 +78,15 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
         
-        if ([ResponseData length] >0 && error == nil)
+        if ([ResponseData length] >35 && error == nil)
         {
+            NSLog(@"length: %d",[ResponseData length]);
+            [self deleteAttackRequest:@"03-05-2015%2000:00:00"];
+            [[ArmyQueue layer] genertateTestarmy];
             [request release];
             
         }
-        else if ([ResponseData length] == 0 && error == nil)
+        else if ([ResponseData length] == 35 && error == nil)
         {
             NSLog(@"Nothing was downloaded.");
             [request release];
@@ -112,18 +115,12 @@ static NetWorkManager *sharedNetWorkManager = nil;
     
     [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
         
-        if ([ResponseData length] >0 && error == nil)
-        {
-            [request release];
-            
-        }
-        else if ([ResponseData length] == 0 && error == nil)
-        {
-            NSLog(@"Nothing was downloaded.");
-            [request release];
-        }
-        else if (error != nil){
+        if (error != nil){
             NSLog(@"Error = %@", error);
+            [request release];
+        }
+        
+        else{
             [request release];
         }
         

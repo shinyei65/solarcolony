@@ -78,7 +78,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "106"
-            endingLineNumber = "106">
+            endingLineNumber = "106"
+            landmarkName = "-endWave"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -348,9 +350,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-getAttackRequest"
-            landmarkType = "4">
+            endingLineNumber = "17">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -445,7 +445,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "102"
             endingLineNumber = "102"
-            landmarkName = "-deleteAttackRequest:"
+            landmarkName = "-getAttackRequest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
