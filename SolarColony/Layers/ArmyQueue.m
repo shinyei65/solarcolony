@@ -19,7 +19,7 @@ static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 2;
 int ARMY_GEN_RATE = 12;
-float AI_HEALTH = 15;
+float AI_HEALTH = 5;
 NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
@@ -27,6 +27,7 @@ NSString *AI_REQUEST = @"AI";
     BOOL _showMSG;
     int _army_gen_tick;
     int _wave_show_tick;
+    int _army_gen_count;
     NSMutableArray *_show_queue;
     NSMutableArray *_sprite_queue;
 }
@@ -49,6 +50,7 @@ NSString *AI_REQUEST = @"AI";
         _showMSG = TRUE;
         _army_gen_tick = 0;
         _wave_show_tick = 0;
+        _army_gen_count = 0;
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
         [label setAnchorPoint:ccp(0,1)];
         [label setPosition:ccp(-100,0)];
@@ -115,7 +117,7 @@ NSString *AI_REQUEST = @"AI";
     _inWave = TRUE;
     [self pauseAnimate];
     Wave *target = (Wave *)[_show_queue objectAtIndex:0];
-    if(_showMSG){
+    if(_showMSG && ![target.attacker isEqualToString:AI_REQUEST]){
         [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
         _showMSG = FALSE;
     }else{
@@ -170,36 +172,40 @@ NSString *AI_REQUEST = @"AI";
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
     Army *army = [Army army: AI_REQUEST Attacker:AI_REQUEST];
-    for(int x=0; x<3; x++){
-        Wave *wave = [Wave wave];
-        for (int i=0; i<3; i++) {
-            //CCLOG(@"runner!!!");
-            Soldier *temp;
-            if(x ==0){
-                wave.race = @"human";
-                temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            }else if(x == 1){
-                wave.race = @"robot";
-                temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            }else{
-                wave.race = @"magic";
-                temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            }
-            [wave addSoldier: temp];
+    
+    Wave *wave = [Wave wave];
+    for (int i=0; i<3; i++) {
+        //CCLOG(@"runner!!!");
+        Soldier *temp;
+        if(_army_gen_count ==0){
+            wave.race = @"human";
+            temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+        }else if(_army_gen_count == 1){
+            wave.race = @"robot";
+            temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+        }else{
+            wave.race = @"magic";
+            temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            _army_gen_count = 0;
         }
-        for (int i=0; i<3; i++) {
-            //CCLOG(@"attacker!!!");
-            Soldier *temp;
-            if(x ==0)
-                temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            else if(x == 1)
-                temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            else
-                temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)80 Speed:(int)1 ATTACK_SP:(int)2];
-            [wave addSoldier: temp];
-        }
-        [army addWave: wave];
+        [wave addSoldier: temp];
     }
+    for (int i=0; i<3; i++) {
+        //CCLOG(@"attacker!!!");
+        Soldier *temp;
+        if(_army_gen_count ==0)
+            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+        else if(_army_gen_count == 1)
+            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+        else{
+            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+            _army_gen_count = 0;
+        }
+        [wave addSoldier: temp];
+    }
+    _army_gen_count++;
+    [army addWave: wave];
+    
     [self addArmy: army];
     if(AI_HEALTH < 100)
         AI_HEALTH *= 1.5f;

@@ -35,17 +35,18 @@
     [self addChild:item2];
     CCMenuItemFont *item3=[CCMenuItemFont itemWithString:@"C" target:self selector:@selector(createTowerofType:)];
     [self addChild:item3];
-    CCMenuItemFont *item4=[CCMenuItemFont itemWithString:@"D" target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item4=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
     [self addChild:item4];
-    CCMenuItemFont *item5=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item5=[CCMenuItemFont itemWithString:@"X" target:self selector:@selector(createTowerofType:)];
+    [item5 setIsEnabled:FALSE];
     [self addChild:item5];
-    CCMenuItemFont *item6=[CCMenuItemFont itemWithString:@"F" target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item6=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
     [self addChild:item6];
-    CCMenuItemFont *item7=[CCMenuItemFont itemWithString:@"G" target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item7=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
     [self addChild:item7];
-    CCMenuItemFont *item8=[CCMenuItemFont itemWithString:@"H" target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item8=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
     [self addChild:item8];
-    CCMenuItemFont *item9=[CCMenuItemFont itemWithString:@"I" target:self selector:@selector(createTowerofType:)];
+    CCMenuItemFont *item9=[CCMenuItemFont itemWithString:@" " target:self selector:@selector(createTowerofType:)];
     [self addChild:item9];
     
     [self alignItemsInGridWithPadding:ccp(5, 5) columns:3];

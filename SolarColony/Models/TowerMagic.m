@@ -33,10 +33,10 @@
     [self setLocation:location];
     towerTowerId=3;
     selfLocation=location;
-    [self setLife:100];
+    [self setLife:200];
     [self setPower:10];
     [self setSetSpeedAttack:20];
-    [self setSetSpeedAttack:50];
+    [self setSetSpeedAttack:10];
     [self setIsAttacking:false];
     
     //bullet= [CCSprite spriteWithFile:@"bulletA.png"];

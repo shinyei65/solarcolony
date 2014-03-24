@@ -35,7 +35,7 @@
     [self setLocation:location];
     towerTowerId=2;
     selfLocation=location;
-    [self setLife:50];
+    [self setLife:100];
     [self setPower:50];
     [self setSetSpeedAttack:20];
     [self setSetSpeedAttack:50];
