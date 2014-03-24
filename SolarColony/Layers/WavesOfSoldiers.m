@@ -70,9 +70,9 @@
         [waveslayer setPosition:ccp( mobileDisplaySize.width*.3, mobileDisplaySize.height*.6)];
         [self addChild: waveslayer z:3];
         
-        SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
-        [soldierlayer setPosition:ccp(mobileDisplaySize.width*.65, mobileDisplaySize.height*.6)];
-        [self addChild: soldierlayer z:4];
+       // SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
+       // [soldierlayer setPosition:ccp(mobileDisplaySize.width*.65, mobileDisplaySize.height*.6)];
+       // [self addChild: soldierlayer z:4];
         
         [self addChild:splash z:1];
         [self addChild:mainMenu z:2];
