@@ -83,11 +83,11 @@
         [waveMenus setPosition:ccp( 0, mobileDisplaySize.height/2)];
         
         SoldiersLayer *soldierlayer = [[SoldiersLayer alloc] init];
-        [soldierlayer setPosition:ccp(mobileDisplaySize.width+200, mobileDisplaySize.height/2)];
+        [soldierlayer setPosition:ccp(mobileDisplaySize.width + 200, mobileDisplaySize.height/2)];
         
         
-        [self addChild:waveMenus z:1];
-        [self addChild: soldierlayer z:4];
+        [self addChild: waveMenus z:1];
+        [self addChild: soldierlayer z:2];
                 
     }
     
