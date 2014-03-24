@@ -35,10 +35,11 @@
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
+        [splash setColor:ccc3(240,60,20)];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5+10)];
         
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper4.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
@@ -52,12 +53,12 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemStart=[CCMenuItemFont itemWithString:@"Start Game" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *manuItemStart=[CCMenuItemImage itemWithNormalImage:@"StartGame.png" selectedImage:@"StartGame.png" target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=1;
     
-    CCMenuItemFont *manuItemSettings=[CCMenuItemFont itemWithString:@"Settings"
-        target:self selector:@selector(moveToScene:)];
-    manuItemStart.tag=2;
+    CCMenuItemImage *manuItemSettings=[CCMenuItemImage itemWithNormalImage:@"Settings.png"
+        selectedImage:@"Settings.png" target:self selector:@selector(moveToScene:)];
+    manuItemSettings.tag=2;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
     
@@ -71,15 +72,18 @@
 
 
 -(void)moveToScene:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    if ([menuItem.label.string isEqualToString:@"Start Game"]) {
+//    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    CCMenuItemImage* menuImage = (CCMenuItemImage*)sender;
+    if (menuImage.tag == 1) {
          [transitionManagerSingleton transitionTo:2];
-    } else if ([menuItem.label.string isEqualToString:@"Settings"])  {
+    } else if (menuImage.tag == 2)  {
          [transitionManagerSingleton transitionTo:7];
     }
    // NSLog(menuItem.label.string);
 
  }
+
+
 
 - (void)dealloc
 {
