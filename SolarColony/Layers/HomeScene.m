@@ -44,6 +44,8 @@
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper4.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
     
+        
+        //http://mobisoftinfotech.com/iphone-uitextfield-tutorial-handling-keyboard-interactions/
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
         
         UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
