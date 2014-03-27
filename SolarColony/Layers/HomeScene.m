@@ -47,9 +47,9 @@
         
         //http://mobisoftinfotech.com/iphone-uitextfield-tutorial-handling-keyboard-interactions/
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
-        
-        UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
-        myTextField.placeholder=@"Enter User Name";
+        myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *myTextField = [myAlertView textFieldAtIndex:0];
+        myTextField.placeholder=@"Player";
         [myTextField becomeFirstResponder];
         [myTextField setBackgroundColor:[UIColor whiteColor]];
         myTextField.textAlignment=UITextAlignmentCenter;
@@ -88,6 +88,25 @@
     
 }
 
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0) {
+
+            NSLog(@"0");
+    }
+    else if(buttonIndex ==1){
+            UITextField *textfield = [alertView textFieldAtIndex:0];
+            NSLog(@"Player Name: %@", textfield.text);
+        playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
+        [self addChild:playername];
+        playername.position = ccp(mobileDisplaySize.width/2,50);
+
+    }
+    else{
+            NSLog(@"-1");
+    }
+    
+}
 
 -(void)moveToScene:(id)sender{
 //    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;

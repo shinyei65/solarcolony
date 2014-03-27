@@ -12,6 +12,7 @@
     TransitionManagerSingleton* transitionManagerSingleton;
     MusicManagerSingleton* musicManagerSingleton;
     PlayerInfo* player;
+    CCLabelTTF *playername;
 }
 @end
 
