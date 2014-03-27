@@ -204,18 +204,25 @@
         
 
         
+        
         [gameStatusEssentialsSingleton setPaused:true];
-        CCLayerColor *pauseLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 75)];
-        //add menu;
-        CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"BACK!" target:self selector:@selector(resume)];
+        /*CCLayerColor *pauseLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 75)];
+         //add menu;
+         CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"BACK!" target:self selector:@selector(resume)];
+         
+         CCMenu *menu = [CCMenu menuWithItems:item1, nil];
+         [pauseLayer addChild:menu z:110];
+         
+         [self addChild:pauseLayer z:15];*/
         
-        CCMenu *menu = [CCMenu menuWithItems:item1, nil];
-        [pauseLayer addChild:menu z:110];
-        
-        [self addChild:pauseLayer z:15];
-
-        // [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
+        // PauseScene* p=[[PauseScene alloc] init];
+        //  [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
+        //
+        [[CCDirector sharedDirector] pushScene:[PauseScene node]];
         [[CCDirector sharedDirector] pause];
+        // [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
+        
+
     }
     
 }
