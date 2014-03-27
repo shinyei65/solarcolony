@@ -9,8 +9,9 @@
 #import "AbstractScene.h"
 
 @interface HomeScene : CCLayer<AbstractScene>{
- TransitionManagerSingleton* transitionManagerSingleton;
+    TransitionManagerSingleton* transitionManagerSingleton;
     MusicManagerSingleton* musicManagerSingleton;
+    PlayerInfo* player;
 }
 @end
 

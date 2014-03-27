@@ -32,7 +32,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
 -(void)sendAttackRequest:(Army*)sendingArmy
 {
  
-    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
+    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=Jimmy"];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     NSString *jsonRequest = @"attacker=Jimmy&army={ \"waves\": [ { \"soldiers\": [ { \"type\": \"RobotSoldier_Basic\", \"number\": 5 }, { \"type\": \"RobotSoldier_Special\", \"number\": 6 } ] } ]}";
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];

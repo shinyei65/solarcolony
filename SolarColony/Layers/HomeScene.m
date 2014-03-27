@@ -33,7 +33,7 @@
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
-        
+        player = [PlayerInfo Player];
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         [splash setColor:ccc3(240,60,20)];
         
@@ -43,6 +43,22 @@
         
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper4.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+    
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
+        
+        UITextField *myTextField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 45.0, 260.0, 25.0)];
+        myTextField.placeholder=@"Enter User Name";
+        [myTextField becomeFirstResponder];
+        [myTextField setBackgroundColor:[UIColor whiteColor]];
+        myTextField.textAlignment=UITextAlignmentCenter;
+        
+        // myTextField.layer.cornerRadius=5.0; Use this if you have added QuartzCore framework
+        
+        [myAlertView addSubview:myTextField];
+        [myAlertView show];
+        [myAlertView release];
+        
+        
         [self addChild:bg];
         
         [self addChild:splash];

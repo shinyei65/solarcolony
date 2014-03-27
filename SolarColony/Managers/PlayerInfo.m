@@ -29,6 +29,25 @@ static const float resource_inc_time = 1;
 -(instancetype)init{
     self = [super init];
     resource_increase_CD_time = 0;
+    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    
+    // getting an NSString object
+    //[standardUserDefaults setObject:@"Jimmy" forKey:@"Username"];
+   // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+   // [standardUserDefaults removePersistentDomainForName:appDomain];
+    NSString *Username = [standardUserDefaults stringForKey:@"Username"];
+    
+    NSLog(@"test name");
+    if(Username != nil){
+        NSLog(Username);
+        NSLog(@"myString is not null");
+    }
+    else
+        NSLog(@"mystring is null");
+    
+    
+    
+    
     return self;
 }
 -(int)getLife{
