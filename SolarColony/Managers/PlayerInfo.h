@@ -18,5 +18,7 @@
 -(int)getResource;
 -(void)setResource:(int)resource;
 -(void)increaseResource:(ccTime)time;
+-(NSString*)getUsername;
+-(void)setUsername:(NSString*)name;
 
 @end

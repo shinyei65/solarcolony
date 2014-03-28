@@ -12,6 +12,8 @@
     int player_resource;
     int player_life;
     float resource_increase_CD_time;
+    NSString* username;
+    NSUserDefaults *standardUserDefaults;
 }
 
 static PlayerInfo* sharedInstance = nil;
@@ -32,21 +34,21 @@ static const float resource_inc_time = 1;
     /*https://developer.apple.com/library/ios/documentation/cocoa/reference/foundation/Classes/NSUserDefaults_Class/Reference/Reference.html#//apple_ref/occ/instm/NSUserDefaults/removePersistentDomainForName:*/
     //http://codeexamples.wordpress.com/2011/02/12/nsuserdefaults-example/
     
-    NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
+    standardUserDefaults = [NSUserDefaults standardUserDefaults];
     
     // getting an NSString object
     //[standardUserDefaults setObject:@"Jimmy" forKey:@"Username"];
-   // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-   // [standardUserDefaults removePersistentDomainForName:appDomain];
-    NSString *Username = [standardUserDefaults stringForKey:@"Username"];
+    //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    //[standardUserDefaults removePersistentDomainForName:appDomain];
+    username = [standardUserDefaults stringForKey:@"Username"];
     
     NSLog(@"test name");
-    if(Username != nil){
-        NSLog(Username);
-        NSLog(@"myString is not null");
+    if(username != nil){
+        NSLog(username);
+        NSLog(@"usernameis not null");
     }
     else
-        NSLog(@"mystring is null");
+        NSLog(@"username is null");
     
     
     
@@ -74,6 +76,14 @@ static const float resource_inc_time = 1;
     }
 }
 
+-(NSString*)getUsername{
+    return username;
+}
+
+-(void)setUsername:(NSString*)name{
+    username = name;
+    [standardUserDefaults setObject:name forKey:@"Username"];
+}
 
 
 @end

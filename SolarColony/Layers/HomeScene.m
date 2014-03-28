@@ -46,6 +46,14 @@
     
         
         //http://mobisoftinfotech.com/iphone-uitextfield-tutorial-handling-keyboard-interactions/
+        
+        [self addChild:bg];
+        
+        [self addChild:splash];
+        [self addChild:[self loadMenu]];
+        
+        NSString *name = [player getUsername];
+        if(name == nil){
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
@@ -59,12 +67,15 @@
         [myAlertView addSubview:myTextField];
         [myAlertView show];
         [myAlertView release];
+        }
+        else{
+            playername = [CCLabelTTF labelWithString:name fontName:@"Outlier.ttf" fontSize:15];
+            playername.position = ccp(mobileDisplaySize.width/2,50);
+            [self addChild:playername];
+            
+        }
         
         
-        [self addChild:bg];
-        
-        [self addChild:splash];
-        [self addChild:[self loadMenu]];
     }
     return self;
 }
@@ -98,8 +109,9 @@
             UITextField *textfield = [alertView textFieldAtIndex:0];
             NSLog(@"Player Name: %@", textfield.text);
         playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
-        [self addChild:playername];
         playername.position = ccp(mobileDisplaySize.width/2,50);
+        [self addChild:playername];
+        [player setUsername:textfield.text];
 
     }
     else{
