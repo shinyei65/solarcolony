@@ -11,13 +11,13 @@
 #import "SoldierController.h"
 #import "WaveController.h"
 #import "TowerMenu.h"
-#import "TowerRobot.h"
+#import "TowerFactory.h"
 #import "WorldColissionsManager.h"
 #import "GridMap.h"
 #import "ArmyQueue.h"
 #import "PlayerInfo.h"
-#import "TowerMagic.h"
 #import "PauseScene.h"
+#import "TowerFactory.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -34,6 +34,7 @@
     int humanPrice;
     int robotPrice;
     CCLayerColor *pauseLayer;
+    TowerFactory* factoryTowers;
 }
 
 + (instancetype)scene
@@ -101,6 +102,9 @@
     
     */
    // [label2 setAnchorPoint:ccp(10, 100)];
+    
+    //USED FOR THE FACTORY OF TOWERS
+    factoryTowers=[TowerFactory factory];
 
     
     [self scheduleUpdate];
@@ -144,7 +148,7 @@
         CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
         CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
         
-        TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        CCNode<Tower>* t3=[factoryTowers towerForKey:@"Support" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
          
         [colissionsManager addTower:t3];
         
@@ -157,12 +161,12 @@
         int newResource = [player getResource] - robotPrice;
         [player setResource:newResource];
         CCLOG(@"End location.x in B %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0
+        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0       
         
-        
-        TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
-        [colissionsManager addTower:t3];
-        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
+        //TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        CCNode<Tower>* tower=[factoryTowers towerForKey:@"Special" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [colissionsManager addTower:tower];
+        [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
 
     }else if ([interface isEqualToString:@"TowerC"] && [player getResource]>=robotPrice) {
         
@@ -172,11 +176,10 @@
         [player setResource:newResource];
         CCLOG(@"End location.x in C %f", pointX);   //I just get location.x = 0
         CCLOG(@"End location.y in C %f", pointY);   //I just get location.y = 0
-        
-        
-        TowerMagic* t3=[[TowerMagic alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
-        [colissionsManager addTower:t3];
-        [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation]  z:1];
+
+        CCNode<Tower>* tower=[factoryTowers towerForKey:@"Attackv1" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [colissionsManager addTower:tower];
+        [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
         
     }
     [grid hideTowerMenu];

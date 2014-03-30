@@ -54,12 +54,7 @@
         
         towerpoint=[tower getLocation];
         //need add is attacking
-     //   CCLOG(@"Addres tower x %f", towerpoint.x);
-     //   CCLOG(@"addres tower y %f", towerpoint.y);
-        
-        //tower is not attacking
-        //[tower setIsAttacking:true];
-        //tower attacking
+
         for (Soldier* soldier in gameStatusEssentialsSingleton.soldiers) {
             if (![soldier visible]) {
                    continue;
@@ -68,17 +63,6 @@
             soldierpoint = [soldier getPOSITION];
             //soldierpoint=[self convertToWorldSpace:soldierpoint];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
-           // soldierpoint = [[CCDirector sharedDirector] convertToGL: soldierpoint];
-          //  CCLOG(@"Addres soldier x %f", soldierpoint.x);
-           // CCLOG(@"addres soldier y %f", soldierpoint.y);
-      //  if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
-             //   CCLOG(@"PREPARE SHOT ONE POINT");
-                //reduce energy in soldier
-                //animate attack from soldier
-                
-                //animate attack from tower
-                
-            
             
             if (tower.towerTowerId==1) {
                 
@@ -103,15 +87,9 @@
                     }
                     
                }
-            } else {
+            } else if (tower.towerTowerId==3)  {
                 
-                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
-
-                
-                [tower attackTest:soldierpoint];
-                [soldier beingAttacked:10];
-                break;
-                     }
+           
             }
             
            

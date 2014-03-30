@@ -15,7 +15,6 @@
 
     @required
 
-    - (instancetype) initTower:(CGPoint)location;
     - (void) surveilance;
     - (void) attack:(Soldier*) soldier;
     - (void) attackTest:(CGPoint) soldier;
@@ -42,6 +41,9 @@
 
     @optional
         -(int)dummyMethodForReference:(int) value;
+        - (instancetype) initTower:(CGPoint)location;
+        - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType;
+        - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power;
 
     @property(assign, nonatomic) int towerTowerId;
     @property(assign, nonatomic) int towerLife;

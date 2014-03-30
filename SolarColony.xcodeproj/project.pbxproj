@@ -217,6 +217,10 @@
 		F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6618C523F700B9F093 /* angrybomb.png */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
 		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
+		F5C3276918E7A2BC00822EB0 /* TowerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276818E7A2BC00822EB0 /* TowerFactory.m */; };
+		F5C3277018E7AAAE00822EB0 /* TowerAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */; };
+		F5C3277118E7AAAE00822EB0 /* TowerSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */; };
+		F5C3277218E7AAAE00822EB0 /* TowerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
@@ -635,6 +639,14 @@
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		F5B11AD618B803C6002FB681 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
+		F5C3276718E7A2BC00822EB0 /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
+		F5C3276818E7A2BC00822EB0 /* TowerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerFactory.m; sourceTree = "<group>"; };
+		F5C3276A18E7AAAE00822EB0 /* TowerAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerAttack.h; sourceTree = "<group>"; };
+		F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerAttack.m; sourceTree = "<group>"; };
+		F5C3276C18E7AAAE00822EB0 /* TowerSpecial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerSpecial.h; sourceTree = "<group>"; };
+		F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerSpecial.m; sourceTree = "<group>"; };
+		F5C3276E18E7AAAE00822EB0 /* TowerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerSupport.h; sourceTree = "<group>"; };
+		F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerSupport.m; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -762,6 +774,7 @@
 		F5181D7D18A5A84A001F96F7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F5C3276618E7A2A400822EB0 /* TowerFactories */,
 				F5ADFE8218B69F060004C3D5 /* Tower.h */,
 				F53E796618B5D1A70037A48A /* Army.h */,
 				F53E796718B5D1A70037A48A /* Army.m */,
@@ -1307,6 +1320,21 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		F5C3276618E7A2A400822EB0 /* TowerFactories */ = {
+			isa = PBXGroup;
+			children = (
+				F5C3276A18E7AAAE00822EB0 /* TowerAttack.h */,
+				F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */,
+				F5C3276C18E7AAAE00822EB0 /* TowerSpecial.h */,
+				F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */,
+				F5C3276E18E7AAAE00822EB0 /* TowerSupport.h */,
+				F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */,
+				F5C3276718E7A2BC00822EB0 /* TowerFactory.h */,
+				F5C3276818E7A2BC00822EB0 /* TowerFactory.m */,
+			);
+			path = TowerFactories;
+			sourceTree = "<group>";
+		};
 		F5DFA3B018A5ACC8000F0A00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1550,6 +1578,7 @@
 				F55949F218A56F3F008ADDED /* ccUtils.c in Sources */,
 				F5EA8D0818CE7F11009EF24B /* JSONModelClassProperty.m in Sources */,
 				F559494318A56F3D008ADDED /* CCLayer.m in Sources */,
+				F5C3277118E7AAAE00822EB0 /* TowerSpecial.m in Sources */,
 				F55949A518A56F3E008ADDED /* CCTileMapAtlas.m in Sources */,
 				F55949A818A56F3E008ADDED /* CCTMXLayer.m in Sources */,
 				F5594A4018A56F40008ADDED /* mat4.c in Sources */,
@@ -1596,6 +1625,7 @@
 				F5EA8D0C18CE7F11009EF24B /* JSONHTTPClient.m in Sources */,
 				F53F539918B836F900FCDB4E /* PlayerInfo.m in Sources */,
 				F559490318A56F3C008ADDED /* CCActionTiledGrid.m in Sources */,
+				F5C3277218E7AAAE00822EB0 /* TowerSupport.m in Sources */,
 				F5DA46C118CE34D000291A0A /* BasicSoldier.m in Sources */,
 				F5E4A3F118B2CE9E00C4FD22 /* TowerRobot.m in Sources */,
 				F559494A18A56F3D008ADDED /* CCMenuItem.m in Sources */,
@@ -1641,7 +1671,9 @@
 				F5594A5518A56F40008ADDED /* main.m in Sources */,
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
+				F5C3276918E7A2BC00822EB0 /* TowerFactory.m in Sources */,
 				F55949CC18A56F3F008ADDED /* CCGLView.m in Sources */,
+				F5C3277018E7AAAE00822EB0 /* TowerAttack.m in Sources */,
 				F55949F918A56F3F008ADDED /* CGPointExtension.m in Sources */,
 				F55948FD18A56F3C008ADDED /* CCActionPageTurn3D.m in Sources */,
 				F562E4EF18CE3A550006063B /* serialization todo.m in Sources */,
