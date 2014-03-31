@@ -54,7 +54,7 @@
         
         NSString *name = [player getUsername];
         if(name == nil){
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Sign In" otherButtonTitles:nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
         myTextField.placeholder=@"Player";
@@ -103,19 +103,14 @@
 {
     if(buttonIndex == 0) {
 
-            NSLog(@"0");
-    }
-    else if(buttonIndex ==1){
-            UITextField *textfield = [alertView textFieldAtIndex:0];
-            NSLog(@"Player Name: %@", textfield.text);
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        NSLog(@"Player Name: %@", textfield.text);
         playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
         playername.position = ccp(mobileDisplaySize.width/2,50);
         [self addChild:playername];
         [player setUsername:textfield.text];
-
-    }
-    else{
-            NSLog(@"-1");
+    }else{
+        NSLog(@"Player Name");
     }
     
 }
