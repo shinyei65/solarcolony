@@ -131,6 +131,30 @@ static NetWorkManager *sharedNetWorkManager = nil;
     
 }
 
+-(BOOL)signInUser:(NSString*)username
+{
+    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/user?user_name=%@", username];
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
+    NSHTTPURLResponse *response = nil;
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    if ([response statusCode] == 404)
+    {
+        NSString *status = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+        NSLog(@"NetworkManerger: response = %@", status);
+        if([status isEqualToString:@"failed"]){
+            return FALSE;
+        }else{
+            return TRUE;
+        }
+    }else{
+        NSLog(@"NetworkManerger: statusCode = %ld", (long)[response statusCode]);
+    }
+    return FALSE;
+}
+
 /*
 -(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
     NSString * test=@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}";
