@@ -219,6 +219,8 @@
 		F5C3277018E7AAAE00822EB0 /* TowerAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */; };
 		F5C3277118E7AAAE00822EB0 /* TowerSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */; };
 		F5C3277218E7AAAE00822EB0 /* TowerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */; };
+		F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5C329D918E9E2CE00822EB0 /* testmap.tmx */; };
+		F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5C329DE18E9E76300822EB0 /* sample1.jpg */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
@@ -648,6 +650,8 @@
 		F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerSpecial.m; sourceTree = "<group>"; };
 		F5C3276E18E7AAAE00822EB0 /* TowerSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerSupport.h; sourceTree = "<group>"; };
 		F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerSupport.m; sourceTree = "<group>"; };
+		F5C329D918E9E2CE00822EB0 /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmap.tmx; sourceTree = "<group>"; };
+		F5C329DE18E9E76300822EB0 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -832,6 +836,8 @@
 		F5584E4718AEDB8100C81B59 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				F5C329DE18E9E76300822EB0 /* sample1.jpg */,
+				F5C329D918E9E2CE00822EB0 /* testmap.tmx */,
 				F53E796118B5CA030037A48A /* testmap.png */,
 				F5584E4818AEDB8100C81B59 /* testmap.txt */,
 			);
@@ -1528,6 +1534,7 @@
 				F521428618B699120085BD47 /* soundOff.png in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
 				F521428718B699120085BD47 /* soundOn.png in Resources */,
+				F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
 				210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */,
@@ -1578,6 +1585,7 @@
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				FC6DCD7418E8F65F00DC98A3 /* cherno.png in Resources */,
 				F5DA46C918CE387400291A0A /* RobotSoldier_Special.png in Resources */,
+				F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,

@@ -34,6 +34,8 @@
 - (void) showMessage: (NSString *) str;
 - (void) removeTower: (id) tower;
 @property(nonatomic,assign) CGPoint menuLocation;
+@property (strong) CCTMXTiledMap *tileMap;
+@property (strong) CCTMXLayer *background;
 @end
 
 @interface GridLinesLayer : CCLayer

@@ -88,9 +88,13 @@ static GridMap *sharedInstance = nil;
         }
     }
     mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapImagename];
-    CCSprite *background = [CCSprite spriteWithFile:mapname];
-    background.anchorPoint = CGPointMake(0, 0);
-    [self addChild:background];
+    //CCSprite *background = [CCSprite spriteWithFile:mapname];
+    //background.anchorPoint = CGPointMake(0, 0);
+    //[self addChild:background];
+    self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:mapname];
+    self.background = [_tileMap layerNamed:@"Background"];
+    self.tileMap.anchorPoint = CGPointMake(0, 0);
+    [self addChild:_tileMap z:-1];
     
     GridLinesLayer *lines = [GridLinesLayer layer];
     lines.anchorPoint = CGPointMake(0, 0);
