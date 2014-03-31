@@ -12,9 +12,10 @@
     int player_resource;
     int player_life;
     float resource_increase_CD_time;
-    NSString* username;
-    NSUserDefaults *standardUserDefaults;
+
 }
+
+@synthesize username;
 
 static PlayerInfo* sharedInstance = nil;
 static const int resource_inc_amount = 10;
@@ -34,25 +35,12 @@ static const float resource_inc_time = 1;
     /*https://developer.apple.com/library/ios/documentation/cocoa/reference/foundation/Classes/NSUserDefaults_Class/Reference/Reference.html#//apple_ref/occ/instm/NSUserDefaults/removePersistentDomainForName:*/
     //http://codeexamples.wordpress.com/2011/02/12/nsuserdefaults-example/
     
-    standardUserDefaults = [NSUserDefaults standardUserDefaults];
+
     
     // getting an NSString object
     //[standardUserDefaults setObject:@"Jimmy" forKey:@"Username"];
     //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
     //[standardUserDefaults removePersistentDomainForName:appDomain];
-    username = [standardUserDefaults stringForKey:@"Username"];
-    
-    NSLog(@"test name");
-    if(username != nil){
-        NSLog(username);
-        NSLog(@"usernameis not null");
-    }
-    else
-        NSLog(@"username is null");
-    
-    
-    
-    
     return self;
 }
 -(int)getLife{
@@ -76,13 +64,21 @@ static const float resource_inc_time = 1;
     }
 }
 
--(NSString*)getUsername{
-    return username;
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self->player_resource = [decoder decodeIntForKey:@"player_resource"];
+        self->player_life = [decoder decodeIntForKey:@"player_life"];
+        username = [[decoder decodeObjectForKey:@"username"] retain];
+
+    }
+    return self;
 }
 
--(void)setUsername:(NSString*)name{
-    username = name;
-    [standardUserDefaults setObject:name forKey:@"Username"];
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeInt:player_resource forKey:@"player_resource"];
+    [encoder encodeInt:player_life forKey:@"player_life"];
+    [encoder encodeObject:username forKey:@"username"];
 }
 
 

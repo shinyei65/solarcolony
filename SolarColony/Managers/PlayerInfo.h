@@ -10,6 +10,9 @@
 #import "cocos2d.h"
 
 @interface PlayerInfo : NSObject
+{
+    NSString *username;
+}
 
 +(instancetype) Player;
 -(instancetype)init;
@@ -20,5 +23,9 @@
 -(void)increaseResource:(ccTime)time;
 -(NSString*)getUsername;
 -(void)setUsername:(NSString*)name;
+-(id)initWithCoder:(NSCoder *)decoder;
+-(void)encodeWithCoder:(NSCoder *)encoder;
+
+@property (nonatomic, strong) NSString* username;
 
 @end

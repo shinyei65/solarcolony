@@ -13,6 +13,7 @@
     MusicManagerSingleton* musicManagerSingleton;
     PlayerInfo* player;
     CCLabelTTF *playername;
+    NSUserDefaults *standardUserDefaults;
 }
 @end
 

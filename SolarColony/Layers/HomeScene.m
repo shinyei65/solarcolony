@@ -33,14 +33,16 @@
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
-        player = [PlayerInfo Player];
+        standardUserDefaults = [NSUserDefaults standardUserDefaults];
+
+        
+        //initial label
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         [splash setColor:ccc3(240,60,20)];
-        
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5+10)];
         
+        //initial background
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper4.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
     
@@ -52,15 +54,20 @@
         [self addChild:splash];
         [self addChild:[self loadMenu]];
         
-        NSString *name = [player getUsername];
-        if(name == nil){
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Sign In", nil];
+        NSData* playerdata;
+        playerdata = [standardUserDefaults objectForKey:@"playerInfo"];
+        player = [NSKeyedUnarchiver unarchiveObjectWithData:playerdata];
+        
+        
+        if(player == nil){
+        player = [PlayerInfo Player];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Register" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
         myTextField.placeholder=@"Player";
         [myTextField becomeFirstResponder];
         [myTextField setBackgroundColor:[UIColor whiteColor]];
-        myTextField.textAlignment=UITextAlignmentCenter;
+       // myTextField.textAlignment= UIControlContentVerticalAlignmentCenter;
         
         // myTextField.layer.cornerRadius=5.0; Use this if you have added QuartzCore framework
         
@@ -69,7 +76,7 @@
         [myAlertView release];
         }
         else{
-            playername = [CCLabelTTF labelWithString:name fontName:@"Outlier.ttf" fontSize:15];
+            playername = [CCLabelTTF labelWithString:player.username fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
             
@@ -101,17 +108,18 @@
 
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if(buttonIndex == 0) {
-
-            NSLog(@"0");
-    }
-    else if(buttonIndex ==1){
+   if(buttonIndex ==0){
             UITextField *textfield = [alertView textFieldAtIndex:0];
             NSLog(@"Player Name: %@", textfield.text);
         playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
         playername.position = ccp(mobileDisplaySize.width/2,50);
         [self addChild:playername];
         [player setUsername:textfield.text];
+       [player setResource:1234];
+       [player setLife:56];
+       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
+       [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+       
 
     }
     else{
