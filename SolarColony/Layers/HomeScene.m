@@ -109,19 +109,43 @@
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
    if(buttonIndex ==0){
-            UITextField *textfield = [alertView textFieldAtIndex:0];
-            NSLog(@"Player Name: %@", textfield.text);
-        playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
-        playername.position = ccp(mobileDisplaySize.width/2,50);
-        [self addChild:playername];
-        [player setUsername:textfield.text];
-       [player setResource:1234];
-       [player setLife:56];
-       NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
-       [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
        
 
+       
+  
+       
+
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        NSLog(@"Player Name: %@", textfield.text);
+        BOOL success = [[NetWorkManager NetWorkManager] signInUser:textfield.text];
+        if(success){
+            playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
+            playername.position = ccp(mobileDisplaySize.width/2,50);
+            [self addChild:playername];
+            [player setUsername:textfield.text];
+            [player setResource:1234];
+            [player setLife:56];
+            NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
+            [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+            
+        }else{
+            NSLog(@"Sign in failed!");
+            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"already exist!" delegate:self cancelButtonTitle:@"Sign In" otherButtonTitles:nil];
+            myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+            UITextField *myTextField = [myAlertView textFieldAtIndex:0];
+            myTextField.placeholder=@"Player";
+            [myTextField becomeFirstResponder];
+            [myTextField setBackgroundColor:[UIColor whiteColor]];
+            myTextField.textAlignment=UITextAlignmentCenter;
+            
+            // myTextField.layer.cornerRadius=5.0; Use this if you have added QuartzCore framework
+            
+            [myAlertView addSubview:myTextField];
+            [myAlertView show];
+            [myAlertView release];
+        }
     }
+    
     else{
             NSLog(@"-1");
     }
