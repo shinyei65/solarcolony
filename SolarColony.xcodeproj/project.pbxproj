@@ -58,6 +58,24 @@
 		F53E796818B5D1A70037A48A /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = F53E796718B5D1A70037A48A /* Army.m */; };
 		F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F53F539518B82D9400FCDB4E /* Outlier.ttf */; };
 		F53F539918B836F900FCDB4E /* PlayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F539818B836F900FCDB4E /* PlayerInfo.m */; };
+		F54714EE18EA01CC0099CD70 /* buttonLayerSwichSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = F54714D718EA01CC0099CD70 /* buttonLayerSwichSound.caf */; };
+		F54714EF18EA01CC0099CD70 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714D918EA01CC0099CD70 /* background.png */; };
+		F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */; };
+		F54714F118EA01CC0099CD70 /* ioButtonON.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DB18EA01CC0099CD70 /* ioButtonON.png */; };
+		F54714F218EA01CC0099CD70 /* select0.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DC18EA01CC0099CD70 /* select0.png */; };
+		F54714F318EA01CC0099CD70 /* select0Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DD18EA01CC0099CD70 /* select0Active.png */; };
+		F54714F418EA01CC0099CD70 /* select1.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DE18EA01CC0099CD70 /* select1.png */; };
+		F54714F518EA01CC0099CD70 /* select1Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DF18EA01CC0099CD70 /* select1Active.png */; };
+		F54714F618EA01CC0099CD70 /* select2.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E018EA01CC0099CD70 /* select2.png */; };
+		F54714F718EA01CC0099CD70 /* select2Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E118EA01CC0099CD70 /* select2Active.png */; };
+		F54714F818EA01CC0099CD70 /* selectX.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E218EA01CC0099CD70 /* selectX.png */; };
+		F54714F918EA01CC0099CD70 /* selectXActive.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E318EA01CC0099CD70 /* selectXActive.png */; };
+		F54714FA18EA01CC0099CD70 /* background.psd in Resources */ = {isa = PBXBuildFile; fileRef = F54714E518EA01CC0099CD70 /* background.psd */; };
+		F54714FB18EA01CC0099CD70 /* ioButton.psd in Resources */ = {isa = PBXBuildFile; fileRef = F54714E618EA01CC0099CD70 /* ioButton.psd */; };
+		F54714FC18EA01CC0099CD70 /* selectButtons.psd in Resources */ = {isa = PBXBuildFile; fileRef = F54714E718EA01CC0099CD70 /* selectButtons.psd */; };
+		F54714FD18EA01CC0099CD70 /* CircleSliderButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */; };
+		F54714FE18EA01CC0099CD70 /* CircleSliderButtonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */; };
+		F54714FF18EA01CC0099CD70 /* DoubleAngleCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */; };
 		F5584E4618AECA7700C81B59 /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5584E4518AECA7700C81B59 /* WaveController.m */; };
 		F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5584E4818AEDB8100C81B59 /* testmap.txt */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
@@ -330,6 +348,27 @@
 		F53F539518B82D9400FCDB4E /* Outlier.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outlier.ttf; sourceTree = "<group>"; };
 		F53F539718B836F900FCDB4E /* PlayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfo.h; sourceTree = "<group>"; };
 		F53F539818B836F900FCDB4E /* PlayerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfo.m; sourceTree = "<group>"; };
+		F54714D718EA01CC0099CD70 /* buttonLayerSwichSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttonLayerSwichSound.caf; sourceTree = "<group>"; };
+		F54714D918EA01CC0099CD70 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ioButtonOFF.png; sourceTree = "<group>"; };
+		F54714DB18EA01CC0099CD70 /* ioButtonON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ioButtonON.png; sourceTree = "<group>"; };
+		F54714DC18EA01CC0099CD70 /* select0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select0.png; sourceTree = "<group>"; };
+		F54714DD18EA01CC0099CD70 /* select0Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select0Active.png; sourceTree = "<group>"; };
+		F54714DE18EA01CC0099CD70 /* select1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select1.png; sourceTree = "<group>"; };
+		F54714DF18EA01CC0099CD70 /* select1Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select1Active.png; sourceTree = "<group>"; };
+		F54714E018EA01CC0099CD70 /* select2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select2.png; sourceTree = "<group>"; };
+		F54714E118EA01CC0099CD70 /* select2Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select2Active.png; sourceTree = "<group>"; };
+		F54714E218EA01CC0099CD70 /* selectX.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectX.png; sourceTree = "<group>"; };
+		F54714E318EA01CC0099CD70 /* selectXActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectXActive.png; sourceTree = "<group>"; };
+		F54714E518EA01CC0099CD70 /* background.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = background.psd; sourceTree = "<group>"; };
+		F54714E618EA01CC0099CD70 /* ioButton.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = ioButton.psd; sourceTree = "<group>"; };
+		F54714E718EA01CC0099CD70 /* selectButtons.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = selectButtons.psd; sourceTree = "<group>"; };
+		F54714E818EA01CC0099CD70 /* CircleSliderButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSliderButtonLayer.h; sourceTree = "<group>"; };
+		F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSliderButtonLayer.m; sourceTree = "<group>"; };
+		F54714EA18EA01CC0099CD70 /* CircleSliderButtonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSliderButtonScene.h; sourceTree = "<group>"; };
+		F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSliderButtonScene.m; sourceTree = "<group>"; };
+		F54714EC18EA01CC0099CD70 /* DoubleAngleCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleAngleCircle.h; sourceTree = "<group>"; };
+		F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleAngleCircle.m; sourceTree = "<group>"; };
 		F5584E4418AECA7700C81B59 /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
 		F5584E4518AECA7700C81B59 /* WaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveController.m; sourceTree = "<group>"; };
 		F5584E4818AEDB8100C81B59 /* testmap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testmap.txt; sourceTree = "<group>"; };
@@ -833,6 +872,66 @@
 			path = Resources/Fonts;
 			sourceTree = "<group>";
 		};
+		F54714D418EA01CC0099CD70 /* slicer */ = {
+			isa = PBXGroup;
+			children = (
+				F54714D518EA01CC0099CD70 /* Assets */,
+				F54714E818EA01CC0099CD70 /* CircleSliderButtonLayer.h */,
+				F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */,
+				F54714EA18EA01CC0099CD70 /* CircleSliderButtonScene.h */,
+				F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */,
+				F54714EC18EA01CC0099CD70 /* DoubleAngleCircle.h */,
+				F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */,
+			);
+			path = slicer;
+			sourceTree = "<group>";
+		};
+		F54714D518EA01CC0099CD70 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F54714D618EA01CC0099CD70 /* audio */,
+				F54714D818EA01CC0099CD70 /* png */,
+				F54714E418EA01CC0099CD70 /* psd */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F54714D618EA01CC0099CD70 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				F54714D718EA01CC0099CD70 /* buttonLayerSwichSound.caf */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		F54714D818EA01CC0099CD70 /* png */ = {
+			isa = PBXGroup;
+			children = (
+				F54714D918EA01CC0099CD70 /* background.png */,
+				F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */,
+				F54714DB18EA01CC0099CD70 /* ioButtonON.png */,
+				F54714DC18EA01CC0099CD70 /* select0.png */,
+				F54714DD18EA01CC0099CD70 /* select0Active.png */,
+				F54714DE18EA01CC0099CD70 /* select1.png */,
+				F54714DF18EA01CC0099CD70 /* select1Active.png */,
+				F54714E018EA01CC0099CD70 /* select2.png */,
+				F54714E118EA01CC0099CD70 /* select2Active.png */,
+				F54714E218EA01CC0099CD70 /* selectX.png */,
+				F54714E318EA01CC0099CD70 /* selectXActive.png */,
+			);
+			path = png;
+			sourceTree = "<group>";
+		};
+		F54714E418EA01CC0099CD70 /* psd */ = {
+			isa = PBXGroup;
+			children = (
+				F54714E518EA01CC0099CD70 /* background.psd */,
+				F54714E618EA01CC0099CD70 /* ioButton.psd */,
+				F54714E718EA01CC0099CD70 /* selectButtons.psd */,
+			);
+			path = psd;
+			sourceTree = "<group>";
+		};
 		F5584E4718AEDB8100C81B59 /* maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -1320,6 +1419,7 @@
 		F5B11AD418B8039E002FB681 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F54714D418EA01CC0099CD70 /* slicer */,
 				F5EA8CE918CE7F11009EF24B /* JSONModel */,
 				F562E4EE18CE3A550006063B /* serialization todo.m */,
 				F562E4EB18CE36440006063B /* JSONKit.h */,
@@ -1533,12 +1633,14 @@
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				F521428618B699120085BD47 /* soundOff.png in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
+				F54714F518EA01CC0099CD70 /* select1Active.png in Resources */,
 				F521428718B699120085BD47 /* soundOn.png in Resources */,
 				F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
 				210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */,
 				09939D2618D14416004EFF55 /* universe-wallpaper1.jpg in Resources */,
+				F54714F218EA01CC0099CD70 /* select0.png in Resources */,
 				F5DA46C718CE387400291A0A /* MageSoldier_Special.png in Resources */,
 				FC6DCD7E18E8FA0100DC98A3 /* powerplant.png in Resources */,
 				F53E796218B5CA030037A48A /* testmap.png in Resources */,
@@ -1549,14 +1651,17 @@
 				09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */,
 				FC6DCD7818E8F68B00DC98A3 /* towerA.png in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
+				F54714F318EA01CC0099CD70 /* select0Active.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
+				F54714F618EA01CC0099CD70 /* select2.png in Resources */,
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
+				F54714F418EA01CC0099CD70 /* select1.png in Resources */,
 				F53E306018DFB51F007A2A3A /* progress.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
@@ -1564,6 +1669,8 @@
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				FC6DCD7D18E8FA0100DC98A3 /* portal.png in Resources */,
+				F54714FC18EA01CC0099CD70 /* selectButtons.psd in Resources */,
+				F54714F118EA01CC0099CD70 /* ioButtonON.png in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				0941DF1718D1276200AA3DA4 /* universe-wallpaper6.jpg in Resources */,
@@ -1571,13 +1678,18 @@
 				F5DA46C818CE387400291A0A /* RobotSoldier_Basic.png in Resources */,
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
 				0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */,
+				F54714FA18EA01CC0099CD70 /* background.psd in Resources */,
 				FC6DCD7A18E8F68B00DC98A3 /* towerBcharge.png in Resources */,
+				F54714FB18EA01CC0099CD70 /* ioButton.psd in Resources */,
+				F54714EE18EA01CC0099CD70 /* buttonLayerSwichSound.caf in Resources */,
 				F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */,
 				F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */,
 				F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
+				F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
+				F54714EF18EA01CC0099CD70 /* background.png in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
@@ -1587,8 +1699,11 @@
 				F5DA46C918CE387400291A0A /* RobotSoldier_Special.png in Resources */,
 				F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
+				F54714F918EA01CC0099CD70 /* selectXActive.png in Resources */,
+				F54714F718EA01CC0099CD70 /* select2Active.png in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
+				F54714F818EA01CC0099CD70 /* selectX.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
@@ -1681,6 +1796,7 @@
 				F559490018A56F3C008ADDED /* CCActionProgressTimer.m in Sources */,
 				09A7183318A6249800FC9BB2 /* Friends.m in Sources */,
 				F55948E218A56F3B008ADDED /* CCAction.m in Sources */,
+				F54714FE18EA01CC0099CD70 /* CircleSliderButtonScene.m in Sources */,
 				F5EA8D0B18CE7F11009EF24B /* JSONAPI.m in Sources */,
 				F5594A1A18A56F40008ADDED /* CocosDenshion.m in Sources */,
 				F559499F18A56F3E008ADDED /* CCTextureCache.m in Sources */,
@@ -1696,6 +1812,7 @@
 				F5EA8D0A18CE7F11009EF24B /* NSArray+JSONModel.m in Sources */,
 				F559490F18A56F3C008ADDED /* CCAtlasNode.m in Sources */,
 				F5A6ECEC18C836AF00308F11 /* (null) in Sources */,
+				F54714FF18EA01CC0099CD70 /* DoubleAngleCircle.m in Sources */,
 				F5594A5518A56F40008ADDED /* main.m in Sources */,
 				F55949D318A56F3F008ADDED /* CCTouchHandler.m in Sources */,
 				F559494D18A56F3D008ADDED /* CCMotionStreak.m in Sources */,
@@ -1767,6 +1884,7 @@
 				F559491218A56F3C008ADDED /* CCCamera.m in Sources */,
 				F5DA46BC18CE34B700291A0A /* HumanSoldier.m in Sources */,
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
+				F54714FD18EA01CC0099CD70 /* CircleSliderButtonLayer.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
 				0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */,
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,

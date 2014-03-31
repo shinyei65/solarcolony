@@ -11,7 +11,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 #import "TowerMenu.h"
-
+#import "CircleSliderButtonScene.h"
 @interface GridMap : CCLayer
 
 + (GridMap *) map;
@@ -24,7 +24,7 @@
 - (CGSize) getCellSize;
 - (CGPoint) convertMapIndexToGL: (CGPoint) index;
 - (CGPoint) convertMapIndexToCenterGL: (CGPoint) index;
-- (TowerMenu*) getTowerMenu;
+- (CircleSliderButtonScene*) getTowerMenu;
 - (void) hideTowerMenu;
 - (CGPoint) getTowerMenuPosition;
 - (void) setTowerMenuPosition:(CGPoint) loc;
