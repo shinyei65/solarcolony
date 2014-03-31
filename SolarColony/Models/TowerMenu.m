@@ -8,12 +8,13 @@
 
 #import "TowerMenu.h"
 #import "CCMenu+Layout.h"
-
+ 
 
 @implementation TowerMenu
 {
     CGPoint location;
     CGPoint mapLoc;
+  
 }
 
 #pragma mark - Create and Destroy
@@ -63,6 +64,7 @@
         NSLog(@"%@", notification.name);
     }];*/
     
+ 
     
     return self;
 }
@@ -103,6 +105,7 @@
     }
     
 }
+
 
 
 
