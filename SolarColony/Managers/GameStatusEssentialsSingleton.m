@@ -144,7 +144,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
 // get game map image name
 - (NSString *) getGameMapImagename
 {
-    return @"testmap.png";
+    return @"testmap.tmx";
 }
 
 @end

@@ -21,7 +21,7 @@
     BOOL _selected;
     BOOL _isMoved;
     CGSize _screenSize;
-    TowerMenu *_towermenu;
+    CircleSliderButtonScene *_towermenu2;
     CGPoint _start;
     CGPoint _goal;
     
@@ -88,18 +88,22 @@ static GridMap *sharedInstance = nil;
         }
     }
     mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapImagename];
-    CCSprite *background = [CCSprite spriteWithFile:mapname];
-    background.anchorPoint = CGPointMake(0, 0);
-    [self addChild:background];
+    //CCSprite *background = [CCSprite spriteWithFile:mapname];
+    //background.anchorPoint = CGPointMake(0, 0);
+    //[self addChild:background];
+    self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:mapname];
+    self.background = [_tileMap layerNamed:@"Background"];
+    self.tileMap.anchorPoint = CGPointMake(0, 0);
+    [self addChild:_tileMap z:-1];
     
     GridLinesLayer *lines = [GridLinesLayer layer];
     lines.anchorPoint = CGPointMake(0, 0);
     [self addChild:lines];
     
     // setup tower menu
-    _towermenu = [TowerMenu menu];
-    [_towermenu setVisible: FALSE];
-    [self addChild: _towermenu z:99];
+    _towermenu2 = [CircleSliderButtonScene menu];
+    [_towermenu2 setVisible: FALSE];
+    [self addChild: _towermenu2 z:99];
     [self setTouchEnabled: YES];
     
     // set up message
@@ -130,7 +134,7 @@ static GridMap *sharedInstance = nil;
 
 - (void) dealloc
 {
-    [_towermenu release]; _towermenu = nil;
+    [_towermenu2 release]; _towermenu2 = nil;
     [self release];
     [super dealloc];
 }
@@ -391,13 +395,17 @@ static GridMap *sharedInstance = nil;
         CGPoint loc = [self convertMapIndexToGL:index];
         
         // move the anchor to menu center
-        CGSize menuSize = [_towermenu boundingBox].size;
-        
+        //CGSize menuSize = [_towermenu boundingBox].size;
+        CGSize menuSize = [_towermenu2 boundingBox].size;
         //drop tower in middle box
         CGPoint locationItem = [self convertMapIndexToGL:index];
-        locationItem.x+= (menuSize.width*.33);
+        //locationItem.x+= (menuSize.width*.33);
+        locationItem.x+= (22);
         menuLocation=locationItem;
-               
+        
+        CCLOG(@" location %f", [_towermenu2 getMapLocation].x);   //I just get location.x = 0
+        CCLOG(@"menuSize.height %f", menuSize.height);   //I just get location.y = 0
+        
         CCLOG(@"wEnd location.x %f", menuLocation.x);   //I just get location.x = 0
         CCLOG(@"wEnd location.y %f", menuLocation.y);   //I just get location.y = 0
         
@@ -406,9 +414,10 @@ static GridMap *sharedInstance = nil;
         // move the menu to cell center
         loc.x += _width_step / 2;
         loc.y -= _height_step / 2;
-        [_towermenu setMapLocation:index];
-        [_towermenu setPosition: loc];
-        [_towermenu setVisible: TRUE];
+        
+        [_towermenu2 setMapLocation:index];
+        [_towermenu2 setPosition: loc];
+        [_towermenu2 setVisible: TRUE];
         
         _selected = TRUE;
     }else{
@@ -418,12 +427,12 @@ static GridMap *sharedInstance = nil;
 //hide tower menu
 - (void) hideTowerMenu
 {
-    [_towermenu setVisible: FALSE];
+    [_towermenu2 setVisible: FALSE];
     _selected = FALSE;
 }
 //return tower menu
-- (TowerMenu*) getTowerMenu{
-    return _towermenu;
+- (CircleSliderButtonScene*) getTowerMenu{
+    return _towermenu2;
 }
 
 - (void)setTowerMenuPosition:(CGPoint) loc{
