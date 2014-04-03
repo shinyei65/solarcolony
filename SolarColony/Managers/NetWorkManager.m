@@ -39,7 +39,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     
     
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
     [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
     [request setHTTPBody: requestData];
@@ -133,24 +133,30 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 -(BOOL)signInUser:(NSString*)username
 {
-    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/user?user_name=%@", username];
+    NSString* url_string = @"http://solarcolony-back.appspot.com/account";
     NSURL *url = [NSURL URLWithString:url_string];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:@"POST"];
-    [request setValue:@"text/html" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+    NSString *requestStr = [NSString stringWithFormat:@"user_name=%@", username];
+    NSData *requestData = [NSData dataWithBytes:[requestStr UTF8String] length:[requestStr length]];
+    [request setHTTPBody:requestData];
     NSHTTPURLResponse *response = nil;
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    if ([response statusCode] == 404)
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    if ([response statusCode] == 200)
     {
-        NSString *status = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-        NSLog(@"NetworkManerger: response = %@", status);
-        if([status isEqualToString:@"failed"]){
+        NSString *result = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+        NSLog(@"NetworkManerger: result = %@", result);
+        [request release];
+        if([result isEqualToString:@"failed"]){
             return FALSE;
         }else{
             return TRUE;
         }
     }else{
         NSLog(@"NetworkManerger: statusCode = %ld", (long)[response statusCode]);
+        [request release];
     }
     return FALSE;
 }
