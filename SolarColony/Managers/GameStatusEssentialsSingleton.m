@@ -147,4 +147,9 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return @"testmap.tmx";
 }
 
+-(NSString *) getCurrentWave
+{
+    return currentWave;
+}
+
 @end

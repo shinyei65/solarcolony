@@ -33,6 +33,7 @@
 - (NSString *) getGameMapName;
 - (NSString *) getGameMapImagename;
 
+-(NSString *) getCurrentWave;
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) ArmyNetwork* armynetwork;

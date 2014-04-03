@@ -11,12 +11,16 @@
 @interface WavesLayer : CCLayer <AbstractScene> {
     TransitionManagerSingleton* transitionManagerSingleton;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
-    CCMenuItemFont *item1;
-    CCMenuItemFont *item2;
-    CCMenuItemFont *item3;
-    CCMenuItemFont *item4;
-    CCMenuItemFont *item5;
-    CCMenuItemFont *item6;
+    CCMenuItemFont *wave1;
+    CCMenuItemFont *wave2;
+    CCMenuItemFont *wave3;
+    CCMenuItemFont *wave4;
+    CCMenuItemFont *wave5;
+    CCMenuItemFont *wave6;
+    CCMenuItemFont *wave7;
+    CCMenuItemFont *wave8;
+    CCMenu *waveMenus;
+
 }
 
 @end

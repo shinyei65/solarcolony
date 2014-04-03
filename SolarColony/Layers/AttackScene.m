@@ -57,7 +57,7 @@
 - (CCMenu*)loadMenu
 {
     
-    CCMenuItem *addMenuItem = [CCMenuItemImage itemWithNormalImage:@"AddButton" selectedImage:@"AddButton" target:nil selector:@selector(AddNewItem)];
+    
     
     
     CCMenuItemFont *menuItemArmy1=[CCMenuItemFont itemWithString:@"Army 1" target:self selector:@selector(moveToScene:)];

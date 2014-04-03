@@ -10,7 +10,7 @@
 #import "WavesLayer.h"
 
 @implementation SoldiersLayer{
-    int wave_sol[3][2];
+      int wave_sol[8][2];
     int cur_wave;
 }
 @synthesize mobileDisplaySize;
@@ -21,40 +21,46 @@
         
         //Game status global variables
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-        
-        CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
-        CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
-        CCMenuItemFont *soldierC=[CCMenuItemFont itemWithString:@"Soldier C" target:self selector:@selector(setSoldierinWave:)];
-        soldierC.visible = false;
-        CCMenuItemFont *soldierD=[CCMenuItemFont itemWithString:@"Soldier D" target:self selector:@selector(setSoldierinWave:)];
-        soldierD.visible = false;
-        CCMenuItemFont *soldierE=[CCMenuItemFont itemWithString:@"Soldier E" target:self selector:@selector(setSoldierinWave:)];
-        soldierE.visible = false;
-        CCMenuItemFont *soldierF=[CCMenuItemFont itemWithString:@"Soldier F" target:self selector:@selector(setSoldierinWave:)];
-        soldierF.visible = false;
-        [soldierA setFontSize:20];
-        [soldierB setFontSize:20];
-        [soldierC setFontSize:20];
-        [soldierD setFontSize:20];
-        [soldierE setFontSize:20];
-        [soldierF setFontSize:20];
-        CCMenu *SoldierMenu = [CCMenu menuWithItems:soldierA, soldierB, soldierC,soldierD, soldierE, soldierF, nil];
-        [SoldierMenu  alignItemsVertically];
-        [SoldierMenu setPosition:ccp(0, mobileDisplaySize.height*.9)];
-        
         //SETS UP COUNTER FOR SOLIDERS;
         counterA=0;
         counterB=0;
         counterC=0;
-        counterD=0;
-        counterE=0;
-        counterF=0;
-        
+
+        [self addChild:[self GetCurrentWave]];
+        [self addChild:[self loadWave]];
         [self addChild:[self loadMutablesoldierMenuNumber]];
-        [self addChild:SoldierMenu];
+        //[self addChild:SoldierMenu];
 
     }
     return self;
+}
+
+-(CCLabelTTF*) GetCurrentWave{
+    NSString *currwave = [gameStatusEssentialsSingleton getCurrentWave];
+    CCLOG(currwave);
+    //initial label
+    CCLabelTTF *splash = [CCLabelTTF labelWithString:currwave fontName:@"Marker Felt" fontSize:30];
+    
+    [splash setColor:ccc3(255,0,0)];
+    [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.9)];
+    
+    return  splash;
+}
+-(CCMenu*) loadWave{
+    CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
+    CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
+    CCMenuItemFont *soldierC=[CCMenuItemFont itemWithString:@"Soldier C" target:self selector:@selector(setSoldierinWave:)];
+    
+    
+    [soldierA setFontSize:20];
+    [soldierB setFontSize:20];
+    [soldierC setFontSize:20];
+    
+    CCMenu *SoldierMenu = [CCMenu menuWithItems:soldierA, soldierB, soldierC, nil];
+    [SoldierMenu  alignItemsVertically];
+    [SoldierMenu setPosition:ccp(0, mobileDisplaySize.height*.9)];
+    
+    return SoldierMenu;
 }
 
 
@@ -65,18 +71,8 @@
     [item2 setFontSize:20];
     item3=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item3 setFontSize:20];
-    item3.visible = false;
-    item4=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
-    [item4 setFontSize:20];
-    item4.visible = false;
-    item5=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
-    [item5 setFontSize:20];
-    item5.visible = false;
-    item6=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
-    [item6 setFontSize:20];
-    item6.visible = false;
  
-    soldierMenus = [CCMenu menuWithItems:item1, item2, item3, item4, item5, item6, nil];
+    soldierMenus = [CCMenu menuWithItems:item1, item2, item3, nil];
     
     [soldierMenus  alignItemsVertically];
     [soldierMenus setPosition:ccp(70, mobileDisplaySize.height*.9)];
@@ -87,6 +83,7 @@
 
 -(void) setSoldierinWave:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
+    
     
     if ([menuItem.label.string isEqualToString:@"Soldier A"]) {
         wave_sol[cur_wave][0]++;
@@ -148,7 +145,7 @@
     
 }
 
-- (void) loadWave: (int) waveID
+- (void) AddWave: (int) waveID
 {
     cur_wave = waveID;
     counterA = wave_sol[cur_wave][0];
