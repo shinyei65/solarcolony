@@ -252,6 +252,7 @@
 		F5DA46C718CE387400291A0A /* MageSoldier_Special.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DA46C318CE387400291A0A /* MageSoldier_Special.png */; };
 		F5DA46C818CE387400291A0A /* RobotSoldier_Basic.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DA46C418CE387400291A0A /* RobotSoldier_Basic.png */; };
 		F5DA46C918CE387400291A0A /* RobotSoldier_Special.png in Resources */ = {isa = PBXBuildFile; fileRef = F5DA46C518CE387400291A0A /* RobotSoldier_Special.png */; };
+		F5DCE6DD18ED06EA006DB428 /* GameStatsLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DCE6DC18ED06EA006DB428 /* GameStatsLoader.m */; };
 		F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */; };
 		F5DFA3B618A5ACC8000F0A00 /* TransitionManagerSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3B418A5ACC8000F0A00 /* TransitionManagerSingleton.m */; };
 		F5DFA3BD18A5AD04000F0A00 /* GameLandingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DFA3BA18A5AD04000F0A00 /* GameLandingScene.m */; };
@@ -713,6 +714,8 @@
 		F5DA46C318CE387400291A0A /* MageSoldier_Special.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MageSoldier_Special.png; sourceTree = "<group>"; };
 		F5DA46C418CE387400291A0A /* RobotSoldier_Basic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Basic.png; sourceTree = "<group>"; };
 		F5DA46C518CE387400291A0A /* RobotSoldier_Special.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Special.png; sourceTree = "<group>"; };
+		F5DCE6DB18ED06EA006DB428 /* GameStatsLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatsLoader.h; sourceTree = "<group>"; };
+		F5DCE6DC18ED06EA006DB428 /* GameStatsLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameStatsLoader.m; sourceTree = "<group>"; };
 		F5DFA3B118A5ACC8000F0A00 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F5DFA3B218A5ACC8000F0A00 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F5DFA3B318A5ACC8000F0A00 /* TransitionManagerSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransitionManagerSingleton.h; sourceTree = "<group>"; };
@@ -1468,6 +1471,8 @@
 				F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */,
 				F5DA46B318CE2D4500291A0A /* NetWorkManager.h */,
 				F5DA46B418CE2D4500291A0A /* NetWorkManager.m */,
+				F5DCE6DB18ED06EA006DB428 /* GameStatsLoader.h */,
+				F5DCE6DC18ED06EA006DB428 /* GameStatsLoader.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -1737,6 +1742,7 @@
 				F559491C18A56F3C008ADDED /* ccDeprecated.m in Sources */,
 				F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */,
 				0975553518CB036300194099 /* WavesLayer.m in Sources */,
+				F5DCE6DD18ED06EA006DB428 /* GameStatsLoader.m in Sources */,
 				F55949D718A56F3F008ADDED /* CCDirectorMac.m in Sources */,
 				F559493118A56F3C008ADDED /* ccGLStateCache.m in Sources */,
 				F5594A0318A56F3F008ADDED /* TransformUtils.m in Sources */,

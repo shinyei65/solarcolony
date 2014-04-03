@@ -61,7 +61,7 @@
         
         if(player == nil){
         player = [PlayerInfo Player];
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Register" otherButtonTitles:nil, nil];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
         myTextField.placeholder=@"Player";
@@ -129,7 +129,7 @@
             
         }else{
             NSLog(@"Sign in failed!");
-            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"already exist!" delegate:self cancelButtonTitle:@"Sign In" otherButtonTitles:nil];
+            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"already exist!" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil];
             myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
             UITextField *myTextField = [myAlertView textFieldAtIndex:0];
             myTextField.placeholder=@"Player";
