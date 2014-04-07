@@ -172,7 +172,6 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:123 forKey:@"test"];
 	CC_DIRECTOR_END();
 }
 
