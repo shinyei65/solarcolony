@@ -7,10 +7,12 @@
 //
 
 #import "AbstractScene.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @interface HomeScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
     MusicManagerSingleton* musicManagerSingleton;
+    GameStatusEssentialsSingleton *gameStatusEssentialsSingleton;
     PlayerInfo* player;
     CCLabelTTF *playername;
     NSUserDefaults *standardUserDefaults;
