@@ -10,7 +10,7 @@
 #import "WavesLayer.h"
 
 @implementation SoldiersLayer{
-      int wave_sol[8][2];
+    int wave_sol[8][3];
     int cur_wave;
 }
 @synthesize mobileDisplaySize;
@@ -25,27 +25,17 @@
         counterA=0;
         counterB=0;
         counterC=0;
-
-        [self addChild:[self GetCurrentWave]];
+        
+        
         [self addChild:[self loadWave]];
         [self addChild:[self loadMutablesoldierMenuNumber]];
         //[self addChild:SoldierMenu];
-
+        
     }
     return self;
 }
 
--(CCLabelTTF*) GetCurrentWave{
-    NSString *currwave = [gameStatusEssentialsSingleton getCurrentWave];
-    CCLOG(currwave);
-    //initial label
-    CCLabelTTF *splash = [CCLabelTTF labelWithString:currwave fontName:@"Marker Felt" fontSize:30];
-    
-    [splash setColor:ccc3(255,0,0)];
-    [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.9)];
-    
-    return  splash;
-}
+
 -(CCMenu*) loadWave{
     CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
     CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
@@ -71,7 +61,7 @@
     [item2 setFontSize:20];
     item3=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
     [item3 setFontSize:20];
- 
+    
     soldierMenus = [CCMenu menuWithItems:item1, item2, item3, nil];
     
     [soldierMenus  alignItemsVertically];
@@ -96,7 +86,7 @@
         CCLOG(@"%@",[tempdictonary objectForKey:@"SA"]);
         [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
     }else if([menuItem.label.string isEqualToString:@"Soldier B"]){
-         wave_sol[cur_wave][1]++;
+        wave_sol[cur_wave][1]++;
         counterB++;
         [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
         NSString* wave= [gameStatusEssentialsSingleton currentWave];

@@ -141,10 +141,6 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return self;
 }
 
--(NSString *) getCurrentWave
-{
-    return currentWave;
-}
 
 
 @end

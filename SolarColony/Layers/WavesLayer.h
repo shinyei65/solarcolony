@@ -11,6 +11,7 @@
 @interface WavesLayer : CCLayer <AbstractScene> {
     TransitionManagerSingleton* transitionManagerSingleton;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    
     CCMenuItemFont *wave1;
     CCMenuItemFont *wave2;
     CCMenuItemFont *wave3;
@@ -20,7 +21,7 @@
     CCMenuItemFont *wave7;
     CCMenuItemFont *wave8;
     CCMenu *waveMenus;
-
+    NSMutableDictionary *dict;
 }
 
 @end

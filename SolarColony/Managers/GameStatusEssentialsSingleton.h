@@ -28,7 +28,7 @@
 - (CCNode*) getSoldierAt:(int) index;
 - (void) removeAllSoldiers;
 - (void) removeAllTowers;
--(NSString *) getCurrentWave;
+
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) ArmyNetwork* armynetwork;
