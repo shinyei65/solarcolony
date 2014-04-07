@@ -58,9 +58,9 @@
     //for robots
     -(int) HealOriginAction;
     //for humans
-    -(void) empowerOriginAction;
+    -(int) empowerOriginAction;
     //Race selector special acion
-    -(id) selectAction;
+    -(int) selectAction;
 
 
         @property(assign, nonatomic) int towerTowerId;

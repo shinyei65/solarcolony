@@ -14,6 +14,7 @@
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     TowerGeneric* towerHelper;
     bool isDroppingTower;
+    NSString* raceType;
 }
 
 @end

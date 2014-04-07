@@ -56,7 +56,6 @@
             if (![soldier visible]) {
                    continue;
             }
-            
             soldierpoint = [soldier getPOSITION];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
             
@@ -64,8 +63,7 @@
                 
                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
                 [tower attackTest:soldierpoint];
-                
-                [soldier beingAttacked:2];
+                [soldier beingAttacked:[tower getPower]];
                 break;
                      }
             } else if(tower.towerTowerId==2) {
@@ -76,7 +74,7 @@
                     } else {
                         [tower attackTest:soldierpoint];
                         [tower  reloadAnimation];
-                        [soldier beingAttacked:5];                      
+                        [soldier beingAttacked:[tower getPower]];
                         break;
      
                     }
@@ -84,9 +82,7 @@
                }
             } else if (tower.towerTowerId==3)  {                
            
-            }
-            
-           
+            }          
         }
         
         //soldier attacking

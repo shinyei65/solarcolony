@@ -111,10 +111,7 @@
 - (void) attackTest:(CGPoint) soldier{
     
     [self setIsAttacking:true];
-    
-    //
     targetLocation=soldier;
-  //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     [self schedule: @selector(animatonAttackTest:) interval:1];
 
@@ -137,58 +134,6 @@
         [self setLife:([self getLife]-10)];
     }
 }
-/*
- -(void) animatonAttack: (ccTime) dt
-{
-    // bla bla bla
-    //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
-    //    counterTest++;
-    //     if ([self numberOfRunningActions]==0) {
-    [bullet setVisible:true];
-    //   CCLOG(@"coord x %f",targetLocation.x);
-    //  CCLOG(@"coord x %f",targetLocation.y);
-    CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-    //   CCLOG(@"coord x %f",targetLocations.x);
-    //   CCLOG(@"coord x %f",targetLocations.y);
-    CGPoint targetPrevious = [bullet position];
-    //   id appearAction = [CCFadeIn actionWithDuration:.1];
-    // id disappearAction = [CCFadeOut actionWithDuration:.1];
-    movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];
-    
-    //[bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-    
-    //  [bullet runAction:[CCJumpBy actionWithDuration:0.75 position:targetLocations height:25 jumps:4]];
-    //
-    //    }
-    
-     // ccBezierConfig bezier;
-    // bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
-     //bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
-     //bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-     //CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
-     
-    ccBezierConfig bezier;
-    bezier.controlPoint_1 = ccp(targetLocations.x*.05, targetLocations.y*.75);
- //   bezier.controlPoint_2 = ccp(targetPrevious.x*.5, targetLocations.y*.5);
-    bezier.controlPoint_2 = ccp(targetLocations.x*.75, targetLocations.y*.85);
-    bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-    CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.4 bezier:bezier];
-    
-     [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-     
-    
-    //   }else{
-    //   counterTest=0;
-    
-    [self unscheduleAllSelectors];
-    [self setIsAttacking:false];
-    // }
-    
-
-}
-*/
 
 -(bool) getIsattacking{
     
@@ -208,7 +153,7 @@
 }
 
 -(int) getPower{
-    return nil;
+    return towerPower;
 }
 
 -(void) setLife:(int) life{

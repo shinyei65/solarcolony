@@ -30,16 +30,15 @@
     
     //Game status global variables
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-
     
     if ([raceType isEqualToString:@"Human"]) {
         
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
-        [towerSprite setAnchorPoint:ccp(.8, 0.5)];
+       // [towerSprite setAnchorPoint:ccp(.8, 0.5)];
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:50];
         [self setPower:power];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:50];
@@ -52,11 +51,11 @@
     }if ([raceType isEqualToString:@"Robot"]) {
         
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
-        [towerSprite setAnchorPoint:ccp(.8, 0.5)];
+        //[towerSprite setAnchorPoint:ccp(.8, 0.5)];
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:50];
         [self setPower:power];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:50];
@@ -70,11 +69,11 @@
     }if ([raceType isEqualToString:@"Magic"]) {
         
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
-        [towerSprite setAnchorPoint:ccp(.8, 0.5)];
+        //[towerSprite setAnchorPoint:ccp(.8, 0.5)];
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:50];
         [self setPower:power];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:50];
@@ -134,7 +133,7 @@
         CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:1 from:100 to:0];
         CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerBcharge.png"];
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
-        [timeBar setAnchorPoint:ccp(.8, 0.5)];
+        //[timeBar setAnchorPoint:ccp(.8, 0.5)];
         counter=0;
         [self addChild:timeBar];
         [timeBar runAction:to1];
@@ -184,7 +183,7 @@
 }
 
 -(int) getPower{
-    return nil;
+    return towerPower;
 }
 
 -(void) setLife:(int) life{

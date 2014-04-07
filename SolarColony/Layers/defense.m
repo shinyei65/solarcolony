@@ -109,7 +109,7 @@
     //USED FOR THE FACTORY OF TOWERS
     factoryTowers=[TowerFactory factory];
 
-    [self addChild:supportCavas];
+    [self addChild:supportCavas z:50];
     [self scheduleUpdate];
     
     

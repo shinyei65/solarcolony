@@ -208,8 +208,8 @@
     //   if (counterTest<=5) {
  
     [bullet setVisible:true];
-       CCLOG(@"coord x %f",targetLocation.x);
-      CCLOG(@"coord x %f",targetLocation.y);
+      //CCLOG(@"coord x %f",targetLocation.x);
+      //CCLOG(@"coord x %f",targetLocation.y);
     CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
      //  CCLOG(@"coord x %f",targetLocations.x);
        //CCLOG(@"coord x %f",targetLocations.y);

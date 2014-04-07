@@ -33,12 +33,12 @@
     }  else if ([towerKey isEqualToString:@"Attackv1"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:25];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:2];
         
     } else if ([towerKey isEqualToString:@"Attackv2"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:55];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:3];
     }
     return [towerCreated autorelease];
 }

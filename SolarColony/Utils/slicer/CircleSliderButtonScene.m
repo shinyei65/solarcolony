@@ -96,7 +96,7 @@
 
 - (void) selectButtonTapped:(id) towerType{
     CCMenuItemToggle* menuItem = (CCMenuItemToggle*)towerType;
-    location=self.position;
+    location=circleButton.position;
     CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
     CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
     CCLOG(@"End location.y %@", menuItem.selectedItem);
