@@ -26,6 +26,9 @@
 @synthesize armynetwork;
 @synthesize currentWave;
 @synthesize paused;
+@synthesize mapImageName;
+@synthesize mapIndexName;
+
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
@@ -53,6 +56,8 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         score=0;
         raceType=@"Robot";
         currentWave=@"w1";
+        mapImageName = @"";
+        mapIndexName = @"";
         paused=false;
         //SHOULD READ ALL OF THIS FROM THE DB
         
@@ -136,20 +141,10 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return self;
 }
 
-// get game map name
-- (NSString *) getGameMapName
-{
-    return @"testmap";
-}
-// get game map image name
-- (NSString *) getGameMapImagename
-{
-    return @"testmap.tmx";
-}
-
 -(NSString *) getCurrentWave
 {
     return currentWave;
 }
+
 
 @end

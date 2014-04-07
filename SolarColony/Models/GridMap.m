@@ -69,7 +69,8 @@ static GridMap *sharedInstance = nil;
     }*/
     
     // initialize map from file
-    NSString *mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapName];
+    NSString *mapname = [[GameStatusEssentialsSingleton sharedInstance] mapIndexName];
+    //NSString *mapname = @"testmap";
     NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:mapname ofType:@"txt"];
     NSString *contents = [NSString stringWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
     NSArray* allLinedStrings = [contents componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
@@ -87,7 +88,8 @@ static GridMap *sharedInstance = nil;
                 _goal = ccp(i-1, j);
         }
     }
-    mapname = [[GameStatusEssentialsSingleton sharedInstance] getGameMapImagename];
+    mapname = [[GameStatusEssentialsSingleton sharedInstance] mapImageName];
+    //mapname = @"testmap.tmx";
     //CCSprite *background = [CCSprite spriteWithFile:mapname];
     //background.anchorPoint = CGPointMake(0, 0);
     //[self addChild:background];

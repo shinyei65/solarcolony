@@ -7,6 +7,7 @@
 //
 
 #import "GameStatsLoader.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @implementation GameStatsLoader
 - (id) init
@@ -27,5 +28,30 @@
 - (void) loadAllStats
 {
     
+    NSString *txtFilePath = [[NSBundle mainBundle] pathForResource:@"stats" ofType:@"txt"];
+    NSString *contents = [NSString stringWithContentsOfFile:txtFilePath encoding:NSUTF8StringEncoding error:nil];
+    NSArray* allLinedStrings = [contents componentsSeparatedByCharactersInSet: [NSCharacterSet newlineCharacterSet]];
+    for(int i=0; i<[allLinedStrings count]; i++){
+        NSString* line = [allLinedStrings objectAtIndex:i];
+        //NSLog(@"GameStatsLoader: %@", line);
+        NSArray *sets = [line componentsSeparatedByString:@": "];
+        NSString *key = [sets objectAtIndex:0];
+        NSString *value = [sets objectAtIndex:1];
+        void (^selectedCase)(NSString *) = @{
+                                   @"mapIndexFile" : ^(NSString *val){
+                                       NSLog(@"mapIndexFile");
+                                       GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
+                                       [gameStatus setMapIndexName: val];
+                                   },
+                                   @"mapImageFile" : ^(NSString *val){
+                                       NSLog(@"mapImageFile");
+                                       GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
+                                       [gameStatus setMapImageName: val];
+                                   },
+                                   }[key];
+        
+        if (selectedCase != nil)
+            selectedCase(value);
+    }
 }
 @end

@@ -60,6 +60,7 @@
 		F53E796818B5D1A70037A48A /* Army.m in Sources */ = {isa = PBXBuildFile; fileRef = F53E796718B5D1A70037A48A /* Army.m */; };
 		F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F53F539518B82D9400FCDB4E /* Outlier.ttf */; };
 		F53F539918B836F900FCDB4E /* PlayerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F53F539818B836F900FCDB4E /* PlayerInfo.m */; };
+		F541DED518F3163500FD6492 /* stats.txt in Resources */ = {isa = PBXBuildFile; fileRef = F541DED418F3163500FD6492 /* stats.txt */; };
 		F54714EE18EA01CC0099CD70 /* buttonLayerSwichSound.caf in Resources */ = {isa = PBXBuildFile; fileRef = F54714D718EA01CC0099CD70 /* buttonLayerSwichSound.caf */; };
 		F54714EF18EA01CC0099CD70 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714D918EA01CC0099CD70 /* background.png */; };
 		F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */; };
@@ -355,6 +356,7 @@
 		F53F539518B82D9400FCDB4E /* Outlier.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outlier.ttf; sourceTree = "<group>"; };
 		F53F539718B836F900FCDB4E /* PlayerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInfo.h; sourceTree = "<group>"; };
 		F53F539818B836F900FCDB4E /* PlayerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInfo.m; sourceTree = "<group>"; };
+		F541DED418F3163500FD6492 /* stats.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stats.txt; sourceTree = "<group>"; };
 		F54714D718EA01CC0099CD70 /* buttonLayerSwichSound.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = buttonLayerSwichSound.caf; sourceTree = "<group>"; };
 		F54714D918EA01CC0099CD70 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ioButtonOFF.png; sourceTree = "<group>"; };
@@ -886,6 +888,15 @@
 			path = Resources/Fonts;
 			sourceTree = "<group>";
 		};
+		F541DED318F315ED00FD6492 /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				F541DED418F3163500FD6492 /* stats.txt */,
+			);
+			name = Stats;
+			path = Resources/Stats;
+			sourceTree = "<group>";
+		};
 		F54714D418EA01CC0099CD70 /* slicer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,6 +1027,7 @@
 		F55948C618A56F3B008ADDED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F541DED318F315ED00FD6492 /* Stats */,
 				F53F539418B82D9400FCDB4E /* Fonts */,
 				F5584E4718AEDB8100C81B59 /* maps */,
 				F5080CB418A96B5E00E99AD9 /* images */,
@@ -1669,6 +1681,7 @@
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
+				F541DED518F3163500FD6492 /* stats.txt in Resources */,
 				09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */,
 				FC6DCD7818E8F68B00DC98A3 /* towerA.png in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,

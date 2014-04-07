@@ -28,11 +28,6 @@
 - (CCNode*) getSoldierAt:(int) index;
 - (void) removeAllSoldiers;
 - (void) removeAllTowers;
-
-// map property
-- (NSString *) getGameMapName;
-- (NSString *) getGameMapImagename;
-
 -(NSString *) getCurrentWave;
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
@@ -41,7 +36,10 @@
 @property(assign, nonatomic) NSString *userID;
 @property(assign, nonatomic) NSString *raceType;
 @property(assign, nonatomic) NSString *currentWave;
+@property(assign, nonatomic) NSString *mapIndexName;
+@property(assign, nonatomic) NSString *mapImageName;
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
 @property(assign, nonatomic) bool paused;
+
 @end

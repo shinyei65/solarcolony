@@ -34,8 +34,6 @@
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         standardUserDefaults = [NSUserDefaults standardUserDefaults];
-
-        
         //initial label
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
         [splash setColor:ccc3(240,60,20)];
@@ -54,10 +52,11 @@
         [self addChild:splash];
         [self addChild:[self loadMenu]];
         
+       // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        //[standardUserDefaults removePersistentDomainForName:appDomain];
         NSData* playerdata;
         playerdata = [standardUserDefaults objectForKey:@"playerInfo"];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerdata];
-        
         
         if(player == nil){
         player = [PlayerInfo Player];
@@ -76,7 +75,12 @@
         [myAlertView release];
         }
         else{
+            if ([standardUserDefaults integerForKey:@"test"]==123) {
+                playername = [CCLabelTTF labelWithString:@"Success!!!" fontName:@"Outlier.ttf" fontSize:15];
+            }
+            else{
             playername = [CCLabelTTF labelWithString:player.username fontName:@"Outlier.ttf" fontSize:15];
+            }
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
             
@@ -108,12 +112,6 @@
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
    if(buttonIndex ==0){
-       
-
-       
-  
-       
-
         UITextField *textfield = [alertView textFieldAtIndex:0];
         NSLog(@"Player Name: %@", textfield.text);
         BOOL success = [[NetWorkManager NetWorkManager] signInUser:textfield.text];

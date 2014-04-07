@@ -19,6 +19,7 @@
 #import "PauseScene.h"
 #import "TowerFactory.h"
 #import "SupportTowerTouch.h"
+#import "GameStatsLoader.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -59,12 +60,19 @@
     [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];
+    
+    // initialize stats
+    GameStatsLoader *statsLoader = [[[GameStatsLoader alloc] init] autorelease];
+    [statsLoader loadAllStats];
+    
+    // initial grid map
     grid = [GridMap map];
     [grid setPosition:ccp(0,0)];
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    
     // initialize wave queue layer
     ArmyQueue *aqueue = [ArmyQueue layer];
     [aqueue setPosition:ccp([[CCDirector sharedDirector] winSize].width-165,25)];
