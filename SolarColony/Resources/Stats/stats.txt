@@ -1,0 +1,2 @@
+mapIndexFile: testmap
+mapImageFile: testmap.tmx
