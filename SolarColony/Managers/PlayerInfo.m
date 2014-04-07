@@ -12,6 +12,7 @@
     int player_resource;
     int player_life;
     float resource_increase_CD_time;
+    GameStatusEssentialsSingleton *gameStatusEssentialsSingleton;
 
 }
 
@@ -34,9 +35,7 @@ static const float resource_inc_time = 1;
     resource_increase_CD_time = 0;
     /*https://developer.apple.com/library/ios/documentation/cocoa/reference/foundation/Classes/NSUserDefaults_Class/Reference/Reference.html#//apple_ref/occ/instm/NSUserDefaults/removePersistentDomainForName:*/
     //http://codeexamples.wordpress.com/2011/02/12/nsuserdefaults-example/
-    
 
-    
     // getting an NSString object
     //[standardUserDefaults setObject:@"Jimmy" forKey:@"Username"];
     //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];

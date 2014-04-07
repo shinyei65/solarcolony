@@ -32,7 +32,6 @@
 // map property
 - (NSString *) getGameMapName;
 - (NSString *) getGameMapImagename;
-
 -(NSString *) getCurrentWave;
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
@@ -44,4 +43,5 @@
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
 @property(assign, nonatomic) bool paused;
+
 @end

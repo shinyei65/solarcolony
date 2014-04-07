@@ -27,6 +27,7 @@
 @synthesize currentWave;
 @synthesize paused;
 
+
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
 // Get the shared instance and create it if necessary.
@@ -151,5 +152,6 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
 {
     return currentWave;
 }
+
 
 @end
