@@ -21,13 +21,14 @@
 @synthesize selfLocation;
 @synthesize isCharging;
 @synthesize isDeath;
+@synthesize actionTowerLocation;
+@synthesize whichRace;
+@synthesize isDrop;
 
 - (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType{
    
     self = [super init];
     if (!self) return(nil);
-    
-    CCSprite* towerSprite;
     
     if ([raceType isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"powerplant.png"];
@@ -78,14 +79,22 @@
         bullet = [[ NormalBullet alloc] initTower:location];
 
     }
-   
+    actionTowerLocation=ccp(0, 0);
+    whichRace=raceType;
+    isDrop=false;
     [self setPosition:[self getLocation]];
     [self addChild:bullet];
     [self addChild:towerSprite];
     
      return self;
 }
-
+-(CGRect) getBoundingBoxTower{
+    CGRect originTower;
+    originTower.origin=ccp(towerLocation.x-20, towerLocation.y-20);
+    originTower.size.width=30;
+    originTower.size.height=30;
+    return originTower;
+}
 - (void) surveilance{
     
 }
@@ -96,8 +105,6 @@
     
     [self setIsAttacking:true];
 
- 
-    
 }
 
 -(void) animatonAttackTest: (ccTime) dt
@@ -174,6 +181,39 @@ return nil;
 
 -(void)beingAttacked:(int)attack_power{
  
+}
+
+-(void) setActionTowerLocation:(CGPoint) Location{
+ actionTowerLocation=Location;
+}
+//for wizard
+-(void)replaceOriginAction{
+   // self.position=actionTowerLocation;
+    self.position=[self convertToNodeSpace:actionTowerLocation];
+    towerSprite.position=[self convertToNodeSpace:actionTowerLocation];
+    
+}
+
+//for robots
+-(void) HealOriginAction{
+    
+}
+
+//for humans
+-(void) empowerOriginAction{
+    
+}
+
+//Race selector special acion
+-(void) selectAction{
+    if([whichRace isEqualToString:@"Human"]){
+        [self empowerOriginAction];
+    }else if([whichRace isEqualToString:@"Robot"]){
+        [self replaceOriginAction];
+    }else if([whichRace isEqualToString:@"Magic"]){
+        [self HealOriginAction];
+    }
+    
 }
 
 -(void)dealloc{}

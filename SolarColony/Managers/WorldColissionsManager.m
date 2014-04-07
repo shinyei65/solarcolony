@@ -37,7 +37,7 @@
     CGPoint soldierpoint;
 
     //remove towers
-    for (TowerHuman* tower in gameStatusEssentialsSingleton.towers) {
+    for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if ([tower isDeath]) {
             [grid removeTower:tower];
            // [gameStatusEssentialsSingleton.towers removeObject:tower];
@@ -46,7 +46,7 @@
         
     }
     
-    for (TowerHuman* tower in gameStatusEssentialsSingleton.towers) {
+    for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if (![tower visible]) {
             continue;
         }
@@ -61,7 +61,6 @@
             }
             
             soldierpoint = [soldier getPOSITION];
-            //soldierpoint=[self convertToWorldSpace:soldierpoint];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
             
             if (tower.towerTowerId==1) {
@@ -87,8 +86,7 @@
                     }
                     
                }
-            } else if (tower.towerTowerId==3)  {
-                
+            } else if (tower.towerTowerId==3)  {                
            
             }
             
@@ -116,10 +114,10 @@
     }
 
 }
--(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier{
+-(void) makeTowerSoldierFight:(TowerGeneric*) tower :(Soldier*) soldier{
     
 }
--(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier{
+-(void) makeTowerSoldierFightTest:(TowerGeneric*) tower :(CGPoint) soldier{
     
 }
 
@@ -133,7 +131,7 @@
     
 }
 
--(void)removeTower:(TowerHuman*)tower{
+-(void)removeTower:(TowerGeneric*)tower{
     
 }
 

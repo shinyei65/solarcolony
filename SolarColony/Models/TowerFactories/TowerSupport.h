@@ -13,7 +13,10 @@
     int health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
+    CCSprite* towerSprite;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
+@property(assign, nonatomic) CGPoint actionTowerLocation;
+@property(assign, atomic) bool isDrop;
 @end

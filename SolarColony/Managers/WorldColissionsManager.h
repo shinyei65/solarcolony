@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TowerHuman.h"
+#import "TowerGeneric.h"
 #import "Soldier.h"
 #import "GridMap.h"
 #import "GameStatusEssentialsSingleton.h"
@@ -18,10 +18,10 @@
 }
 +Controller:(GridMap *) gridMap;
 -(void) surveliance;
--(void) makeTowerSoldierFight:(TowerHuman*) tower :(Soldier*) soldier;
--(void) makeTowerSoldierFightTest:(TowerHuman*) tower :(CGPoint) soldier;
+-(void) makeTowerSoldierFight:(TowerGeneric*) tower :(Soldier*) soldier;
+-(void) makeTowerSoldierFightTest:(TowerGeneric*) tower :(CGPoint) soldier;
 -(void)addTower:(CCNode*)tower;
--(void)removeTower:(TowerHuman*)tower;
+-(void)removeTower:(TowerGeneric*)tower;
 -(void)setSoldierArray:(NSMutableArray*) soldiersIncome;
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) NSMutableArray *towers;

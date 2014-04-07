@@ -219,6 +219,8 @@
 		F566881618C816B500A2D1F7 /* ArmyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F566881518C816B500A2D1F7 /* ArmyQueue.m */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
+		F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A73F18F234F300802CA6 /* SupportTowerTouch.m */; };
+		F585A74418F2366D00802CA6 /* TowerGeneric.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A74318F2366D00802CA6 /* TowerGeneric.m */; };
 		F58AC63118B42932009B6422 /* TowerMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58AC63018B42932009B6422 /* TowerMagic.m */; };
 		F59D52A718AC703000B62B5D /* TowerHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52A618AC703000B62B5D /* TowerHuman.m */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
@@ -667,6 +669,11 @@
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
 		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
+		F585A73E18F234F300802CA6 /* SupportTowerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportTowerTouch.h; sourceTree = "<group>"; };
+		F585A73F18F234F300802CA6 /* SupportTowerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportTowerTouch.m; sourceTree = "<group>"; };
+		F585A74118F2361700802CA6 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
+		F585A74218F2366D00802CA6 /* TowerGeneric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerGeneric.h; sourceTree = "<group>"; };
+		F585A74318F2366D00802CA6 /* TowerGeneric.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerGeneric.m; sourceTree = "<group>"; };
 		F58AC62F18B42932009B6422 /* TowerMagic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMagic.h; sourceTree = "<group>"; };
 		F58AC63018B42932009B6422 /* TowerMagic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMagic.m; sourceTree = "<group>"; };
 		F58E477C18AEC74D00204A79 /* Bullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bullet.h; sourceTree = "<group>"; };
@@ -682,7 +689,6 @@
 		F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = HumanSoldier_Special.gif; sourceTree = "<group>"; };
 		F5A75A6418C5062000B9F093 /* goshty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goshty.png; sourceTree = "<group>"; };
 		F5A75A6618C523F700B9F093 /* angrybomb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = angrybomb.png; sourceTree = "<group>"; };
-		F5ADFE8218B69F060004C3D5 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		F5B11AD618B803C6002FB681 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
@@ -831,12 +837,12 @@
 			isa = PBXGroup;
 			children = (
 				F5C3276618E7A2A400822EB0 /* TowerFactories */,
-				F5ADFE8218B69F060004C3D5 /* Tower.h */,
 				F53E796618B5D1A70037A48A /* Army.h */,
 				F53E796718B5D1A70037A48A /* Army.m */,
 				F56A654418A9516A00AE0884 /* Soldier.h */,
 				F56A654518A9516A00AE0884 /* Soldier.m */,
 				F5181D7E18A5A84A001F96F7 /* GridMap.h */,
+				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5DA46BF18CE34D000291A0A /* BasicSoldier.h */,
 				F5DA46C018CE34D000291A0A /* BasicSoldier.m */,
 				F5DA46B618CE34B700291A0A /* HumanSoldier.h */,
@@ -845,7 +851,6 @@
 				F5DA46B918CE34B700291A0A /* MageSoldier.m */,
 				F5DA46BA18CE34B700291A0A /* RobotSoldier.h */,
 				F5DA46BB18CE34B700291A0A /* RobotSoldier.m */,
-				F5181D7F18A5A84A001F96F7 /* GridMap.m */,
 				F5181D8018A5A84A001F96F7 /* ModelsConstants.h */,
 				5681771918AAF70300E4D772 /* CCMenu+Layout.h */,
 				5681771A18AAF70300E4D772 /* CCMenu+Layout.m */,
@@ -1442,6 +1447,7 @@
 		F5C3276618E7A2A400822EB0 /* TowerFactories */ = {
 			isa = PBXGroup;
 			children = (
+				F585A74118F2361700802CA6 /* Tower.h */,
 				F5C3276A18E7AAAE00822EB0 /* TowerAttack.h */,
 				F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */,
 				F5C3276C18E7AAAE00822EB0 /* TowerSpecial.h */,
@@ -1450,6 +1456,10 @@
 				F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */,
 				F5C3276718E7A2BC00822EB0 /* TowerFactory.h */,
 				F5C3276818E7A2BC00822EB0 /* TowerFactory.m */,
+				F585A73E18F234F300802CA6 /* SupportTowerTouch.h */,
+				F585A73F18F234F300802CA6 /* SupportTowerTouch.m */,
+				F585A74218F2366D00802CA6 /* TowerGeneric.h */,
+				F585A74318F2366D00802CA6 /* TowerGeneric.m */,
 			);
 			path = TowerFactories;
 			sourceTree = "<group>";
@@ -1745,6 +1755,7 @@
 				F5DCE6DD18ED06EA006DB428 /* GameStatsLoader.m in Sources */,
 				F55949D718A56F3F008ADDED /* CCDirectorMac.m in Sources */,
 				F559493118A56F3C008ADDED /* ccGLStateCache.m in Sources */,
+				F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */,
 				F5594A0318A56F3F008ADDED /* TransformUtils.m in Sources */,
 				F559495018A56F3D008ADDED /* CCNode+Debug.m in Sources */,
 				F559492B18A56F3C008ADDED /* ccFPSImages.m in Sources */,
@@ -1796,6 +1807,7 @@
 				F559498718A56F3E008ADDED /* CCShaderCache.m in Sources */,
 				F559498D18A56F3E008ADDED /* CCSprite.m in Sources */,
 				F559493418A56F3C008ADDED /* CCGrabber.m in Sources */,
+				F585A74418F2366D00802CA6 /* TowerGeneric.m in Sources */,
 				F5594A3E18A56F40008ADDED /* mat3.c in Sources */,
 				F5594A5818A56F40008ADDED /* AppDelegate.m in Sources */,
 				F55949C818A56F3F008ADDED /* CCES2Renderer.m in Sources */,

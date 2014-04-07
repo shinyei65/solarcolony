@@ -18,6 +18,7 @@
     GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
     CCProgressTimer *timeBar;
     int counter;
+    CCSprite* towerSprite;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;

@@ -32,7 +32,7 @@
     -(CGPoint) getLocation;
     -(bool) getIsattacking;
     -(void) setIsattacking:(bool) attack;
-
+    -(CGRect) getBoundingBoxTower;
     -(void) destroyedAnimation;
     -(void) beignattacked;
     -(void) reloadAnimation;
@@ -45,19 +45,35 @@
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType;
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power;
 
-    @property(assign, nonatomic) int towerTowerId;
-    @property(assign, nonatomic) int towerLife;
-    @property(assign, nonatomic) int towerPower;
-    @property(assign, nonatomic) CGPoint towerLocation;
-    @property(assign, nonatomic) int towerSpeed;
-    @property(assign, nonatomic) int towerActiveRadius;
-    @property(assign, nonatomic) bool isAttacking;
-    @property(assign, nonatomic) CCSprite* bullet;
-    @property(assign, atomic) bool isCharging;
-    @property(assign, atomic) bool isDeath;
 
-    @property  CGSize mobileDisplaySize;
+    -(bool) getIsattacking;
+
+    // METHODS USED FOR SUPORT TOWER action tower is the  tower tht must be
+    // change and origin tower is the support tower
 
 
+    -(void) setActionTowerLocation:(CGPoint) Location;
+    //for wizard
+    -(void)replaceOriginAction;
+    //for robots
+    -(void) HealOriginAction;
+    //for humans
+    -(void) empowerOriginAction;
+    //Race selector special acion
+    -(void) selectAction;
+
+
+        @property(assign, nonatomic) int towerTowerId;
+        @property(assign, nonatomic) int towerLife;
+        @property(assign, nonatomic) int towerPower;
+        @property(assign, nonatomic) CGPoint towerLocation;
+        @property(assign, nonatomic) int towerSpeed;
+        @property(assign, nonatomic) int towerActiveRadius;
+        @property(assign, nonatomic) bool isAttacking;
+        @property(assign, nonatomic) CCSprite* bullet;
+        @property(assign, atomic) bool isCharging;
+        @property(assign, atomic) bool isDeath;
+        @property(assign, atomic) NSString* whichRace;
+        @property  CGSize mobileDisplaySize;
 
 @end

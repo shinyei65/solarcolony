@@ -21,6 +21,7 @@
 @synthesize selfLocation;
 @synthesize isCharging;
 @synthesize isDeath;
+@synthesize whichRace;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power{
     
@@ -29,7 +30,7 @@
     
     //Game status global variables
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-    CCSprite* towerSprite;
+
     
     if ([raceType isEqualToString:@"Human"]) {
         
@@ -86,14 +87,21 @@
         [self setPosition:[self getLocation]];
 
     }
+    whichRace=raceType;
     
-   //[[GridMap map] addChild:bullet];
     [self addChild:towerSprite];
     [self addChild:bullet];
  
     return self;
 }
 
+-(CGRect) getBoundingBoxTower{
+    CGRect originTower;
+    originTower.origin=ccp(towerLocation.x-20, towerLocation.y-20);
+    originTower.size.width=30;
+    originTower.size.height=30;
+    return originTower;
+}
 - (void) surveilance{
     
 }
@@ -108,8 +116,7 @@
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     [self schedule: @selector(animatonAttackTest:) interval:1];
-    
-    
+ 
 }
 
 -(void) animatonAttackTest: (ccTime) dt

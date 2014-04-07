@@ -21,20 +21,20 @@
 @synthesize selfLocation;
 @synthesize isCharging;
 @synthesize isDeath;
+@synthesize whichRace;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType{
     
     self = [super init];
     if (!self) return(nil);
-    
-    CCSprite* towerSprite;
+
     
     if ([raceType isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
-        towerTowerId=3;
+        towerTowerId=4;
         selfLocation=location;
         [self setLife:200];
         [self setPower:10];
@@ -53,7 +53,7 @@
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
-        towerTowerId=3;
+        towerTowerId=4;
         selfLocation=location;
         [self setLife:200];
         [self setPower:10];
@@ -71,7 +71,7 @@
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
-        towerTowerId=3;
+        towerTowerId=4;
         selfLocation=location;
         [self setLife:200];
         [self setPower:10];
@@ -85,7 +85,7 @@
  
         
     }
-    
+    whichRace=raceType;
     [self setPosition:[self getLocation]];
     [self addChild:bullet];
     [self addChild:towerSprite];
@@ -95,7 +95,13 @@
     
     return self;
 }
-
+-(CGRect) getBoundingBoxTower{
+    CGRect originTower;
+    originTower.origin=ccp(towerLocation.x-20, towerLocation.y-20);
+    originTower.size.width=30;
+    originTower.size.height=30;
+    return originTower;
+}
 - (void) surveilance{
     
 }

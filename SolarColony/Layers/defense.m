@@ -18,6 +18,7 @@
 #import "PlayerInfo.h"
 #import "PauseScene.h"
 #import "TowerFactory.h"
+#import "SupportTowerTouch.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -50,6 +51,8 @@
     if (!self) return(nil);
     humanPrice = 300;
     robotPrice = 400;
+    //Tower Support toucahble canvas
+    SupportTowerTouch *supportCavas= [[SupportTowerTouch alloc] init];
     // test square cell
     player = [PlayerInfo Player];
     [player setResource:1000];
@@ -106,7 +109,7 @@
     //USED FOR THE FACTORY OF TOWERS
     factoryTowers=[TowerFactory factory];
 
-    
+    [self addChild:supportCavas];
     [self scheduleUpdate];
     
     
