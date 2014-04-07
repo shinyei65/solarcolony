@@ -28,18 +28,22 @@
 {
     UITouch *touch = [touches anyObject];
     CGPoint loc = [touch locationInView:[touch view]];
+    CGPoint drop = [touch locationInView:[touch view]];
     // calculate select cell
-    //loc = [self convertToNodeSpace:[[CCDirector sharedDirector] convertToGL:loc]];
+    drop = [self convertToWorldSpace:[[CCDirector sharedDirector] convertToGL:loc]];
    
    
     CCLOG(@"printing fine");
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
-    
-           
+        CCLOG(@"--------printing fine LOS AT %f %f",loc.x,loc.y);
+        CCLOG(@"--------printing CONVERTED LOS AT %f %f",drop.x,drop.y);
+        CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
+        
            if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
-                CCLOG(@"CONTAINS TOWER*****************");
-              
-               if ([tower towerTowerId]==3) {
+               CCLOG(@"CONTAINS TOWER*****************");
+      
+                // ABILITY FOR WIZARD
+               if ([tower towerTowerId]==3) { 
                    towerHelper=tower;
                     [tower setActionTowerLocation:[tower getBoundingBoxTower].origin];
                } else {
@@ -51,17 +55,13 @@
                             [tower selectAction];
                         }
                     }
-                   towerHelper=nil;
                }
-               
            }else{
-            //CCLOG(@"--------printing fine LOS AT %f %f",loc.x,loc.y);
-             //  CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
            }
        }
-       
     
 }
+
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {

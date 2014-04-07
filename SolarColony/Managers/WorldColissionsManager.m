@@ -41,16 +41,13 @@
         if ([tower isDeath]) {
             [grid removeTower:tower];
            // [gameStatusEssentialsSingleton.towers removeObject:tower];
-            
         }
-        
     }
     
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if (![tower visible]) {
             continue;
         }
-        
         
         towerpoint=[tower getLocation];
         //need add is attacking
@@ -66,7 +63,7 @@
             if (tower.towerTowerId==1) {
                 
                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
-                    [tower attackTest:soldierpoint];
+                [tower attackTest:soldierpoint];
                 
                 [soldier beingAttacked:2];
                 break;
@@ -75,12 +72,11 @@
                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
 
                     if (tower.isCharging) {
- 
                        
                     } else {
-                        [soldier beingAttacked:5];
                         [tower attackTest:soldierpoint];
-                         [tower  reloadAnimation];
+                        [tower  reloadAnimation];
+                        [soldier beingAttacked:5];                      
                         break;
      
                     }

@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Tower.h"
 
-@interface TowerGeneric : CCNode<Tower>{
-  
+@interface TowerGeneric : CCNode<Tower>{  
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;

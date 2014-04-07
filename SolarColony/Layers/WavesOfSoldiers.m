@@ -100,7 +100,8 @@
     ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
     army.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstring= [army toJSONString];
-    CCLOG(jsonstring);
+   // CCLOG(jsonstring);
+   
     
     
     

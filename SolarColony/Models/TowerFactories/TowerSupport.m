@@ -52,7 +52,7 @@
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         [self setLocation:location];
         selfLocation=location;
-        towerTowerId=3;
+        towerTowerId=6;
         [self setLife:140];
         [self setPower:20];
         [self setSetSpeedAttack:20];
@@ -68,7 +68,7 @@
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         [self setLocation:location];
         selfLocation=location;
-        towerTowerId=3;
+        towerTowerId=9;
         [self setLife:140];
         [self setPower:20];
         [self setSetSpeedAttack:20];
@@ -83,7 +83,6 @@
     whichRace=raceType;
     isDrop=false;
     [self setPosition:[self getLocation]];
-    [self addChild:bullet];
     [self addChild:towerSprite];
     
      return self;
@@ -191,12 +190,11 @@ return nil;
    // self.position=actionTowerLocation;
     self.position=[self convertToNodeSpace:actionTowerLocation];
     towerSprite.position=[self convertToNodeSpace:actionTowerLocation];
-    
 }
 
 //for robots
--(void) HealOriginAction{
-    
+-(int) HealOriginAction{
+    return 10;
 }
 
 //for humans
@@ -205,13 +203,16 @@ return nil;
 }
 
 //Race selector special acion
--(void) selectAction{
+-(id) selectAction{
     if([whichRace isEqualToString:@"Human"]){
         [self empowerOriginAction];
+        return nil;
     }else if([whichRace isEqualToString:@"Robot"]){
         [self replaceOriginAction];
+        return nil;
     }else if([whichRace isEqualToString:@"Magic"]){
         [self HealOriginAction];
+        return [self HealOriginAction];
     }
     
 }

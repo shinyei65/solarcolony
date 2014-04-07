@@ -56,11 +56,11 @@
     //for wizard
     -(void)replaceOriginAction;
     //for robots
-    -(void) HealOriginAction;
+    -(int) HealOriginAction;
     //for humans
     -(void) empowerOriginAction;
     //Race selector special acion
-    -(void) selectAction;
+    -(id) selectAction;
 
 
         @property(assign, nonatomic) int towerTowerId;

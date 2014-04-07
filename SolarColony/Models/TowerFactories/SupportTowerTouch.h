@@ -13,6 +13,7 @@
 @interface SupportTowerTouch : CCLayer {
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     TowerGeneric* towerHelper;
+    bool isDroppingTower;
 }
 
 @end

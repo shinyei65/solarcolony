@@ -403,11 +403,11 @@ static GridMap *sharedInstance = nil;
         locationItem.x+= (22);
         menuLocation=locationItem;
         
-        CCLOG(@" location %f", [_towermenu2 getMapLocation].x);   //I just get location.x = 0
-        CCLOG(@"menuSize.height %f", menuSize.height);   //I just get location.y = 0
+        //CCLOG(@" location %f", [_towermenu2 getMapLocation].x);   //I just get location.x = 0
+        //CCLOG(@"menuSize.height %f", menuSize.height);   //I just get location.y = 0
         
-        CCLOG(@"wEnd location.x %f", menuLocation.x);   //I just get location.x = 0
-        CCLOG(@"wEnd location.y %f", menuLocation.y);   //I just get location.y = 0
+        //CCLOG(@"wEnd location.x %f", menuLocation.x);   //I just get location.x = 0
+        //CCLOG(@"wEnd location.y %f", menuLocation.y);   //I just get location.y = 0
         
         loc.x -= menuSize.width / 2;
         loc.y -= menuSize.height / 2;

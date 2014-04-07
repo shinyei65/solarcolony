@@ -24,7 +24,7 @@
 @synthesize isDeath;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power{
-  
+  return nil;
 }
 
 - (void) surveilance{
@@ -104,7 +104,7 @@
 
 }
 -(CGPoint) getLocation{
-  
+  return ccp(0,0);
 }
 
 -(void) destroyedAnimation{}

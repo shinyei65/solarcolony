@@ -97,7 +97,7 @@
 
 -(CGRect) getBoundingBoxTower{
     CGRect originTower;
-    originTower.origin=ccp(towerLocation.x-20, towerLocation.y-20);
+    originTower.origin=ccp(towerLocation.x-5, towerLocation.y-5);
     originTower.size.width=30;
     originTower.size.height=30;
     return originTower;
@@ -111,7 +111,6 @@
 - (void) attackTest:(CGPoint) soldier{
     
     [self setIsAttacking:true];    
-    //
     targetLocation=soldier;
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
@@ -146,11 +145,10 @@
 
 -(void) doNothingCharge: (ccTime) dt{
 
-    NSLog(@" waitting to charge %d", counter);
+    //NSLog(@" waitting to charge %d", counter);
     
     if (counter > 1) {
-        
-        NSLog(@"stopped 1st scheduler");
+       // NSLog(@"stopped 1st scheduler");
         isCharging=false;
         counter=0;
         [self unschedule:@selector(doNothingCharge:)];
@@ -170,8 +168,7 @@
     }
 }
 
--(bool) getIsattacking{
-    
+-(bool) getIsattacking{    
     return nil;
 }
 -(void) setIsattacking:(bool) attack{
@@ -179,7 +176,6 @@
 }
 
 -(CCMenu*)loadMenu{
-    
     return nil;
 }
 
@@ -223,8 +219,7 @@
 -(void) destroyedAnimation{}
 
 -(void)beingAttacked:(int)attack_power{
-    /*  int newHealth = [self getHEALTH] - attack_power;
-     [self setHEALTH:newHealth];*/
+
 }
 
 -(void)dealloc{}

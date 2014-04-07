@@ -110,11 +110,10 @@
 
 -(void) doNothingCharge: (ccTime) dt{
 
-    NSLog(@" waitting to charge %d", counter);
+    //NSLog(@" waitting to charge %d", counter);
     
-    if (counter > 1) {
-        
-        NSLog(@"stopped 1st scheduler");
+    if (counter > 1) {        
+       // NSLog(@"stopped 1st scheduler");
         isCharging=false;
         counter=0;
         [self unschedule:@selector(doNothingCharge:)];

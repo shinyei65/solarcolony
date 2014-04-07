@@ -97,14 +97,6 @@
     life_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getLife]] fontName:@"Outlier.ttf" fontSize:15];
     [self addChild:life_number];
     life_number.position = ccp(440,300);
-    //used to position the text, in this case the bottom left screen
-    /*
-    [label2 setScale:0.5];
-    [label2 setPosition:ccp(0,0)];
-    [label2 setOpacity:200];
-    
-    */
-   // [label2 setAnchorPoint:ccp(10, 100)];
     
     //USED FOR THE FACTORY OF TOWERS
     factoryTowers=[TowerFactory factory];
@@ -126,35 +118,13 @@
     if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
         int newResource = [player getResource] - humanPrice;
         [player setResource:newResource];
-       /* //gets incomming point as string formatted point
-        NSString *interface = [notification.userInfo objectForKey:@"point"];
-        
-        //re format incomming string nd separated x and y coordinates
-        interface = [interface stringByReplacingOccurrencesOfString:@"{" withString:@""];
-        interface = [interface stringByReplacingOccurrencesOfString:@"}" withString:@""];
-        NSArray* myArray = [interface  componentsSeparatedByString:@","];
-        //X and  coordinates are separated
-        NSString* firstString = [myArray objectAtIndex:0];
-        NSString* secondString = [myArray objectAtIndex:1];
-        
-        float pointX=[firstString floatValue];
-        float pointY=[secondString floatValue];*/
-       // CCLOG(@"location at %@",firstString);
-        
-        //TowerBasic* t3=[[TowerBasic alloc] initTower:[self convertToNodeSpace:ccp( pointX,pointY)]];
-        
-        
         
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
         
-        CCLOG(@"End location.x %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y %f", pointY);   //I just get location.y = 0
-        
         CCNode<Tower>* t3=[factoryTowers towerForKey:@"Support" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
          
         [colissionsManager addTower:t3];
-        
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
     } else if ([interface isEqualToString:@"TowerB"] && [player getResource]>=robotPrice) {
@@ -163,10 +133,7 @@
         float pointY=grid.menuLocation.y;
         int newResource = [player getResource] - robotPrice;
         [player setResource:newResource];
-        CCLOG(@"End location.x in B %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y in B %f", pointY);   //I just get location.y = 0       
-        
-        //TowerRobot* t3=[[TowerRobot alloc] initTower:[self convertToWorldSpace:ccp(pointX,pointY)]];
+
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Special" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
@@ -177,8 +144,6 @@
         float pointY=grid.menuLocation.y;
         int newResource = [player getResource] - robotPrice;
         [player setResource:newResource];
-        CCLOG(@"End location.x in C %f", pointX);   //I just get location.x = 0
-        CCLOG(@"End location.y in C %f", pointY);   //I just get location.y = 0
 
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Attackv1" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
         [colissionsManager addTower:tower];
@@ -186,7 +151,6 @@
         
     }
     [grid hideTowerMenu];
-        
     }
 }
 
@@ -201,34 +165,13 @@
     
     //update soldiers
     [solController updateSoldier:delta];
-    
-    
- //   [colissionsManager setSoldierArray:[solController getSoldierArray]];
+
      colissionsManager.soldiers=[solController getSoldierArray];
  
     if ([player getLife]==0) {
-        
-
-        
-        
         [gameStatusEssentialsSingleton setPaused:true];
-        /*CCLayerColor *pauseLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 75)];
-         //add menu;
-         CCMenuItemFont *item1 = [CCMenuItemFont itemWithString:@"BACK!" target:self selector:@selector(resume)];
-         
-         CCMenu *menu = [CCMenu menuWithItems:item1, nil];
-         [pauseLayer addChild:menu z:110];
-         
-         [self addChild:pauseLayer z:15];*/
-        
-        // PauseScene* p=[[PauseScene alloc] init];
-        //  [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
-        //
         [[CCDirector sharedDirector] pushScene:[PauseScene node]];
         [[CCDirector sharedDirector] pause];
-        // [[CCDirector sharedDirector] replaceScene:[PauseScene scene]];
-        
-
     }
     
 }

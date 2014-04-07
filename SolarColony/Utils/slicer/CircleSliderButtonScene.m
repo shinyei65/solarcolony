@@ -37,32 +37,32 @@
 
         // creat objects and inits
         
-        selectOn00 = [CCMenuItemImage itemFromNormalImage:@"select0.png"
+        selectOn00 = [CCMenuItemImage itemWithNormalImage:@"select0.png"
                                                         selectedImage:@"select0.png" target:nil selector:nil];
-        selectOff00 = [CCMenuItemImage itemFromNormalImage:@"select0Active.png"
+        selectOff00 = [CCMenuItemImage itemWithNormalImage:@"select0Active.png"
                                                          selectedImage:@"select0Active.png" target:nil selector:nil];
         selectItem00 = [CCMenuItemToggle itemWithTarget:self
                                                                selector:@selector(selectButtonTapped:) items:selectOn00, selectOff00, nil];
         selectItem00.tag="0";
         
         
-        selectOn01 = [CCMenuItemImage itemFromNormalImage:@"select1.png"
+        selectOn01 = [CCMenuItemImage itemWithNormalImage:@"select1.png"
                                                         selectedImage:@"select1.png" target:nil selector:nil];
-        selectOff01 = [CCMenuItemImage itemFromNormalImage:@"select1Active.png"
+        selectOff01 = [CCMenuItemImage itemWithNormalImage:@"select1Active.png"
                                                          selectedImage:@"select1Active.png" target:nil selector:nil];
         selectItem01 = [CCMenuItemToggle itemWithTarget:self
                                                                  selector:@selector(selectButtonTapped:) items:selectOn01, selectOff01, nil];
         selectItem01.tag="1";
         
-        selectOn02 = [CCMenuItemImage itemFromNormalImage:@"select2.png"
+        selectOn02 = [CCMenuItemImage itemWithNormalImage:@"select2.png"
                                                         selectedImage:@"select2.png" target:nil selector:nil];
-        selectOff02 = [CCMenuItemImage itemFromNormalImage:@"select2Active.png"
+        selectOff02 = [CCMenuItemImage itemWithNormalImage:@"select2Active.png"
                                                          selectedImage:@"select2Active.png" target:nil selector:nil];
         selectItem02 = [CCMenuItemToggle itemWithTarget:self
                                                                  selector:@selector(selectButtonTapped:) items:selectOn02, selectOff02, nil];
         
         selectItem02.tag="2";
-        selectItemX = [CCMenuItemImage itemFromNormalImage:@"selectX.png"
+        selectItemX = [CCMenuItemImage itemWithNormalImage:@"selectX.png"
                                                      selectedImage:@"selectXActive.png" 
                                                             target:self selector:@selector(xButtonTapped:)];
     
@@ -76,9 +76,9 @@
 
         
         // add ioButton    
-        onItem = [[CCMenuItemImage itemFromNormalImage:@"ioButtonON.png" 
+        onItem = [[CCMenuItemImage itemWithNormalImage:@"ioButtonON.png"
                                             selectedImage:@"ioButtonON.png" target:nil selector:nil] retain];
-        offItem = [[CCMenuItemImage itemFromNormalImage:@"ioButtonOFF.png" 
+        offItem = [[CCMenuItemImage itemWithNormalImage:@"ioButtonOFF.png"
                                              selectedImage:@"ioButtonOFF.png" target:nil selector:nil] retain];
         CCMenuItemToggle *toggleItem = [CCMenuItemToggle itemWithTarget:self 
                                                                selector:@selector(chipIOButtonTapped:) items:offItem, onItem, nil];
@@ -119,9 +119,7 @@
         CCMenuItemToggle *item = (CCMenuItemToggle *)[circleButton.items objectAtIndex:i];
         [item setSelectedIndex:0];
     }
-
      CCLOG(@"WORKING IO");
-    CCMenuItemToggle *toggleItem = (CCMenuItemToggle *)sender;
     [circleButton openButtons];
 
 
@@ -140,7 +138,6 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
-    
  
     [onItem release];
     [offItem release];
