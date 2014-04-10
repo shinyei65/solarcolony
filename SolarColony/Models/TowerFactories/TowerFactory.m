@@ -15,6 +15,7 @@
 
 - (id)towerForKey:(NSString *)towerKey  Location: (CGPoint) location{
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    stats = [GameStatsLoader loader];
     NSString * raceType=gameStatusEssentialsSingleton.raceType;
     
     CCNode<Tower>  *towerCreated = nil;
@@ -33,12 +34,12 @@
     }  else if ([towerKey isEqualToString:@"Attackv1"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:2];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:stats.robotT1_health Price:stats.robotT1_price Reward:stats.robotT1_reward Attspeed:stats.robotT1_attspeed Power:stats.robotT1_power];
         
     } else if ([towerKey isEqualToString:@"Attackv2"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Power:3];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:stats.robotT2_health Price:stats.robotT2_price Reward:stats.robotT2_reward Attspeed:stats.robotT2_attspeed Power:stats.robotT2_power];
     }
     return [towerCreated autorelease];
 }

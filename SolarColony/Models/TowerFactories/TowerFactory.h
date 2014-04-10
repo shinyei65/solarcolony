@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GameStatusEssentialsSingleton.h"
+#import "GameStatsLoader.h"
 #import "Tower.h"
 #import "TowerSupport.h"
 #import "TowerAttack.h"
@@ -15,7 +16,8 @@
 
 @interface TowerFactory : NSObject
 {
-      GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    GameStatsLoader *stats;
 }
 + (instancetype)factory;
 -(id)towerForKey:(NSString *)towerKey  Location: (CGPoint) location;

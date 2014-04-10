@@ -121,6 +121,16 @@
     if ([[notification name] isEqualToString:@"TowerOption"]) {
         
     NSString *interface = [notification.userInfo objectForKey:@"point"];
+        NSString *race = gameStatusEssentialsSingleton.raceType;
+        int price = 0;
+        if([race isEqualToString:@"Human"]){
+            price = [GameStatsLoader loader];
+        }else if([race isEqualToString:@"robot"]){
+            
+        }else{
+            
+        }
+    
     
     if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
         int newResource = [player getResource] - humanPrice;

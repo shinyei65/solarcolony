@@ -22,8 +22,10 @@
 @synthesize isCharging;
 @synthesize isDeath;
 @synthesize whichRace;
+@synthesize towerPrice;
+@synthesize towerReward;
 
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power{
+- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power{
     
     self = [super init];
     if (!self) return(nil);
@@ -40,10 +42,12 @@
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:health];
         [self setPower:power];
-        [self setSetSpeedAttack:20];
-        [self setSetSpeedAttack:50];
+        towerPrice = price;
+        towerReward = reward;
+        //[self setSetSpeedAttack:20];
+        [self setSetSpeedAttack:attspeed];
         [self setIsAttacking:false];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];

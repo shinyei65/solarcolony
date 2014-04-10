@@ -21,5 +21,6 @@
 @property(assign, nonatomic) int robotT2_price;
 @property(assign, nonatomic) int robotT2_reward;
 @property(assign, nonatomic) int robotT2_power;
-@property(assign, nonatomic) float robotT2_attspeed;
+@property(assign, nonatomic) int robotT2_attspeed;
+@property(assign, nonatomic) NSMutableDictionary *stats;
 @end
