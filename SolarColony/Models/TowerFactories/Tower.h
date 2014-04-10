@@ -44,7 +44,8 @@
         - (instancetype) initTower:(CGPoint)location;
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType;
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power;
-
+        - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power;
+        -(void) beignHealed;
 
     -(bool) getIsattacking;
 
@@ -58,14 +59,16 @@
     //for robots
     -(int) HealOriginAction;
     //for humans
-    -(void) empowerOriginAction;
+    -(int) empowerOriginAction;
     //Race selector special acion
-    -(id) selectAction;
+    -(int) selectAction;
 
 
         @property(assign, nonatomic) int towerTowerId;
         @property(assign, nonatomic) int towerLife;
         @property(assign, nonatomic) int towerPower;
+        @property(assign, nonatomic) int towerPrice;
+        @property(assign, nonatomic) int towerReward;
         @property(assign, nonatomic) CGPoint towerLocation;
         @property(assign, nonatomic) int towerSpeed;
         @property(assign, nonatomic) int towerActiveRadius;

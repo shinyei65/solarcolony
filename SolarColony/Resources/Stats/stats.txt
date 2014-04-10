@@ -1,2 +1,8 @@
 mapIndexFile: testmap
 mapImageFile: testmap.tmx
+robotTower1: health=30,price=160,reward=40,attspeed=42,power=10
+robotTower2: health=48,price=320,reward=80,attspeed=66,power=20
+humanTower1: health=35,price=160,reward=40,attspeed=60,power=5
+humanTower1: health=56,price=320,reward=80,attspeed=102,power=10
+magicTower1: health=30,price=160,reward=40,attspeed=24,power=15
+magicTower2: health=48,price=320,reward=80,attspeed=48,power=25

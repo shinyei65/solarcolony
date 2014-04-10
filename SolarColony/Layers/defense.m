@@ -61,9 +61,9 @@
     solController = [SoldierController Controller];
     [self addChild:solController];
     
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize stats
-    GameStatsLoader *statsLoader = [[[GameStatsLoader alloc] init] autorelease];
-    [statsLoader loadAllStats];
+    GameStatsLoader *statsLoader = [GameStatsLoader loader];
     
     // initial grid map
     grid = [GridMap map];
@@ -71,7 +71,6 @@
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
-    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     
     // initialize wave queue layer
     ArmyQueue *aqueue = [ArmyQueue layer];
@@ -109,7 +108,7 @@
     //USED FOR THE FACTORY OF TOWERS
     factoryTowers=[TowerFactory factory];
 
-    [self addChild:supportCavas];
+    [self addChild:supportCavas z:50];
     [self scheduleUpdate];
     
     
@@ -122,6 +121,16 @@
     if ([[notification name] isEqualToString:@"TowerOption"]) {
         
     NSString *interface = [notification.userInfo objectForKey:@"point"];
+        NSString *race = gameStatusEssentialsSingleton.raceType;
+        int price = 0;
+        if([race isEqualToString:@"Human"]){
+            price = [GameStatsLoader loader];
+        }else if([race isEqualToString:@"robot"]){
+            
+        }else{
+            
+        }
+    
     
     if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
         int newResource = [player getResource] - humanPrice;

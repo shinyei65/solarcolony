@@ -60,7 +60,7 @@
         
         if(player == nil){
         player = [PlayerInfo Player];
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"\n\n\n" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
         myTextField.placeholder=@"Player";

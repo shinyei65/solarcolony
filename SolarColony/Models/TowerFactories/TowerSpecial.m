@@ -32,6 +32,8 @@
     if ([raceType isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -51,6 +53,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -69,6 +73,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -85,10 +91,12 @@
  
         
     }
+    health=200;
     whichRace=raceType;
     [self setPosition:[self getLocation]];
     [self addChild:bullet];
     [self addChild:towerSprite];
+    [self addChild:towerSprite_hp z:100];
     
 
     
@@ -111,10 +119,7 @@
 - (void) attackTest:(CGPoint) soldier{
     
     [self setIsAttacking:true];
-    
-    //
     targetLocation=soldier;
-  //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     [self schedule: @selector(animatonAttackTest:) interval:1];
 
@@ -135,61 +140,33 @@
         isDeath=true;
     }else{
         [self setLife:([self getLife]-10)];
+        [self setHEALTH:-10];
     }
 }
-/*
- -(void) animatonAttack: (ccTime) dt
-{
-    // bla bla bla
-    //   if (counterTest<=5) {
-    CCLOG(@"SHOTTING");
-    //    counterTest++;
-    //     if ([self numberOfRunningActions]==0) {
-    [bullet setVisible:true];
-    //   CCLOG(@"coord x %f",targetLocation.x);
-    //  CCLOG(@"coord x %f",targetLocation.y);
-    CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
-    //   CCLOG(@"coord x %f",targetLocations.x);
-    //   CCLOG(@"coord x %f",targetLocations.y);
-    CGPoint targetPrevious = [bullet position];
-    //   id appearAction = [CCFadeIn actionWithDuration:.1];
-    // id disappearAction = [CCFadeOut actionWithDuration:.1];
-    movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];
-    
-    //[bullet runAction:[CCSequence actions: movePoint,returnPoint,nil]];
-    
-    //  [bullet runAction:[CCJumpBy actionWithDuration:0.75 position:targetLocations height:25 jumps:4]];
-    //
-    //    }
-    
-     // ccBezierConfig bezier;
-    // bezier.controlPoint_1 = ccp(targetPrevious.x*1.5, targetPrevious.y);
-     //bezier.controlPoint_2 = ccp(targetPrevious.x, targetLocations.y*1.2);
-     //bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-     //CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:1 bezier:bezier];
-     
-    ccBezierConfig bezier;
-    bezier.controlPoint_1 = ccp(targetLocations.x*.05, targetLocations.y*.75);
- //   bezier.controlPoint_2 = ccp(targetPrevious.x*.5, targetLocations.y*.5);
-    bezier.controlPoint_2 = ccp(targetLocations.x*.75, targetLocations.y*.85);
-    bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
-    CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.4 bezier:bezier];
-    
-     [bullet runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-     
-    
-    //   }else{
-    //   counterTest=0;
-    
-    [self unscheduleAllSelectors];
-    [self setIsAttacking:false];
-    // }
-    
 
+-(void)beignHealed{
+    
+    [self setLife:([self getLife]+200)];
+    [self setHEALTH:200];
+    
 }
-*/
-
+- (void)setHEALTH:(int)reduceHealth{
+    
+    if (towerLife <= health*3/4 && towerLife > health*1/2) {
+        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/2 && towerLife > health*1/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
+    }
+    if (towerLife <= health*1/4 && towerLife > health*1/10) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/10 && towerLife > health*1/20) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
+    }
+    
+}
 -(bool) getIsattacking{
     
     return nil;
@@ -208,7 +185,7 @@
 }
 
 -(int) getPower{
-    return nil;
+    return towerPower;
 }
 
 -(void) setLife:(int) life{
