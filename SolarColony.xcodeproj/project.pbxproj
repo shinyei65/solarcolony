@@ -41,6 +41,7 @@
 		566FB0A018E008C900A77C4D /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 566FB09E18E008C900A77C4D /* StartGame.png */; };
 		5681771B18AAF70300E4D772 /* CCMenu+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771A18AAF70300E4D772 /* CCMenu+Layout.m */; };
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
+		F503E2BF18F637350022F629 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F503E2BE18F637350022F629 /* target.png */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
@@ -330,6 +331,7 @@
 		5681771A18AAF70300E4D772 /* CCMenu+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCMenu+Layout.m"; sourceTree = "<group>"; };
 		5681771C18AB07E600E4D772 /* TowerMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerMenu.h; sourceTree = "<group>"; };
 		5681771D18AB07E600E4D772 /* TowerMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerMenu.m; sourceTree = "<group>"; };
+		F503E2BE18F637350022F629 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
@@ -1610,6 +1612,7 @@
 		FC6DCD7218E8F65F00DC98A3 /* towers */ = {
 			isa = PBXGroup;
 			children = (
+				F503E2BE18F637350022F629 /* target.png */,
 				FC6DCD7B18E8FA0100DC98A3 /* portal.png */,
 				FC6DCD7C18E8FA0100DC98A3 /* powerplant.png */,
 				FC6DCD7518E8F68B00DC98A3 /* towerA.png */,
@@ -1718,6 +1721,7 @@
 				0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */,
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
+				F503E2BF18F637350022F629 /* target.png in Resources */,
 				FC6DCD7D18E8FA0100DC98A3 /* portal.png in Resources */,
 				F54714FC18EA01CC0099CD70 /* selectButtons.psd in Resources */,
 				F54714F118EA01CC0099CD70 /* ioButtonON.png in Resources */,

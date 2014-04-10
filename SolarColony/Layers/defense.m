@@ -61,9 +61,9 @@
     solController = [SoldierController Controller];
     [self addChild:solController];
     
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     // initialize stats
-    GameStatsLoader *statsLoader = [[[GameStatsLoader alloc] init] autorelease];
-    [statsLoader loadAllStats];
+    GameStatsLoader *statsLoader = [GameStatsLoader loader];
     
     // initial grid map
     grid = [GridMap map];
@@ -71,7 +71,6 @@
     CGSize gsize = [grid getCellSize];
     NSLog(@"grid size(%f, %f)", gsize.width, gsize.height);
     [self addChild:grid];
-    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     
     // initialize wave queue layer
     ArmyQueue *aqueue = [ArmyQueue layer];

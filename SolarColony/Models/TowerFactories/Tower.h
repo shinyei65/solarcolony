@@ -44,7 +44,7 @@
         - (instancetype) initTower:(CGPoint)location;
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType;
         - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power;
-
+        -(void) beignHealed;
 
     -(bool) getIsattacking;
 

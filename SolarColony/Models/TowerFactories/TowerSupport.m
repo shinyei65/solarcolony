@@ -29,10 +29,14 @@
    
     self = [super init];
     if (!self) return(nil);
-    
+    towerSpriteSelected = [CCSprite spriteWithFile:@"target.png"];
+    [towerSpriteSelected setAnchorPoint:ccp(0.5,1.6)];
+    [towerSpriteSelected setVisible:false];
     if ([raceType isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"powerplant.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         selfLocation=location;
@@ -50,6 +54,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"cherno.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         [self setLocation:location];
         selfLocation=location;
         towerTowerId=3;
@@ -66,6 +72,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"portal.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         [self setLocation:location];
         selfLocation=location;
         towerTowerId=6;
@@ -78,13 +86,14 @@
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
 
-    }
+    }   
     actionTowerLocation=ccp(0, 0);
     whichRace=raceType;
     isDrop=false;
     [self setPosition:[self getLocation]];
+    [self addChild:towerSpriteSelected];
     [self addChild:towerSprite];
-    
+    [self addChild:towerSprite_hp z:100];
      return self;
 }
 -(CGRect) getBoundingBoxTower{
@@ -118,12 +127,29 @@
     
     if ([self getLife]<=0) {
         isDeath=true;
-        
     }else{
         [self setLife:([self getLife]-10)];
+        [self setHEALTH:-10];
     }
 }
 
+- (void)setHEALTH:(int)reduceHealth{
+    
+    if (towerLife <= health*3/4 && towerLife > health*1/2) {
+        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/2 && towerLife > health*1/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
+    }
+    if (towerLife <= health*1/4 && towerLife > health*1/10) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/10 && towerLife > health*1/20) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
+    }
+    
+}
 
 
 -(bool) getIsattacking{
@@ -183,7 +209,8 @@ return nil;
 }
 
 -(void) setActionTowerLocation:(CGPoint) Location{
- actionTowerLocation=Location;
+    actionTowerLocation=Location;
+    [towerSpriteSelected setVisible:true];
 }
 //for wizard
 -(void)replaceOriginAction{
@@ -204,6 +231,7 @@ return nil;
 
 //Race selector special acion
 -(int) selectAction{
+    [towerSpriteSelected setVisible:false];
     if([whichRace isEqualToString:@"Human"]){
         return [self empowerOriginAction];
     }else if([whichRace isEqualToString:@"Robot"]){
