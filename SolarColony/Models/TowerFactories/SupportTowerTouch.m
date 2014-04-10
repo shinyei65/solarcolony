@@ -65,7 +65,8 @@
                    } else {
                       for (TowerGeneric* towerSearchIndex in gameStatusEssentialsSingleton.towers) {
                            if ([towerHelper isEqual:towerSearchIndex]) {
-                               [tower setTowerLife:[towerSearchIndex selectAction]];
+                              
+                               [tower beignHealed];
                            }
                        }
                    }

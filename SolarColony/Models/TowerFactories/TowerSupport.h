@@ -14,6 +14,8 @@
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     CCSprite* towerSprite;
+    CCSprite* towerSpriteSelected;
+    CCSprite* towerSprite_hp;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;

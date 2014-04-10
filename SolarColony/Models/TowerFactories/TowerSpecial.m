@@ -32,6 +32,8 @@
     if ([raceType isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -51,6 +53,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -69,6 +73,8 @@
         
         towerSprite = [CCSprite spriteWithFile:@"towerA.png"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
+        towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
+        towerSprite_hp.position = ccp(0, 15);
         //[self setLocation:ccp(200,200)];
         [self setLocation:location];
         towerTowerId=4;
@@ -85,10 +91,12 @@
  
         
     }
+    health=200;
     whichRace=raceType;
     [self setPosition:[self getLocation]];
     [self addChild:bullet];
     [self addChild:towerSprite];
+    [self addChild:towerSprite_hp z:100];
     
 
     
@@ -132,9 +140,33 @@
         isDeath=true;
     }else{
         [self setLife:([self getLife]-10)];
+        [self setHEALTH:-10];
     }
 }
 
+-(void)beignHealed{
+    
+    [self setLife:([self getLife]+200)];
+    [self setHEALTH:200];
+    
+}
+- (void)setHEALTH:(int)reduceHealth{
+    
+    if (towerLife <= health*3/4 && towerLife > health*1/2) {
+        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/2 && towerLife > health*1/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
+    }
+    if (towerLife <= health*1/4 && towerLife > health*1/10) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
+    }
+    if (towerLife <= health*1/10 && towerLife > health*1/20) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
+    }
+    
+}
 -(bool) getIsattacking{
     
     return nil;
