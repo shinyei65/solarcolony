@@ -10,11 +10,7 @@
 #import "HomeScene.h"
 #import "TowerHuman.h"
 
-@implementation Friends{
-    BOOL pink_sel;
-    
-    BOOL drum_sel;
-}
+@implementation Friends
 @synthesize mobileDisplaySize;
 
 
@@ -38,83 +34,15 @@
     self = [super init];
    
     if (self) {
-        pink_sel=FALSE;
-        drum_sel=FALSE;
-        [self setTouchEnabled:YES];
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        
+        CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper1.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        [self addChild:bg];
         [self addChild:[self loadMenu]];
         
-       /*  TowerHuman* t1=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(200 , 100)]];
-        [colissionsManager addTower:t1];
-        [self addChild:t1];
-        
-        
-        TowerHuman* t2=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(50 , 200)]];
-        [colissionsManager addTower:t2];
-        [self addChild:t2];
-        
-        TowerHuman* t3=[[TowerHuman alloc] initTower:[self convertToWorldSpace:ccp(300 , 300)]];
-        [colissionsManager addTower:t3];
-        [self addChild:t3];*/
-  /*
-        //Test sprite sheet
-        CCSpriteFrameCache *cache=[CCSpriteFrameCache sharedSpriteFrameCache];
-        [cache addSpriteFramesWithFile:@"Sam.plist"];
-        
-        // frame array
-        NSMutableArray *framesArray=[NSMutableArray array];
-        for (int i=1; i<=4; i++) {
-            NSString *frameName=[NSString stringWithFormat:@"drummer%d.png", i];
-            id frameObject=[cache spriteFrameByName:frameName];
-            [framesArray addObject:frameObject];
-        }
-        
-        // animation object
-        id animObject=[CCAnimation animationWithFrames:framesArray delay:0.1];
-        
-        // animation action
-        id animAction=[CCAnimate actionWithAnimation:animObject restoreOriginalFrame:NO];
-        animAction=[CCRepeatForever actionWithAction:animAction];
-        
-        // sprite
-        CCSprite *drummer=[CCSprite spriteWithSpriteFrameName:@"drummer1.png"];
-        drummer.position=ccp(160,160);
-        [self addChild:drummer];
-        
-        [drummer runAction:animAction];
-        drummer.tag = 77;
-        
-        //The flamingo sprite sheet
-        CCSpriteFrameCache *cache_pink=[CCSpriteFrameCache sharedSpriteFrameCache];
-        [cache_pink addSpriteFramesWithFile:@"flamingo.plist"];
-        
-        // frame array
-        NSMutableArray *framesArray_pink=[NSMutableArray array];
-        for (int i=1; i<=3; i++) {
-            NSString *frameName=[NSString stringWithFormat:@"flamingo%d.png", i];
-            id frameObject=[cache_pink spriteFrameByName:frameName];
-            [framesArray_pink addObject:frameObject];
-        }
-        
-        // animation object
-        id animObject_pink=[CCAnimation animationWithFrames:framesArray_pink delay:0.1];
-        
-        // animation action
-        id animAction_pink=[CCAnimate actionWithAnimation:animObject_pink restoreOriginalFrame:NO];
-        animAction_pink=[CCRepeatForever actionWithAction:animAction_pink];
-        
-        // sprite
-        CCSprite *pink=[CCSprite spriteWithSpriteFrameName:@"flamingo1.png"];
-        pink.position=ccp(300,100);
-        [self addChild:pink];
-        
-        [pink runAction:animAction_pink];
-        pink.tag=78;
-      */
-        
+
 
     }
     return self;
@@ -122,15 +50,64 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
-    manuItemBack.tag=1;
-    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"This is Friends page" target:self selector:@selector(moveToScene:)];
-    manuItemBack.tag=1;
-    CCMenu *mainMenu=[CCMenu menuWithItems: manuItemFriends, manuItemBack, nil];
+    CCMenuItemFont *menuItemBack=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
+    CCMenuItemFont *frd1 = [CCMenuItemFont itemWithString:@"Jimmy"];
+    frd1.fontName = @"Outlier.ttf";
+    frd1.fontSize = 20;
+    [frd1.label setColor:ccc3(200, 200, 230)];
+    menuItemBack.tag=1;
+    CCMenuItemImage *FriendsMenu = [CCMenuItemImage itemWithNormalImage:@"friend_menu_clipped.png" selectedImage:@"friend_menu_clipped.png"];
+    CCMenuItemImage *bar1 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar2 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar3 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar4 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar5 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar6 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar7 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
+    CCMenuItemImage *bar8 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
     
-    [mainMenu alignItemsVerticallyWithPadding:20];
+    CCMenuItem *addFrdBotton=[CCMenuItemImage itemWithNormalImage:@"addFriend_button.png" selectedImage:@"addFriend_button_sel.png" target:self selector:@selector(addFriend)];
+    CCMenu *mainMenu=[CCMenu menuWithItems: nil];
+    [mainMenu addChild:addFrdBotton z:1];
+    [mainMenu addChild:FriendsMenu z:2];
+    [mainMenu addChild:menuItemBack z:1];
+    [mainMenu addChild:bar1 z:3];
+    [mainMenu addChild:bar2 z:3];
+    [mainMenu addChild:bar3 z:3];
+    [mainMenu addChild:bar4 z:3];
+    [mainMenu addChild:bar5 z:3];
+    [mainMenu addChild:bar6 z:3];
+    [mainMenu addChild:bar7 z:3];
+    [mainMenu addChild:bar8 z:3];
+    [mainMenu addChild:frd1 z:4];
+    
+    addFrdBotton.position = ccp(-5,108);
+    FriendsMenu.position = ccp(-13,-33);
+    menuItemBack.position = ccp(200, -140);
+    bar1.scale = 1.2;
+    bar2.scale = 1.2;
+    bar3.scale = 1.2;
+    bar4.scale = 1.2;
+    bar5.scale = 1.2;
+    bar6.scale = 1.2;
+    bar7.scale = 1.2;
+    bar8.scale = 1.2;
+    
+    bar1.position = ccp(-15,10);
+    frd1.position = ccp(-55,66);
+    bar2.position = ccp(-15,-18);
+    bar3.position = ccp(-15,-46);
+    bar4.position = ccp(-15,-74);
+    bar5.position = ccp(-15,-102);
+    bar6.position = ccp(-15,-130);
+    bar7.position = ccp(-15,-158);
+    bar8.position = ccp(-15,-186);
+    
+    FriendsMenu.opacity = 200;
+    //[mainMenu alignItemsVerticallyWithPadding:10];
     
     [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
+
     
     return mainMenu;
 
@@ -144,89 +121,55 @@
     }
 }
 
-- (void)update:(ccTime)delta
-{
-    [colissionsManager surveliance];
-   
-}
-/*
--(void) registerWithTouchDispatcher
-{
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
-}
-
-
-
--(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    
-    
-    CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
-    CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
-    
-  //  return YES;
-}
-*/
-
--(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
-   
-    UITouch *touch=[touches anyObject];
-    CGPoint loc=[touch locationInView:[touch view]];
-    loc=[[CCDirector sharedDirector] convertToGL:loc];
-     NSLog(@"touch (%g,%g)",loc.x,loc.y);
-    
-    CCSprite *drum = (CCSprite *)[self getChildByTag:77];
-    
-   CCSprite *pink = (CCSprite *)[self getChildByTag:78];
-    if(pink_sel && !(CGRectContainsPoint([drum textureRect], [drum convertToNodeSpace:loc]))){
-        id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
-        [pink runAction:move];
-
-    }
-    else{
-        
-        if(CGRectContainsPoint([pink textureRect], [pink convertToNodeSpace:loc])){
-              NSLog(@"Flam selected");
-            pink_sel=TRUE;
-            drum_sel=FALSE;
-        }
-    }
-    
-   
-    
-    
-    if(drum_sel && !(CGRectContainsPoint([pink textureRect], [pink convertToNodeSpace:loc]))){
-        
-        id move = [CCMoveTo actionWithDuration:3.0 position:ccp(loc.x, loc.y)];
-        [drum runAction:move];
-        
-    }
-    else{
-        
-        if(CGRectContainsPoint([drum textureRect], [drum convertToNodeSpace:loc])){
-            NSLog(@"Drum selected");
-            drum_sel=TRUE;
-            pink_sel=FALSE;
-        }
-    }
-    
-}
-
--(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    UITouch *touch=[touches anyObject];
-    CGPoint loc=[touch locationInView:[touch view]];
-    loc=[[CCDirector sharedDirector] convertToGL:loc];
-    
-    NSLog(@"move (%g,%g)",loc.x,loc.y);
-   
-    
-}
-
-
-
 - (void)dealloc
 {
     [super dealloc];
+}
+
+-(void)addFriend{
+    UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Please enter friends's name" message:@"\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+    myAlertView.tag = 0;
+    myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+    UITextField *myTextField = [myAlertView textFieldAtIndex:0];
+    myTextField.placeholder=@"Player";
+    [myTextField becomeFirstResponder];
+    [myTextField setBackgroundColor:[UIColor whiteColor]];
+    [myAlertView addSubview:myTextField];
+    [myAlertView show];
+    [myAlertView release];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag==0 && buttonIndex == 1) {
+        UITextField *textfield = [alertView textFieldAtIndex:0];
+        BOOL empty = [[NetWorkManager NetWorkManager] signInUser:textfield.text];
+        if(empty){
+            UIAlertView *existAert = [[UIAlertView alloc] initWithTitle:@"" message:@"The player name doesn't exist!" delegate:self cancelButtonTitle:@"check" otherButtonTitles:nil];
+            existAert.tag = 1;
+   
+            [existAert show];
+            [existAert release];
+
+        }
+        else{
+            
+        }
+    }
+    
+    else if (alertView.tag==1 && buttonIndex == 0){
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Please enter friends's name" message:@"\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+        myAlertView.tag = 0;
+        myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+        UITextField *myTextField = [myAlertView textFieldAtIndex:0];
+        myTextField.placeholder=@"Player";
+        [myTextField becomeFirstResponder];
+        [myTextField setBackgroundColor:[UIColor whiteColor]];
+        [myAlertView addSubview:myTextField];
+        [myAlertView show];
+        [myAlertView release];
+    }
+    
 }
 
 

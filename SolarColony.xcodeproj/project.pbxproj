@@ -238,6 +238,10 @@
 		F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A75A6618C523F700B9F093 /* angrybomb.png */; };
 		F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */; };
 		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
+		F5BD5F4D18F63BBB004EB055 /* addFriend_button_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4918F63BBB004EB055 /* addFriend_button_sel.png */; };
+		F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4A18F63BBB004EB055 /* addFriend_button.png */; };
+		F5BD5F5018F63BBB004EB055 /* friend_menu_clipped.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */; };
+		F5BD5F5218F64EB8004EB055 /* friend_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F5118F64EB8004EB055 /* friend_bar.png */; };
 		F5C3276918E7A2BC00822EB0 /* TowerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276818E7A2BC00822EB0 /* TowerFactory.m */; };
 		F5C3277018E7AAAE00822EB0 /* TowerAttack.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276B18E7AAAE00822EB0 /* TowerAttack.m */; };
 		F5C3277118E7AAAE00822EB0 /* TowerSpecial.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276D18E7AAAE00822EB0 /* TowerSpecial.m */; };
@@ -694,6 +698,10 @@
 		F5ADFE8318B69FEC0004C3D5 /* bulletA.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bulletA.gif; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		F5B11AD618B803C6002FB681 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
+		F5BD5F4918F63BBB004EB055 /* addFriend_button_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriend_button_sel.png; sourceTree = "<group>"; };
+		F5BD5F4A18F63BBB004EB055 /* addFriend_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriend_button.png; sourceTree = "<group>"; };
+		F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_menu_clipped.png; sourceTree = "<group>"; };
+		F5BD5F5118F64EB8004EB055 /* friend_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_bar.png; sourceTree = "<group>"; };
 		F5C3276718E7A2BC00822EB0 /* TowerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerFactory.h; sourceTree = "<group>"; };
 		F5C3276818E7A2BC00822EB0 /* TowerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerFactory.m; sourceTree = "<group>"; };
 		F5C3276A18E7AAAE00822EB0 /* TowerAttack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerAttack.h; sourceTree = "<group>"; };
@@ -804,6 +812,10 @@
 				09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */,
 				09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */,
 				09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */,
+				F5BD5F4918F63BBB004EB055 /* addFriend_button_sel.png */,
+				F5BD5F5118F64EB8004EB055 /* friend_bar.png */,
+				F5BD5F4A18F63BBB004EB055 /* addFriend_button.png */,
+				F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */,
 				0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */,
 				0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */,
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
@@ -1689,6 +1701,7 @@
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
+				F5BD5F5018F63BBB004EB055 /* friend_menu_clipped.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
@@ -1697,6 +1710,8 @@
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				2123A44918ECEACB00981468 /* AddButton.png in Resources */,
 				F54714F418EA01CC0099CD70 /* select1.png in Resources */,
+				F5BD5F5218F64EB8004EB055 /* friend_bar.png in Resources */,
+				F5BD5F4D18F63BBB004EB055 /* addFriend_button_sel.png in Resources */,
 				F53E306018DFB51F007A2A3A /* progress.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
@@ -1739,6 +1754,7 @@
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
+				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
 				F54714F818EA01CC0099CD70 /* selectX.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,

@@ -13,6 +13,7 @@
 @interface PlayerInfo : NSObject
 {
     NSString *username;
+    NSArray *friends;
 }
 
 +(instancetype) Player;
@@ -28,5 +29,6 @@
 -(void)encodeWithCoder:(NSCoder *)encoder;
 
 @property (nonatomic, strong) NSString* username;
+@property (nonatomic, strong) NSArray* friends;
 
 @end

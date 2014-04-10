@@ -17,6 +17,7 @@
 }
 
 @synthesize username;
+@synthesize friends;
 
 static PlayerInfo* sharedInstance = nil;
 static const int resource_inc_amount = 10;
@@ -69,6 +70,7 @@ static const float resource_inc_time = 1;
         self->player_resource = [decoder decodeIntForKey:@"player_resource"];
         self->player_life = [decoder decodeIntForKey:@"player_life"];
         username = [[decoder decodeObjectForKey:@"username"] retain];
+        friends = [[decoder decodeObjectForKey:@"friends"] retain];
 
     }
     return self;
@@ -78,6 +80,7 @@ static const float resource_inc_time = 1;
     [encoder encodeInt:player_resource forKey:@"player_resource"];
     [encoder encodeInt:player_life forKey:@"player_life"];
     [encoder encodeObject:username forKey:@"username"];
+    [encoder encodeObject:friends forKey:@"friends"];
 }
 
 
