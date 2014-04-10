@@ -19,6 +19,13 @@
     CCMenu *soldierMenus;
     int counterA, counterB,counterC,counterD,counterE,counterF;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    
+    CCMenuItemFont *Selected1;
+    CCMenuItemFont *Selected2;
+    CCMenuItemFont *Selected3;
+    CCMenuItemFont *Selected4;
+    CCMenuItemFont *Selected5;
+    
 }
 - (void) AddWave: (int) waveID;
 @end

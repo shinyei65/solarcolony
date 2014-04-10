@@ -28,6 +28,7 @@
 @synthesize paused;
 @synthesize mapImageName;
 @synthesize mapIndexName;
+@synthesize FirstVisit;
 
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
@@ -59,6 +60,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         mapImageName = @"";
         mapIndexName = @"";
         paused=false;
+        FirstVisit = true;
         //SHOULD READ ALL OF THIS FROM THE DB
         
     }
@@ -141,6 +143,10 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return self;
 }
 
+- (id)notFirstVisit{
+    FirstVisit = false;
+    return FirstVisit;
+}
 
 
 @end

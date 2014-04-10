@@ -66,10 +66,24 @@
     
     [soldierMenus  alignItemsVertically];
     [soldierMenus setPosition:ccp(70, mobileDisplaySize.height*.9)];
-    
     return soldierMenus;
     
 }
+- (CCMenu*)selectedItem{
+    CCMenu* SelectedMenu;
+    SelectedMenu = [CCMenu menuWithItems:Selected1,Selected2,Selected3,Selected4,Selected5, nil];
+    
+    [SelectedMenu setPosition:ccp(mobileDisplaySize.width/2,mobileDisplaySize.height/2)];
+    
+    return SelectedMenu;
+}
+
+
+
+
+
+
+
 
 -(void) setSoldierinWave:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;

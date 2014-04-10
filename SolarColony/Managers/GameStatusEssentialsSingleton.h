@@ -28,6 +28,7 @@
 - (CCNode*) getSoldierAt:(int) index;
 - (void) removeAllSoldiers;
 - (void) removeAllTowers;
+- (void)notFirstVisit;
 
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
@@ -41,5 +42,6 @@
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
 @property(assign, nonatomic) bool paused;
+@property(assign, nonatomic) bool FirstVisit;
 
 @end

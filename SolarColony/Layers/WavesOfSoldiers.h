@@ -13,6 +13,11 @@
 @interface WavesOfSoldiers : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+    NSMutableDictionary* Wave_Store;
+    CCMenuItemFont *wave1;
+    CCMenu *waveMenus;
+    
 }
++(NSMutableDictionary*) SaveWave:(NSString*)WaveName:(NSString*)WaveKey;
 
 @end
