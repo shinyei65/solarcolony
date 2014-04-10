@@ -10,12 +10,31 @@
 #import "GameStatusEssentialsSingleton.h"
 
 @implementation GameStatsLoader
+@synthesize robotT1_attspeed;
+@synthesize robotT1_health;
+@synthesize robotT1_power;
+@synthesize robotT1_price;
+@synthesize robotT1_reward;
+@synthesize robotT2_attspeed;
+@synthesize robotT2_health;
+@synthesize robotT2_power;
+@synthesize robotT2_price;
+@synthesize robotT2_reward;
+
+static GameStatsLoader *sharedInstance = nil;
++ (GameStatsLoader *)loader {
+    if (sharedInstance == nil) {
+        sharedInstance = [[super allocWithZone:NULL] init];
+    }
+    
+    return sharedInstance;
+}
 - (id) init
 {
     self = [super init];
     
     if (self) {
-        
+        [self loadAllStats];
     }
     
     return self;
@@ -37,21 +56,63 @@
         NSArray *sets = [line componentsSeparatedByString:@": "];
         NSString *key = [sets objectAtIndex:0];
         NSString *value = [sets objectAtIndex:1];
-        void (^selectedCase)(NSString *) = @{
-                                   @"mapIndexFile" : ^(NSString *val){
-                                       NSLog(@"mapIndexFile");
+        void (^selectedCase)(NSString *, GameStatsLoader *) = @{
+                                   @"mapIndexFile" : ^(NSString *val, GameStatsLoader * me){
                                        GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
                                        [gameStatus setMapIndexName: val];
                                    },
-                                   @"mapImageFile" : ^(NSString *val){
-                                       NSLog(@"mapImageFile");
+                                   @"mapImageFile" : ^(NSString *val, GameStatsLoader * me){
                                        GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
                                        [gameStatus setMapImageName: val];
+                                   },
+                                   @"robotTower1" : ^(NSString *val, GameStatsLoader * me){
+                                       NSArray *attrs = [val componentsSeparatedByString:@","];
+                                       for (NSString *attr in attrs) {
+                                           NSArray *pair = [attr componentsSeparatedByString:@"="];
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
+                                               me.robotT1_health = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
+                                               me.robotT1_price = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
+                                               me.robotT1_reward = [[pair objectAtIndex:1] integerValue];
+                                               
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
+                                               me.robotT1_attspeed = [[pair objectAtIndex:1] floatValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
+                                               me.robotT1_power = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                       }
+                                   },
+                                   @"robotTower2" : ^(NSString *val, GameStatsLoader * me){
+                                       NSArray *attrs = [val componentsSeparatedByString:@","];
+                                       for (NSString *attr in attrs) {
+                                           NSArray *pair = [attr componentsSeparatedByString:@"="];
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
+                                               me.robotT2_health = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
+                                               me.robotT2_price = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
+                                               me.robotT2_reward = [[pair objectAtIndex:1] integerValue];
+                                               
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
+                                               me.robotT2_attspeed = [[pair objectAtIndex:1] floatValue];
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
+                                               me.robotT2_power = [[pair objectAtIndex:1] integerValue];
+                                           }
+                                       }
                                    },
                                    }[key];
         
         if (selectedCase != nil)
-            selectedCase(value);
+            selectedCase(value, self);
     }
 }
 @end
