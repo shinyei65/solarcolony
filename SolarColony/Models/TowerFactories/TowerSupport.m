@@ -86,7 +86,7 @@
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
 
-    }
+    }   
     actionTowerLocation=ccp(0, 0);
     whichRace=raceType;
     isDrop=false;
