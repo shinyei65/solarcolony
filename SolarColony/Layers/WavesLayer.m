@@ -8,7 +8,7 @@
 
 #import "WavesLayer.h"
 #import "SoldiersLayer.h"
-#import "WavesOfSoldiers.h";
+
 
 @implementation WavesLayer {
     SoldiersLayer *soldierlayer;
@@ -28,6 +28,7 @@
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         
         
+        
         wave_num = 1;
         
         //Plus button
@@ -40,8 +41,10 @@
         [wave1 setFontSize:20];
         
         [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
+       
         
         
+
         
         
         
@@ -69,10 +72,7 @@
     NSString *currwave;
     switch (menuItem.tag) {
         case 1:
-            
-            
-            
-            
+            [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
             
             currwave = [gameStatusEssentialsSingleton currentWave];
             CCLOG(currwave);
@@ -138,7 +138,7 @@
     [waveMenus addChild:WaveNum];
     [waveMenus alignItemsVertically];
     
-    [dict setObject:Wave_num forKey:wave_key];
+    
     
 }
 

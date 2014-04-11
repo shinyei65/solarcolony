@@ -28,7 +28,12 @@
 - (CCNode*) getSoldierAt:(int) index;
 - (void) removeAllSoldiers;
 - (void) removeAllTowers;
-
+- (void)notFirstVisit;
+//add
+- (BOOL)getSoldierInit;
+- (int) GetCounterA;
+- (int) GetCounterB;
+- (int) GetCounterC;
 
 @property(assign, nonatomic) NSMutableArray *soldiers;
 @property(assign, nonatomic) ArmyNetwork* armynetwork;
@@ -41,5 +46,11 @@
 @property(assign, nonatomic) int resourcesQuantity;
 @property(assign, nonatomic) int score;
 @property(assign, nonatomic) bool paused;
+@property(assign, nonatomic) bool FirstVisit;
+//add
+@property(assign, nonatomic) bool soldierInit;
+@property(assign, nonatomic) int counterA;
+@property(assign, nonatomic) int counterB;
+@property(assign, nonatomic) int counterC;
 
 @end

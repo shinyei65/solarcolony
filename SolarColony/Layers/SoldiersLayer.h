@@ -13,9 +13,16 @@
     CCMenuItemFont *item1;
     CCMenuItemFont *item2;
     CCMenuItemFont *item3;
+    //for increasing number of soldier
     CCMenuItemFont *item4;
     CCMenuItemFont *item5;
     CCMenuItemFont *item6;
+    
+    
+    //for decreasing number of soldier
+    CCMenuItemFont *item7;
+    CCMenuItemFont *item8;
+    CCMenuItemFont *item9;
     CCMenu *soldierMenus;
     int counterA, counterB,counterC,counterD,counterE,counterF;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
