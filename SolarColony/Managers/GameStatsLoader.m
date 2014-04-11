@@ -35,8 +35,8 @@ static GameStatsLoader *sharedInstance = nil;
     self = [super init];
     
     if (self) {
-        stats = [[NSMutableDictionary alloc] initWithDictionary:
-        @{
+        stats = [[NSMutableDictionary alloc] init];
+        [stats addEntriesFromDictionary:@{
                   @"Human":@{
                           @"Tower1": @{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0},
                           @"Tower2": @{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0}
@@ -86,26 +86,27 @@ static GameStatsLoader *sharedInstance = nil;
                                        for (NSString *attr in attrs) {
                                            NSArray *pair = [attr componentsSeparatedByString:@"="];
                                            if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
-                                               //me.robotT1_health = [[pair objectAtIndex:1] integerValue];
-                                               NSLog(@"%@", me.stats[@"Robot"][@"Tower1"][@"health"]);
-                                               [me.stats[@"Robot"][@"Tower1"] setObject:@([[pair objectAtIndex:1] integerValue]) forKey:@"health"];
+                                               me.robotT1_health = [[pair objectAtIndex:1] integerValue];
+                                               //NSLog(@"%@", me.stats[@"Robot"][@"Tower1"][@"health"]);
+                                               //[me.stats[@"Robot"][@"Tower1"] removeObjectForKey:@"health"];
+                                               //[me.stats[@"Robot"][@"Tower1"] setObject:@([[pair objectAtIndex:1] integerValue]) forKey:@"health"];
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
-                                               //me.robotT1_price = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower1"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT1_price = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower1"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
-                                               //me.robotT1_reward = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower1"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT1_reward = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower1"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
                                                
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
-                                               //me.robotT1_attspeed = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower1"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT1_attspeed = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower1"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
-                                               //me.robotT1_power = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower1"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT1_power = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower1"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                        }
                                    },
@@ -114,24 +115,24 @@ static GameStatsLoader *sharedInstance = nil;
                                        for (NSString *attr in attrs) {
                                            NSArray *pair = [attr componentsSeparatedByString:@"="];
                                            if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
-                                               //me.robotT2_health = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower2"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT2_health = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower2"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
-                                               //me.robotT2_price = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower2"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT2_price = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower2"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
-                                               //me.robotT2_reward = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower2"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT2_reward = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower2"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
-                                               //me.robotT2_attspeed = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower2"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT2_attspeed = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower2"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
-                                               //me.robotT2_power = [[pair objectAtIndex:1] integerValue];
-                                               me.stats[@"Robot"][@"Tower2"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
+                                               me.robotT2_power = [[pair objectAtIndex:1] integerValue];
+                                               //me.stats[@"Robot"][@"Tower2"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                        }
                                    },
