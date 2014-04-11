@@ -36,7 +36,7 @@ static const float resource_inc_time = 1;
     resource_increase_CD_time = 0;
     /*https://developer.apple.com/library/ios/documentation/cocoa/reference/foundation/Classes/NSUserDefaults_Class/Reference/Reference.html#//apple_ref/occ/instm/NSUserDefaults/removePersistentDomainForName:*/
     //http://codeexamples.wordpress.com/2011/02/12/nsuserdefaults-example/
-
+    friends = [[NSMutableArray alloc] init];
     // getting an NSString object
     //[standardUserDefaults setObject:@"Jimmy" forKey:@"Username"];
     //NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
@@ -70,6 +70,11 @@ static const float resource_inc_time = 1;
         self->player_resource = [decoder decodeIntForKey:@"player_resource"];
         self->player_life = [decoder decodeIntForKey:@"player_life"];
         username = [[decoder decodeObjectForKey:@"username"] retain];
+        CCLOG(@"here");
+   
+        //NSArray *tempFrd =[[decoder decodeObjectForKey:@"friends"] retain];
+       // CCLOG(@"friends: %@",tempFrd);
+        //friends = [[NSMutableArray alloc] initWithArray:tempFrd copyItems:TRUE];
         friends = [[decoder decodeObjectForKey:@"friends"] retain];
 
     }
@@ -81,6 +86,7 @@ static const float resource_inc_time = 1;
     [encoder encodeInt:player_life forKey:@"player_life"];
     [encoder encodeObject:username forKey:@"username"];
     [encoder encodeObject:friends forKey:@"friends"];
+
 }
 
 

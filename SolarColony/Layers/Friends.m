@@ -10,7 +10,13 @@
 #import "HomeScene.h"
 #import "TowerHuman.h"
 
-@implementation Friends
+static const int origin_X_ForName = -55;
+static const int origin_Y_ForName = 66;
+static const int nameYDistance = 28;
+
+@implementation Friends{
+    CCMenu *mainMenu;
+}
 @synthesize mobileDisplaySize;
 
 
@@ -51,11 +57,7 @@
 - (CCMenu*)loadMenu
 {
     CCMenuItemFont *menuItemBack=[CCMenuItemFont itemWithString:@"Back" target:self selector:@selector(moveToScene:)];
-    CCMenuItemFont *frd1 = [CCMenuItemFont itemWithString:@"Jimmy"];
-    frd1.fontName = @"Outlier.ttf";
-    frd1.fontSize = 20;
-    [frd1.label setColor:ccc3(200, 200, 230)];
-    menuItemBack.tag=1;
+
     CCMenuItemImage *FriendsMenu = [CCMenuItemImage itemWithNormalImage:@"friend_menu_clipped.png" selectedImage:@"friend_menu_clipped.png"];
     CCMenuItemImage *bar1 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
     CCMenuItemImage *bar2 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
@@ -67,7 +69,7 @@
     CCMenuItemImage *bar8 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png"];
     
     CCMenuItem *addFrdBotton=[CCMenuItemImage itemWithNormalImage:@"addFriend_button.png" selectedImage:@"addFriend_button_sel.png" target:self selector:@selector(addFriend)];
-    CCMenu *mainMenu=[CCMenu menuWithItems: nil];
+    mainMenu=[CCMenu menuWithItems: nil];
     [mainMenu addChild:addFrdBotton z:1];
     [mainMenu addChild:FriendsMenu z:2];
     [mainMenu addChild:menuItemBack z:1];
@@ -79,7 +81,19 @@
     [mainMenu addChild:bar6 z:3];
     [mainMenu addChild:bar7 z:3];
     [mainMenu addChild:bar8 z:3];
-    [mainMenu addChild:frd1 z:4];
+    
+    for (int i =0 ; i < [[PlayerInfo Player].friends count]; i++) {
+    
+            CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[[PlayerInfo Player].friends objectAtIndex:i]];
+            [mainMenu addChild:newFriend z:4];
+            CCLOG(@"new friend: %@", [[PlayerInfo Player].friends objectAtIndex:i]);
+            newFriend.fontName = @"Outlier.ttf";
+            newFriend.fontSize = 20;
+            [newFriend.label setColor:ccc3(200, 200, 230)];
+            newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*[[PlayerInfo Player].friends count]);
+            
+
+    }
     
     addFrdBotton.position = ccp(-5,108);
     FriendsMenu.position = ccp(-13,-33);
@@ -94,7 +108,6 @@
     bar8.scale = 1.2;
     
     bar1.position = ccp(-15,10);
-    frd1.position = ccp(-55,66);
     bar2.position = ccp(-15,-18);
     bar3.position = ccp(-15,-46);
     bar4.position = ccp(-15,-74);
@@ -159,9 +172,27 @@
 
         }
         else{
-            
+            if([[PlayerInfo Player].friends containsObject:textfield.text]){
+                UIAlertView *existAlert = [[UIAlertView alloc] initWithTitle:@"The friend is already in your friend list" message:@"" delegate:self cancelButtonTitle:@"Confirm" otherButtonTitles:Nil, nil];
+                [existAlert show];
+                [existAlert release];
+            }
+            else{
+                CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:textfield.text];
+                CCLOG(@"new friend: %@", textfield.text);
+                newFriend.fontName = @"Outlier.ttf";
+                newFriend.fontSize = 20;
+                [newFriend.label setColor:ccc3(200, 200, 230)];
+                CCLOG(@"\nnumber of friends: %d",[[PlayerInfo Player].friends count]);
+                newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*[[PlayerInfo Player].friends count]);
+                [mainMenu addChild:newFriend z:4];
+                [[PlayerInfo Player].friends addObject:textfield.text];
+                NSData *data = [NSKeyedArchiver archivedDataWithRootObject:[PlayerInfo Player]];
+                [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+            }
         }
     }
+    
     
 }
 

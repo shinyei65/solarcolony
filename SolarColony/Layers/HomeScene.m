@@ -52,8 +52,8 @@
         [self addChild:splash];
         [self addChild:[self loadMenu]];
         
-       // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-        //[standardUserDefaults removePersistentDomainForName:appDomain];
+      // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+       // [standardUserDefaults removePersistentDomainForName:appDomain];
         NSData* playerdata;
         playerdata = [standardUserDefaults objectForKey:@"playerInfo"];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerdata];
@@ -75,12 +75,15 @@
         [myAlertView release];
         }
         else{
-            if ([standardUserDefaults integerForKey:@"test"]==123) {
-                playername = [CCLabelTTF labelWithString:@"Success!!!" fontName:@"Outlier.ttf" fontSize:15];
+            /*
+            for (int i =0 ; i < [player.friends count]; i++) {
+  
+                CCLOG(@"new friend: %@", [player.friends objectAtIndex:i]);
+                
             }
-            else{
-            playername = [CCLabelTTF labelWithString:player.username fontName:@"Outlier.ttf" fontSize:15];
-            }
+            CCLOG(@"\nnumber of friends: %d",[player.friends count]);
+          */
+            playername = [CCLabelTTF labelWithString:@"123" fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
             

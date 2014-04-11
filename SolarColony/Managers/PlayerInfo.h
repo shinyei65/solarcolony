@@ -11,10 +11,7 @@
 #import "GameStatusEssentialsSingleton.h"
 
 @interface PlayerInfo : NSObject
-{
-    NSString *username;
-    NSArray *friends;
-}
+
 
 +(instancetype) Player;
 -(instancetype)init;
@@ -23,12 +20,10 @@
 -(int)getResource;
 -(void)setResource:(int)resource;
 -(void)increaseResource:(ccTime)time;
--(NSString*)getUsername;
--(void)setUsername:(NSString*)name;
 -(id)initWithCoder:(NSCoder *)decoder;
 -(void)encodeWithCoder:(NSCoder *)encoder;
 
 @property (nonatomic, strong) NSString* username;
-@property (nonatomic, strong) NSArray* friends;
+@property (nonatomic, strong) NSMutableArray* friends;
 
 @end
