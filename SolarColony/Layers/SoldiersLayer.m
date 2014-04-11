@@ -22,10 +22,26 @@
         //Game status global variables
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         //SETS UP COUNTER FOR SOLIDERS;
-        counterA=0;
-        counterB=0;
-        counterC=0;
-        
+        //add
+        if(gameStatusEssentialsSingleton.getSoldierInit == false)
+        {
+            counterA=0;
+            counterB=0;
+            counterC=0;
+            //CCLOG(@"Initialization %i",counterA);
+            
+            gameStatusEssentialsSingleton.soldierInit = true;
+        }
+        else{
+            counterA = gameStatusEssentialsSingleton.GetCounterA;
+            wave_sol[cur_wave][0] = counterA;
+            counterB = gameStatusEssentialsSingleton.GetCounterB;
+            wave_sol[cur_wave][1] = counterB;
+            counterC = gameStatusEssentialsSingleton.GetCounterC;
+            wave_sol[cur_wave][2] = counterC;
+            
+        }
+        CCLOG(@"Initialization %i",wave_sol[cur_wave][0]);
         
         [self addChild:[self loadWave]];
         [self addChild:[self loadMutablesoldierMenuNumber]];
@@ -55,37 +71,69 @@
 
 
 -(CCMenu*) loadMutablesoldierMenuNumber{
-    item1=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
+    item1=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterA] target:self selector:nil];
     [item1 setFontSize:20];
-    item2=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
+    item2=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterB] target:self selector:nil];
     [item2 setFontSize:20];
-    item3=[CCMenuItemFont itemWithString:@"0" target:self selector:nil];
+    item3=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterC] target:self selector:nil];
     [item3 setFontSize:20];
     
-    soldierMenus = [CCMenu menuWithItems:item1, item2, item3, nil];
+    //add
+    //For increasing
+    item4=[CCMenuItemFont itemWithString:@"+" target:self selector:@selector(setSoldierinWave:)];
+    [item4 setFontSize:20];
     
-    [soldierMenus  alignItemsVertically];
+    item5=[CCMenuItemFont itemWithString:@"+" target:self selector:@selector(setSoldierinWave:)];
+    [item5 setFontSize:20];
+    
+    item6=[CCMenuItemFont itemWithString:@"+" target:self selector:@selector(setSoldierinWave:)];
+    [item6 setFontSize:20];
+    
+    //For decreasing
+    item7=[CCMenuItemFont itemWithString:@"-" target:self selector:@selector(setSoldierinWave:)];
+    [item7 setFontSize:20];
+    
+    item8=[CCMenuItemFont itemWithString:@"-" target:self selector:@selector(setSoldierinWave:)];
+    [item8 setFontSize:20];
+    
+    item9=[CCMenuItemFont itemWithString:@"-" target:self selector:@selector(setSoldierinWave:)];
+    [item9 setFontSize:20];
+    
+    soldierMenus = [CCMenu menuWithItems:item4,item1,item7,item5, item2,item8,item6, item3,item9, nil];
+    
+    [soldierMenus alignItemsInColumns:[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],nil];
+    
+    //[soldierMenus  alignItemsVertically];
     [soldierMenus setPosition:ccp(70, mobileDisplaySize.height*.9)];
     
     return soldierMenus;
     
 }
 
--(void) setSoldierinWave:(id) soldierType{
+-(void) setSoldierNumber:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
     
-    
-    if ([menuItem.label.string isEqualToString:@"Soldier A"]) {
+    //add....
+    if (menuItem == item4) {
         wave_sol[cur_wave][0]++;
         counterA++;
-        [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
-        NSString* wave= [gameStatusEssentialsSingleton currentWave];
-        NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
-        CCLOG(@"mente %@",[tempdictonary objectForKey:@"SA"]);
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterA] forKey:@"SA"];
-        CCLOG(@"%@",[tempdictonary objectForKey:@"SA"]);
-        [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
-    }else if([menuItem.label.string isEqualToString:@"Soldier B"]){
+    }
+    if (menuItem == item7) {
+        if(counterA >0)
+        {
+            wave_sol[cur_wave][0]--;
+            counterA--;
+            
+        }
+    }
+    [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
+    NSString* wave= [gameStatusEssentialsSingleton currentWave];
+    NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
+    CCLOG(@"mente %@",[tempdictonary objectForKey:@"SA"]);
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterA] forKey:@"SA"];
+    CCLOG(@"%@",[tempdictonary objectForKey:@"SA"]);
+    [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
+    if([menuItem.label.string isEqualToString:@"Soldier B"]){
         wave_sol[cur_wave][1]++;
         counterB++;
         [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
@@ -132,7 +180,10 @@
         CCLOG(@"%@",[tempdictonary objectForKey:@"SF"]);
         [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
     }
-    
+    //add
+    gameStatusEssentialsSingleton.counterA = counterA;
+    gameStatusEssentialsSingleton.counterB = counterB;
+    gameStatusEssentialsSingleton.counterC = counterC;
 }
 
 - (void) AddWave: (int) waveID
