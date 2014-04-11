@@ -258,6 +258,10 @@
 		F5C3277218E7AAAE00822EB0 /* TowerSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */; };
 		F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F5C329D918E9E2CE00822EB0 /* testmap.tmx */; };
 		F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5C329DE18E9E76300822EB0 /* sample1.jpg */; };
+		F5C5CA0718F899C0002A9D40 /* descriptionBox.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0318F899C0002A9D40 /* descriptionBox.png */; };
+		F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0418F899C0002A9D40 /* humanRace.png */; };
+		F5C5CA0918F899C0002A9D40 /* robotRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0518F899C0002A9D40 /* robotRace.png */; };
+		F5C5CA0A18F899C0002A9D40 /* wizardRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0618F899C0002A9D40 /* wizardRace.png */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
@@ -732,6 +736,10 @@
 		F5C3276F18E7AAAE00822EB0 /* TowerSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerSupport.m; sourceTree = "<group>"; };
 		F5C329D918E9E2CE00822EB0 /* testmap.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = testmap.tmx; sourceTree = "<group>"; };
 		F5C329DE18E9E76300822EB0 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
+		F5C5CA0318F899C0002A9D40 /* descriptionBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox.png; sourceTree = "<group>"; };
+		F5C5CA0418F899C0002A9D40 /* humanRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humanRace.png; sourceTree = "<group>"; };
+		F5C5CA0518F899C0002A9D40 /* robotRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robotRace.png; sourceTree = "<group>"; };
+		F5C5CA0618F899C0002A9D40 /* wizardRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizardRace.png; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -824,6 +832,7 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F5C5CA0218F899C0002A9D40 /* race */,
 				2123A44718ECEACB00981468 /* AddButton.png */,
 				2123A44818ECEACB00981468 /* AddButton_select.png */,
 				FC6DCD7218E8F65F00DC98A3 /* towers */,
@@ -1517,6 +1526,17 @@
 			path = TowerFactories;
 			sourceTree = "<group>";
 		};
+		F5C5CA0218F899C0002A9D40 /* race */ = {
+			isa = PBXGroup;
+			children = (
+				F5C5CA0318F899C0002A9D40 /* descriptionBox.png */,
+				F5C5CA0418F899C0002A9D40 /* humanRace.png */,
+				F5C5CA0518F899C0002A9D40 /* robotRace.png */,
+				F5C5CA0618F899C0002A9D40 /* wizardRace.png */,
+			);
+			path = race;
+			sourceTree = "<group>";
+		};
 		F5DFA3B018A5ACC8000F0A00 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1719,6 +1739,7 @@
 				F5DA46C718CE387400291A0A /* MageSoldier_Special.png in Resources */,
 				FC6DCD7E18E8FA0100DC98A3 /* powerplant.png in Resources */,
 				F53E796218B5CA030037A48A /* testmap.png in Resources */,
+				F5C5CA0918F899C0002A9D40 /* robotRace.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
@@ -1729,6 +1750,7 @@
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
 				F54714F318EA01CC0099CD70 /* select0Active.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
+				F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				09B30E1C18F6601F00A616FB /* map_3 in Resources */,
 				09B30E2D18F895A500A616FB /* sample_2.png in Resources */,
@@ -1754,6 +1776,7 @@
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F503E2BF18F637350022F629 /* target.png in Resources */,
 				FC6DCD7D18E8FA0100DC98A3 /* portal.png in Resources */,
+				F5C5CA0A18F899C0002A9D40 /* wizardRace.png in Resources */,
 				F54714FC18EA01CC0099CD70 /* selectButtons.psd in Resources */,
 				F54714F118EA01CC0099CD70 /* ioButtonON.png in Resources */,
 				F55948DD18A56F3B008ADDED /* iTunesArtwork in Resources */,
@@ -1761,6 +1784,7 @@
 				0941DF1718D1276200AA3DA4 /* universe-wallpaper6.jpg in Resources */,
 				0941DF1618D1276200AA3DA4 /* universe-wallpaper5.jpg in Resources */,
 				F5DA46C818CE387400291A0A /* RobotSoldier_Basic.png in Resources */,
+				F5C5CA0718F899C0002A9D40 /* descriptionBox.png in Resources */,
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
 				0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */,
 				F54714FA18EA01CC0099CD70 /* background.psd in Resources */,

@@ -49,37 +49,70 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *menuItemHuman=[CCMenuItemFont itemWithString:@"Human" target:self selector:@selector(moveToScene:)];
+    CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Select Race" fontName:@"Marker Felt" fontSize:32];
+    [splash setPosition:ccp(100,280)];
     
-    CCMenuItemFont *MenuItemRobot=[CCMenuItemFont itemWithString:@"Robot" target:self selector:@selector(moveToScene:)];
     
-    CCMenuItemFont *menuItemMagic=[CCMenuItemFont itemWithString:@"Magic" target:self selector:@selector(moveToScene:)];
+    
+    CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"humanRace.png" selectedImage:@"humanRace.png" target:self selector:@selector(moveToScene:)];
+    menuItemHuman.userData=@"Human";
+    [menuItemHuman setPosition:ccp(30,100)];
+    
+    CCSprite *menuItemHumanBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    menuItemHumanBox.position = ccp(200,100);
+    
+    
+    
+    CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"robotRace.png" selectedImage:@"robotRace.png" target:self selector:@selector(moveToScene:)];
+    
+    MenuItemRobot.userData=@"Robot";
+    [MenuItemRobot setPosition:ccp(280,100)];
+    
+    
+    CCSprite *menuItemRobotBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    menuItemRobotBox.position = ccp(440,100);
+    
+    
+    CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"wizardRace.png" selectedImage:@"wizardRace.png" target:self selector:@selector(moveToScene:)];
+    menuItemMagic.userData=@"Magic";
+    [menuItemMagic setPosition:ccp(150,250)];
+    
+    
+    CCSprite *menuItemWizardBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    menuItemWizardBox.position = ccp(320,250);
+    
     
     CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot,menuItemMagic, nil];
     
-    [mainMenu alignItemsHorizontallyWithPadding:20];
+    //[mainMenu alignItemsHorizontallyWithPadding:20];
     
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
+    [mainMenu setPosition:ccp( 100 ,0)];
     
-    CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper2.jpg"];
+    CCSprite *bg = [CCSprite spriteWithFile:@"backgroundLayers.png"];
     bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
     [self addChild:bg];
-    
+    [self addChild:menuItemHumanBox];
+    [self addChild:menuItemRobotBox];
+    [self addChild:menuItemWizardBox];
+    [self addChild:splash];
     return mainMenu;
     
 }
 
 -(void)moveToScene:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    if ([menuItem.label.string isEqualToString:@"Human"]) {
+    CCMenuItemImage* menuItem = (CCMenuItemImage*)sender;
+    CCMenuItem *itm = (CCMenuItem *)sender;
+    NSString *theData = (NSString *)itm.userData;
+   
+    if ([theData isEqualToString:@"Human"] ) {
         [gameStatusEssentialsSingleton setRaceType:@"Human"];
         [gameStatusEssentialsSingleton setUserID:@"User1"];
         [transitionManagerSingleton transitionTo:1];
-    } else if ([menuItem.label.string isEqualToString:@"Robot"])  {
+    } else if ([theData isEqualToString:@"Robot"])  {
         [gameStatusEssentialsSingleton setRaceType:@"Robot"];
         [gameStatusEssentialsSingleton setUserID:@"User2"];
         [transitionManagerSingleton transitionTo:1];
-    } else if ([menuItem.label.string isEqualToString:@"Magic"])  {
+    } else if ([theData isEqualToString:@"Magic"])  {
         [gameStatusEssentialsSingleton setRaceType:@"Magic"];
         [gameStatusEssentialsSingleton setUserID:@"User3"];
         [transitionManagerSingleton transitionTo:1];
