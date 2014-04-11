@@ -22,6 +22,7 @@
 @synthesize selfLocation;
 @synthesize isCharging;
 @synthesize isDeath;
+@synthesize mapLocation;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Power: (int) power{
   return nil;

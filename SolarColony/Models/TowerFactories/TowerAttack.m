@@ -26,6 +26,7 @@
 @synthesize whichRace;
 @synthesize towerPrice;
 @synthesize towerReward;
+@synthesize mapLocation;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power{
     

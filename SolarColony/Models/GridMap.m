@@ -10,6 +10,7 @@
 //
 
 #import "GridMap.h"
+#import "TowerGeneric.h"
 #import "GameStatusEssentialsSingleton.h"
 
 
@@ -161,8 +162,10 @@ static GridMap *sharedInstance = nil;
 
 - (void) removeTower: (id) tower
 {
-    //[self removeChild:tower];
     [tower setVisible:false];
+    TowerGeneric *tw = (TowerGeneric *) tower;
+    [self setMap:EMPTY X: tw.mapLocation.x Y:tw.mapLocation.y];
+    [self removeChild:tower];
 }
 
 - (CGSize) getCellSize

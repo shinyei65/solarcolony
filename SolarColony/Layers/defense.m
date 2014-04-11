@@ -133,7 +133,7 @@
         float pointY=grid.menuLocation.y;
         
         CCNode<Tower>* t3=[factoryTowers towerForKey:@"Support" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
-         
+        [t3 setMapLocation:[[grid getTowerMenu] getMapLocation]];
         [colissionsManager addTower:t3];
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
@@ -145,6 +145,7 @@
         [player setResource:newResource];
 
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Special" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [tower setMapLocation:[[grid getTowerMenu] getMapLocation]];
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
 
@@ -156,6 +157,7 @@
         [player setResource:newResource];
 
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Attackv1" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [tower setMapLocation:[[grid getTowerMenu] getMapLocation]];
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
         

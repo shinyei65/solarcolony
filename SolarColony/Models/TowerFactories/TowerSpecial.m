@@ -22,6 +22,7 @@
 @synthesize isCharging;
 @synthesize isDeath;
 @synthesize whichRace;
+@synthesize mapLocation;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType{
     

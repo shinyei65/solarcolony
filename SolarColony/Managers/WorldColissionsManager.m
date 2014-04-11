@@ -37,12 +37,16 @@
     CGPoint soldierpoint;
 
     //remove towers
+    NSMutableArray *delTarray = [NSMutableArray array];
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if ([tower isDeath]) {
             [grid removeTower:tower];
-           // [gameStatusEssentialsSingleton.towers removeObject:tower];
+            [delTarray addObject:tower];
+            //[gameStatusEssentialsSingleton.towers removeObject:tower];
         }
     }
+    for(TowerGeneric* tower in delTarray)
+        [gameStatusEssentialsSingleton.towers removeObject:tower];
     
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if (![tower visible]) {

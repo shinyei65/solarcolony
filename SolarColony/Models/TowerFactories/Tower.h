@@ -78,5 +78,6 @@
         @property(assign, atomic) bool isDeath;
         @property(assign, atomic) NSString* whichRace;
         @property  CGSize mobileDisplaySize;
+        @property  CGPoint mapLocation;
 
 @end
