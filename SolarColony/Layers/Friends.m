@@ -143,8 +143,8 @@
 {
     if (alertView.tag==0 && buttonIndex == 1) {
         UITextField *textfield = [alertView textFieldAtIndex:0];
-        BOOL empty = [[NetWorkManager NetWorkManager] signInUser:textfield.text];
-        if(empty){
+        BOOL exist = [[NetWorkManager NetWorkManager] checkUser:textfield.text];
+        if(!exist){
             UIAlertView *existAert = [[UIAlertView alloc] initWithTitle:@"" message:@"The player name doesn't exist!" delegate:self cancelButtonTitle:@"check" otherButtonTitles:nil];
             existAert.tag = 1;
    
