@@ -18,6 +18,7 @@
 -(void)getAttackRequest;
 -(void)deleteAttackRequest:(NSString*)datetime;
 -(BOOL)signInUser:(NSString*)username;
+-(BOOL)checkUser:(NSString*)username;
 
 -(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy;
 @end
