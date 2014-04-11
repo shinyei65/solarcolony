@@ -189,24 +189,24 @@ static GameStatsLoader *sharedInstance = nil;
                                        for (NSString *attr in attrs) {
                                            NSArray *pair = [attr componentsSeparatedByString:@"="];
                                            if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
-                                               [me.stats[@"Maigc"][@"Tower1"] removeObjectForKey:@"health"];
-                                               me.stats[@"Maigc"][@"Tower1"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower1"] removeObjectForKey:@"health"];
+                                               me.stats[@"Magic"][@"Tower1"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
-                                               [me.stats[@"Maigc"][@"Tower1"] removeObjectForKey:@"price"];
-                                               me.stats[@"Maigc"][@"Tower1"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower1"] removeObjectForKey:@"price"];
+                                               me.stats[@"Magic"][@"Tower1"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
-                                               [me.stats[@"Maigc"][@"Tower1"] removeObjectForKey:@"reward"];
-                                               me.stats[@"Maigc"][@"Tower1"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower1"] removeObjectForKey:@"reward"];
+                                               me.stats[@"Magic"][@"Tower1"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
-                                               [me.stats[@"Maigc"][@"Tower1"] removeObjectForKey:@"attspeed"];
-                                               me.stats[@"Maigc"][@"Tower1"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower1"] removeObjectForKey:@"attspeed"];
+                                               me.stats[@"Magic"][@"Tower1"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
-                                               [me.stats[@"Maigc"][@"Tower1"] removeObjectForKey:@"power"];
-                                               me.stats[@"Maigc"][@"Tower1"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower1"] removeObjectForKey:@"power"];
+                                               me.stats[@"Magic"][@"Tower1"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                        }
                                    },
@@ -223,16 +223,16 @@ static GameStatsLoader *sharedInstance = nil;
                                                me.stats[@"Maigc"][@"Tower2"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
-                                               [me.stats[@"Maigc"][@"Tower2"] removeObjectForKey:@"reward"];
-                                               me.stats[@"Maigc"][@"Tower2"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower2"] removeObjectForKey:@"reward"];
+                                               me.stats[@"Magic"][@"Tower2"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
-                                               [me.stats[@"Maigc"][@"Tower2"] removeObjectForKey:@"attspeed"];
-                                               me.stats[@"Maigc"][@"Tower2"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower2"] removeObjectForKey:@"attspeed"];
+                                               me.stats[@"Magic"][@"Tower2"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                            if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
-                                               [me.stats[@"Maigc"][@"Tower2"] removeObjectForKey:@"power"];
-                                               me.stats[@"Maigc"][@"Tower2"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
+                                               [me.stats[@"Magic"][@"Tower2"] removeObjectForKey:@"power"];
+                                               me.stats[@"Magic"][@"Tower2"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
                                        }
                                    },
