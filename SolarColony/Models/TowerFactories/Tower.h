@@ -17,7 +17,7 @@
 
     - (void) surveilance;
     - (void) attack:(Soldier*) soldier;
-    - (void) attackTest:(CGPoint) soldier;
+- (void) attackTest:(CGPoint) soldier Target:(Soldier*) target;
 
     -(CCMenu*)loadMenu;
     -(void) setPower:(int) power;

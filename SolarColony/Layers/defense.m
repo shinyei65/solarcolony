@@ -121,15 +121,8 @@
     if ([[notification name] isEqualToString:@"TowerOption"]) {
         
     NSString *interface = [notification.userInfo objectForKey:@"point"];
-        NSString *race = gameStatusEssentialsSingleton.raceType;
-        int price = 0;
-        if([race isEqualToString:@"Human"]){
-            price = [GameStatsLoader loader];
-        }else if([race isEqualToString:@"robot"]){
-            
-        }else{
-            
-        }
+    NSString *race = gameStatusEssentialsSingleton.raceType;
+    NSMutableDictionary *stats = [GameStatsLoader loader].stats;
     
     
     if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
@@ -155,11 +148,11 @@
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
 
-    }else if ([interface isEqualToString:@"TowerC"] && [player getResource]>=robotPrice) {
+    }else if ([interface isEqualToString:@"TowerC"] && [player getResource]>=[stats[race][@"Tower1"][@"price"] integerValue]) {
         
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
-        int newResource = [player getResource] - robotPrice;
+        int newResource = [player getResource] - [stats[race][@"Tower1"][@"price"] integerValue];
         [player setResource:newResource];
 
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Attackv1" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];

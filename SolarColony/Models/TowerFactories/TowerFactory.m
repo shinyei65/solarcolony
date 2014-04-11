@@ -34,12 +34,12 @@
     }  else if ([towerKey isEqualToString:@"Attackv1"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:stats.robotT1_health Price:stats.robotT1_price Reward:stats.robotT1_reward Attspeed:stats.robotT1_attspeed Power:stats.robotT1_power];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:[stats.stats[raceType][@"Tower1"][@"health"] integerValue] Price:[stats.stats[raceType][@"Tower1"][@"price"] integerValue] Reward:[stats.stats[raceType][@"Tower1"][@"reward"] integerValue] Attspeed:[stats.stats[raceType][@"Tower1"][@"attspeed"] integerValue] Power:[stats.stats[raceType][@"Tower1"][@"power"] integerValue]];
         
     } else if ([towerKey isEqualToString:@"Attackv2"]) {
         
         //choose based on current race
-            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:stats.robotT2_health Price:stats.robotT2_price Reward:stats.robotT2_reward Attspeed:stats.robotT2_attspeed Power:stats.robotT2_power];
+            towerCreated=[[TowerAttack alloc] initTower:location Race:raceType Life:[stats.stats[raceType][@"Tower2"][@"health"] integerValue] Price:[stats.stats[raceType][@"Tower2"][@"price"] integerValue] Reward:[stats.stats[raceType][@"Tower2"][@"reward"] integerValue] Attspeed:[stats.stats[raceType][@"Tower2"][@"attspeed"] integerValue] Power:[stats.stats[raceType][@"Tower2"][@"power"] integerValue]];
     }
     return [towerCreated autorelease];
 }

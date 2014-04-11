@@ -62,8 +62,8 @@
             if (tower.towerTowerId==1) {
                 
                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
-                [tower attackTest:soldierpoint];
-                [soldier beingAttacked:[tower getPower]];
+                [tower attackTest:soldierpoint Target:soldier];
+                //[soldier beingAttacked:[tower getPower]];
                 break;
                      }
             } else if(tower.towerTowerId==2) {
@@ -72,9 +72,9 @@
                     if (tower.isCharging) {
                        
                     } else {
-                        [tower attackTest:soldierpoint];
+                        [tower attackTest:soldierpoint Target:soldier];
                         [tower  reloadAnimation];
-                        [soldier beingAttacked:[tower getPower]];
+                        //[soldier beingAttacked:[tower getPower]];
                         break;
      
                     }
