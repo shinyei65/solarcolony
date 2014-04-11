@@ -540,4 +540,88 @@ enum {
 	[columnWidths release];
 	[columnHeights release];
 }
+/** Sophia add align items in columns with padding */
+-(void) alignItemsInColumnsPadding:(NSNumber *) columns, ...
+{
+    [self alignItemsInColumnsPadding:0.0f columns:columns];
+}
+-(void) alignItemsInColumnsPadding:(float)padding columns:(NSNumber *) columns, ...
+{
+    va_list args;
+    va_start(args, columns);
+    
+    [self alignItemsInColumnsPadding:padding columns:columns vaList:args];
+    
+    va_end(args);
+}
+-(void) alignItemsInColumnsPadding: (float)padding columns:(NSNumber *) columns vaList: (va_list) args
+{
+    NSMutableArray  *rows = [[NSMutableArray  alloc] initWithObjects:columns, nil];
+    columns = va_arg(args, NSNumber*);
+    while(columns) {
+        [rows addObject:columns];
+        columns = va_arg(args, NSNumber*);
+    }
+    
+    int height = -5;
+    NSUInteger row = 0, rowHeight = 0, columnsOccupied = 0, rowColumns;
+    CCMenuItem *item;
+    CCARRAY_FOREACH(_children, item){
+        NSAssert( row < [rows count], @"Too many menu items for the amount of rows/columns.");
+        
+        rowColumns = [(NSNumber *) [rows objectAtIndex:row] unsignedIntegerValue];
+        NSAssert( rowColumns, @"Can't have zero columns on a row");
+        
+        rowHeight = fmaxf(rowHeight, item.contentSize.height);
+        ++columnsOccupied;
+        
+        if(columnsOccupied >= rowColumns) {
+            height += rowHeight + 5;
+            
+            columnsOccupied = 0;
+            rowHeight = 0;
+            ++row;
+        }
+    }
+    NSAssert( !columnsOccupied, @"Too many rows/columns for available menu items." );
+    
+    CGSize  winSize = [[CCDirector sharedDirector] winSize];
+    
+    row = 0; rowHeight = 0; rowColumns = 0;
+    float w, x, y = height / 2;
+    int itemNumber = 0;
+    CCARRAY_FOREACH(_children, item) {
+        if(rowColumns == 0) {
+            rowColumns = [(NSNumber *) [rows objectAtIndex:row] unsignedIntegerValue];
+            w = winSize.width / (1 + rowColumns);
+            w = winSize.width / 15;
+            x = w;
+        }
+        
+        CGSize  itemSize = item.contentSize;
+        rowHeight = fmaxf(rowHeight, itemSize.height);
+        if(itemNumber%2) {
+            [item setPosition:ccp((x - winSize.width / 2)+padding,
+                                  y - itemSize.height / 2)];
+        } else {
+            [item setPosition:ccp((x - winSize.width / 2)-padding,
+                                  y - itemSize.height / 2)];
+        }
+        
+        x += w;
+        ++columnsOccupied;
+        
+        if(columnsOccupied >= rowColumns) {
+            y -= rowHeight + 5;
+            
+            columnsOccupied = 0;
+            rowColumns = 0;
+            rowHeight = 0;
+            ++row;
+        }
+        itemNumber++;
+    }
+    
+    [rows release];
+}
 @end

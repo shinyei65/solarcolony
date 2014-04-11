@@ -93,4 +93,7 @@ enum {
 /** set event handler priority. By default it is: kCCMenuTouchPriority */
 -(void) setHandlerPriority:(NSInteger)newPriority;
 
+/** Sophia add aligh items in row of columns with padding */
+-(void) alignItemsInColumnsPadding: (float)padding columns:(NSNumber *) columns, ... NS_REQUIRES_NIL_TERMINATION;
+-(void) alignItemsInColumnsPadding: (float)padding columns:(NSNumber *) columns vaList: (va_list) args;
 @end

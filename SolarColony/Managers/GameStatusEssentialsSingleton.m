@@ -28,7 +28,12 @@
 @synthesize paused;
 @synthesize mapImageName;
 @synthesize mapIndexName;
-
+@synthesize FirstVisit;
+//add
+@synthesize soldierInit;
+@synthesize counterA;
+@synthesize counterB;
+@synthesize counterC;
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
@@ -59,6 +64,13 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         mapImageName = @"";
         mapIndexName = @"";
         paused=false;
+        FirstVisit = true;
+        
+        //add
+        soldierInit = false;
+        counterA = 0;
+        counterB = 0;
+        counterC = 0;
         //SHOULD READ ALL OF THIS FROM THE DB
         
     }
@@ -141,6 +153,24 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return self;
 }
 
+- (id)notFirstVisit{
+    FirstVisit = false;
+    return FirstVisit;
+}
+
+//add
+- (BOOL)getSoldierInit {
+    return soldierInit;
+}
+- (int) GetCounterA{
+    return counterA;
+}
+- (int) GetCounterB{
+    return counterB;
+}
+- (int) GetCounterC{
+    return counterC;
+}
 
 
 @end
