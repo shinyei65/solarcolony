@@ -24,6 +24,7 @@
 @synthesize actionTowerLocation;
 @synthesize whichRace;
 @synthesize isDrop;
+@synthesize mapLocation;
 
 - (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType{
    

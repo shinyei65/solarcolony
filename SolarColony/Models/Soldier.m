@@ -12,9 +12,7 @@
 #import "NormalBullet.h"
 
 
-@implementation Soldier{
-
-}
+@implementation Soldier
 @synthesize targetLocation;
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
@@ -188,8 +186,10 @@
 }
 
 -(void)beingAttacked:(int)attack_power{
-    int newHealth = S_health - attack_power;
-    [self setHEALTH:newHealth];
+    @synchronized(self){
+        int newHealth = S_health - attack_power;
+        [self setHEALTH:newHealth];
+    }
 }
 
 

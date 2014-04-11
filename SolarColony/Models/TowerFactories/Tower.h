@@ -17,7 +17,7 @@
 
     - (void) surveilance;
     - (void) attack:(Soldier*) soldier;
-    - (void) attackTest:(CGPoint) soldier;
+- (void) attackTest:(CGPoint) soldier Target:(Soldier*) target;
 
     -(CCMenu*)loadMenu;
     -(void) setPower:(int) power;
@@ -78,5 +78,6 @@
         @property(assign, atomic) bool isDeath;
         @property(assign, atomic) NSString* whichRace;
         @property  CGSize mobileDisplaySize;
+        @property  CGPoint mapLocation;
 
 @end

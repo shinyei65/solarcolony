@@ -8,7 +8,9 @@
 
 #import "TowerAttack.h"
 
-@implementation TowerAttack
+@implementation TowerAttack {
+    Soldier *attack_target;
+}
 @synthesize  targetLocation;
 @synthesize towerTowerId;
 
@@ -24,6 +26,7 @@
 @synthesize whichRace;
 @synthesize towerPrice;
 @synthesize towerReward;
+@synthesize mapLocation;
 
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power{
     
@@ -34,7 +37,7 @@
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     
     if ([raceType isEqualToString:@"Human"]) {
-        
+        attack_target = nil;
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
@@ -116,8 +119,8 @@
 - (void) attack:(Soldier*) soldier{
     
 }
-- (void) attackTest:(CGPoint) soldier{
-    
+- (void) attackTest:(CGPoint) soldier Target:(Soldier*) target{
+    attack_target = target;
     [self setIsAttacking:true];    
     targetLocation=soldier;
     //  [self schedule: @selector(animatonAttack:) interval:1];
@@ -125,13 +128,21 @@
     [self schedule: @selector(animatonAttackTest:) interval:1];
  
 }
+-(void) endAttack
+{
+    if([[gameStatusEssentialsSingleton soldiers] count] > 0){
+        [attack_target beingAttacked:[self getPower]];
+    }
+    attack_target = nil;
+    [self setIsAttacking:false];
+}
 
 -(void) animatonAttackTest: (ccTime) dt
 {
     //  bullet.targetLocation=soldier;
     [bullet delegateRaceAttack];
     [self unscheduleAllSelectors];
-    [self setIsAttacking:false];
+    //[self setIsAttacking:false];
 }
 
 -(void) reloadAnimation
