@@ -18,7 +18,7 @@
     CCMenuItemFont *item5;
     CCMenuItemFont *item6;
     
-    //add
+    
     //for decreasing number of soldier
     CCMenuItemFont *item7;
     CCMenuItemFont *item8;

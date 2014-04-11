@@ -110,7 +110,7 @@
     
 }
 
--(void) setSoldierinWave:(id) soldierType{
+-(void) setSoldierNumber:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
     
     //add....
