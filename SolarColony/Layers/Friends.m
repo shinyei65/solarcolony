@@ -143,31 +143,24 @@
 {
     if (alertView.tag==0 && buttonIndex == 1) {
         UITextField *textfield = [alertView textFieldAtIndex:0];
-        BOOL empty = [[NetWorkManager NetWorkManager] signInUser:textfield.text];
-        if(empty){
-            UIAlertView *existAert = [[UIAlertView alloc] initWithTitle:@"" message:@"The player name doesn't exist!" delegate:self cancelButtonTitle:@"check" otherButtonTitles:nil];
-            existAert.tag = 1;
-   
-            [existAert show];
-            [existAert release];
+        BOOL exist = [[NetWorkManager NetWorkManager] checkUser:textfield.text];
+        if(!exist){
+            UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"The player name doesn't exist!" message:@"Please enter friends's name" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
+            myAlertView.tag = 0;
+            myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
+            UITextField *myTextField = [myAlertView textFieldAtIndex:0];
+            myTextField.placeholder=@"Player";
+            [myTextField becomeFirstResponder];
+            [myTextField setBackgroundColor:[UIColor whiteColor]];
+            [myAlertView addSubview:myTextField];
+            [myAlertView show];
+            [myAlertView release];
+
 
         }
         else{
             
         }
-    }
-    
-    else if (alertView.tag==1 && buttonIndex == 0){
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Please enter friends's name" message:@"\n\n" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Add", nil];
-        myAlertView.tag = 0;
-        myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
-        UITextField *myTextField = [myAlertView textFieldAtIndex:0];
-        myTextField.placeholder=@"Player";
-        [myTextField becomeFirstResponder];
-        [myTextField setBackgroundColor:[UIColor whiteColor]];
-        [myAlertView addSubview:myTextField];
-        [myAlertView show];
-        [myAlertView release];
     }
     
 }
