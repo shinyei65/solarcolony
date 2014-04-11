@@ -19,6 +19,16 @@
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937818B5B2A40064A95D /* braincandy.wav */; };
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
+		09B30E1118F6554600A616FB /* TileMap_2.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E0D18F6554600A616FB /* TileMap_2.tmx */; };
+		09B30E1218F6554600A616FB /* TileMap_3.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E0E18F6554600A616FB /* TileMap_3.tmx */; };
+		09B30E1318F6554600A616FB /* TileMap_4.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E0F18F6554600A616FB /* TileMap_4.tmx */; };
+		09B30E1618F6557800A616FB /* sample_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1418F6557800A616FB /* sample_1.png */; };
+		09B30E1718F6557800A616FB /* sample_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1518F6557800A616FB /* sample_bg.png */; };
+		09B30E1B18F6601F00A616FB /* map_2 in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1818F6601F00A616FB /* map_2 */; };
+		09B30E1C18F6601F00A616FB /* map_3 in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1918F6601F00A616FB /* map_3 */; };
+		09B30E1D18F6601F00A616FB /* map_4 in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1A18F6601F00A616FB /* map_4 */; };
+		09B30E2118F6663100A616FB /* sample_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E2018F6663100A616FB /* sample_2.png */; };
+		09B30E2318F869D200A616FB /* TileMap_1.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E2218F869D200A616FB /* TileMap_1.tmx */; };
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
@@ -301,6 +311,16 @@
 		09AB937718B5B2A40064A95D /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
 		09AB937818B5B2A40064A95D /* braincandy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = braincandy.wav; sourceTree = "<group>"; };
 		09AB937918B5B2A40064A95D /* dark.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = dark.wav; sourceTree = "<group>"; };
+		09B30E0D18F6554600A616FB /* TileMap_2.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap_2.tmx; sourceTree = "<group>"; };
+		09B30E0E18F6554600A616FB /* TileMap_3.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap_3.tmx; sourceTree = "<group>"; };
+		09B30E0F18F6554600A616FB /* TileMap_4.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap_4.tmx; sourceTree = "<group>"; };
+		09B30E1418F6557800A616FB /* sample_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample_1.png; sourceTree = "<group>"; };
+		09B30E1518F6557800A616FB /* sample_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample_bg.png; sourceTree = "<group>"; };
+		09B30E1818F6601F00A616FB /* map_2 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_2; sourceTree = "<group>"; };
+		09B30E1918F6601F00A616FB /* map_3 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_3; sourceTree = "<group>"; };
+		09B30E1A18F6601F00A616FB /* map_4 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_4; sourceTree = "<group>"; };
+		09B30E2018F6663100A616FB /* sample_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sample_2.png; sourceTree = "<group>"; };
+		09B30E2218F869D200A616FB /* TileMap_1.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TileMap_1.tmx; sourceTree = "<group>"; };
 		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
@@ -962,6 +982,16 @@
 		F5584E4718AEDB8100C81B59 /* maps */ = {
 			isa = PBXGroup;
 			children = (
+				09B30E2218F869D200A616FB /* TileMap_1.tmx */,
+				09B30E2018F6663100A616FB /* sample_2.png */,
+				09B30E1818F6601F00A616FB /* map_2 */,
+				09B30E1918F6601F00A616FB /* map_3 */,
+				09B30E1A18F6601F00A616FB /* map_4 */,
+				09B30E1418F6557800A616FB /* sample_1.png */,
+				09B30E1518F6557800A616FB /* sample_bg.png */,
+				09B30E0D18F6554600A616FB /* TileMap_2.tmx */,
+				09B30E0E18F6554600A616FB /* TileMap_3.tmx */,
+				09B30E0F18F6554600A616FB /* TileMap_4.tmx */,
 				F5C329DE18E9E76300822EB0 /* sample1.jpg */,
 				F5C329D918E9E2CE00822EB0 /* testmap.tmx */,
 				F53E796118B5CA030037A48A /* testmap.png */,
@@ -1664,6 +1694,7 @@
 			files = (
 				566FB0A018E008C900A77C4D /* StartGame.png in Resources */,
 				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
+				09B30E1718F6557800A616FB /* sample_bg.png in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF518B779F000C1274C /* On.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
@@ -1676,6 +1707,7 @@
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
 				210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */,
 				09939D2618D14416004EFF55 /* universe-wallpaper1.jpg in Resources */,
+				09B30E2318F869D200A616FB /* TileMap_1.tmx in Resources */,
 				F54714F218EA01CC0099CD70 /* select0.png in Resources */,
 				F5DA46C718CE387400291A0A /* MageSoldier_Special.png in Resources */,
 				FC6DCD7E18E8FA0100DC98A3 /* powerplant.png in Resources */,
@@ -1691,8 +1723,10 @@
 				F54714F318EA01CC0099CD70 /* select0Active.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
+				09B30E1C18F6601F00A616FB /* map_3 in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
+				09B30E1118F6554600A616FB /* TileMap_2.tmx in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
 				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
 				F54714F618EA01CC0099CD70 /* select2.png in Resources */,
@@ -1718,7 +1752,9 @@
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
 				0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */,
 				F54714FA18EA01CC0099CD70 /* background.psd in Resources */,
+				09B30E1218F6554600A616FB /* TileMap_3.tmx in Resources */,
 				FC6DCD7A18E8F68B00DC98A3 /* towerBcharge.png in Resources */,
+				09B30E1318F6554600A616FB /* TileMap_4.tmx in Resources */,
 				F54714FB18EA01CC0099CD70 /* ioButton.psd in Resources */,
 				F54714EE18EA01CC0099CD70 /* buttonLayerSwichSound.caf in Resources */,
 				F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */,
@@ -1729,6 +1765,7 @@
 				F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
 				F54714EF18EA01CC0099CD70 /* background.png in Resources */,
+				09B30E1B18F6601F00A616FB /* map_2 in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
@@ -1744,9 +1781,12 @@
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
 				F54714F818EA01CC0099CD70 /* selectX.png in Resources */,
+				09B30E2118F6663100A616FB /* sample_2.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
+				09B30E1D18F6601F00A616FB /* map_4 in Resources */,
+				09B30E1618F6557800A616FB /* sample_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
