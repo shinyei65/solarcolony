@@ -21,6 +21,7 @@
     CCSprite* towerSprite;
     CCSprite* towerSprite_hp;
 }
+-(void) endAttack;
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
 

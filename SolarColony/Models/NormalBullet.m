@@ -8,6 +8,7 @@
 
 #import "NormalBullet.h"
 #import "GameStatusEssentialsSingleton.h"
+#import "TowerAttack.h"
 @implementation NormalBullet
 {
     CCSprite* towerSprite;
@@ -19,6 +20,7 @@
     double VX0; // meters per second
     double VY0; // meters per second
     float angle;
+    CGPoint prev_loc;
 }
 @synthesize bulletLocation;
 @synthesize targetLocation;
@@ -124,6 +126,12 @@
     }
 }
 
+-(void) endAttack{
+    [self setPosition:prev_loc];
+    TowerAttack *tower = (TowerAttack *) self.parent;
+    [tower endAttack];
+}
+
 -(void) animatonAttackhuman
 {
     // bla bla bla
@@ -141,7 +149,8 @@
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
     id movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    id returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    prev_loc = targetPrevious;
+    id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];
     
     [self runAction:[CCSequence actions: movePoint,returnPoint,nil]];
     
@@ -164,7 +173,8 @@
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
     id movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    id returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    prev_loc = targetPrevious;
+    id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];
     
    
     ccBezierConfig bezier;
@@ -196,7 +206,9 @@
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
     id movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
-    id returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];
+    prev_loc = ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1));
+    id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];
+    //id returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];
     
     
      ccBezierConfig bezier;
