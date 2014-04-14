@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 solarcolonyteam. All rights reserved.
 //
 
+#import "PlayerInfo.h"
 #import "WorldColissionsManager.h"
 
 
@@ -42,7 +43,7 @@
         if ([tower isDeath]) {
             [grid removeTower:tower];
             [delTarray addObject:tower];
-            //[gameStatusEssentialsSingleton.towers removeObject:tower];
+            [[WaveController controller] gainReward:tower.towerReward];
         }
     }
     for(TowerGeneric* tower in delTarray)
@@ -77,7 +78,7 @@
                        
                     } else {
                         [tower attackTest:soldierpoint Target:soldier];
-                        [tower  reloadAnimation];
+                        
                         //[soldier beingAttacked:[tower getPower]];
                         break;
      
@@ -100,8 +101,8 @@
             
             if ( (towerpoint.x>=soldierpoint.x-50&&towerpoint.x<=soldierpoint.x+50)&&(towerpoint.y>=soldierpoint.y-50&& towerpoint.y<=soldierpoint.y+50)) {
                 CCLOG(@"soldier attack!!!!!");
-                [soldier attack:towerpoint];
-                [tower beignattacked];
+                [soldier attack:towerpoint Target:tower];
+                //[tower beignattacked];
             }
         }
         

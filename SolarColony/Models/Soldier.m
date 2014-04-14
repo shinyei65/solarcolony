@@ -6,13 +6,17 @@
 //  Copyright 2014 solarcolonyteam. All rights reserved.
 //
 
-#import "Soldier.h"
+#import "TowerGeneric.h"
 #import "GridMap.h"
 //#import "cocos2d.h"
 #import "NormalBullet.h"
+#import "PlayerInfo.h"
 
 
-@implementation Soldier
+@implementation Soldier{
+    TowerGeneric *attackTarget;
+    int gainReward;
+}
 @synthesize targetLocation;
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
@@ -25,6 +29,9 @@
 - (instancetype) attacker_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super init];
     if (!self) return(nil);
+    attackTarget = nil;
+    gainReward = 0;
+    S_reward = 20;
     S_health = health;
     S_health_max = health;
     S_attack = attack;
@@ -49,6 +56,9 @@
 - (instancetype) runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     self = [super init];
     if (!self) return(nil);
+    attackTarget = nil;
+    gainReward = 0;
+    S_reward = 20;
     S_health = health;
     S_health_max = health;
     S_attack = attack;
@@ -85,8 +95,14 @@
     if (health <= S_health_max*1/10 && health > S_health_max*1/20) {
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
-    if (health <= 0){
-        [self setVisible:FALSE];
+    @synchronized(self){
+        if (health <= 0 && [self visible]){
+            [self setVisible:FALSE];
+            NSLog(@"REWARD!!!!:");
+            int newResource = [[PlayerInfo Player] getResource];
+            newResource +=  S_reward;
+            [[PlayerInfo Player] setResource:newResource];
+        }
     }
 }
 - (int)getHEALTH{
@@ -193,8 +209,9 @@
 }
 
 
-- (void) attack:(CGPoint) tower{
+- (void) attack:(CGPoint) tower  Target:(id) target{
       targetLocation=tower;
+    attackTarget = (TowerGeneric *) target;
     //[self schedule: @selector(animatonAttack:) interval:1];
     [self animatonAttack];
     //[bullet setVisible:false];
@@ -213,13 +230,13 @@
     CGPoint targetLocations = [self convertToNodeSpace:targetLocation];
      //  CCLOG(@"coord x %f",targetLocations.x);
        //CCLOG(@"coord x %f",targetLocations.y);
-    CGPoint targetPrevious = [bullet position];
+    targetPrevious = [bullet position];
  
     movePoint = [CCMoveTo actionWithDuration:.2 position:targetLocations];
-    returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
+    //returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
     
     
-    [bullet runAction:[CCSequence actions: movePoint,returnPoint,[CCCallFunc actionWithTarget:self selector:@selector(bulletDisapp)],nil]];
+    [bullet runAction:[CCSequence actions: movePoint,[CCCallFunc actionWithTarget:self selector:@selector(bulletDisapp)],nil]];
  
     
    // [self unscheduleAllSelectors];
@@ -230,6 +247,9 @@
 
 -(void)bulletDisapp
 {
+    [attackTarget beignattacked];
+    attackTarget = nil;
+    [bullet setPosition:targetPrevious];
     [bullet setVisible:false];
 }
 

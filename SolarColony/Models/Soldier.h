@@ -20,6 +20,7 @@
     int S_attack;
     int S_attack_sp;
     int S_speed;
+    int S_reward;
     float MoveTime;
     float moveCD;
     float AttackTime;
@@ -29,7 +30,7 @@
     CGPoint S_position; // grid coordinate
     id movePoint, returnPoint;
     NormalBullet* bullet;
-    
+    CGPoint targetPrevious;
 }
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
@@ -48,7 +49,7 @@
 - (CGPoint)getPOSITION;
 - (BOOL)getATTACK_FLAG;
 - (void)move:(char)direction gridSize:(CGSize)size;
-- (void)attack:(CGPoint) tower;
+- (void)attack:(CGPoint) tower Target:(id) target;
 -(float)getMoveTime;
 -(float)getMoveCD;
 -(void)acculMoveCD:(float)time;

@@ -21,7 +21,7 @@ static SoldierController *sharedSoldierController = nil;
 
 +Controller{
     if(sharedSoldierController == nil){
-    sharedSoldierController = [[super allocWithZone:nil] init];
+        sharedSoldierController = [[super allocWithZone:nil] init];
     }
     return sharedSoldierController;
 }
@@ -47,10 +47,11 @@ static SoldierController *sharedSoldierController = nil;
             char status = [[GridMap map] getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL){
                 if([sol visible]){
-                [sol setVisible:FALSE];
-                int newLife = [[PlayerInfo Player] getLife]-1;
-                if(newLife >= 0)
-                    [[PlayerInfo Player] setLife:newLife];
+                    [sol setVisible:FALSE];
+                    [[WaveController controller] gainReward:100];
+                    int newLife = [[PlayerInfo Player] getLife]-1;
+                    if(newLife >= 0)
+                        [[PlayerInfo Player] setLife:newLife];
                 }
             }
             else
@@ -60,13 +61,13 @@ static SoldierController *sharedSoldierController = nil;
     
     //simulate being attacked
     /*
-    if (currentTime > 12 && currentTime < 23) {
-        for (int i=0; i < [soldierarray count];i++) {
-            sol = (Soldier *)[soldierarray objectAtIndex:i];
-            [sol setHEALTH:45];
-        }
-    }
-    */
+     if (currentTime > 12 && currentTime < 23) {
+     for (int i=0; i < [soldierarray count];i++) {
+     sol = (Soldier *)[soldierarray objectAtIndex:i];
+     [sol setHEALTH:45];
+     }
+     }
+     */
 }
 
 

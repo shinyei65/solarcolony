@@ -196,10 +196,8 @@ NSString *AI_REQUEST = @"AI";
             temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
         else if(_army_gen_count == 1)
             temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
-        else{
+        else
             temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
-            _army_gen_count = 0;
-        }
         [wave addSoldier: temp];
     }
     _army_gen_count++;

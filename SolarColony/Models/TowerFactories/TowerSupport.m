@@ -87,8 +87,10 @@
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
 
-    }   
+    }
+    [bullet setVisible:FALSE];
     actionTowerLocation=ccp(0, 0);
+    _health = 140;
     whichRace=raceType;
     isDrop=false;
     [self setPosition:[self getLocation]];
@@ -129,24 +131,24 @@
     if ([self getLife]<=0) {
         isDeath=true;
     }else{
-        [self setLife:([self getLife]-10)];
-        [self setHEALTH:-10];
+        [self setLife:([self getLife]-1)];
+        [self setHEALTH:-1];
     }
 }
 
 - (void)setHEALTH:(int)reduceHealth{
     
-    if (towerLife <= health*3/4 && towerLife > health*1/2) {
+    if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
         //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
-    if (towerLife <= health*1/2 && towerLife > health*1/4) {
+    if (towerLife <= _health*1/2 && towerLife > _health*1/4) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
     }
-    if (towerLife <= health*1/4 && towerLife > health*1/10) {
+    if (towerLife <= _health*1/4 && towerLife > _health*1/10) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
     }
-    if (towerLife <= health*1/10 && towerLife > health*1/20) {
+    if (towerLife <= _health*1/10 && towerLife > _health*1/20) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
     

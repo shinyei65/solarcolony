@@ -12,7 +12,7 @@
 
 @interface TowerAttack : CCNode<Tower>{
     int counterTest;
-    int health;
+    int _health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
