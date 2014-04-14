@@ -23,7 +23,7 @@
     BOOL _isMoved;
     CGSize _screenSize;
     CircleSliderButtonScene *_towermenu2;
-    CGPoint _start;
+    NSArray *_start; int _numOfStart;
     CGPoint _goal;
     
     //UI touch variable
@@ -79,8 +79,23 @@ static GridMap *sharedInstance = nil;
         NSString* line = [allLinedStrings objectAtIndex:i];
         //NSLog(@"line: %@", line);
         if(i == 0){
-            NSArray *listItems = [line componentsSeparatedByString:@", "];
-            _start = ccp([[listItems objectAtIndex:0] integerValue], [[listItems objectAtIndex:1] integerValue]);
+            if([line rangeOfString:@";"].location == NSNotFound){
+                _numOfStart = 1;
+                id points[1];
+                NSArray *listItems = [line componentsSeparatedByString:@", "];
+                points[0] = [NSValue valueWithCGPoint:CGPointMake([[listItems objectAtIndex:0] integerValue], [[listItems objectAtIndex:1] integerValue])];
+                _start = [[NSArray arrayWithObjects:points count:1] retain];
+            }else{
+                NSArray *starts = [line componentsSeparatedByString:@";"];
+                _numOfStart = [starts count];
+                id points[_numOfStart];
+                for(int x=0; x<_numOfStart; x++){
+                    NSArray *listItems = [[starts objectAtIndex:x] componentsSeparatedByString:@", "];
+                    points[x] = [NSValue valueWithCGPoint:CGPointMake([[listItems objectAtIndex:0] integerValue], [[listItems objectAtIndex:1] integerValue])];
+                }
+                _start = [[NSArray arrayWithObjects:points count:_numOfStart] retain];
+            }
+        
             continue;
         }
         for(int j=0; j<GridMapWidth; j++){
@@ -137,6 +152,7 @@ static GridMap *sharedInstance = nil;
 
 - (void) dealloc
 {
+    [_start release]; _start = nil;
     [_towermenu2 release]; _towermenu2 = nil;
     [self release];
     [super dealloc];
@@ -144,9 +160,13 @@ static GridMap *sharedInstance = nil;
 
 #pragma mark - operation of map
 
-- (CGPoint) getStartIndex
+- (NSArray *) getStartIndex
 {
     return _start;
+}
+- (int) getStartCount
+{
+    return _numOfStart;
 }
 
 - (CGPoint) getGoalIndex

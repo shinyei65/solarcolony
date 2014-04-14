@@ -50,10 +50,14 @@ static const float resource_inc_time = 1;
     player_life = life;
 }
 -(int)getResource{
-    return player_resource;
+    @synchronized(self){
+        return player_resource;
+    }
 }
 -(void)setResource:(int)resource{
-    player_resource = resource;
+    @synchronized(self){
+        player_resource = resource;
+    }
 }
 
 -(void)increaseResource:(ccTime)time{

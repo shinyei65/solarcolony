@@ -14,9 +14,10 @@ int SOL_GEN_RATE = 1;
 
 @implementation WaveController {
     int _tick;
+    int _startTakeTurn;
+    int _reward;
     NSMutableArray *_monitor;
     Wave *_wave;
-    NSObject *_mylock;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
@@ -38,6 +39,7 @@ int SOL_GEN_RATE = 1;
     // initialize variable
     _monitor = [[NSMutableArray alloc] init];
     _tick = 0;
+    _startTakeTurn = 0;
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     return self;
 }
@@ -71,7 +73,7 @@ int SOL_GEN_RATE = 1;
 {
     //NSLog(@"WaveController: generate a soldier");
     GridMap *grid = [GridMap map];
-    CGPoint start = [grid getStartIndex];
+    CGPoint start = [[[grid getStartIndex] objectAtIndex:_startTakeTurn] CGPointValue];
     Soldier *sol = [_wave popSoldier];
     [_monitor addObject: sol];
     [sol setPOSITION:start.x Y:start.y];
@@ -100,6 +102,7 @@ int SOL_GEN_RATE = 1;
 - (void) endWave
 {
     NSLog(@"WaveController: end a wave");
+    _startTakeTurn = (_startTakeTurn + 1) % [[GridMap map] getStartCount];
     [gameStatusEssentialsSingleton removeAllSoldiers];
     int count = [_monitor count];
     //NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
@@ -114,7 +117,19 @@ int SOL_GEN_RATE = 1;
     }
     
     [_wave release]; _wave = nil;
+    [self sendAndRefresgReward];
     [[ArmyQueue layer] endWave];
+}
+
+- (void) gainReward:(int) gain
+{
+    _reward += gain;
+}
+
+- (void) sendAndRefresgReward
+{
+    NSLog(@"REWARD=%d", _reward);
+    _reward = 0;
 }
 
 @end
