@@ -29,7 +29,8 @@
 - (CGPoint) getTowerMenuPosition;
 - (void) setTowerMenuPosition:(CGPoint) loc;
 - (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z;
-- (CGPoint) getStartIndex;
+- (NSArray *) getStartIndex;
+- (int) getStartCount;
 - (CGPoint) getGoalIndex;
 - (void) showMessage: (NSString *) str;
 - (void) removeTower: (id) tower;

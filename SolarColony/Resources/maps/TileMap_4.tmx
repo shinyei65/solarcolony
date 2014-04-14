@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="15" height="10" tilewidth="76" tileheight="64">
  <tileset firstgid="1" name="sample_1" tilewidth="76" tileheight="64">
-  <image source="Tile samples/sample_1.png" width="1216" height="1024"/>
+  <image source="sample_1.png" width="1216" height="1024"/>
  </tileset>
- <tileset firstgid="257" name="sample_bg" tilewidth="76" tileheight="64">
-  <image source="Tile samples/sample_bg.png" width="1216" height="1024"/>
- </tileset>
- <layer name="Tile Layer 1" width="15" height="10">
+ <layer name="Background" width="15" height="10">
   <data encoding="base64" compression="zlib">
    eJx1UtsNwjAQu8wVFmg3aDco5Y8pmo7CFDwWgLJAYQJggfqki2pdw4dlyXFiX5IYRHZAZBawbHnG2gt4A1Moe5QrYA90QG36B/4v8DPuzNMDB/Pp3kRnpT89vDYYj6QPro/mnQp7kztD9Yb6t6T3ptcuL7kcP1cs5OWMVrbdM4/GR3ubhu60NMMZnltYZ9B5J9L8nBXl38Pqzev6zk/6E7kz99a12f7EA7gCF2AB2dA63A==
   </data>

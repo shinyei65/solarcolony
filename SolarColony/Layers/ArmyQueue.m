@@ -186,7 +186,6 @@ NSString *AI_REQUEST = @"AI";
         }else{
             wave.race = @"magic";
             temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
-            _army_gen_count = 0;
         }
         [wave addSoldier: temp];
     }
@@ -204,11 +203,13 @@ NSString *AI_REQUEST = @"AI";
         [wave addSoldier: temp];
     }
     _army_gen_count++;
+    if(_army_gen_count > 2)
+        _army_gen_count = 0;
     [army addWave: wave];
     
     [self addArmy: army];
     if(AI_HEALTH < 100)
-        AI_HEALTH *= 1.5f;
+        AI_HEALTH *= 1.3f;
     
 }
 

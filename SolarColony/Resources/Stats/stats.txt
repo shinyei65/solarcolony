@@ -1,5 +1,5 @@
-mapIndexFile: testmap
-mapImageFile: TileMap_1.tmx
+mapIndexFile: map_4
+mapImageFile: TileMap_4.tmx
 robotTower1: health=30,price=160,reward=40,attspeed=42,power=10
 robotTower2: health=48,price=320,reward=80,attspeed=66,power=20
 humanTower1: health=35,price=160,reward=40,attspeed=60,power=5
