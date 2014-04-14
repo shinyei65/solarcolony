@@ -37,9 +37,9 @@
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+        [splash setPosition:ccp(mobileDisplaySize.width*.3, mobileDisplaySize.height*.8)];
         
-        CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper6.jpg"];
+        CCSprite *bg = [CCSprite spriteWithFile:@"backgroundLayers.png"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         [self addChild:bg];
         
@@ -51,33 +51,37 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemFont *manuItemFriends=[CCMenuItemFont itemWithString:@"Friends" target:self selector:@selector(moveToScene:)];
-    
-    CCMenuItemFont *manuItemDefense=[CCMenuItemFont itemWithString:@"DeFense" target:self selector:@selector(moveToScene:)];
-    
-    CCMenuItemFont *manuItemattack=[CCMenuItemFont itemWithString:@"Attack" target:self selector:@selector(moveToScene:)];
-    
-    CCMenuItemFont *manuItemdefenseSetting=[CCMenuItemFont itemWithString:@"TowersSet" target:self selector:@selector(moveToScene:)];
-    
+    CCMenuItemImage *manuItemFriends=[CCMenuItemImage itemWithNormalImage:@"foff.png" selectedImage:@"fon.png" target:self selector:@selector(moveToScene:)];
+    manuItemFriends.userData=@"Friends";
+    CCMenuItemImage *manuItemDefense=[CCMenuItemImage itemWithNormalImage:@"doff.png" selectedImage:@"don.png" target:self selector:@selector(moveToScene:)];
+    manuItemDefense.userData=@"DeFense";
+    CCMenuItemImage *manuItemattack=[CCMenuItemImage itemWithNormalImage:@"aoff.png" selectedImage:@"aon.png" target:self selector:@selector(moveToScene:)];
+    manuItemattack.userData=@"Attack";
+    CCMenuItemImage *manuItemdefenseSetting=[CCMenuItemImage itemWithNormalImage:@"toff.png" selectedImage:@"ton.png" target:self selector:@selector(moveToScene:)];
+    manuItemdefenseSetting.userData=@"TowersSet";
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, manuItemdefenseSetting, nil];
     
-    [mainMenu alignItemsHorizontallyWithPadding:20];
+    [mainMenu alignItemsVerticallyWithPadding:20];
     
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
+    [mainMenu setPosition:ccp( mobileDisplaySize.width*.7, mobileDisplaySize.height*.5)];
     
     return mainMenu;
     
 }
 
 -(void)moveToScene:(id)sender{
-    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
-    if ([menuItem.label.string isEqualToString:@"Friends"]) {
+    CCMenuItemImage* menuItem = (CCMenuItemImage*)sender;
+    CCMenuItem *itm = (CCMenuItem *)sender;
+    NSString *theData = (NSString *)itm.userData;
+    
+    
+    if ([theData isEqualToString:@"Friends"]) {
         [transitionManagerSingleton transitionTo:5];
-    } else if ([menuItem.label.string isEqualToString:@"DeFense"])  {
+    } else if ([theData isEqualToString:@"DeFense"])  {
         [transitionManagerSingleton transitionTo:3];
-    } else if ([menuItem.label.string isEqualToString:@"Attack"])  {
+    } else if ([theData isEqualToString:@"Attack"])  {
         [transitionManagerSingleton transitionTo:6];
-    } else if ([menuItem.label.string isEqualToString:@"TowersSet"])  {
+    } else if ([theData isEqualToString:@"TowersSet"])  {
         [transitionManagerSingleton transitionTo:8];
     }
     // NSLog(menuItem.label.string);
