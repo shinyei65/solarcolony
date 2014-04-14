@@ -74,7 +74,6 @@ int SOL_GEN_RATE = 1;
     //NSLog(@"WaveController: generate a soldier");
     GridMap *grid = [GridMap map];
     CGPoint start = [[[grid getStartIndex] objectAtIndex:_startTakeTurn] CGPointValue];
-    _startTakeTurn = (_startTakeTurn + 1) % [grid getStartCount];
     Soldier *sol = [_wave popSoldier];
     [_monitor addObject: sol];
     [sol setPOSITION:start.x Y:start.y];
@@ -103,6 +102,7 @@ int SOL_GEN_RATE = 1;
 - (void) endWave
 {
     NSLog(@"WaveController: end a wave");
+    _startTakeTurn = (_startTakeTurn + 1) % [[GridMap map] getStartCount];
     [gameStatusEssentialsSingleton removeAllSoldiers];
     int count = [_monitor count];
     //NSLog(@"GridMap: children = %d", [[[GridMap map] children] count]);
