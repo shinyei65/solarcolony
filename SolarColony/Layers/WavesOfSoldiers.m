@@ -28,7 +28,7 @@ static NSMutableDictionary *dict;
 
 
 +(CCScene *) scene
-{    
+{
     
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
@@ -83,13 +83,13 @@ static NSMutableDictionary *dict;
             
         }
         CCLOG(@"Initialization %i",wave_sol[cur_wave][0]);
-       
-       
-       
+        
+        
+        
         if([gameStatusEssentialsSingleton FirstVisit ]==true){
             dict = [[NSMutableDictionary alloc]init];
             [gameStatusEssentialsSingleton notFirstVisit];
-
+            
         }
         
         [dict setObject:@"Wave 1" forKey:@"w1"];
@@ -97,21 +97,21 @@ static NSMutableDictionary *dict;
         
         
         CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveRequest:)];
-
+        
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
-
+        
         CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
         [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
         
-       
-        
-       
         
         
         
-       
+        
+        
+        
+        
         
         [self addChild:splash z:1];
         [self addChild:mainMenu z:2];
@@ -136,8 +136,8 @@ static NSMutableDictionary *dict;
     ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
     army.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstring= [army toJSONString];
-   // CCLOG(jsonstring);
-   
+    // CCLOG(jsonstring);
+    
     
     
     
@@ -161,7 +161,7 @@ static NSMutableDictionary *dict;
     }
     armyNetwork.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstringFixed= [armyNetwork toJSONString];
-
+    
     CCLOG(jsonstringFixed);
     
 }
@@ -195,15 +195,15 @@ static NSMutableDictionary *dict;
     
     
     
-        NSArray *keys = [dict allKeys];
+    NSArray *keys = [dict allKeys];
     NSLog(@"dict %@",dict);
-        NSLog(@"%@",keys);
-        // values in foreach loop
-        for (NSString *key in keys) {
-            ItemArray = [NSMutableArray arrayWithObject:[dict objectForKey:key]];
-            
-        }
-        NSLog(@"Item %@",ItemArray);
+    NSLog(@"%@",keys);
+    // values in foreach loop
+    for (NSString *key in keys) {
+        ItemArray = [NSMutableArray arrayWithObject:[dict objectForKey:key]];
+        
+    }
+    NSLog(@"Item %@",ItemArray);
     
     
     waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
@@ -276,7 +276,7 @@ static NSMutableDictionary *dict;
 }
 
 -(void)AddNewItem{
-     CCLOG(@"add new item");
+    CCLOG(@"add new item");
     
     wave_num = wave_num + 1;
     NSString *Wave_num =[NSString stringWithFormat:@"Wave %i",wave_num];
@@ -296,14 +296,31 @@ static NSMutableDictionary *dict;
 
 /**used to be in SoldierLayer Start*/
 -(CCMenu*) loadWave{
-    CCMenuItemFont *soldierA=[CCMenuItemFont itemWithString:@"Soldier A" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierB=[CCMenuItemFont itemWithString:@"Soldier B" target:self selector:@selector(setSoldierinWave:)];
-    CCMenuItemFont *soldierC=[CCMenuItemFont itemWithString:@"Soldier C" target:self selector:@selector(setSoldierinWave:)];
+    NSString *robot = @"Robot";
+    NSString *human = @"Human";
+    NSString *magic = @"Magic";
+    CCMenuItemImage *soldierA;
+    CCMenuItemImage *soldierB;
+    CCMenuItemImage *soldierC;
+    if([gameStatusEssentialsSingleton raceType] == human){
+        soldierA=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
+        soldierB=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
+        soldierC=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_Basic.gif"];
+    }
+    if([gameStatusEssentialsSingleton raceType] == robot){
+        soldierA=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+        soldierB=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Special.png" selectedImage:@"RobotSoldier_Special.png"];
+        soldierC=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+    }
+    if([gameStatusEssentialsSingleton raceType] == magic){
+        soldierA=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+        soldierB=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
+        soldierC=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+    }
     
-    
-    [soldierA setFontSize:20];
-    [soldierB setFontSize:20];
-    [soldierC setFontSize:20];
+    //[soldierA setFontSize:20];
+    //[soldierB setFontSize:20];
+    //[soldierC setFontSize:20];
     
     CCMenu *SoldierMenu = [CCMenu menuWithItems:soldierA, soldierB, soldierC, nil];
     [SoldierMenu  alignItemsVertically];
@@ -314,11 +331,11 @@ static NSMutableDictionary *dict;
 
 
 -(CCMenu*) loadMutablesoldierMenuNumber{
-    item1=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterA] target:self selector:nil];
+    item1=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterA]];
     [item1 setFontSize:20];
-    item2=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterB] target:self selector:nil];
+    item2=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterB]];
     [item2 setFontSize:20];
-    item3=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterC] target:self selector:nil];
+    item3=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterC]];
     [item3 setFontSize:20];
     
     //add
@@ -344,7 +361,7 @@ static NSMutableDictionary *dict;
     
     soldierMenus = [CCMenu menuWithItems:item4,item1,item7,item5, item2,item8,item6, item3,item9, nil];
     
- //   [soldierMenus alignItemsInColumns:[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],nil];
+    //   [soldierMenus alignItemsInColumns:[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],nil];
     [soldierMenus alignItemsInColumnsPadding:0 columns:[NSNumber numberWithInt:3],[NSNumber numberWithInt:3],[NSNumber numberWithInt:3], nil];
     //[soldierMenus  alignItemsVertically];
     [soldierMenus setPosition:ccp(mobileDisplaySize.width + 50, mobileDisplaySize.height/2)];
