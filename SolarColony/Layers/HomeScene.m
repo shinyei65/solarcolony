@@ -52,13 +52,17 @@
         [self addChild:splash];
         [self addChild:[self loadMenu]];
         
+        /*
         // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
         //[standardUserDefaults removePersistentDomainForName:appDomain];
         NSData* playerdata;
         playerdata = [standardUserDefaults objectForKey:@"playerInfo"];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerdata];
-        
-        if(player == nil){
+        */
+        NSString *username = [standardUserDefaults objectForKey:@"username"];
+        [PlayerInfo Player].username = username;
+         
+        if(username == nil){
         player = [PlayerInfo Player];
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
@@ -83,7 +87,8 @@
             }
             CCLOG(@"\nnumber of friends: %d",[player.friends count]);
           */
-            playername = [CCLabelTTF labelWithString:player.username fontName:@"Outlier.ttf" fontSize:15];
+            
+            playername = [CCLabelTTF labelWithString:username fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
             
@@ -125,9 +130,12 @@
             [player setUsername:textfield.text];
             [player setResource:1234];
             [player setLife:56];
+            [[NSUserDefaults standardUserDefaults] setObject:textfield.text forKey:@"username"];
+            /*
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            */
             
         }else{
             NSLog(@"Sign in failed!");

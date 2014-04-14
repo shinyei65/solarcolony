@@ -228,6 +228,7 @@
 		F562E4EF18CE3A550006063B /* serialization todo.m in Sources */ = {isa = PBXBuildFile; fileRef = F562E4EE18CE3A550006063B /* serialization todo.m */; };
 		F566881318C80D3300A2D1F7 /* Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = F566881218C80D3300A2D1F7 /* Wave.m */; };
 		F566881618C816B500A2D1F7 /* ArmyQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = F566881518C816B500A2D1F7 /* ArmyQueue.m */; };
+		F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5675F1918FC71E0001BA0AB /* friend_bar_sel.png */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
 		F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A73F18F234F300802CA6 /* SupportTowerTouch.m */; };
@@ -696,6 +697,7 @@
 		F566881218C80D3300A2D1F7 /* Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wave.m; sourceTree = "<group>"; };
 		F566881418C816B500A2D1F7 /* ArmyQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArmyQueue.h; sourceTree = "<group>"; };
 		F566881518C816B500A2D1F7 /* ArmyQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArmyQueue.m; sourceTree = "<group>"; };
+		F5675F1918FC71E0001BA0AB /* friend_bar_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_bar_sel.png; sourceTree = "<group>"; };
 		F56A654418A9516A00AE0884 /* Soldier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Soldier.h; sourceTree = "<group>"; };
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
@@ -858,6 +860,7 @@
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
 				21152FF318B779F000C1274C /* On.png */,
+				F5675F1918FC71E0001BA0AB /* friend_bar_sel.png */,
 				F521428418B699120085BD47 /* soundOff.png */,
 				F5A6ECD718C5226500308F11 /* HumanSoldier_Basic.gif */,
 				F5A6ECD818C5226500308F11 /* HumanSoldier_Special.gif */,
@@ -1728,6 +1731,7 @@
 				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF518B779F000C1274C /* On.png in Resources */,
+				F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				F521428618B699120085BD47 /* soundOff.png in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
