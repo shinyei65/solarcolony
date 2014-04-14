@@ -52,8 +52,8 @@
         [self addChild:splash];
         [self addChild:[self loadMenu]];
         
-      // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
-       // [standardUserDefaults removePersistentDomainForName:appDomain];
+        // NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+        //[standardUserDefaults removePersistentDomainForName:appDomain];
         NSData* playerdata;
         playerdata = [standardUserDefaults objectForKey:@"playerInfo"];
         player = [NSKeyedUnarchiver unarchiveObjectWithData:playerdata];
@@ -83,7 +83,7 @@
             }
             CCLOG(@"\nnumber of friends: %d",[player.friends count]);
           */
-            playername = [CCLabelTTF labelWithString:@"123" fontName:@"Outlier.ttf" fontSize:15];
+            playername = [CCLabelTTF labelWithString:player.username fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
             
@@ -127,6 +127,7 @@
             [player setLife:56];
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             
         }else{
             NSLog(@"Sign in failed!");

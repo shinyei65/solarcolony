@@ -83,7 +83,11 @@ static const int nameYDistance = 28;
     [mainMenu addChild:bar8 z:3];
     
     for (int i =0 ; i < [[PlayerInfo Player].friends count]; i++) {
-    
+
+            
+            CCLOG(@"new friend: %@", [[PlayerInfo Player].friends objectAtIndex:i]);
+            
+
             CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[[PlayerInfo Player].friends objectAtIndex:i]];
             [mainMenu addChild:newFriend z:4];
             CCLOG(@"new friend: %@", [[PlayerInfo Player].friends objectAtIndex:i]);
@@ -189,6 +193,7 @@ static const int nameYDistance = 28;
                 [[PlayerInfo Player].friends addObject:textfield.text];
                 NSData *data = [NSKeyedArchiver archivedDataWithRootObject:[PlayerInfo Player]];
                 [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
             }
         }
     }

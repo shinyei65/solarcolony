@@ -70,8 +70,6 @@ static const float resource_inc_time = 1;
         self->player_resource = [decoder decodeIntForKey:@"player_resource"];
         self->player_life = [decoder decodeIntForKey:@"player_life"];
         username = [[decoder decodeObjectForKey:@"username"] retain];
-        CCLOG(@"here");
-   
         //NSArray *tempFrd =[[decoder decodeObjectForKey:@"friends"] retain];
        // CCLOG(@"friends: %@",tempFrd);
         //friends = [[NSMutableArray alloc] initWithArray:tempFrd copyItems:TRUE];
