@@ -55,11 +55,16 @@ static NSMutableDictionary *dict;
         //Game status global variables
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         
+        
+        
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Assign Waves" fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
+        //initial background
+        CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         
         wave_num = 1;
         
@@ -111,13 +116,14 @@ static NSMutableDictionary *dict;
         
         
         
-        
+        [self addChild:bg z:0];
         
         [self addChild:splash z:1];
         [self addChild:mainMenu z:2];
         [self addChild:[self LoadWaveMenu] z:3];
-        [self addChild:[self loadWave]z:4];
-        [self addChild:[self loadMutablesoldierMenuNumber]z:5];
+        //[self addChild:[self loadWave]z:3];
+        [self addChild:[self loadTable]z:3];
+        //[self addChild:[self loadMutablesoldierMenuNumber]z:3];
         
         
     }
@@ -294,6 +300,41 @@ static NSMutableDictionary *dict;
 }
 /**used to be in WaveLayer End*/
 
+-(CCMenu*) loadTable{
+    
+    CCMenuItemImage *TableSoldierA = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierB = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierC = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierD = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierE = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *soldierA_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    CCMenuItemImage *soldierA_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
+    CCMenuItemImage *soldierA_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
+    //hard coded ccp don't change
+    soldierA_decrease.position = ccp(-4,5);
+    soldierA_number.position = ccp(20,3);
+    soldierA_increase.position = ccp(44, 5);
+    
+    TableSoldierA.position = ccp(20,50);//with 150*150
+    TableSoldierB.position = ccp(90,50);
+    TableSoldierC.position = ccp(160,50);
+   // TableSoldierD.position = ccp(20,-20);
+   // TableSoldierE.position = ccp(90,-20);
+    
+    CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
+    [SoldierMenu addChild:TableSoldierA z:0];
+    [SoldierMenu addChild:TableSoldierB z:0];
+    [SoldierMenu addChild:TableSoldierC z:0];
+    //[SoldierMenu addChild:TableSoldierD z:0];
+    //[SoldierMenu addChild:TableSoldierE z:0];
+    [SoldierMenu addChild:soldierA_number z:0];
+    [SoldierMenu addChild:soldierA_decrease z:1];
+    [SoldierMenu addChild:soldierA_increase z:1];
+    
+    [SoldierMenu setPosition:ccp(mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
+     return SoldierMenu;
+}
+
 /**used to be in SoldierLayer Start*/
 -(CCMenu*) loadWave{
     NSString *robot = @"Robot";
@@ -302,6 +343,11 @@ static NSMutableDictionary *dict;
     CCMenuItemImage *soldierA;
     CCMenuItemImage *soldierB;
     CCMenuItemImage *soldierC;
+    CCMenuItemImage *TableSoldierA = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierB = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierC = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierD = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
+    CCMenuItemImage *TableSoldierE = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
     if([gameStatusEssentialsSingleton raceType] == human){
         soldierA=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
         soldierB=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
@@ -318,12 +364,17 @@ static NSMutableDictionary *dict;
         soldierC=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
     }
     
-    //[soldierA setFontSize:20];
-    //[soldierB setFontSize:20];
-    //[soldierC setFontSize:20];
     
-    CCMenu *SoldierMenu = [CCMenu menuWithItems:soldierA, soldierB, soldierC, nil];
-    [SoldierMenu  alignItemsVertically];
+    CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
+    //[SoldierMenu addChild:TableSoldierA z:3];
+    //[SoldierMenu addChild:TableSoldierB z:3];
+    //[SoldierMenu addChild:TableSoldierC z:3];
+    //[SoldierMenu addChild:TableSoldierD z:3];
+    //[SoldierMenu addChild:TableSoldierE z:3];
+    [SoldierMenu addChild:soldierA z:4];
+    [SoldierMenu addChild:soldierB z:4];
+    [SoldierMenu addChild:soldierC z:4];
+    //[SoldierMenu  alignItemsVertically];
     [SoldierMenu setPosition:ccp(mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     
     return SoldierMenu;
