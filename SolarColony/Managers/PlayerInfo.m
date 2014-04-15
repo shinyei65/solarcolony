@@ -50,10 +50,14 @@ static const float resource_inc_time = 1;
     player_life = life;
 }
 -(int)getResource{
-    return player_resource;
+    @synchronized(self){
+        return player_resource;
+    }
 }
 -(void)setResource:(int)resource{
-    player_resource = resource;
+    @synchronized(self){
+        player_resource = resource;
+    }
 }
 
 -(void)increaseResource:(ccTime)time{
@@ -70,8 +74,6 @@ static const float resource_inc_time = 1;
         self->player_resource = [decoder decodeIntForKey:@"player_resource"];
         self->player_life = [decoder decodeIntForKey:@"player_life"];
         username = [[decoder decodeObjectForKey:@"username"] retain];
-        CCLOG(@"here");
-   
         //NSArray *tempFrd =[[decoder decodeObjectForKey:@"friends"] retain];
        // CCLOG(@"friends: %@",tempFrd);
         //friends = [[NSMutableArray alloc] initWithArray:tempFrd copyItems:TRUE];

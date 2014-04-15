@@ -15,9 +15,9 @@ int SOL_GEN_RATE = 1;
 @implementation WaveController {
     int _tick;
     int _startTakeTurn;
+    int _reward;
     NSMutableArray *_monitor;
     Wave *_wave;
-    NSObject *_mylock;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
 }
 
@@ -117,7 +117,19 @@ int SOL_GEN_RATE = 1;
     }
     
     [_wave release]; _wave = nil;
+    [self sendAndRefresgReward];
     [[ArmyQueue layer] endWave];
+}
+
+- (void) gainReward:(int) gain
+{
+    _reward += gain;
+}
+
+- (void) sendAndRefresgReward
+{
+    NSLog(@"REWARD=%d", _reward);
+    _reward = 0;
 }
 
 @end

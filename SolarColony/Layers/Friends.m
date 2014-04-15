@@ -10,12 +10,13 @@
 #import "HomeScene.h"
 #import "TowerHuman.h"
 
-static const int origin_X_ForName = -55;
+static const int origin_X_ForName = -15;
 static const int origin_Y_ForName = 66;
 static const int nameYDistance = 28;
 
 @implementation Friends{
     CCMenu *mainMenu;
+    NSMutableArray* friends;
 }
 @synthesize mobileDisplaySize;
 
@@ -45,10 +46,17 @@ static const int nameYDistance = 28;
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper1.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        NSArray *tempFrd =[[NSUserDefaults standardUserDefaults]  objectForKey:@"friends"];
+        // CCLOG(@"friends: %@",tempFrd);
+        friends = [[NSMutableArray alloc] initWithArray:tempFrd copyItems:TRUE];
+        //friends = [[NSUserDefaults standardUserDefaults]  objectForKey:@"friends"];
+        if (friends == nil) {
+            friends = [[NSMutableArray alloc] init];
+            NSLog(@"declare frd array");
+        }
+       // friends = nil;
         [self addChild:bg];
         [self addChild:[self loadMenu]];
-        
-
 
     }
     return self;
@@ -82,15 +90,23 @@ static const int nameYDistance = 28;
     [mainMenu addChild:bar7 z:3];
     [mainMenu addChild:bar8 z:3];
     
-    for (int i =0 ; i < [[PlayerInfo Player].friends count]; i++) {
     
-            CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[[PlayerInfo Player].friends objectAtIndex:i]];
+    
+    
+    CCLOG(@"\nnumber of friends: %d",[friends count]);
+    
+    for (int i =0 ; i < [friends count]; i++) {
+
+            CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[friends objectAtIndex:i]];
             [mainMenu addChild:newFriend z:4];
-            CCLOG(@"new friend: %@", [[PlayerInfo Player].friends objectAtIndex:i]);
+            CCLOG(@"new friend: %@", [friends objectAtIndex:i]);
             newFriend.fontName = @"Outlier.ttf";
             newFriend.fontSize = 20;
             [newFriend.label setColor:ccc3(200, 200, 230)];
-            newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*[[PlayerInfo Player].friends count]);
+            NSLog(@"index: %d",i);
+        NSLog(@"x: %d",origin_X_ForName);
+        NSLog(@"y: %d",origin_Y_ForName - nameYDistance*i);
+            newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*i);
             
 
     }
@@ -107,14 +123,14 @@ static const int nameYDistance = 28;
     bar7.scale = 1.2;
     bar8.scale = 1.2;
     
-    bar1.position = ccp(-15,10);
-    bar2.position = ccp(-15,-18);
-    bar3.position = ccp(-15,-46);
-    bar4.position = ccp(-15,-74);
-    bar5.position = ccp(-15,-102);
-    bar6.position = ccp(-15,-130);
-    bar7.position = ccp(-15,-158);
-    bar8.position = ccp(-15,-186);
+    bar1.position = ccp(origin_X_ForName,origin_Y_ForName);
+    bar2.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance);
+    bar3.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*2);
+    bar4.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*3);
+    bar5.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*4);
+    bar6.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*5);
+    bar7.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*6);
+    bar8.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*7);
     
     FriendsMenu.opacity = 200;
     //[mainMenu alignItemsVerticallyWithPadding:10];
@@ -172,23 +188,37 @@ static const int nameYDistance = 28;
 
         }
         else{
-            if([[PlayerInfo Player].friends containsObject:textfield.text]){
+            if([friends containsObject:textfield.text]){
                 UIAlertView *existAlert = [[UIAlertView alloc] initWithTitle:@"The friend is already in your friend list" message:@"" delegate:self cancelButtonTitle:@"Confirm" otherButtonTitles:Nil, nil];
                 [existAlert show];
                 [existAlert release];
             }
+            else if([[PlayerInfo Player].username isEqualToString:textfield.text]){
+                UIAlertView *existAlert = [[UIAlertView alloc] initWithTitle:@"Can't add yourself" message:@"" delegate:self cancelButtonTitle:@"Confirm" otherButtonTitles:Nil, nil];
+                [existAlert show];
+                [existAlert release];
+
+            }
             else{
                 CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:textfield.text];
                 CCLOG(@"new friend: %@", textfield.text);
+                [mainMenu addChild:newFriend z:4];
+                [friends addObject:textfield.text];
                 newFriend.fontName = @"Outlier.ttf";
                 newFriend.fontSize = 20;
                 [newFriend.label setColor:ccc3(200, 200, 230)];
-                CCLOG(@"\nnumber of friends: %d",[[PlayerInfo Player].friends count]);
-                newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*[[PlayerInfo Player].friends count]);
-                [mainMenu addChild:newFriend z:4];
-                [[PlayerInfo Player].friends addObject:textfield.text];
+                CCLOG(@"number of friends: %d",[friends count]);
+                NSLog(@"x: %d",origin_X_ForName);
+                NSLog(@"y: %d", origin_Y_ForName - nameYDistance*([friends count]-1));
+                newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*([friends count]-1));
+                
+                [[NSUserDefaults standardUserDefaults] setObject:friends forKey:@"friends"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                /*
                 NSData *data = [NSKeyedArchiver archivedDataWithRootObject:[PlayerInfo Player]];
                 [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                */
             }
         }
     }

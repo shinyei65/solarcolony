@@ -10,7 +10,7 @@
 #import "NormalBullet.h"
 @interface TowerSupport : CCNode<Tower>{
     int counterTest;
-    int health;
+    int _health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     CCSprite* towerSprite;
