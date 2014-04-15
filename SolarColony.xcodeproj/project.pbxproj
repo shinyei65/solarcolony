@@ -51,8 +51,6 @@
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
-		F521428618B699120085BD47 /* soundOff.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428418B699120085BD47 /* soundOff.png */; };
-		F521428718B699120085BD47 /* soundOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F521428518B699120085BD47 /* soundOn.png */; };
 		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
 		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
 		F52FFD9D18D15C8700AA6C19 /* TestArmyNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */; };
@@ -1765,10 +1763,8 @@
 				21152FF518B779F000C1274C /* On.png in Resources */,
 				F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
-				F521428618B699120085BD47 /* soundOff.png in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
 				F54714F518EA01CC0099CD70 /* select1Active.png in Resources */,
-				F521428718B699120085BD47 /* soundOn.png in Resources */,
 				F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
