@@ -161,6 +161,18 @@
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
         
+    }else if ([interface isEqualToString:@"TowerD"] && [player getResource]>=[stats[race][@"Tower1"][@"price"] integerValue]) {
+        
+        float pointX=grid.menuLocation.x;
+        float pointY=grid.menuLocation.y;
+        int newResource = [player getResource] - [stats[race][@"Tower2"][@"price"] integerValue];
+        [player setResource:newResource];
+        
+        CCNode<Tower>* tower=[factoryTowers towerForKey:@"Attackv2" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
+        [tower setMapLocation:[[grid getTowerMenu] getMapLocation]];
+        [colissionsManager addTower:tower];
+        [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
+        
     }
     [grid hideTowerMenu];
     }
