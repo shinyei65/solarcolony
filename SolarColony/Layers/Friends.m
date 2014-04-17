@@ -54,7 +54,7 @@ static const int nameYDistance = 28;
             friends = [[NSMutableArray alloc] init];
             NSLog(@"declare frd array");
         }
-       // friends = nil;
+        //friends = nil;
         [self addChild:bg];
         [self addChild:[self loadMenu]];
 
@@ -200,18 +200,20 @@ static const int nameYDistance = 28;
 
             }
             else{
-                CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:textfield.text];
+                CCLabelTTF *newFriend = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:20];
+                //CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:textfield.text];
                 CCLOG(@"new friend: %@", textfield.text);
-                [mainMenu addChild:newFriend z:4];
                 [friends addObject:textfield.text];
-                newFriend.fontName = @"Outlier.ttf";
-                newFriend.fontSize = 20;
-                [newFriend.label setColor:ccc3(200, 200, 230)];
+                [self addChild:newFriend z:5];
+              //  newFriend.fontName = @"Outlier.ttf";
+              //  newFriend.fontSize = 20;
+             //   [newFriend.label setColor:ccc3(200, 200, 230)];
                 CCLOG(@"number of friends: %d",[friends count]);
                 NSLog(@"x: %d",origin_X_ForName);
                 NSLog(@"y: %d", origin_Y_ForName - nameYDistance*([friends count]-1));
-                newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*([friends count]-1));
-                
+               // newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*([friends count]-1));
+                newFriend.position = ccp(270, 226 - nameYDistance*([friends count]-1));
+                newFriend.color = ccc3(200, 200, 230);
                 [[NSUserDefaults standardUserDefaults] setObject:friends forKey:@"friends"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
                 /*
