@@ -63,7 +63,6 @@
         [PlayerInfo Player].username = username;
          
         if(username == nil){
-        player = [PlayerInfo Player];
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
@@ -127,9 +126,7 @@
             playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
-            [player setUsername:textfield.text];
-            [player setResource:1234];
-            [player setLife:56];
+            player.username =  textfield.text;
             [[NSUserDefaults standardUserDefaults] setObject:textfield.text forKey:@"username"];
             /*
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];

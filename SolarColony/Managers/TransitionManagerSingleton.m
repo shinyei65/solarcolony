@@ -17,7 +17,9 @@
 #import "DefenseSettingsScene.h"
 #import "WavesOfSoldiers.h"
 
-@implementation TransitionManagerSingleton
+@implementation TransitionManagerSingleton {
+    BOOL defense_created;
+}
 
 static TransitionManagerSingleton *sharedInstance = nil;
 
@@ -37,7 +39,7 @@ static TransitionManagerSingleton *sharedInstance = nil;
     
     if (self) {
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
- 
+        defense_created = FALSE;
         // Work your initialising magic here as you normally would
     }
     
@@ -55,7 +57,15 @@ static TransitionManagerSingleton *sharedInstance = nil;
        
         case 1:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[GameLandingScene scene] ]]; break;
         case 2:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[race scene] ]]; break;
-        case 3:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[defense scene] ]]; break;
+        case 3:
+            if(!defense_created){
+                [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[defense scene] ]];
+                defense_created = TRUE;
+                break;
+            }else{
+                [[CCDirector sharedDirector] popScene];
+                break;
+            }
         case 4:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HomeScene scene] ]]; break;
         case 5:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[Friends scene] ]]; break;
         case 6:  [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[AttackScene scene] ]]; break;

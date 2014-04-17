@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "Army.h"
 #import "ArmyQueue.h"
+#import "PlayerInfo.h"
 
 @interface NetWorkManager : NSObject
 
 +(id)NetWorkManager;
 -(id)init;
--(void)sendAttackRequest:(Army*)sendingArmy;
+-(void)sendAttackRequest:(Army*)sendingArmy attackTarget:(NSString *)target;
 -(void)getAttackRequest;
 -(void)deleteAttackRequest:(NSString*)datetime;
 -(BOOL)signInUser:(NSString*)username;
 -(BOOL)checkUser:(NSString*)username;
 
--(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy;
 @end

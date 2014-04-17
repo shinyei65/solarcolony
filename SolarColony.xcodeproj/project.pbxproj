@@ -49,6 +49,7 @@
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F503E2BF18F637350022F629 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F503E2BE18F637350022F629 /* target.png */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
+		F5119F0018FF7BB40074D926 /* Earth_Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F5191C4218FF6E2C00C62839 /* kills.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3D18FF6E2C00C62839 /* kills.png */; };
 		F5191C4318FF6E2C00C62839 /* rankin.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3E18FF6E2C00C62839 /* rankin.png */; };
@@ -300,6 +301,7 @@
 		F5FDE39218FC591800C48D48 /* map_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE38F18FC591800C48D48 /* map_2.txt */; };
 		F5FDE39318FC591800C48D48 /* map_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE39018FC591800C48D48 /* map_3.txt */; };
 		F5FDE39418FC591800C48D48 /* map_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE39118FC591800C48D48 /* map_4.txt */; };
+		F5FDE39C18FF67BE00C48D48 /* Earth_Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE39B18FF67BE00C48D48 /* Earth_Day.jpg */; };
 		FC6DCD7418E8F65F00DC98A3 /* cherno.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6DCD7318E8F65F00DC98A3 /* cherno.png */; };
 		FC6DCD7818E8F68B00DC98A3 /* towerA.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6DCD7518E8F68B00DC98A3 /* towerA.png */; };
 		FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */ = {isa = PBXBuildFile; fileRef = FC6DCD7618E8F68B00DC98A3 /* towerB.png */; };
@@ -361,6 +363,7 @@
 		F503E2BE18F637350022F629 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
+		F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth_Day.jpg; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -812,6 +815,7 @@
 		F5FDE38F18FC591800C48D48 /* map_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_2.txt; sourceTree = "<group>"; };
 		F5FDE39018FC591800C48D48 /* map_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_3.txt; sourceTree = "<group>"; };
 		F5FDE39118FC591800C48D48 /* map_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_4.txt; sourceTree = "<group>"; };
+		F5FDE39B18FF67BE00C48D48 /* Earth_Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth_Day.jpg; sourceTree = "<group>"; };
 		FC6DCD7318E8F65F00DC98A3 /* cherno.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cherno.png; sourceTree = "<group>"; };
 		FC6DCD7518E8F68B00DC98A3 /* towerA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerA.png; sourceTree = "<group>"; };
 		FC6DCD7618E8F68B00DC98A3 /* towerB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerB.png; sourceTree = "<group>"; };
@@ -848,6 +852,7 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F5FDE39B18FF67BE00C48D48 /* Earth_Day.jpg */,
 				F5B0FBA518FC606200E5AB31 /* landing */,
 				F5B0FB9218FC515300E5AB31 /* backgroundLayers.png */,
 				F5C5CA0218F899C0002A9D40 /* race */,
@@ -865,6 +870,7 @@
 				F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */,
 				0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */,
 				0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */,
+				F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */,
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
 				0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,
@@ -1790,6 +1796,7 @@
 				F5191C4318FF6E2C00C62839 /* rankin.png in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F5B0FBB318FC606200E5AB31 /* fon.png in Resources */,
+				F5FDE39C18FF67BE00C48D48 /* Earth_Day.jpg in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F5BD5F5018F63BBB004EB055 /* friend_menu_clipped.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,

@@ -29,12 +29,15 @@ static NetWorkManager *sharedNetWorkManager = nil;
     return self;
 }
 
--(void)sendAttackRequest:(Army*)sendingArmy
+-(void)sendAttackRequest:(Army*)sendingArmy attackTarget:(NSString *)target
 {
  
-    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=Jimmy"];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]];
+    NSLog(@"sending url: %@",[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *jsonRequest = @"attacker=Jimmy&army={ \"waves\": [ { \"soldiers\": [ { \"type\": \"RobotSoldier_Basic\", \"number\": 5 }, { \"type\": \"RobotSoldier_Special\", \"number\": 6 } ] } ]}";
+    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={\"wavesArray\":[{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"B\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"},{\"soldiertype\":\"B\",\"quantity\":\"5\"}]}],\"race\":\"Human\"}}",[PlayerInfo Player].username];
+    NSLog(@"Json Request: %@",jsonRequest);
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
     
     
@@ -194,11 +197,11 @@ static NetWorkManager *sharedNetWorkManager = nil;
     CCLOG(@"mente");
     return nil;
 }*/
--(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
-    NSString * test=[NSString stringWithString:sendingArmy];
-    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
+-(Army*)generateArmyFromNetworkResource:(NSData *)data{
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
-    CCLOG(test);
+    //CCLOG(test);
     return nil;
 }
 
