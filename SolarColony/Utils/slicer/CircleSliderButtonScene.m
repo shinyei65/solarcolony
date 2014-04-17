@@ -62,14 +62,17 @@
                                                                  selector:@selector(selectButtonTapped:) items:selectOn02, selectOff02, nil];
         
         selectItem02.tag="2";
-        selectItemX = [CCMenuItemImage itemWithNormalImage:@"selectX.png"
-                                                     selectedImage:@"selectXActive.png" 
-                                                            target:self selector:@selector(xButtonTapped:)];
+        selectOn03 = [CCMenuItemImage itemWithNormalImage:@"select3.png"
+                                            selectedImage:@"select3.png" target:nil selector:nil];
+        selectOff03 = [CCMenuItemImage itemWithNormalImage:@"select3Active.png"
+                                             selectedImage:@"select3Active.png" target:nil selector:nil];
+        selectItem03 = [CCMenuItemToggle itemWithTarget:self
+                                               selector:@selector(selectButtonTapped:) items:selectOn03, selectOff03, nil];
     
-        selectItemX.tag="x";
+        selectItem03.tag="3";
         
         circleButton = [[CircleSliderButtonLayer alloc] init];
-        circleButton = [circleButton menuWithRaidus:60 andItems:selectItem00, selectItem01, selectItem02, selectItemX, nil];
+        circleButton = [circleButton menuWithRaidus:60 andItems:selectItem00, selectItem01, selectItem02, selectItem03, nil];
         [self addChild:circleButton z:10];
         circleButton.position = ccp(0,0);
         [circleButton degreeRotation:60];
@@ -78,8 +81,8 @@
         // add ioButton    
         onItem = [[CCMenuItemImage itemWithNormalImage:@"ioButtonON.png"
                                             selectedImage:@"ioButtonON.png" target:nil selector:nil] retain];
-        offItem = [[CCMenuItemImage itemWithNormalImage:@"ioButtonOFF.png"
-                                             selectedImage:@"ioButtonOFF.png" target:nil selector:nil] retain];
+        offItem = [[CCMenuItemImage itemWithNormalImage:@"ioButtonON.png"
+                                             selectedImage:@"ioButtonON.png" target:nil selector:nil] retain];
         CCMenuItemToggle *toggleItem = [CCMenuItemToggle itemWithTarget:self 
                                                                selector:@selector(chipIOButtonTapped:) items:offItem, onItem, nil];
         
@@ -88,7 +91,7 @@
         toggleMenu.anchorPoint = ccp(0, 0);
         toggleMenu.position = ccp(0,0);
         
-            
+            [circleButton openButtons];
 	
 	}
 	return self;
@@ -111,17 +114,20 @@
     }else if ((menuItem.selectedItem == selectOn02) || (menuItem.selectedItem == selectOff02)) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerC",@"point", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
+    }else if ((menuItem.selectedItem == selectOn03) || (menuItem.selectedItem == selectOff03)) {
+        NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerD",@"point", nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
     }
     [menuItem  setSelectedIndex:0];
 }
 - (void) chipIOButtonTapped:(id)sender { 
-    for (int i = 0; i < circleButton.items.count-1; i++) {
+    /*for (int i = 0; i < circleButton.items.count-1; i++) {
         CCMenuItemToggle *item = (CCMenuItemToggle *)[circleButton.items objectAtIndex:i];
-        [item setSelectedIndex:0];
+        //[item setSelectedIndex:0];
     }
      CCLOG(@"WORKING IO");
     [circleButton openButtons];
-
+*/
 
 }
 

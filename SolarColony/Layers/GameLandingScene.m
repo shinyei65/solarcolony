@@ -33,16 +33,53 @@
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Landing Page" fontName:@"Marker Felt" fontSize:32];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Player X" fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
-        [splash setPosition:ccp(mobileDisplaySize.width*.3, mobileDisplaySize.height*.8)];
+        [splash setPosition:ccp(mobileDisplaySize.width*.8, mobileDisplaySize.height*.9)];
         
         CCSprite *bg = [CCSprite spriteWithFile:@"backgroundLayers.png"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+        
+        //Game status global variables
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+        CCSprite *raceSprite;
+        NSString * raceType=gameStatusEssentialsSingleton.raceType;
+        if ([raceType isEqualToString:@"Human"]) {
+            raceSprite = [CCSprite spriteWithFile:@"humanRace.png"];
+            raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
+        } else if ([raceType isEqualToString:@"Robot"]) {
+            raceSprite = [CCSprite spriteWithFile:@"robotRace.png"];
+            raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
+        } else if ([raceType isEqualToString:@"Magic"]) {
+            raceSprite = [CCSprite spriteWithFile:@"wizardRace.png"];
+            raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
+        }
+        
+        CCSprite *score = [CCSprite spriteWithFile:@"score.png"];
+        score.position = ccp(mobileDisplaySize.width*.225, mobileDisplaySize.height*.85);
+        
+        CCSprite *ranking = [CCSprite spriteWithFile:@"rankin.png"];
+        ranking.position = ccp(mobileDisplaySize.width*.2, mobileDisplaySize.height*.75);
+        
+        CCSprite *kills = [CCSprite spriteWithFile:@"kills.png"];
+        kills.position = ccp(mobileDisplaySize.width*.35, mobileDisplaySize.height*.4);
+        
+        CCSprite *towers = [CCSprite spriteWithFile:@"towers.png"];
+        towers.position = ccp(mobileDisplaySize.width*.35, mobileDisplaySize.height*.3);
+        
+        CCSprite *soldiers = [CCSprite spriteWithFile:@"soldiers.png"];
+        soldiers.position = ccp(mobileDisplaySize.width*.35, mobileDisplaySize.height*.2);
+        
         [self addChild:bg];
         
+        [self addChild:raceSprite];
+        [self addChild:score];
+        [self addChild:ranking];
+        [self addChild:kills];
+        [self addChild:towers];
+        [self addChild:soldiers];
         [self addChild:splash];
         [self addChild:[self loadMenu]];
     }
@@ -60,6 +97,7 @@
     CCMenuItemImage *manuItemdefenseSetting=[CCMenuItemImage itemWithNormalImage:@"toff.png" selectedImage:@"ton.png" target:self selector:@selector(moveToScene:)];
     manuItemdefenseSetting.userData=@"TowersSet";
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, manuItemdefenseSetting, nil];
+    
     
     [mainMenu alignItemsVerticallyWithPadding:20];
     
