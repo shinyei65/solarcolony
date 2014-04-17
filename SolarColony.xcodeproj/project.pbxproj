@@ -49,6 +49,7 @@
 		5681771E18AB07E600E4D772 /* TowerMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5681771D18AB07E600E4D772 /* TowerMenu.m */; };
 		F503E2BF18F637350022F629 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F503E2BE18F637350022F629 /* target.png */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
+		F5119F0018FF7BB40074D926 /* Earth_Day.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
 		F5191C4218FF6E2C00C62839 /* kills.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3D18FF6E2C00C62839 /* kills.png */; };
 		F5191C4318FF6E2C00C62839 /* rankin.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3E18FF6E2C00C62839 /* rankin.png */; };
@@ -362,6 +363,7 @@
 		F503E2BE18F637350022F629 /* target.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = target.png; sourceTree = "<group>"; };
 		F5080CB118A96AB800E99AD9 /* race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = race.h; sourceTree = "<group>"; };
 		F5080CB218A96AB800E99AD9 /* race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = race.m; sourceTree = "<group>"; };
+		F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Earth_Day.jpg; sourceTree = "<group>"; };
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
@@ -868,6 +870,7 @@
 				F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */,
 				0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */,
 				0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */,
+				F5119EFF18FF7BB40074D926 /* Earth_Day.jpg */,
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
 				0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,

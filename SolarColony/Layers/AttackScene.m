@@ -45,7 +45,7 @@ static const int nameYDistance = 28;
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         networkManager = [NetWorkManager NetWorkManager];
         friends = [[NSUserDefaults standardUserDefaults]  objectForKey:@"friends"];
-        seletedFrd = [friends count];
+        seletedFrd = -2;
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         int *army_num = 1;
@@ -150,10 +150,12 @@ static const int nameYDistance = 28;
 }
 
 -(void)sendAttack{
-    Army* test;
-    [[NetWorkManager NetWorkManager] sendAttackRequest:test];
-    CCLOG(@"SEND ATTACK!!!");
+    if (seletedFrd >= 0 && seletedFrd < [friends count]) {
+        Army* test;
+        [[NetWorkManager NetWorkManager] sendAttackRequest:test attackTarget:[friends objectAtIndex:seletedFrd]];
+        CCLOG(@"SEND ATTACK!!!");
     }
+}
 
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
@@ -169,6 +171,15 @@ static const int nameYDistance = 28;
     NSLog(@"selected!!!");
     CCMenuItemImage *temp = (CCMenuItemImage*)sender;
     if (temp.tag < [friends count]) {
+        
+        if (temp.tag == seletedFrd) {
+            CCSprite *newimg = [CCSprite spriteWithTexture:[[CCSprite spriteWithFile:@"friend_bar.png"]texture]];
+            CCSprite *newimg_sel = [CCSprite spriteWithTexture:[[CCSprite spriteWithFile:@"friend_bar.png"]texture]];
+            [temp setNormalImage:newimg];
+            [temp setSelectedImage:newimg_sel];
+            seletedFrd = -2;
+        }
+        else{
         CCSprite *newimg = [CCSprite spriteWithTexture:[[CCSprite spriteWithFile:@"friend_bar_sel.png"]texture]];
         CCSprite *newimg_sel = [CCSprite spriteWithTexture:[[CCSprite spriteWithFile:@"friend_bar_sel.png"]texture]];
         [temp setNormalImage:newimg];
@@ -183,6 +194,7 @@ static const int nameYDistance = 28;
             }
         }
         seletedFrd = temp.tag;
+        }
         NSLog(@"seletedFrd: %d",seletedFrd);
     }
 }
