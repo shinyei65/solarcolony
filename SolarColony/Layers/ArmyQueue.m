@@ -140,6 +140,7 @@ NSString *AI_REQUEST = @"AI";
         return;
     }
     Wave *target = (Wave *)[_queue objectAtIndex:0];
+    NSLog(@"RACE = %@", target.race);
     [_queue removeObjectAtIndex:0];
     [_show_queue addObject:target];
     WaveSprite *qitem = [WaveSprite sprtieWithUserID:target.attacker Race:target.race];
@@ -178,13 +179,13 @@ NSString *AI_REQUEST = @"AI";
         //CCLOG(@"runner!!!");
         Soldier *temp;
         if(_army_gen_count ==0){
-            wave.race = @"human";
+            wave.race = @"Human";
             temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         }else if(_army_gen_count == 1){
-            wave.race = @"robot";
+            wave.race = @"Robot";
             temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         }else{
-            wave.race = @"magic";
+            wave.race = @"Magic";
             temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         }
         [wave addSoldier: temp];
@@ -193,11 +194,11 @@ NSString *AI_REQUEST = @"AI";
         //CCLOG(@"attacker!!!");
         Soldier *temp;
         if(_army_gen_count ==0)
-            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         else if(_army_gen_count == 1)
-            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         else
-            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
         [wave addSoldier: temp];
     }
     _army_gen_count++;
@@ -296,9 +297,9 @@ NSString *AI_REQUEST = @"AI";
     if (!self) return(nil);
     // initial sprite and label
     CCSprite *sprite;
-    if([race isEqualToString: @"human"]){
+    if([race isEqualToString: @"Human"]){
         sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
-    }else if ([race isEqualToString: @"robot"]){
+    }else if ([race isEqualToString: @"Robot"]){
         sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
     }else{
         sprite = [CCSprite spriteWithFile:@"angrybomb.png"];

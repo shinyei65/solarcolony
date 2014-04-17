@@ -78,7 +78,7 @@ int SOL_GEN_RATE = 1;
     [_monitor addObject: sol];
     [sol setPOSITION:start.x Y:start.y];
     [sol setPosition:[grid convertMapIndexToCenterGL:start]];
-    [grid addChild:sol z:1];
+    [grid addChild:sol z:0];
     [gameStatusEssentialsSingleton addSoldier: sol];
 }
 
