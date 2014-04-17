@@ -50,6 +50,11 @@
 		F503E2BF18F637350022F629 /* target.png in Resources */ = {isa = PBXBuildFile; fileRef = F503E2BE18F637350022F629 /* target.png */; };
 		F5080CB318A96AB800E99AD9 /* race.m in Sources */ = {isa = PBXBuildFile; fileRef = F5080CB218A96AB800E99AD9 /* race.m */; };
 		F5181D8118A5A84A001F96F7 /* GridMap.m in Sources */ = {isa = PBXBuildFile; fileRef = F5181D7F18A5A84A001F96F7 /* GridMap.m */; };
+		F5191C4218FF6E2C00C62839 /* kills.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3D18FF6E2C00C62839 /* kills.png */; };
+		F5191C4318FF6E2C00C62839 /* rankin.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3E18FF6E2C00C62839 /* rankin.png */; };
+		F5191C4418FF6E2C00C62839 /* score.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C3F18FF6E2C00C62839 /* score.png */; };
+		F5191C4518FF6E2C00C62839 /* soldiers.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4018FF6E2C00C62839 /* soldiers.png */; };
+		F5191C4618FF6E2C00C62839 /* towers.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4118FF6E2C00C62839 /* towers.png */; };
 		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
 		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
 		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
@@ -364,6 +369,11 @@
 		F5181D7E18A5A84A001F96F7 /* GridMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridMap.h; sourceTree = "<group>"; };
 		F5181D7F18A5A84A001F96F7 /* GridMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridMap.m; sourceTree = "<group>"; };
 		F5181D8018A5A84A001F96F7 /* ModelsConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelsConstants.h; sourceTree = "<group>"; };
+		F5191C3D18FF6E2C00C62839 /* kills.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kills.png; sourceTree = "<group>"; };
+		F5191C3E18FF6E2C00C62839 /* rankin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rankin.png; sourceTree = "<group>"; };
+		F5191C3F18FF6E2C00C62839 /* score.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = score.png; sourceTree = "<group>"; };
+		F5191C4018FF6E2C00C62839 /* soldiers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soldiers.png; sourceTree = "<group>"; };
+		F5191C4118FF6E2C00C62839 /* towers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towers.png; sourceTree = "<group>"; };
 		F51C381818BEE7AC00AFD1BA /* NormalBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalBullet.h; sourceTree = "<group>"; };
 		F51C381918BEE7AD00AFD1BA /* NormalBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalBullet.m; sourceTree = "<group>"; };
 		F521428418B699120085BD47 /* soundOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soundOff.png; sourceTree = "<group>"; };
@@ -1516,6 +1526,11 @@
 		F5B0FBA518FC606200E5AB31 /* landing */ = {
 			isa = PBXGroup;
 			children = (
+				F5191C3D18FF6E2C00C62839 /* kills.png */,
+				F5191C3E18FF6E2C00C62839 /* rankin.png */,
+				F5191C3F18FF6E2C00C62839 /* score.png */,
+				F5191C4018FF6E2C00C62839 /* soldiers.png */,
+				F5191C4118FF6E2C00C62839 /* towers.png */,
 				F5B0FBA618FC606200E5AB31 /* aoff.png */,
 				F5B0FBA718FC606200E5AB31 /* aon.png */,
 				F5B0FBA818FC606200E5AB31 /* doff.png */,
@@ -1758,6 +1773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				566FB0A018E008C900A77C4D /* StartGame.png in Resources */,
+				F5191C4218FF6E2C00C62839 /* kills.png in Resources */,
 				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF518B779F000C1274C /* On.png in Resources */,
@@ -1776,9 +1792,11 @@
 				FC6DCD7E18E8FA0100DC98A3 /* powerplant.png in Resources */,
 				F53E796218B5CA030037A48A /* testmap.png in Resources */,
 				F5C5CA0918F899C0002A9D40 /* robotRace.png in Resources */,
+				F5191C4418FF6E2C00C62839 /* score.png in Resources */,
 				F5B0FBB118FC606200E5AB31 /* don.png in Resources */,
 				F5594A3618A56F40008ADDED /* ChangeLog in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
+				F5191C4518FF6E2C00C62839 /* soldiers.png in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				F541DED518F3163500FD6492 /* stats.txt in Resources */,
@@ -1788,6 +1806,7 @@
 				F54714F318EA01CC0099CD70 /* select0Active.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */,
+				F5191C4318FF6E2C00C62839 /* rankin.png in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F5B0FBB318FC606200E5AB31 /* fon.png in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
@@ -1847,6 +1866,7 @@
 				F5B0FBB018FC606200E5AB31 /* doff.png in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
+				F5191C4618FF6E2C00C62839 /* towers.png in Resources */,
 				F5FDE39218FC591800C48D48 /* map_2.txt in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				FC6DCD7418E8F65F00DC98A3 /* cherno.png in Resources */,
