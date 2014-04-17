@@ -470,7 +470,7 @@ static GridMap *sharedInstance = nil;
             [_towermenu2 setVisible: TRUE];
             [_towermenu2 openButtons];
         }
- 
+   
         
         _selected = TRUE;
     }else{
