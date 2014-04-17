@@ -36,7 +36,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]];
     NSLog(@"sending url: %@",[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={ \"waves\": [ { \"soldiers\": [ { \"type\": \"RobotSoldier_Basic\", \"number\": 5 }, { \"type\": \"RobotSoldier_Special\", \"number\": 6 } ] } ]}",[PlayerInfo Player].username];
+    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={\"wavesArray\":[{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"B\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"},{\"soldiertype\":\"B\",\"quantity\":\"5\"}]}],\"race\":\"Human\"}}",[PlayerInfo Player].username];
     NSLog(@"Json Request: %@",jsonRequest);
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
     
