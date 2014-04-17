@@ -36,7 +36,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]];
     NSLog(@"sending url: %@",[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={\"wavesArray\":[{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"B\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"},{\"soldiertype\":\"B\",\"quantity\":\"5\"}]}],\"race\":\"Human\"}}",[PlayerInfo Player].username];
+    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={\"wavesArray\":[{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"B\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"},{\"soldiertype\":\"B\",\"quantity\":\"5\"}]}],\"race\":\"Human\"}",[PlayerInfo Player].username];
     NSLog(@"Json Request: %@",jsonRequest);
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
     
@@ -73,8 +73,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 -(void)getAttackRequest
 {
-    
-    NSURL *url = [NSURL URLWithString:@"http://solarcolony-back.appspot.com/request?user_name=default_user"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",[PlayerInfo Player].username]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     
     [request setHTTPMethod:@"GET"];
@@ -83,9 +82,10 @@ static NetWorkManager *sharedNetWorkManager = nil;
         
         if ([ResponseData length] >35 && error == nil)
         {
-            NSLog(@"length: %d",[ResponseData length]);
-            [self deleteAttackRequest:@"03-05-2015%2000:00:00"];
-            [[ArmyQueue layer] genertateTestarmy];
+            //NSLog(@"length: %d",[ResponseData length]);
+            //[self deleteAttackRequest:@"03-05-2015%2000:00:00"];
+            //[[ArmyQueue layer] genertateTestarmy];
+            [self generateArmyFromNetworkResource:ResponseData];
             [request release];
             
         }
@@ -197,12 +197,18 @@ static NetWorkManager *sharedNetWorkManager = nil;
     CCLOG(@"mente");
     return nil;
 }*/
--(Army*)generateArmyFromNetworkResource:(NSData *)data{
+-(void) generateArmyFromNetworkResource:(NSData *)data{
+    NSLog(@"data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSError* error;
     NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
+    if (!json) {
+        NSLog(@"Error parsing JSON: %@", error);
+    }else{
+        NSArray* requests = [json objectForKey:@"requests"];
+        //NSLog(@"requests = %d",[requests count]);
+        NSLog(@"loans: %@", json);
+    }
     //CCLOG(test);
-    return nil;
 }
 
 
