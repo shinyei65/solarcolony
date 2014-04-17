@@ -75,7 +75,7 @@
         circleButton = [circleButton menuWithRaidus:60 andItems:selectItem00, selectItem01, selectItem02, selectItem03, nil];
         [self addChild:circleButton z:10];
         circleButton.position = ccp(0,0);
-        [circleButton degreeRotation:60];
+        [circleButton degreeRotation:150];
 
         
         // add ioButton    
@@ -91,10 +91,36 @@
         toggleMenu.anchorPoint = ccp(0, 0);
         toggleMenu.position = ccp(0,0);
         
-            [circleButton openButtons];
+        
+        //[circleButton openButtonsRight];
+        //[circleButton openButtonsLeft];
+       // [circleButton openButtonsUp];
+        //[circleButton openButtonsDown];
 	
 	}
 	return self;
+}
+
+-(void) openButtons{
+    [circleButton openButtons];
+}
+-(void) openButtonsRight{
+    [circleButton openButtonsRight];
+
+}
+-(void) openButtonsLeft{
+  
+    [circleButton openButtonsLeft];
+
+}
+-(void) openButtonsUp{
+
+     [circleButton openButtonsUp];
+ 
+}
+-(void) openButtonsDown{
+
+    [circleButton openButtonsDown];
 }
 
 - (void) selectButtonTapped:(id) towerType{

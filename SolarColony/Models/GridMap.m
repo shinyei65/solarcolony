@@ -440,9 +440,37 @@ static GridMap *sharedInstance = nil;
         loc.x += _width_step / 2;
         loc.y -= _height_step / 2;
         
-        [_towermenu2 setMapLocation:index];
-        [_towermenu2 setPosition: loc];
-        [_towermenu2 setVisible: TRUE];
+        
+        
+ 
+         if(loc.x>=510){
+             
+            [_towermenu2 setMapLocation:index];
+            [_towermenu2 setPosition: loc];
+            [_towermenu2 setVisible: TRUE];
+             [_towermenu2 openButtonsRight];
+        }else if(loc.x<=60){
+            [_towermenu2 setMapLocation:index];
+            [_towermenu2 setPosition: loc];
+            [_towermenu2 setVisible: TRUE];
+             [_towermenu2 openButtonsLeft];
+        } else if(loc.y>=270){
+            [_towermenu2 setMapLocation:index];
+            [_towermenu2 setPosition: loc];
+            [_towermenu2 setVisible: TRUE];
+            [_towermenu2 openButtonsDown];
+        } else if(loc.y<=60){
+            [_towermenu2 setMapLocation:index];
+            [_towermenu2 setPosition: loc];
+            [_towermenu2 setVisible: TRUE];
+            [_towermenu2 openButtonsUp];
+        } else{
+            [_towermenu2 setMapLocation:index];
+            [_towermenu2 setPosition: loc];
+            [_towermenu2 setVisible: TRUE];
+            [_towermenu2 openButtons];
+        }
+ 
         
         _selected = TRUE;
     }else{
