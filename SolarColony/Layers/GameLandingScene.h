@@ -7,10 +7,12 @@
 //
 
 #import "AbstractScene.h"
+#import "GameStatusEssentialsSingleton.h"
 
 @interface GameLandingScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-        MusicManagerSingleton* musicManagerSingleton;
+    MusicManagerSingleton* musicManagerSingleton;
+    GameStatusEssentialsSingleton *gameStatusEssentialsSingleton;
 }
 
 
