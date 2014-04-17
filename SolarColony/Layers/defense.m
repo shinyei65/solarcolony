@@ -20,6 +20,7 @@
 #import "TowerFactory.h"
 #import "SupportTowerTouch.h"
 #import "GameStatsLoader.h"
+#import "GameLandingScene.h"
 
 @implementation defense{
     SoldierController *solController;
@@ -107,13 +108,27 @@
     
     //USED FOR THE FACTORY OF TOWERS
     factoryTowers=[TowerFactory factory];
+    
+    // back button
+    CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
+    [manuItemBack setFontName:@"Outlier.ttf"];
+    [manuItemBack setFontSize:15];
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
+    [mainMenu setPosition:ccp(50,15)];
+    [self addChild:mainMenu z:20];
+
 
     [self addChild:supportCavas z:50];
-    [self scheduleUpdate];
-    
-    
+    [self scheduleUpdate];    
 
     return self;
+}
+
+-(void)moveToScene:(id)sender{
+    CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    if ([menuItem.label.string isEqualToString:@"back"]) {
+        [[CCDirector sharedDirector] pushScene:[GameLandingScene scene] ];
+    }
 }
 
 //creates tower and adds it to current active towers queue

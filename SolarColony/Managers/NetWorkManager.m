@@ -194,11 +194,11 @@ static NetWorkManager *sharedNetWorkManager = nil;
     CCLOG(@"mente");
     return nil;
 }*/
--(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
-    NSString * test=[NSString stringWithString:sendingArmy];
-    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
+-(Army*)generateArmyFromNetworkResource:(NSData *)data{
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
-    CCLOG(test);
+    //CCLOG(test);
     return nil;
 }
 
