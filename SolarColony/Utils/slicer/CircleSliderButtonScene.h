@@ -43,5 +43,11 @@
 - (instancetype) init;
 - (void) setMapLocation: (CGPoint) index;
 - (CGPoint) getMapLocation;
+
+-(void) openButtons;
+-(void) openButtonsRight;
+-(void) openButtonsLeft;
+-(void) openButtonsUp;
+-(void) openButtonsDown;
 @end
 

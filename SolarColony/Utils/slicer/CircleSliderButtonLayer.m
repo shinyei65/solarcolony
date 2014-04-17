@@ -79,7 +79,7 @@
         }
         
         // Initialization code here.
-        CGSize screenSize = [CCDirector sharedDirector].winSize;
+        
         
         circleCoordinates = [[DoubleAngleCircle alloc] initWithRadiusFloat:distance withLeaves:leavestCount];
         
@@ -140,6 +140,139 @@
     }
 
 }
+
+
+
+-(void) openButtonsRight {
+    // Menu position central
+    [self closeButtons];
+    
+    CGPoint CirclePosition = [circleMenu position] ;
+    CirclePosition.x=-50;
+    for (int i = 0; i < totalButtons; i++) {
+       
+        CirclePosition.y=(((i+1)*50)-100);
+        //CirclePosition.x=((i+1)*20);
+        circleMenu.opacity = 0.0f;
+        circleMenu.visible = YES;
+        
+        CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
+        CGPoint p =CirclePosition;
+        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+  
+  
+            CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
+            CCFadeIn *fadeMenu = [CCFadeIn actionWithDuration:0.2f];
+            [item runAction:moveItem];
+            [circleMenu runAction:fadeMenu];            
+            
+            //item.position = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
+            [item setIsEnabled:YES];
+            [item performSelector:@selector(setIsEnabled:) withObject:self  afterDelay:0.1f];
+        
+    }
+    
+}
+
+-(void) openButtonsLeft {
+    // Menu position central
+    [self closeButtons];
+    
+    CGPoint CirclePosition = [circleMenu position] ;
+    CirclePosition.x=+50;
+    for (int i = 0; i < totalButtons; i++) {
+        
+        CirclePosition.y=(((i+1)*50)-100);
+        //CirclePosition.x=((i+1)*20);
+        circleMenu.opacity = 0.0f;
+        circleMenu.visible = YES;
+        
+        CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
+        CGPoint p =CirclePosition;
+        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        
+        
+        CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
+        CCFadeIn *fadeMenu = [CCFadeIn actionWithDuration:0.2f];
+        [item runAction:moveItem];
+        [circleMenu runAction:fadeMenu];
+        
+        
+        
+        //item.position = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
+        [item setIsEnabled:YES];
+        [item performSelector:@selector(setIsEnabled:) withObject:self  afterDelay:0.1f];
+        
+    }
+    
+}
+
+-(void) openButtonsUp {
+    // Menu position central
+    [self closeButtons];
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CGPoint CirclePosition = [circleMenu position] ;
+    CirclePosition.y=+50;
+    
+    for (int i = 0; i < totalButtons; i++) {
+        
+        CirclePosition.x=(((i+1)*50)-100);
+        //CirclePosition.x=((i+1)*20);
+        circleMenu.opacity = 0.0f;
+        circleMenu.visible = YES;
+        
+        CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
+        CGPoint p =CirclePosition;
+        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        
+        
+        CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
+        CCFadeIn *fadeMenu = [CCFadeIn actionWithDuration:0.2f];
+        [item runAction:moveItem];
+        [circleMenu runAction:fadeMenu];
+        
+        
+        
+        //item.position = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
+        [item setIsEnabled:YES];
+        [item performSelector:@selector(setIsEnabled:) withObject:self  afterDelay:0.1f];
+        
+    }
+    
+}
+
+-(void) openButtonsDown {
+    // Menu position central
+    CGSize screenSize = [CCDirector sharedDirector].winSize;
+    CGPoint CirclePosition = [circleMenu position] ;
+    CirclePosition.y=-50;
+    for (int i = 0; i < totalButtons; i++) {
+        
+        CirclePosition.x=(((i+1)*50)-100);
+        //CirclePosition.x=((i+1)*20);
+        circleMenu.opacity = 0.0f;
+        circleMenu.visible = YES;
+        
+        CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
+        CGPoint p =CirclePosition;
+        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        
+        
+        CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
+        CCFadeIn *fadeMenu = [CCFadeIn actionWithDuration:0.2f];
+        [item runAction:moveItem];
+        [circleMenu runAction:fadeMenu];
+        
+        
+        
+        //item.position = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
+        [item setIsEnabled:YES];
+        [item performSelector:@selector(setIsEnabled:) withObject:self  afterDelay:0.1f];
+        
+    }
+    
+}
+
 
 -(void) closeButtons {
     

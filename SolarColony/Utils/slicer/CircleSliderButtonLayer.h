@@ -17,8 +17,7 @@
     
     CCMenu *circleMenu;
     
-
-    
+   
     NSInteger totalButtons;
     NSInteger leavestCount;
     
@@ -39,6 +38,10 @@
 
 
 -(void) openButtons;
+-(void) openButtonsRight ;
+-(void) openButtonsLeft;
+-(void) openButtonsUp;
+-(void) openButtonsDown;
 -(void) closeButtons;
 -(void) degreeRotation:(CGFloat) d;
 -(CCArray *) items;
