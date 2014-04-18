@@ -19,18 +19,25 @@
     CCMenuItemFont *item1;
     CCMenuItemFont *item2;
     CCMenuItemFont *item3;
-    //for increasing number of soldier
     CCMenuItemFont *item4;
     CCMenuItemFont *item5;
     CCMenuItemFont *item6;
     
-    
-    //for decreasing number of soldier
-    CCMenuItemFont *item7;
-    CCMenuItemFont *item8;
-    CCMenuItemFont *item9;
     CCMenu *soldierMenus;
     int counterA, counterB,counterC,counterD,counterE,counterF;
+    
+    CCMenuItemImage *soldierA_increase;
+    CCMenuItemImage *soldierA_decrease;
+    CCMenuItemImage *soldierB_increase;
+    CCMenuItemImage *soldierB_decrease;
+    CCMenuItemImage *soldierC_increase;
+    CCMenuItemImage *soldierC_decrease;
+    CCMenuItemImage *soldierD_increase;
+    CCMenuItemImage *soldierD_decrease;
+    CCMenuItemImage *soldierE_increase;
+    CCMenuItemImage *soldierE_decrease;
+    CCMenuItemImage *soldierF_increase;
+    CCMenuItemImage *soldierF_decrease;
 }
 +(NSMutableDictionary*) SaveWave:(NSString*)WaveName:(NSString*)WaveKey;
 - (void) AddWave: (int) waveID;
