@@ -83,8 +83,8 @@
 - (void) createTowerofType:(id) towerType{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)towerType;
     location=self.position;
-    CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
-    CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
+    //CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
+    //CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
     
     //NSString *myPoint = NSStringFromCGPoint(menuItem.position);
     

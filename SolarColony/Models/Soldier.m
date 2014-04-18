@@ -98,7 +98,7 @@
     @synchronized(self){
         if (health <= 0 && [self visible]){
             [self setVisible:FALSE];
-            NSLog(@"REWARD!!!!:");
+            //NSLog(@"REWARD!!!!:");
             int newResource = [[PlayerInfo Player] getResource];
             newResource +=  S_reward;
             [[PlayerInfo Player] setResource:newResource];

@@ -102,7 +102,7 @@
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
-        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        //CCLOG(@"X: %f, Y: %f", p.x, p.y);
         if (totalButtons == 1) {
             int j = 0;
             
@@ -158,7 +158,7 @@
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
-        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        //CCLOG(@"X: %f, Y: %f", p.x, p.y);
   
   
             CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
@@ -189,7 +189,7 @@
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
-        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        //CCLOG(@"X: %f, Y: %f", p.x, p.y);
         
         
         CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
@@ -223,7 +223,7 @@
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
-        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        //CCLOG(@"X: %f, Y: %f", p.x, p.y);
         
         
         CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
@@ -255,7 +255,7 @@
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
-        CCLOG(@"X: %f, Y: %f", p.x, p.y);
+        //CCLOG(@"X: %f, Y: %f", p.x, p.y);
         
         
         CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];

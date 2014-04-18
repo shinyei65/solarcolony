@@ -115,9 +115,8 @@ int SOL_GEN_RATE = 1;
     if([_wave getEndFlag]){
         [[NetWorkManager NetWorkManager] getAttackRequest];
     }
-    
+    [self sendAndRefreshReward];
     [_wave release]; _wave = nil;
-    [self sendAndRefresgReward];
     [[ArmyQueue layer] endWave];
 }
 
@@ -126,9 +125,11 @@ int SOL_GEN_RATE = 1;
     _reward += gain;
 }
 
-- (void) sendAndRefresgReward
+- (void) sendAndRefreshReward
 {
     NSLog(@"REWARD=%d", _reward);
+    if(![_wave.attacker isEqualToString:@"AI"])
+        [[NetWorkManager NetWorkManager] setRewardtoAttacker:_wave.attacker Reward:_reward];
     _reward = 0;
 }
 

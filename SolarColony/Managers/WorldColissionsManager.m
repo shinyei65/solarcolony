@@ -100,7 +100,7 @@
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
             
             if ( (towerpoint.x>=soldierpoint.x-50&&towerpoint.x<=soldierpoint.x+50)&&(towerpoint.y>=soldierpoint.y-50&& towerpoint.y<=soldierpoint.y+50)) {
-                CCLOG(@"soldier attack!!!!!");
+                //CCLOG(@"soldier attack!!!!!");
                 [soldier attack:towerpoint Target:tower];
                 //[tower beignattacked];
             }

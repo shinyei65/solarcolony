@@ -265,9 +265,9 @@ static GridMap *sharedInstance = nil;
         _touchPREVIOUS = _touchCURRENT;
         CGPoint world_pos = [self convertToNodeSpace:ccp(0,0)];
         CGPoint top_right = [self convertToNodeSpace:ccp([self boundingBox].size.width,[self boundingBox].size.height)];
-        NSLog(@"GridMap: top_right(%g,%g)", top_right.x, top_right.y);
-        NSLog(@"GridMap: world_pos(%g,%g)", world_pos.x, world_pos.y);
-        NSLog(@"GridMap: self(%g,%g)", self.position.x, self.position.y);
+        //NSLog(@"GridMap: top_right(%g,%g)", top_right.x, top_right.y);
+        //NSLog(@"GridMap: world_pos(%g,%g)", world_pos.x, world_pos.y);
+        //NSLog(@"GridMap: self(%g,%g)", self.position.x, self.position.y);
     }else if([touches count] == 2) {
         // Get points of both touches
         NSArray *twoTouch = [touches allObjects];
@@ -278,7 +278,7 @@ static GridMap *sharedInstance = nil;
         
         // Find the distance between those two points
         initialDistance = sqrt(pow(firstTouch.x - secondTouch.x, 2.0f) + pow(firstTouch.y - secondTouch.y, 2.0f));
-        NSLog(@"GridMap: two fingers touch began! initD=%f",initialDistance);
+        //NSLog(@"GridMap: two fingers touch began! initD=%f",initialDistance);
     }
 }
 

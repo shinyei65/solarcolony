@@ -21,7 +21,7 @@
 
 static PlayerInfo* sharedInstance = nil;
 static const int resource_inc_amount = 10;
-static const float resource_inc_time = 1;
+static const float resource_inc_time = 5;
 
 +(instancetype)Player{
     if (sharedInstance == nil) {

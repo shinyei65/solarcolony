@@ -71,4 +71,9 @@
     return sol;
 }
 
+- (NSMutableArray *) getList
+{
+    return _list;
+}
+
 @end

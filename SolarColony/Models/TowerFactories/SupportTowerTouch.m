@@ -35,12 +35,12 @@
    
     CCLOG(@"printing fine");
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
-        CCLOG(@"--------printing LOS AT %f %f",loc.x,loc.y);
-        CCLOG(@"--------printing CONVERTED LOS AT %f %f",drop.x,drop.y);
-        CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
+        //CCLOG(@"--------printing LOS AT %f %f",loc.x,loc.y);
+        //CCLOG(@"--------printing CONVERTED LOS AT %f %f",drop.x,drop.y);
+        //CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
         
            if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
-               CCLOG(@"***************** CONTAINS TOWER *****************");
+               //CCLOG(@"***************** CONTAINS TOWER *****************");
                
                if([raceType isEqualToString:@"Robot"]){
                    // ABILITY FOR ROBOT

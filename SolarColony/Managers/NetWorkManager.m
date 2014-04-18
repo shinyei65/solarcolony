@@ -30,7 +30,9 @@ static NetWorkManager *sharedNetWorkManager = nil;
 -(id)init{
     
     self = [super init];
-    queue = [[NSOperationQueue alloc] init];
+    if(self){
+        queue = [[NSOperationQueue alloc] init];
+    }
     return self;
 }
 
@@ -195,13 +197,86 @@ static NetWorkManager *sharedNetWorkManager = nil;
     return FALSE;
 }
 
-/*
- -(Army*)generateArmyFromNetworkResource:(NSString*)sendingArmy{
- NSString * test=@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}";
- ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test];
- CCLOG(@"mente");
- return nil;
- }*/
+-(void)setRewardtoAttacker:(NSString *) attacker Reward:(int) reward
+{
+    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/reward?user_name=%@", attacker];
+    NSLog(@"%@",url_string);
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSString *formRequest = [NSString stringWithFormat:@"value=%d", reward];
+    NSData *requestData = [NSData dataWithBytes:[formRequest UTF8String] length:[formRequest length]];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: requestData];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
+        
+        if (error == nil)
+        {
+            NSLog(@"NetworkManerger: update attacker success");
+            [request release];
+        }else{
+            NSLog(@"Error = %@", error);
+            [request release];
+        }
+    }];
+
+}
+
+-(void)getReward
+{
+    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/reward?id=gogog22510&user_name=%@", [PlayerInfo Player].username];
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    [request setHTTPMethod:@"GET"];
+    [request setValue:@"text/html" forHTTPHeaderField:@"Accept"];
+    [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *ResponseData, NSError *error){
+        
+        if ([ResponseData length] >0 && error == nil)
+        {
+            NSString *result = [[NSString alloc] initWithData:ResponseData encoding:NSUTF8StringEncoding];
+            int reward = [result integerValue];
+            //NSLog(@"NetworkManerger: reward = %@",result);
+            if(reward > 0){
+                NSLog(@"NetworkManerger: reward = %d",[result integerValue]);
+                int newResource = [[PlayerInfo Player] getResource] + reward;
+                [[PlayerInfo Player] setResource:newResource];
+                [self resetReward];
+            }else
+                [[ArmyQueue layer] resetGetRewardFlag];
+            [request release];
+        }else if (error != nil){
+            NSLog(@"Error = %@", error);
+            [request release];
+        }
+    }];
+
+}
+-(void)resetReward
+{
+    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/reward?user_name=%@",[PlayerInfo Player].username];
+    NSURL *url = [NSURL URLWithString:url_string];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSString *formRequest = @"value=0";
+    NSData *requestData = [NSData dataWithBytes:[formRequest UTF8String] length:[formRequest length]];
+    [request setHTTPMethod:@"PUT"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
+    [request setHTTPBody: requestData];
+    NSHTTPURLResponse *response = nil;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    if ([response statusCode] == 200)
+    {
+        NSLog(@"NetworkManerger: update success");
+        [[ArmyQueue layer] resetGetRewardFlag];
+        [request release];
+    }else{
+        NSLog(@"NetworkManerger: statusCode = %ld", (long)[response statusCode]);
+        [request release];
+    }
+
+}
+
 -(void) generateArmyFromNetworkResource:(NSData *)data{
     //NSLog(@"data: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
     NSError* error;

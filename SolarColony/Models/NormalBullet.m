@@ -63,7 +63,7 @@
     float angleRadians = atan2(targetLocation.x-initBulletLocation.x , targetLocation.x-initBulletLocation.y );
     float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
     angle = -1 * angleDegrees;
-    CCLOG(@"ANGLE RADIANS %f",angleDegrees);
+    //CCLOG(@"ANGLE RADIANS %f",angleDegrees);
     angle = angleDegrees;
     bulletLocation=initBulletLocation;
     //2) call folow target

@@ -57,7 +57,7 @@
     SupportTowerTouch *supportCavas= [[SupportTowerTouch alloc] init];
     // test square cell
     player = [PlayerInfo Player];
-    [player setResource:1000];
+    [player setResource:500];
     [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];

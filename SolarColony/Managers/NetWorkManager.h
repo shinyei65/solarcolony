@@ -20,5 +20,7 @@
 -(void)deleteAttackRequest:(NSString*)datetime;
 -(BOOL)signInUser:(NSString*)username;
 -(BOOL)checkUser:(NSString*)username;
-
+-(void)getReward;
+-(void)resetReward;
+-(void)setRewardtoAttacker:(NSString *) attacker Reward:(int) reward;
 @end

@@ -30,6 +30,7 @@ NSString *AI_REQUEST = @"AI";
     int _army_gen_count;
     NSMutableArray *_show_queue;
     NSMutableArray *_sprite_queue;
+    BOOL _get_reward_flag;
 }
 + (instancetype) layer
 {
@@ -48,6 +49,7 @@ NSString *AI_REQUEST = @"AI";
         _sprite_queue = [[NSMutableArray alloc] init];
         _inWave = FALSE;
         _showMSG = TRUE;
+        _get_reward_flag = TRUE;
         _army_gen_tick = 0;
         _wave_show_tick = 0;
         _army_gen_count = 0;
@@ -62,6 +64,10 @@ NSString *AI_REQUEST = @"AI";
 
     return self;
 }
+- (void) resetGetRewardFlag
+{
+    _get_reward_flag = TRUE;
+}
 - (void) update:(ccTime)delta
 {
     if(!_inWave){
@@ -70,6 +76,10 @@ NSString *AI_REQUEST = @"AI";
         [self updateTick];
     }else{
         [[WaveController controller] update];
+    }
+    if(_get_reward_flag){
+        _get_reward_flag = FALSE;
+        [[NetWorkManager NetWorkManager] getReward];
     }
 }
 - (void) updateTick
@@ -140,7 +150,7 @@ NSString *AI_REQUEST = @"AI";
         return;
     }
     Wave *target = (Wave *)[_queue objectAtIndex:0];
-    NSLog(@"RACE = %@", target.race);
+    //NSLog(@"RACE = %@", target.race);
     [_queue removeObjectAtIndex:0];
     [_show_queue addObject:target];
     WaveSprite *qitem = [WaveSprite sprtieWithUserID:target.attacker Race:target.race];
@@ -160,6 +170,10 @@ NSString *AI_REQUEST = @"AI";
     int count = [army count];
     for(int i=0; i<count; i++){
         Wave* temp = [army popWave];
+        NSMutableArray *list = [temp getList];
+        Soldier *sol;
+        for(sol in list)
+            [sol setHEALTH:AI_HEALTH];
         if(i==count-1)
             [temp setEndFlag:TRUE];
         [_queue addObject:temp];
@@ -194,11 +208,11 @@ NSString *AI_REQUEST = @"AI";
         //CCLOG(@"attacker!!!");
         Soldier *temp;
         if(_army_gen_count ==0)
-            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
         else if(_army_gen_count == 1)
-            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
         else
-            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
         [wave addSoldier: temp];
     }
     _army_gen_count++;

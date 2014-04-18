@@ -17,6 +17,7 @@
 - (Soldier *) popSoldier;
 -(BOOL)getEndFlag;
 -(void)setEndFlag:(BOOL)flag;
+- (NSMutableArray *) getList;
 @property(assign, atomic) NSString *race;
 @property(assign, atomic) NSString *request_id;
 @property(assign, atomic) NSString *attacker;

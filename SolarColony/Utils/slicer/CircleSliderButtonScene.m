@@ -126,9 +126,9 @@
 - (void) selectButtonTapped:(id) towerType{
     CCMenuItemToggle* menuItem = (CCMenuItemToggle*)towerType;
     location=circleButton.position;
-    CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
-    CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
-    CCLOG(@"End location.y %@", menuItem.selectedItem);
+    //CCLOG(@"End location.x %f", location.x);   //I just get location.x = 0
+    //CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
+    //CCLOG(@"End location.y %@", menuItem.selectedItem);
     
     if ((menuItem.selectedItem == selectOn00) || (menuItem.selectedItem == selectOff00)) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerA",@"point", nil];
