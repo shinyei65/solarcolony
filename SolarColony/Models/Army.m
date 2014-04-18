@@ -33,6 +33,8 @@
 
 - (void) dealloc
 {
+    //[request_id release]; request_id = nil;
+    //[attacker release]; attacker = nil;
     [_list release]; _list = nil;
     [self release];
     [super dealloc];

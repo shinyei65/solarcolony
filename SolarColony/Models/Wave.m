@@ -42,6 +42,11 @@
 
 - (void) dealloc
 {
+    if(endofArmy){
+        [request_id release]; request_id = nil;
+        [race release]; race = nil;
+        [attacker release]; attacker = nil;
+    }
     [_list release]; _list = nil;
     [self release];
     [super dealloc];

@@ -298,14 +298,17 @@ NSString *AI_REQUEST = @"AI";
     // initial sprite and label
     CCSprite *sprite;
     if([race isEqualToString: @"Human"]){
-        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+        sprite = [CCSprite spriteWithFile:@"human_icon_small.gif"];
     }else if ([race isEqualToString: @"Robot"]){
-        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+        sprite = [CCSprite spriteWithFile:@"robot_icon_small.gif"];
     }else{
-        sprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+        sprite = [CCSprite spriteWithFile:@"wizard_icon_small.gif"];
     }
     [self addChild:sprite];
-    CCLabelTTF *label = [CCLabelTTF labelWithString:uid fontName:@"Outlier.ttf" fontSize:10];
+    int fontsize = 10;
+    if([uid length] > 5)
+        fontsize = 7;
+    CCLabelTTF *label = [CCLabelTTF labelWithString:uid fontName:@"Outlier.ttf" fontSize:fontsize];
     [label setAnchorPoint:ccp(0.5,0.5)];
     CGSize size = sprite.boundingBox.size;
     [label setPosition:ccp(size.width*0.5, size.height*0.5)];

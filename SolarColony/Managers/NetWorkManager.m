@@ -88,7 +88,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
         if ([ResponseData length] >35 && error == nil)
         {
             //NSLog(@"length: %d",[ResponseData length]);
-            //[self deleteAttackRequest:@"03-05-2015%2000:00:00"];
+            [self deleteAttackRequest:@"03-05-2015%2000:00:00"];
             //[[ArmyQueue layer] genertateTestarmy];
             [self generateArmyFromNetworkResource:ResponseData];
             [request release];
@@ -112,7 +112,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
 -(void)deleteAttackRequest:(NSString*)datetime
 {
     
-    NSString* url_string = @"http://solarcolony-back.appspot.com/request?user_name=default_user&&date=";
+    NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@&&date=", [PlayerInfo Player].username];
     url_string = [url_string stringByAppendingString:datetime];
     NSURL *url = [NSURL URLWithString:url_string];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -212,6 +212,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
         NSArray* requests = [json objectForKey:@"requests"];
         //NSLog(@"requests = %d",[requests count]);
         for(NSDictionary *req in requests){
+            
             Army *army = [Army army: [[req objectForKey:@"id"] retain] Attacker:[[req objectForKey:@"attacker"] retain]];
             NSDictionary *armyDic = [req objectForKey:@"army"];
             NSString *race = [[armyDic objectForKey:@"race"] retain];
@@ -233,26 +234,26 @@ static NetWorkManager *sharedNetWorkManager = nil;
                     Soldier * (^selectedCase)() = @{
                                                     @"Human": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier human:(int)50 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier human:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
                                                             },
                                                             @"B" : ^{
-                                                                return [HumanSoldier typeA:(int)50 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [HumanSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
                                                             },
                                                             },
                                                     @"Robot": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier robot:(int)50 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier robot:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
                                                             },
                                                             @"B" : ^{
-                                                                return [RobotSoldier typeA:(int)50 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [RobotSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
                                                             },
                                                             },
                                                     @"Magic": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier mage:(int)50 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier mage:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
                                                             },
                                                             @"B" : ^{
-                                                                return [MageSoldier typeA:(int)50 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [MageSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
                                                             },
                                                             },
                                                     }[race][type];
