@@ -128,7 +128,7 @@ int SOL_GEN_RATE = 1;
 - (void) sendAndRefreshReward
 {
     NSLog(@"REWARD=%d", _reward);
-    if(![_wave.attacker isEqualToString:@"AI"])
+    if(![_wave.attacker isEqualToString:@"AI"] && _reward > 0)
         [[NetWorkManager NetWorkManager] setRewardtoAttacker:_wave.attacker Reward:_reward];
     _reward = 0;
 }
