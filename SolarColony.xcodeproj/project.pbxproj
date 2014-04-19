@@ -96,6 +96,10 @@
 		F54714FD18EA01CC0099CD70 /* CircleSliderButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */; };
 		F54714FE18EA01CC0099CD70 /* CircleSliderButtonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */; };
 		F54714FF18EA01CC0099CD70 /* DoubleAngleCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */; };
+		F54AFDCE19033654000D45E1 /* acidbullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F54AFDCA19033654000D45E1 /* acidbullet.plist */; };
+		F54AFDCF19033654000D45E1 /* acidbullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F54AFDCB19033654000D45E1 /* acidbullet.png */; };
+		F54AFDD019033654000D45E1 /* bluebullet.plist in Resources */ = {isa = PBXBuildFile; fileRef = F54AFDCC19033654000D45E1 /* bluebullet.plist */; };
+		F54AFDD119033654000D45E1 /* bluebullet.png in Resources */ = {isa = PBXBuildFile; fileRef = F54AFDCD19033654000D45E1 /* bluebullet.png */; };
 		F5584E4618AECA7700C81B59 /* WaveController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5584E4518AECA7700C81B59 /* WaveController.m */; };
 		F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5584E4818AEDB8100C81B59 /* testmap.txt */; };
 		F55948B218A56F3B008ADDED /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F55948B118A56F3B008ADDED /* QuartzCore.framework */; };
@@ -435,6 +439,10 @@
 		F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSliderButtonScene.m; sourceTree = "<group>"; };
 		F54714EC18EA01CC0099CD70 /* DoubleAngleCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubleAngleCircle.h; sourceTree = "<group>"; };
 		F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubleAngleCircle.m; sourceTree = "<group>"; };
+		F54AFDCA19033654000D45E1 /* acidbullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = acidbullet.plist; sourceTree = "<group>"; };
+		F54AFDCB19033654000D45E1 /* acidbullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = acidbullet.png; sourceTree = "<group>"; };
+		F54AFDCC19033654000D45E1 /* bluebullet.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bluebullet.plist; sourceTree = "<group>"; };
+		F54AFDCD19033654000D45E1 /* bluebullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bluebullet.png; sourceTree = "<group>"; };
 		F5584E4418AECA7700C81B59 /* WaveController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveController.h; sourceTree = "<group>"; };
 		F5584E4518AECA7700C81B59 /* WaveController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveController.m; sourceTree = "<group>"; };
 		F5584E4818AEDB8100C81B59 /* testmap.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testmap.txt; sourceTree = "<group>"; };
@@ -888,6 +896,7 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				F54AFDB919032755000D45E1 /* bullets */,
 				326C326C19011C4500A7E9B1 /* WaveOfSoldier */,
 				5671D09E1900B3E200D72BEE /* robot_icon_small.gif */,
 				5671D09F1900B3E200D72BEE /* robot_icon.gif */,
@@ -1057,6 +1066,17 @@
 			children = (
 			);
 			path = psd;
+			sourceTree = "<group>";
+		};
+		F54AFDB919032755000D45E1 /* bullets */ = {
+			isa = PBXGroup;
+			children = (
+				F54AFDCA19033654000D45E1 /* acidbullet.plist */,
+				F54AFDCB19033654000D45E1 /* acidbullet.png */,
+				F54AFDCC19033654000D45E1 /* bluebullet.plist */,
+				F54AFDCD19033654000D45E1 /* bluebullet.png */,
+			);
+			path = bullets;
 			sourceTree = "<group>";
 		};
 		F5584E4718AEDB8100C81B59 /* maps */ = {
@@ -1825,6 +1845,8 @@
 				210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */,
 				09939D2618D14416004EFF55 /* universe-wallpaper1.jpg in Resources */,
 				F54714F218EA01CC0099CD70 /* select0.png in Resources */,
+				F54AFDCE19033654000D45E1 /* acidbullet.plist in Resources */,
+				F54AFDD019033654000D45E1 /* bluebullet.plist in Resources */,
 				F5FDE39318FC591800C48D48 /* map_3.txt in Resources */,
 				F5DA46C718CE387400291A0A /* MageSoldier_Special.png in Resources */,
 				FC6DCD7E18E8FA0100DC98A3 /* powerplant.png in Resources */,
@@ -1839,6 +1861,7 @@
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
 				210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */,
 				F541DED518F3163500FD6492 /* stats.txt in Resources */,
+				F54AFDCF19033654000D45E1 /* acidbullet.png in Resources */,
 				09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */,
 				FC6DCD7818E8F68B00DC98A3 /* towerA.png in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
@@ -1919,6 +1942,7 @@
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F5B0FBAF18FC606200E5AB31 /* aon.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
+				F54AFDD119033654000D45E1 /* bluebullet.png in Resources */,
 				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,

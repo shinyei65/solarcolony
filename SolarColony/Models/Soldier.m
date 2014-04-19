@@ -19,6 +19,7 @@
 }
 @synthesize targetLocation;
 
+
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     return([[Soldier alloc]attacker_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp]);
 }
@@ -50,6 +51,17 @@
     [self addChild:bullet];
     [bullet setVisible:false];
 
+    isRunner=false;
+    //explotion
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"bluebullet.plist"];
+    spriteSheet = [CCSpriteBatchNode
+                                      batchNodeWithFile:@"bluebullet.png"];
+    [self addChild:spriteSheet z:10];
+    
+    [spriteSheet setAnchorPoint:ccp(.5,.5)];
+    [self setAnchorPoint:ccp(.5,.5)];
+    
     return self;
 }
 
@@ -74,8 +86,16 @@
     _hp.position = ccp(0, 15);
     [self addChild:_hp];
 
-    
+    isRunner=true;
+    //explotion
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"acidbullet.plist"];
+    spriteSheet = [CCSpriteBatchNode
+                   batchNodeWithFile:@"acidbullet.png"];
+    [spriteSheet setAnchorPoint:ccp(.5,.5)];
+    [self addChild:spriteSheet z:10];
    
+    [self setAnchorPoint:ccp(.5,.5)];
     
     return self;
 }
@@ -203,9 +223,53 @@
 
 -(void)beingAttacked:(int)attack_power{
     @synchronized(self){
+        
+        CCFadeOut * fadeOut=  [CCFadeOut actionWithDuration:0.05];;
+        CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
+        
+        //animation
+        walkAnimFrames = [NSMutableArray array];
+        if (isRunner) {
+            for (int i=1; i<=10; i++) {
+                [walkAnimFrames addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                  [NSString stringWithFormat:@"acid%d.png",i]]];
+            }
+            [spriteSheet setPosition:[self position]];
+            walkAnim = [CCAnimation
+                        animationWithSpriteFrames:walkAnimFrames delay:0.05f];
+            
+            self.explotion = [CCSprite spriteWithSpriteFrameName:@"acid1.png"];
+        } else {
+            for (int i=1; i<=10; i++) {
+                [walkAnimFrames addObject:
+                 [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+                  [NSString stringWithFormat:@"blue%d.png",i]]];
+            }
+            [spriteSheet setPosition:[self position]];
+            walkAnim = [CCAnimation
+                        animationWithSpriteFrames:walkAnimFrames delay:0.05f];
+            
+            self.explotion = [CCSprite spriteWithSpriteFrameName:@"blue1.png"];
+        }
+        
+        
+        
+        // self.explotion.position = S_position;
+        self.explotion.position = [self convertToNodeSpace:S_position];
+        /*CCAction *walkAction  = [ccre actionWithAction:
+         ];*/
+        //[self.explotion runAction:[CCAnimate actionWithAnimation:walkAnim]];
+        [self.explotion runAction:[CCSequence actions:fadeIn,[CCAnimate actionWithAnimation:walkAnim],fadeOut,nil]];
+        [spriteSheet addChild:self.explotion];
+
+        
         int newHealth = S_health - attack_power;
         [self setHEALTH:newHealth];
     }
+
+    
+    
 }
 
 

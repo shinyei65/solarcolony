@@ -224,5 +224,7 @@
 -(void)beingAttacked:(int)attack_power{
 }
 
--(void)dealloc{}
+-(void)dealloc{
+    [super dealloc];
+}
 @end

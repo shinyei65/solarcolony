@@ -31,6 +31,10 @@
     id movePoint, returnPoint;
     NormalBullet* bullet;
     CGPoint targetPrevious;
+    CCAnimation *walkAnim;
+    CCSpriteBatchNode *spriteSheet;
+    NSMutableArray *walkAnimFrames ;
+    bool isRunner;
 }
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
@@ -61,5 +65,5 @@
 -(NSString*)getType;
 
 @property(assign, atomic) CGPoint targetLocation;
-
+@property (nonatomic, strong) CCSprite *explotion;
 @end

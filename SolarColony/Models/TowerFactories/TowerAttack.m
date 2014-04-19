@@ -126,7 +126,7 @@
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     //[self schedule: @selector(animatonAttackTest:) interval:1];
-    [self animatonAttackTest:0];
+    [self animatonAttackTest:.01];
  
 }
 -(void) endAttack
@@ -142,7 +142,7 @@
 
 -(void) animatonAttackTest: (ccTime) dt
 {
-    //  bullet.targetLocation=soldier;
+   
     [bullet setVisible:TRUE];
     [bullet delegateRaceAttack];
     //[self unscheduleAllSelectors];
@@ -169,16 +169,16 @@
 
 -(void) doNothingCharge: (ccTime) dt{
 
-    //NSLog(@" waitting to charge %d", counter);
+    NSLog(@" waitting to charge %d", counter);
     
-    if (counter > 1) {
+   // if (counter > 1) {
        // NSLog(@"stopped 1st scheduler");
         isCharging=false;
         counter=0;
         [self unschedule:@selector(doNothingCharge:)];
-    }else{
-         counter++;
-    }
+   // }else{
+   //      counter++;
+   // }
  
 }
 
@@ -271,5 +271,7 @@
 
 }
 
--(void)dealloc{}
+-(void)dealloc{
+    [super dealloc];
+}
 @end
