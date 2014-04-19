@@ -19,9 +19,10 @@ static NSMutableDictionary *dict;
 
 @implementation WavesOfSoldiers{
     SoldiersLayer *soldierlayer;
+    
     int wave_num;
     NSArray *ItemArray;
-    int wave_sol[8][3];
+    int wave_sol[8][6];
     int cur_wave;
 }
 @synthesize mobileDisplaySize;
@@ -56,18 +57,6 @@ static NSMutableDictionary *dict;
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         
         
-        
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Assign Waves" fontName:@"Marker Felt" fontSize:32];
-        
-        mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
-        //initial background
-        CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
-        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
-        
-        wave_num = 1;
-        
         //initial SoldierLayer variable
         if(gameStatusEssentialsSingleton.getSoldierInit == false)
         {
@@ -96,10 +85,19 @@ static NSMutableDictionary *dict;
             [gameStatusEssentialsSingleton notFirstVisit];
             
         }
-        
+        CCLOG(@"%@",gameStatusEssentialsSingleton.currentWave);
         [dict setObject:@"Wave 1" forKey:@"w1"];
         
         
+        //UI part
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Assign Waves" fontName:@"Marker Felt" fontSize:32];
+        
+        mobileDisplaySize= [[CCDirector sharedDirector] winSize];
+        
+        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
+        //initial background
+        CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
+        bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         
         CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveRequest:)];
         
@@ -110,12 +108,6 @@ static NSMutableDictionary *dict;
         
         [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
         
-        
-        
-        
-        
-        
-        
         [self addChild:bg z:0];
         
         [self addChild:splash z:1];
@@ -123,9 +115,6 @@ static NSMutableDictionary *dict;
         [self addChild:[self LoadWaveMenu] z:3];
         [self addChild:[self loadTable] z:3];
         [self addChild:[self loadButton] z:3];
-        
-
-        
         
     }
     return self;
@@ -144,9 +133,6 @@ static NSMutableDictionary *dict;
     army.race=gameStatusEssentialsSingleton.raceType;
     NSString * jsonstring= [army toJSONString];
     // CCLOG(jsonstring);
-    
-    
-    
     
     //test save request
     ArmyNetworkRequest *armyNetwork = [[ArmyNetworkRequest alloc] init];
@@ -172,19 +158,9 @@ static NSMutableDictionary *dict;
     CCLOG(jsonstringFixed);
     
 }
--(Army*)generateArmyFromNetworkResource{
-    NSString * test=[NSString stringWithString:@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}"];
-    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
-    
-    CCLOG(test);
-    return nil;
-}
 
--(NSMutableDictionary*) SaveWave:(NSString*)WaveName :(NSString*)WaveKey
-{
-    [Wave_Store setObject:WaveName forKey:WaveKey];
-    return Wave_Store;
-}
+
+
 
 /**used to be in WaveLayer Start*/
 
@@ -193,33 +169,55 @@ static NSMutableDictionary *dict;
     CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
     [addItemButton setPosition:ccp(-50,50)];
     
-    
     wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
     wave1.tag = 1;
     [wave1 setFontSize:20];
     
-    [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
+    //[gameStatusEssentialsSingleton setCurrentWave:@"w1"];
     
     
     
-    NSArray *keys = [dict allKeys];
-    NSLog(@"dict %@",dict);
-    NSLog(@"%@",keys);
-    // values in foreach loop
-    for (NSString *key in keys) {
-        ItemArray = [NSMutableArray arrayWithObject:[dict objectForKey:key]];
-        
-    }
-    NSLog(@"Item %@",ItemArray);
+     NSArray *keys = [dict allKeys];
+     NSLog(@"dict %@",dict);
+     NSLog(@"%@",keys);
+    
+    
+     // values in foreach loop
+     for (NSString *key in keys) {
+     ItemArray = [NSMutableArray arrayWithObject:[dict objectForKey:key]];
+     
+     }
+     NSLog(@"Item %@",ItemArray);
+    
+    
+    
+    
     
     
     waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
-    
-    
     [waveMenus alignItemsVertically];
     [waveMenus setPosition:ccp( mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2)];
     
+    /*
+    for (int i =0 ; i < [friends count]; i++) {
+        
+        CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[friends objectAtIndex:i]];
+        [mainMenu addChild:newFriend z:4];
+        newFriend.fontName = @"Outlier.ttf";
+        newFriend.fontSize = 20;
+        [newFriend.label setColor:ccc3(200, 200, 230)];
+        newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*i);
+        
+        
+    }*/
     return waveMenus;
+    
+    
+    
+    
+    
+    
+    
     
 }
 
@@ -296,6 +294,7 @@ static NSMutableDictionary *dict;
     [waveMenus addChild:WaveNum];
     [waveMenus alignItemsVertically];
     
+    
     [dict setObject:Wave_num  forKey:wave_key];
     
 }
@@ -315,7 +314,7 @@ static NSMutableDictionary *dict;
     CCMenuItemImage *TableSoldierF = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
     
     CCMenuItemImage *soldierA_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
-     CCMenuItemImage *soldierB_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
+    CCMenuItemImage *soldierB_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
     CCMenuItemImage *soldierC_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
     CCMenuItemImage *soldierD_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
     CCMenuItemImage *soldierE_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
@@ -377,26 +376,26 @@ static NSMutableDictionary *dict;
     return SoldierMenu;
 }
 -(CCMenu*) loadButton{
-
+    
     soldierA_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
     soldierA_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-     soldierB_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
+    soldierB_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-     soldierB_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
-     soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
-     
-     soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
-     soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
-     
-     soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
-     soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
-     
-     soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
-     soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
-     
-     soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
+    soldierB_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
+    soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
+    
+    soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
+    soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    
+    soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
+    soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    
+    soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
+    soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    
+    soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
     
     soldierA_decrease.position = ccp(-4, 5);
     soldierA_increase.position = ccp(44, 5);
@@ -542,31 +541,28 @@ static NSMutableDictionary *dict;
             
         }
     }
+    [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
+    [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
+    [item3 setString:[NSString stringWithFormat:@"%d", counterC]];
+    [item4 setString:[NSString stringWithFormat:@"%d", counterD]];
+    [item5 setString:[NSString stringWithFormat:@"%d", counterE]];
+    [item6 setString:[NSString stringWithFormat:@"%d", counterF]];
     
-  
-
-        [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
-        [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
-        [item3 setString:[NSString stringWithFormat:@"%d", counterC]];
-        [item4 setString:[NSString stringWithFormat:@"%d", counterD]];
-        [item5 setString:[NSString stringWithFormat:@"%d", counterE]];
-        [item6 setString:[NSString stringWithFormat:@"%d", counterF]];
-
-
-        NSString* wave= [gameStatusEssentialsSingleton currentWave];
-        NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
-
-        CCLOG(@"mente %@",[tempdictonary objectForKey:@"SA"]);
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterA] forKey:@"SA"];
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterB] forKey:@"SB"];
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterC] forKey:@"SC"];
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterD] forKey:@"SD"];
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterE] forKey:@"SE"];
-        [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterF] forKey:@"SF"];
-        CCLOG(@"%@",[tempdictonary objectForKey:@"SA"]);
-        [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
-
-
+    
+    NSString* wave= [gameStatusEssentialsSingleton currentWave];
+    NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
+    
+    
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterA] forKey:@"SA"];
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterB] forKey:@"SB"];
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterC] forKey:@"SC"];
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterD] forKey:@"SD"];
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterE] forKey:@"SE"];
+    [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterF] forKey:@"SF"];
+    
+    [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
+    
+    
     //add
     gameStatusEssentialsSingleton.counterA = counterA;
     gameStatusEssentialsSingleton.counterB = counterB;
@@ -582,6 +578,17 @@ static NSMutableDictionary *dict;
     [item2 setString:[NSString stringWithFormat:@"%d", wave_sol[cur_wave][1]]];
 }
 /**used to be in SoldierLayer End*/
+
+
+-(Army*)generateArmyFromNetworkResource{
+    NSString * test=[NSString stringWithString:@"{\"waveComplexStructure\":{\"w5\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w3\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w6\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w1\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w4\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w7\":{\"SC\":\"0\",\"SF\":\"0\",\"SB\":\"0\",\"SE\":\"0\",\"SA\":\"0\",\"SD\":\"0\"},\"w2\":{\"SC\":\"1\",\"SF\":\"1\",\"SB\":\"2\",\"SE\":\"2\",\"SA\":\"5\",\"SD\":\"0\"}},\"race\":\"Robot\"}"];
+    ArmyNetwork* networkArmy=[[ArmyNetwork alloc] initWithString:test error:&erf];
+    
+    CCLOG(test);
+    return nil;
+}
+
+
 - (void)dealloc
 {
     [super dealloc];

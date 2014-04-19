@@ -13,7 +13,6 @@
 @interface WavesOfSoldiers : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
-    NSMutableDictionary* Wave_Store;
     CCMenuItemFont *wave1;
     CCMenu *waveMenus;
     CCMenuItemFont *item1;
