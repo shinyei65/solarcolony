@@ -7,9 +7,19 @@
 //
 
 #import "HumanSoldier.h"
+#import "GameStatsLoader.h"
 
 @implementation HumanSoldier
 
++ (id) soldierWithType:(NSString *) type
+{
+    NSMutableDictionary *stats = [GameStatsLoader loader].stats;
+    if([type isEqualToString:@"typeA"]){
+        return([[HumanSoldier alloc]typeA_init:[stats[@"Human"][@"Attacker1"][@"health"] integerValue] ATTACK:[stats[@"Human"][@"Attacker1"][@"power"] integerValue] Speed:[stats[@"Human"][@"Attacker1"][@"speed"] integerValue] ATTACK_SP:[stats[@"Human"][@"Attacker1"][@"attspeed"] integerValue]]);
+    }else{
+        return([[HumanSoldier alloc]typeA_init:[stats[@"Human"][@"Attacker1"][@"health"] integerValue] ATTACK:[stats[@"Human"][@"Attacker1"][@"power"] integerValue] Speed:[stats[@"Human"][@"Attacker1"][@"speed"] integerValue] ATTACK_SP:[stats[@"Human"][@"Attacker1"][@"attspeed"] integerValue]]);
+    }
+}
 + (instancetype) typeA:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     return([[HumanSoldier alloc]typeA_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp]);
 }

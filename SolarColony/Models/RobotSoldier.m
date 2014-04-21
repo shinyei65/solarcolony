@@ -7,9 +7,19 @@
 //
 
 #import "RobotSoldier.h"
+#import "GameStatsLoader.h"
 
 @implementation RobotSoldier
 
++ (id) soldierWithType:(NSString *) type
+{
+    NSMutableDictionary *stats = [GameStatsLoader loader].stats;
+    if([type isEqualToString:@"typeA"]){
+        return([[RobotSoldier alloc]typeA_init:[stats[@"Robot"][@"Attacker1"][@"health"] integerValue] ATTACK:[stats[@"Robot"][@"Attacker1"][@"power"] integerValue] Speed:[stats[@"Robot"][@"Attacker1"][@"speed"] integerValue] ATTACK_SP:[stats[@"Robot"][@"Attacker1"][@"attspeed"] integerValue]]);
+    }else{
+        return([[RobotSoldier alloc]typeA_init:[stats[@"Robot"][@"Attacker1"][@"health"] integerValue] ATTACK:[stats[@"Robot"][@"Attacker1"][@"power"] integerValue] Speed:[stats[@"Robot"][@"Attacker1"][@"speed"] integerValue] ATTACK_SP:[stats[@"Robot"][@"Attacker1"][@"attspeed"] integerValue]]);
+    }
+}
 + (instancetype) typeA:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     return([[RobotSoldier alloc]typeA_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp]);
 }

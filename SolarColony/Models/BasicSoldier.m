@@ -7,9 +7,15 @@
 //
 
 #import "BasicSoldier.h"
+#import "GameStatsLoader.h"
 
 @implementation BasicSoldier
 
++ (id) soldierWithRace:(NSString *) race
+{
+    NSMutableDictionary *stats = [GameStatsLoader loader].stats;
+    return([[BasicSoldier alloc]human_init:[stats[race][@"Runner"][@"health"] integerValue] ATTACK:1 Speed:[stats[race][@"Runner"][@"speed"] integerValue] ATTACK_SP:1]);
+}
 + (instancetype) human:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp{
     return([[BasicSoldier alloc]human_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp]);
 

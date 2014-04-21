@@ -11,7 +11,7 @@
 
 @interface BasicSoldier : Soldier
 
-
++ (id) soldierWithRace:(NSString *) race;
 + (instancetype) human:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 + (instancetype) robot:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 + (instancetype) mage:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;

@@ -11,7 +11,7 @@
 #import "Soldier.h"
 
 @interface MageSoldier : Soldier
-
++ (id) soldierWithType:(NSString *) type;
 + (instancetype) typeA:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 - (instancetype) typeA_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 

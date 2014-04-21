@@ -194,13 +194,13 @@ NSString *AI_REQUEST = @"AI";
         Soldier *temp;
         if(_army_gen_count ==0){
             wave.race = @"Human";
-            temp = [BasicSoldier human:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [BasicSoldier soldierWithRace:wave.race];
         }else if(_army_gen_count == 1){
             wave.race = @"Robot";
-            temp = [BasicSoldier robot:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [BasicSoldier soldierWithRace:wave.race];
         }else{
             wave.race = @"Magic";
-            temp = [BasicSoldier mage:(int)AI_HEALTH ATTACK:(int)1 Speed:(int)2 ATTACK_SP:(int)2];
+            temp = [BasicSoldier soldierWithRace:wave.race];
         }
         [wave addSoldier: temp];
     }
@@ -208,11 +208,11 @@ NSString *AI_REQUEST = @"AI";
         //CCLOG(@"attacker!!!");
         Soldier *temp;
         if(_army_gen_count ==0)
-            temp = [HumanSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [HumanSoldier soldierWithType:@"typeA"];
         else if(_army_gen_count == 1)
-            temp = [RobotSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [RobotSoldier soldierWithType:@"typeA"];
         else
-            temp = [MageSoldier typeA:(int)AI_HEALTH ATTACK:(int)2 Speed:(int)1 ATTACK_SP:(int)2];
+            temp = [MageSoldier soldierWithType:@"typeA"];
         [wave addSoldier: temp];
     }
     _army_gen_count++;
