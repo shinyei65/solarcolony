@@ -242,6 +242,7 @@
 		F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5675F1918FC71E0001BA0AB /* friend_bar_sel.png */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
+		F58529051905A8F800AF750C /* towerAcharge.png in Resources */ = {isa = PBXBuildFile; fileRef = F58529041905A8F800AF750C /* towerAcharge.png */; };
 		F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A73F18F234F300802CA6 /* SupportTowerTouch.m */; };
 		F585A74418F2366D00802CA6 /* TowerGeneric.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A74318F2366D00802CA6 /* TowerGeneric.m */; };
 		F58AC63118B42932009B6422 /* TowerMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58AC63018B42932009B6422 /* TowerMagic.m */; };
@@ -737,6 +738,7 @@
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
 		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
+		F58529041905A8F800AF750C /* towerAcharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerAcharge.png; sourceTree = "<group>"; };
 		F585A73E18F234F300802CA6 /* SupportTowerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportTowerTouch.h; sourceTree = "<group>"; };
 		F585A73F18F234F300802CA6 /* SupportTowerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportTowerTouch.m; sourceTree = "<group>"; };
 		F585A74118F2361700802CA6 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
@@ -1760,6 +1762,7 @@
 		FC6DCD7218E8F65F00DC98A3 /* towers */ = {
 			isa = PBXGroup;
 			children = (
+				F58529041905A8F800AF750C /* towerAcharge.png */,
 				F503E2BE18F637350022F629 /* target.png */,
 				FC6DCD7B18E8FA0100DC98A3 /* portal.png */,
 				FC6DCD7C18E8FA0100DC98A3 /* powerplant.png */,
@@ -1917,6 +1920,7 @@
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
 				F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */,
+				F58529051905A8F800AF750C /* towerAcharge.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
 				09B30E2F18FC7DFC00A616FB /* sample_2.png in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,

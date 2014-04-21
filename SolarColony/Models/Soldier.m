@@ -50,7 +50,7 @@
     bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
     [self addChild:bullet];
     [bullet setVisible:false];
-
+    
     isRunner=false;
     //explotion
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
@@ -85,7 +85,7 @@
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
     [self addChild:_hp];
-
+    
     isRunner=true;
     //explotion
     [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
@@ -197,6 +197,16 @@
     moveCD = 0;
 }
 
+- (void)moveOriginal{
+    
+    float moveTime = (float)1/[self getSPEED];
+    CGPoint newPosition = ccp(initialLocation.x-1,initialLocation.y);
+    id move = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:newPosition]];
+    S_position =initialLocation;
+    [self runAction:move];
+    
+    
+}
 -(float)getMoveTime{
     return MoveTime;
 }
@@ -307,6 +317,13 @@
  
   
     
+}
+
+- (void)setInitLocation:(CGPoint)loc{
+    initialLocation=loc;
+}
+- (CGPoint)getInitLocation{
+     return initialLocation;
 }
 
 -(void)bulletDisapp

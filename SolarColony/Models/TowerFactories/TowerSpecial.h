@@ -17,6 +17,8 @@
     id movePoint, returnPoint ;
     CCSprite* towerSprite;
     CCSprite* towerSprite_hp;
+    CCProgressTimer *timeBar;
+    int counter;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;

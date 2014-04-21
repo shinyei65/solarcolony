@@ -118,22 +118,43 @@
 - (void) attack:(Soldier*) soldier{
     
 }
-- (void) attackTest:(CGPoint) soldier{
-    
-    [self setIsAttacking:true];
-    targetLocation=soldier;
-    bullet.targetLocation=soldier;
-    [self schedule: @selector(animatonAttackTest:) interval:1];
 
+- (void) attackTest:(CGPoint) soldier Target:(Soldier*) target{
+      [self reloadAnimation];
     
 }
 
--(void) animatonAttackTest: (ccTime) dt
+-(void) reloadAnimation
 {
-  //  bullet.targetLocation=soldier;
-    [bullet delegateRaceAttack];
-    [self unscheduleAllSelectors];
-    [self setIsAttacking:false];
+    
+    if (isCharging==false) {
+        isCharging=true;
+        //NSLog(@"SPEED = %g", (float)towerSpeed/60);
+        CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:10 from:100 to:0];
+        CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerAcharge.png"];
+        timeBar = [CCProgressTimer progressWithSprite:progressSprite];
+        //[timeBar setAnchorPoint:ccp(.8, 0.5)];
+        counter=0;
+        [self addChild:timeBar];
+        [timeBar runAction:to1];
+        [self schedule: @selector(doNothingCharge:) interval:10];//(float)towerSpeed/60];
+    }
+    
+}
+
+-(void) doNothingCharge: (ccTime) dt{
+    
+    NSLog(@" waitting to charge %d", counter);
+    
+    // if (counter > 1) {
+    // NSLog(@"stopped 1st scheduler");
+    isCharging=false;
+    counter=0;
+    [self unschedule:@selector(doNothingCharge:)];
+    // }else{
+    //      counter++;
+    // }
+    
 }
 
 -(void)beignattacked{

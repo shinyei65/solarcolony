@@ -108,7 +108,7 @@
 }
 
 -(void)moveToScene:(id)sender{
-    CCMenuItemImage* menuItem = (CCMenuItemImage*)sender;
+   
     CCMenuItem *itm = (CCMenuItem *)sender;
     NSString *theData = (NSString *)itm.userData;
     

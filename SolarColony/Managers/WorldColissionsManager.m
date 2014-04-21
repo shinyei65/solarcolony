@@ -81,9 +81,18 @@
                     }
                     
                }
-            } else if (tower.towerTowerId==3)  {
-           
-            }          
+            } else if (tower.towerTowerId==4)  {
+                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+                     
+                     if (!tower.isCharging) {
+                         [soldier moveOriginal];
+                         [tower attackTest:soldierpoint Target:soldier];
+                         break;
+                     } else {
+                         
+                     }
+                 }
+            }
         }
         
         //soldier attacking

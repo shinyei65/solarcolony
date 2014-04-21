@@ -35,6 +35,7 @@
     CCSpriteBatchNode *spriteSheet;
     NSMutableArray *walkAnimFrames ;
     bool isRunner;
+    CGPoint initialLocation;
 }
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
@@ -63,6 +64,9 @@
 -(void)beingAttacked:(int)attack_power;
 -(void)bulletDisapp;
 -(NSString*)getType;
+- (void)moveOriginal;
+- (void)setInitLocation:(CGPoint)loc;
+- (CGPoint)getInitLocation;
 
 @property(assign, atomic) CGPoint targetLocation;
 @property (nonatomic, strong) CCSprite *explotion;
