@@ -30,9 +30,9 @@
     WorldColissionsManager* colissionsManager;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     PlayerInfo* player;
-    CCLabelTTF *resource_label;
+    //CCLabelTTF *resource_label;
     CCLabelTTF *resource_number;
-    CCLabelTTF *life_label;
+    //CCLabelTTF *life_label;
     CCLabelTTF *life_number;
     int humanPrice;
     int robotPrice;
@@ -91,17 +91,31 @@
     colissionsManager= [WorldColissionsManager Controller:grid];
 
     //Jimmy test life and resource layer
-
-    resource_label = [CCLabelTTF labelWithString:@"Resource: " fontName:@"Outlier.ttf" fontSize:15];
-    [self addChild:resource_label];
-    resource_label.position = ccp(80,300);
+    NSString *bar_img = nil;
+    if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]){
+        bar_img = @"human_resource.gif";
+    }else if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]){
+        bar_img = @"robot_resource.gif";
+    }else{
+        bar_img = @"magic_resource.gif";
+    }
+    CCSprite *resource_bar = [CCSprite spriteWithFile:bar_img];
+    [resource_bar setPosition:ccp(120, 300)];
+    resource_bar.opacity = 200;
+    [self addChild:resource_bar];
+    //resource_label = [CCLabelTTF labelWithString:@"Resource: " fontName:@"Outlier.ttf" fontSize:15];
+    //[self addChild:resource_label];
+    //resource_label.position = ccp(80,300);
     resource_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getResource]] fontName:@"Outlier.ttf" fontSize:15];
     [self addChild:resource_number];
-    resource_number.position = ccp(170,300);
-    life_label = [CCLabelTTF labelWithString:@"Life: " fontName:@"Outlier.ttf" fontSize:15];
-    [self addChild:life_label];
-    life_label.position = ccp(400,300);
-    
+    resource_number.position = ccp(100,300);
+    //life_label = [CCLabelTTF labelWithString:@"Life: " fontName:@"Outlier.ttf" fontSize:15];
+    //[self addChild:life_label];
+    //life_label.position = ccp(400,300);
+    CCSprite *life_bar = [CCSprite spriteWithFile:@"life_bar.jpg"];
+    [life_bar setPosition:ccp(450, 300)];
+    life_bar.opacity = 200;
+    [self addChild:life_bar];
     life_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getLife]] fontName:@"Outlier.ttf" fontSize:15];
     [self addChild:life_number];
     life_number.position = ccp(440,300);
@@ -220,5 +234,10 @@
     [gameStatusEssentialsSingleton setPaused:false];
 }
 
+- (void) reset{
+    humanPrice = 300;
+    robotPrice = 400;
+    //[gameStatusEssentialsSingleton ]
+}
 
 @end

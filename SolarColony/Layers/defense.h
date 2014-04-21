@@ -12,5 +12,5 @@
 @interface defense : CCScene<AbstractScene>
 + (instancetype)scene;
 - (instancetype)init;
-
+- (void) reset;
 @end
