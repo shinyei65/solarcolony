@@ -17,8 +17,8 @@
 
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
-int WAVE_SHOW_RATE = 2;
-int ARMY_GEN_RATE = 12;
+int WAVE_SHOW_RATE = 20;
+int ARMY_GEN_RATE = 120;
 float AI_HEALTH = 5;
 NSString *AI_REQUEST = @"AI";
 
@@ -31,6 +31,7 @@ NSString *AI_REQUEST = @"AI";
     NSMutableArray *_show_queue;
     NSMutableArray *_sprite_queue;
     BOOL _get_reward_flag;
+    int tagOfArmy;
 }
 + (instancetype) layer
 {
@@ -53,13 +54,14 @@ NSString *AI_REQUEST = @"AI";
         _army_gen_tick = 0;
         _wave_show_tick = 0;
         _army_gen_count = 0;
+        tagOfArmy = 0;
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
         [label setAnchorPoint:ccp(0,1)];
         [label setPosition:ccp(-100,0)];
         [self setAnchorPoint:ccp(0,1)];
         [self addChild:label];
         [self genertateAIarmy];
-        [self schedule:@selector(update:) interval:1];
+        [self schedule:@selector(update:) interval:0.1];
     }
 
     return self;
@@ -187,9 +189,13 @@ NSString *AI_REQUEST = @"AI";
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
     Army *army = [Army army: AI_REQUEST Attacker:AI_REQUEST];
+
+    int numberOfRunner = 5+2*tagOfArmy;
+    int numberOfAttacker = 5+2*tagOfArmy;
+
     
     Wave *wave = [Wave wave];
-    for (int i=0; i<3; i++) {
+    for (int i=0; i< numberOfRunner; i++) {
         //CCLOG(@"runner!!!");
         Soldier *temp;
         if(_army_gen_count ==0){
@@ -202,9 +208,11 @@ NSString *AI_REQUEST = @"AI";
             wave.race = @"Magic";
             temp = [BasicSoldier soldierWithRace:wave.race];
         }
+        [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
+        [temp setSPEED:pow(1.3, tagOfArmy)*[temp getSPEED]];
         [wave addSoldier: temp];
     }
-    for (int i=0; i<3; i++) {
+    for (int i=0; i< numberOfAttacker; i++) {
         //CCLOG(@"attacker!!!");
         Soldier *temp;
         if(_army_gen_count ==0)
@@ -213,9 +221,14 @@ NSString *AI_REQUEST = @"AI";
             temp = [RobotSoldier soldierWithType:@"typeA"];
         else
             temp = [MageSoldier soldierWithType:@"typeA"];
+        
+        [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
+        [temp setATTACK:pow(1.3, tagOfArmy)*[temp getATTACK]];
+        [temp setSPEED:pow(1.1, tagOfArmy)*[temp getSPEED]];
         [wave addSoldier: temp];
     }
     _army_gen_count++;
+    tagOfArmy++;
     if(_army_gen_count > 2)
         _army_gen_count = 0;
     [army addWave: wave];
