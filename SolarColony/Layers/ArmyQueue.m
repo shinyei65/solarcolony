@@ -297,6 +297,10 @@ NSString *AI_REQUEST = @"AI";
         AI_HEALTH *= 1.5f;
     
 }
+- (BOOL) getInWave
+{
+    return _inWave;
+}
 @end
 
 @implementation WaveSprite

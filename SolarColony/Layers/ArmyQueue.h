@@ -22,6 +22,7 @@
 - (void) addArmy: (Army *) army;
 - (void) genertateTestarmy;
 - (void) resetGetRewardFlag;
+- (BOOL) getInWave;
 @end
 
 @interface WaveSprite : CCNode
