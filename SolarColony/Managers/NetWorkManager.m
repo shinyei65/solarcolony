@@ -309,26 +309,29 @@ static NetWorkManager *sharedNetWorkManager = nil;
                     Soldier * (^selectedCase)() = @{
                                                     @"Human": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier human:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                //return [BasicSoldier human:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier soldierWithRace:@"Human"];
                                                             },
                                                             @"B" : ^{
-                                                                return [HumanSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [HumanSoldier soldierWithType:@"typeA"];
                                                             },
                                                             },
                                                     @"Robot": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier robot:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                //return [BasicSoldier robot:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier soldierWithRace:@"Robot"];
                                                             },
                                                             @"B" : ^{
-                                                                return [RobotSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [RobotSoldier soldierWithType:@"typeA"];
                                                             },
                                                             },
                                                     @"Magic": @{
                                                             @"A" : ^{
-                                                                return [BasicSoldier mage:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                //return [BasicSoldier mage:(int)10 ATTACK:(int)2 Speed:(int)2 ATTACK_SP:(int)2];
+                                                                return [BasicSoldier soldierWithRace:@"Magic"];
                                                             },
                                                             @"B" : ^{
-                                                                return [MageSoldier typeA:(int)10 ATTACK:(int)5 Speed:(int)1 ATTACK_SP:(int)2];
+                                                                return [MageSoldier soldierWithType:@"typeA"];
                                                             },
                                                             },
                                                     }[race][type];

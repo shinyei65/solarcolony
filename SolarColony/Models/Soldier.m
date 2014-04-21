@@ -142,6 +142,7 @@
 }
 - (void)setSPEED:(int)speed{
     S_speed = speed;
+    MoveTime = (float)1/speed;
 }
 - (int)getSPEED{
     return S_speed;

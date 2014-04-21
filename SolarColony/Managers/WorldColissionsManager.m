@@ -8,7 +8,7 @@
 
 #import "PlayerInfo.h"
 #import "WorldColissionsManager.h"
-
+#import "ArmyQueue.h"
 
 @implementation WorldColissionsManager
 {
@@ -40,10 +40,12 @@
     //remove towers
     NSMutableArray *delTarray = [NSMutableArray array];
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
+        if([[ArmyQueue layer] getInWave])
+            break;
         if ([tower isDeath]) {
+            [[WaveController controller] gainReward:tower.towerReward];
             [grid removeTower:tower];
             [delTarray addObject:tower];
-            [[WaveController controller] gainReward:tower.towerReward];
         }
     }
     for(TowerGeneric* tower in delTarray)

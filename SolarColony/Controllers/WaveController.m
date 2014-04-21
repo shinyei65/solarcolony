@@ -10,7 +10,7 @@
 #import "GameStatusEssentialsSingleton.h"
 
 static WaveController *sharedInstance = nil;
-int SOL_GEN_RATE = 1;
+int SOL_GEN_RATE = 4;
 
 @implementation WaveController {
     int _tick;

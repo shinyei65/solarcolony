@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="15" height="10" tilewidth="76" tileheight="64">
- <tileset firstgid="1" name="sample_1" tilewidth="76" tileheight="64">
-  <image source="Tile samples/sample_1.png" width="1216" height="1024"/>
+ <tileset firstgid="1" name="sample_2" tilewidth="76" tileheight="64">
+  <image source="sample_2.png" width="1216" height="1024"/>
  </tileset>
- <tileset firstgid="257" name="sample_bg" tilewidth="76" tileheight="64">
-  <image source="Tile samples/sample_bg.png" width="1216" height="1024"/>
- </tileset>
- <layer name="Tile Layer 1" width="15" height="10">
+ <layer name="Background" width="15" height="10">
   <data encoding="base64" compression="zlib">
-   eJyNkdENgkAQRO/qoQRsADs4OgBsBLATu0ArABoQaUClAOfibNhswPjxMmRv92Zumb1zqfuPO3on8AADGEGCegYKUILKfB85+0TvC7ypI30bcGCP1ZqaGGb66tmMnuIXTI4Tzxa/3m196p0cUc9qDzIbPXO3vkPPSFaZlSw5a426LzDjxew79rUbWVrTs6exr8N7r+Dmv7VgdiIq+XTOXv3nXz5b+gFztDhX
+   eJyVkcsNwjAQRN1HSrAr2A5wB6QDCI2E0AlVABVwC0c+FRCk5MhYmpVGgQMcnnZX68yM40MIYQTTD/UIenIBN1CBBViBNWjARvoMIhioM1LnCQx04A4e1DKe913pk9SBvon7K2fPkLlbSiavWXxbar3YV6w28/M8Lc96H+lZS1b/rtznRMq9tpJBz7uHZ93Lf5ro11HDsyTJa+Ezp8m8A2fJEenVfHmv+VzzjXvR+Ic3sF9PsQ==
   </data>
  </layer>
 </map>
