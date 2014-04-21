@@ -40,12 +40,12 @@
     //remove towers
     NSMutableArray *delTarray = [NSMutableArray array];
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
-        if([[ArmyQueue layer] getInWave])
-            break;
         if ([tower isDeath]) {
             [[WaveController controller] gainReward:tower.towerReward];
             [grid removeTower:tower];
-            [delTarray addObject:tower];
+            if(![[ArmyQueue layer] getInWave]){
+                [delTarray addObject:tower];
+            }
         }
     }
     for(TowerGeneric* tower in delTarray)
@@ -106,7 +106,7 @@
             soldierpoint = [soldier getPOSITION];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
             
-            if ( (towerpoint.x>=soldierpoint.x-50&&towerpoint.x<=soldierpoint.x+50)&&(towerpoint.y>=soldierpoint.y-50&& towerpoint.y<=soldierpoint.y+50)) {
+            if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)) {
                 //CCLOG(@"soldier attack!!!!!");
                 [soldier attack:towerpoint Target:tower];
                 //[tower beignattacked];
