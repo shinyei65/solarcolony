@@ -43,6 +43,8 @@ static MusicManagerSingleton *shareSoundManager = nil;
         [self preLoadEffect];
         [[SimpleAudioEngine sharedEngine]preloadBackgroundMusic:BGStr];
         [[SimpleAudioEngine sharedEngine]playBackgroundMusic:BGStr];
+        [[SimpleAudioEngine sharedEngine]setBackgroundMusicVolume:0.5];
+        
         isPlayingSound=true;
         isBackGround = true;
         

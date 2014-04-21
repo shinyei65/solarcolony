@@ -12,7 +12,6 @@
 #import "NormalBullet.h"
 #import "PlayerInfo.h"
 
-
 @implementation Soldier{
     TowerGeneric *attackTarget;
     int gainReward;
@@ -58,7 +57,7 @@
     spriteSheet = [CCSpriteBatchNode
                                       batchNodeWithFile:@"bluebullet.png"];
     [self addChild:spriteSheet z:10];
-    
+    musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     [spriteSheet setAnchorPoint:ccp(.5,.5)];
     [self setAnchorPoint:ccp(.5,.5)];
     
@@ -240,6 +239,8 @@
         
         //animation
         walkAnimFrames = [NSMutableArray array];
+        //add
+        [musicManagerSingleton playEffect:@"sound 2.wav"];
         if (isRunner) {
             for (int i=1; i<=10; i++) {
                 [walkAnimFrames addObject:
@@ -258,6 +259,7 @@
                   [NSString stringWithFormat:@"blue%d.png",i]]];
             }
             [spriteSheet setPosition:[self position]];
+            
             walkAnim = [CCAnimation
                         animationWithSpriteFrames:walkAnimFrames delay:0.05f];
             

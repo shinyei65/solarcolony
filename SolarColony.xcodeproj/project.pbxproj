@@ -28,7 +28,6 @@
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
-		210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506A18B5C0DA00F7A1DE /* sound 2.wav */; };
 		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
 		210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506C18B5C0DA00F7A1DE /* sound 4.wav */; };
 		210D507218B5C0DA00F7A1DE /* sound 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506D18B5C0DA00F7A1DE /* sound 5.wav */; };
@@ -243,6 +242,7 @@
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
 		F58529051905A8F800AF750C /* towerAcharge.png in Resources */ = {isa = PBXBuildFile; fileRef = F58529041905A8F800AF750C /* towerAcharge.png */; };
+		F58529071905B70700AF750C /* sound 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F58529061905B70700AF750C /* sound 2.wav */; };
 		F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A73F18F234F300802CA6 /* SupportTowerTouch.m */; };
 		F585A74418F2366D00802CA6 /* TowerGeneric.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A74318F2366D00802CA6 /* TowerGeneric.m */; };
 		F58AC63118B42932009B6422 /* TowerMagic.m in Sources */ = {isa = PBXBuildFile; fileRef = F58AC63018B42932009B6422 /* TowerMagic.m */; };
@@ -358,7 +358,6 @@
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
-		210D506A18B5C0DA00F7A1DE /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
 		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
 		210D506C18B5C0DA00F7A1DE /* sound 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 4.wav"; sourceTree = "<group>"; };
 		210D506D18B5C0DA00F7A1DE /* sound 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 5.wav"; sourceTree = "<group>"; };
@@ -743,6 +742,7 @@
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
 		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
 		F58529041905A8F800AF750C /* towerAcharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerAcharge.png; sourceTree = "<group>"; };
+		F58529061905B70700AF750C /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
 		F585A73E18F234F300802CA6 /* SupportTowerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportTowerTouch.h; sourceTree = "<group>"; };
 		F585A73F18F234F300802CA6 /* SupportTowerTouch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupportTowerTouch.m; sourceTree = "<group>"; };
 		F585A74118F2361700802CA6 /* Tower.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
@@ -1561,7 +1561,7 @@
 				21152FEB18B7643100C1274C /* Marines.mp3 */,
 				21152FEC18B7643100C1274C /* Military_Might.mp3 */,
 				210D506918B5C0DA00F7A1DE /* sound 1.wav */,
-				210D506A18B5C0DA00F7A1DE /* sound 2.wav */,
+				F58529061905B70700AF750C /* sound 2.wav */,
 				210D506B18B5C0DA00F7A1DE /* sound 3.wav */,
 				210D506C18B5C0DA00F7A1DE /* sound 4.wav */,
 				210D506D18B5C0DA00F7A1DE /* sound 5.wav */,
@@ -1887,13 +1887,13 @@
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */,
 				F5191C4318FF6E2C00C62839 /* rankin.png in Resources */,
+				F58529071905B70700AF750C /* sound 2.wav in Resources */,
 				F53E795618B5B58D0037A48A /* blood_3:4.jpg in Resources */,
 				F5B0FBB318FC606200E5AB31 /* fon.png in Resources */,
 				F53E795518B5B58D0037A48A /* blood_1:4.jpg in Resources */,
 				F5BD5F5018F63BBB004EB055 /* friend_menu_clipped.png in Resources */,
 				F55948D418A56F3B008ADDED /* Icon-Small.png in Resources */,
 				F55948D018A56F3B008ADDED /* Icon-72.png in Resources */,
-				210D506F18B5C0DA00F7A1DE /* sound 2.wav in Resources */,
 				F54714F618EA01CC0099CD70 /* select2.png in Resources */,
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,

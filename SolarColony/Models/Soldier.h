@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "MusicManagerSingleton.h"
 @class NormalBullet;
 //#import "NormalBullet.h"
 
@@ -36,6 +37,7 @@
     NSMutableArray *walkAnimFrames ;
     bool isRunner;
     CGPoint initialLocation;
+    MusicManagerSingleton* musicManagerSingleton;
 }
 
 + (instancetype) attacker:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
