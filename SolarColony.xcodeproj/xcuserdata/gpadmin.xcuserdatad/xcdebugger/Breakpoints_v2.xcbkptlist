@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/BasicSoldier.m"
-            timestampString = "419795244.274662"
+            timestampString = "419800788.502056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-human_init:ATTACK:Speed:ATTACK_SP:"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "+robot:ATTACK:Speed:ATTACK_SP:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/BasicSoldier.m"
-            timestampString = "419795244.274662"
+            timestampString = "419800788.502056"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-robot_init:ATTACK:Speed:ATTACK_SP:"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "-human_init:ATTACK:Speed:ATTACK_SP:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1122,11 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419799664.057074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
             landmarkName = "-genertateAIarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1138,11 +1138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419799664.057074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "-genertateAIarmy"
             landmarkType = "5">
             <Locations>
@@ -1184,11 +1184,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419801448.843784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
             landmarkName = "-genertateAIarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1200,11 +1200,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419801448.843784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
             landmarkName = "-genertateAIarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1216,11 +1216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419801448.843784"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "239"
+            endingLineNumber = "239"
             landmarkName = "-genertateAIarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1248,11 +1248,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/GameStatsLoader.m"
-            timestampString = "419794628.819757"
+            timestampString = "418936109.571147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "92"
+            endingLineNumber = "92"
             landmarkName = "-loadAllStats"
             landmarkType = "5">
          </BreakpointContent>
@@ -1264,11 +1264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/GameStatsLoader.m"
-            timestampString = "419794628.819757"
+            timestampString = "418936109.571147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "-loadAllStats"
             landmarkType = "5">
          </BreakpointContent>
@@ -1280,11 +1280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/GameStatsLoader.m"
-            timestampString = "419794628.819757"
+            timestampString = "418936109.571147"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "-loadAllStats"
             landmarkType = "5">
          </BreakpointContent>
@@ -1424,11 +1424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/GameStatsLoader.m"
-            timestampString = "419794628.819757"
+            timestampString = "418943424.52499"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "235"
-            endingLineNumber = "235"
+            startingLineNumber = "223"
+            endingLineNumber = "223"
             landmarkName = "-loadAllStats"
             landmarkType = "5">
          </BreakpointContent>
@@ -1740,11 +1740,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419799664.057074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "-showArmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1756,27 +1756,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
+            timestampString = "419799664.057074"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "-showArmy"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SolarColony/Layers/ArmyQueue.m"
+            timestampString = "419799664.057074"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
-            landmarkName = "-showArmy"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "419554251.928109"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
             landmarkName = "-showArmy"
             landmarkType = "5">
          </BreakpointContent>
