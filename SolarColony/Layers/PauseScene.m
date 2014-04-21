@@ -38,10 +38,13 @@
         CCMenuItem *Resume= [CCMenuItemFont itemFromString:@"Resume"
                                                     target:self
                                                   selector:@selector(resume:)];
+        CCMenuItem *Restart= [CCMenuItemFont itemFromString:@"Restart"
+                                                    target:self
+                                                  selector:@selector(restart:)];
         CCMenuItem *Quit = [CCMenuItemFont itemFromString:@"Quit Game"
                                                    target:self selector:@selector(GoToMainMenu:)];
         
-        CCMenu *menu= [CCMenu menuWithItems: Resume, Quit, nil];
+        CCMenu *menu= [CCMenu menuWithItems: Resume, Restart, Quit, nil];
         menu.position = ccp(249, 131.67f);
         [menu alignItemsVerticallyWithPadding:12.5f];
         
@@ -53,6 +56,12 @@
 }
 
 -(void) resume: (id) sender {
+    
+    // [[CCDirector sharedDirector] resume];
+    [[CCDirector sharedDirector] popScene];
+}
+
+-(void) restart: (id) sender {
     
     // [[CCDirector sharedDirector] resume];
     [[CCDirector sharedDirector] popScene];
