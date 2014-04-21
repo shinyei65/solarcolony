@@ -96,7 +96,7 @@
     manuItemattack.userData=@"Attack";
     CCMenuItemImage *manuItemdefenseSetting=[CCMenuItemImage itemWithNormalImage:@"toff.png" selectedImage:@"ton.png" target:self selector:@selector(moveToScene:)];
     manuItemdefenseSetting.userData=@"TowersSet";
-    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemFriends,manuItemDefense,manuItemattack, manuItemdefenseSetting, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems:manuItemDefense,manuItemattack, manuItemFriends,manuItemdefenseSetting, nil];
     
     
     [mainMenu alignItemsVerticallyWithPadding:20];
