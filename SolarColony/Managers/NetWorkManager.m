@@ -257,17 +257,14 @@ static NetWorkManager *sharedNetWorkManager = nil;
     NSString* url_string = [NSString stringWithFormat:@"http://solarcolony-back.appspot.com/reward?user_name=%@",[PlayerInfo Player].username];
     NSURL *url = [NSURL URLWithString:url_string];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *formRequest = @"value=0";
-    NSData *requestData = [NSData dataWithBytes:[formRequest UTF8String] length:[formRequest length]];
-    [request setHTTPMethod:@"PUT"];
+    [request setHTTPMethod:@"DELETE"];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setValue:[NSString stringWithFormat:@"%d", [requestData length]] forHTTPHeaderField:@"Content-Length"];
-    [request setHTTPBody: requestData];
     NSHTTPURLResponse *response = nil;
     [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
+    NSLog(@"\n\n\nNetworkManerger: reset \n\n\n");
     if ([response statusCode] == 200)
     {
-        NSLog(@"NetworkManerger: update success");
+        NSLog(@"NetworkManerger: reset success");
         [[ArmyQueue layer] resetGetRewardFlag];
         [request release];
     }else{
