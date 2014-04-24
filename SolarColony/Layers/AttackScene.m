@@ -16,6 +16,7 @@ static const int nameYDistance = 28;
     NSMutableArray* friends;
     int seletedFrd;
     CCMenu *mainMenu;
+    CCMenu *ArmyList;
 }
 @synthesize mobileDisplaySize;
 
@@ -64,8 +65,9 @@ static const int nameYDistance = 28;
 
 - (CCMenu*)loadMenu
 {
-    
-    
+    //Plus button
+    CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
+    [addItemButton setPosition:ccp(-200,50)];
     
     
     CCMenuItemFont *menuItemArmy1=[CCMenuItemFont itemWithString:@"Army 1" target:self selector:@selector(moveToScene:)];
@@ -116,7 +118,7 @@ static const int nameYDistance = 28;
     bar7.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*6);
     bar8.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*7);
     
-    mainMenu=[CCMenu menuWithItems:menuItemArmy1,attackBotton,menuItemBack,nil];
+    mainMenu=[CCMenu menuWithItems:addItemButton,menuItemArmy1,attackBotton,menuItemBack,nil];
     
     [mainMenu addChild:FriendsMenu z:2];
     [mainMenu addChild:bar1 z:1];

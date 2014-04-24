@@ -190,7 +190,7 @@
     CGPoint targetPrevious = [self position];
     //   id appearAction = [CCFadeIn actionWithDuration:.1];
     // id disappearAction = [CCFadeOut actionWithDuration:.1];
-    id movePoint = [CCMoveTo actionWithDuration:.1 position:targetLocations];
+    
     prev_loc = ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1));
     id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];
     //id returnPoint = [CCMoveTo actionWithDuration:.01 position:ccp(targetLocations.x*((1)*0.1)  ,targetLocations.y*((1)*0.1))];

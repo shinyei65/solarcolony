@@ -27,6 +27,7 @@
     float AttackTime;
     float attackCD;
     BOOL S_attack_flag;
+    char currentDirection;
     NSString* type;
     CGPoint S_position; // grid coordinate
     id movePoint, returnPoint;
@@ -34,7 +35,9 @@
     CGPoint targetPrevious;
     CCAnimation *walkAnim;
     CCSpriteBatchNode *spriteSheet;
+    CCSpriteBatchNode * spriteSheetHand;
     NSMutableArray *walkAnimFrames ;
+    NSMutableArray *walkAnimFramesHands ;
     bool isRunner;
     CGPoint initialLocation;
     MusicManagerSingleton* musicManagerSingleton;
@@ -70,7 +73,10 @@
 - (void)moveOriginal;
 - (void)setInitLocation:(CGPoint)loc;
 - (CGPoint)getInitLocation;
+-(bool) getIsAttacking;
+-(bool) getStopController;
 
 @property(assign, atomic) CGPoint targetLocation;
 @property (nonatomic, strong) CCSprite *explotion;
+@property (nonatomic, strong) CCSprite *hand;
 @end

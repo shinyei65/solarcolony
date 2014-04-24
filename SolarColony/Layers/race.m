@@ -54,31 +54,32 @@
     
     
     
-    CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"humanRace.png" selectedImage:@"humanRace.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"Human_select.png" selectedImage:@"Human_select.png" target:self selector:@selector(moveToScene:)];
     menuItemHuman.userData=@"Human";
+    menuItemHuman.scale = 0.3;
     [menuItemHuman setPosition:ccp(30,100)];
     
-    CCSprite *menuItemHumanBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    CCSprite *menuItemHumanBox = [CCSprite spriteWithFile:@"descriptionBox_human.png"];
     menuItemHumanBox.position = ccp(200,100);
     
     
     
-    CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"robotRace.png" selectedImage:@"robotRace.png" target:self selector:@selector(moveToScene:)];
-    
+    CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"Robot_select.png" selectedImage:@"Robot_select.png" target:self selector:@selector(moveToScene:)];
+    MenuItemRobot.scale = 0.2;
     MenuItemRobot.userData=@"Robot";
-    [MenuItemRobot setPosition:ccp(280,100)];
+    [MenuItemRobot setPosition:ccp(230,100)];
     
     
-    CCSprite *menuItemRobotBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    CCSprite *menuItemRobotBox = [CCSprite spriteWithFile:@"descriptionBox_robot.png"];
     menuItemRobotBox.position = ccp(440,100);
     
     
-    CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"wizardRace.png" selectedImage:@"wizardRace.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"Mage_select.png" selectedImage:@"Mage_select.png" target:self selector:@selector(moveToScene:)];
     menuItemMagic.userData=@"Magic";
-    [menuItemMagic setPosition:ccp(150,250)];
+    [menuItemMagic setPosition:ccp(140,250)];
     
     
-    CCSprite *menuItemWizardBox = [CCSprite spriteWithFile:@"descriptionBox.png"];
+    CCSprite *menuItemWizardBox = [CCSprite spriteWithFile:@"descriptionBox_magic.png"];
     menuItemWizardBox.position = ccp(320,250);
     
     

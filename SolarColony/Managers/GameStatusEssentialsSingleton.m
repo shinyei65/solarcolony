@@ -30,7 +30,7 @@
 @synthesize mapIndexName;
 @synthesize FirstVisit;
 //add
-@synthesize soldierInit;
+
 @synthesize counterA;
 @synthesize counterB;
 @synthesize counterC;
@@ -67,7 +67,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         FirstVisit = true;
         
         //add
-        soldierInit = false;
+        
         counterA = 0;
         counterB = 0;
         counterC = 0;
@@ -153,14 +153,10 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     return self;
 }
 
-- (id)notFirstVisit{
-    FirstVisit = false;
-    return FirstVisit;
-}
 
 //add
-- (BOOL)getSoldierInit {
-    return soldierInit;
+- (BOOL)getFirstVisit {
+    return FirstVisit;
 }
 - (int) GetCounterA{
     return counterA;

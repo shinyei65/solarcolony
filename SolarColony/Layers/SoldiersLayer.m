@@ -23,7 +23,7 @@
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         //SETS UP COUNTER FOR SOLIDERS;
         //add
-        if(gameStatusEssentialsSingleton.getSoldierInit == false)
+/*        if(gameStatusEssentialsSingleton.getSoldierInit == false)
         {
             counterA=0;
             counterB=0;
@@ -41,6 +41,7 @@
             wave_sol[cur_wave][2] = counterC;
             
         }
+ */
         CCLOG(@"Initialization %i",wave_sol[cur_wave][0]);
         
         [self addChild:[self loadWave]];

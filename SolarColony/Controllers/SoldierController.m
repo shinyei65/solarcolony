@@ -43,7 +43,7 @@ static SoldierController *sharedSoldierController = nil;
     for (Soldier* sol in gameStatusEssentialsSingleton.soldiers) {
         [sol acculMoveCD:time];
         [sol acculAttackCD:time];
-        if ([sol getMoveCD] > [sol getMoveTime]) {
+        if (![sol getStopController]&&[sol getMoveCD] > [sol getMoveTime]) {
             char status = [[GridMap map] getStatusAtX:[sol getPOSITION].x Y:[sol getPOSITION].y];
             if(status == GOAL){
                 if([sol visible]){

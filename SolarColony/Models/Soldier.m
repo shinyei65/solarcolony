@@ -15,6 +15,8 @@
 @implementation Soldier{
     TowerGeneric *attackTarget;
     int gainReward;
+    bool isAttacking;
+    bool stopController;
 }
 @synthesize targetLocation;
 
@@ -59,8 +61,17 @@
     [self addChild:spriteSheet z:10];
     musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     [spriteSheet setAnchorPoint:ccp(.5,.5)];
-    [self setAnchorPoint:ccp(.5,.5)];
     
+    //grab hands
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"handsmoving.plist"];
+    spriteSheetHand = [CCSpriteBatchNode
+                       batchNodeWithFile:@"handsmoving.png"];
+    [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
+    [self addChild:spriteSheetHand z:10];
+    [self setAnchorPoint:ccp(.5,.5)];
+    isAttacking=false;
+    stopController=false;
     return self;
 }
 
@@ -93,25 +104,40 @@
                    batchNodeWithFile:@"acidbullet.png"];
     [spriteSheet setAnchorPoint:ccp(.5,.5)];
     [self addChild:spriteSheet z:10];
-   
+    //grab hands
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"handsmoving.plist"];
+    spriteSheetHand = [CCSpriteBatchNode
+                       batchNodeWithFile:@"handsmoving.png"];
+    [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
+    [self addChild:spriteSheetHand z:10];
     [self setAnchorPoint:ccp(.5,.5)];
-    
+    isAttacking=false;
+    stopController=false;
     return self;
 }
 
 - (void)setHEALTH:(int)health{
     S_health = health;
+    if (health > S_health_max) {
+        NSLog(@"chang max health");
+        S_health_max = health;
+    }
     if (health <= S_health_max*3/4 && health > S_health_max*1/2) {
         //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        NSLog(@"blood 3/4");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
     if (health <= S_health_max*1/2 && health > S_health_max*1/4) {
+        NSLog(@"blood 1/2");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
     }
     if (health <= S_health_max*1/4 && health > S_health_max*1/10) {
+        NSLog(@"blood 1/4");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
     }
     if (health <= S_health_max*1/10 && health > S_health_max*1/20) {
+        NSLog(@"blood 0");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
     @synchronized(self){
@@ -208,6 +234,45 @@
     
 }
 
+<<<<<<< HEAD
+=======
+//test
+- (void)moveOriginalTest{
+    stopController=true;
+    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
+    //animation
+    walkAnimFramesHands = [NSMutableArray array];
+    
+    for (int i=1; i<=6; i++) {
+        [walkAnimFramesHands addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"hand%d.png",i]]];
+    }
+    [spriteSheet setPosition:[self position]];
+    walkAnim = [CCAnimation
+                animationWithSpriteFrames:walkAnimFramesHands delay:0.1f ] ;
+    
+    self.hand = [CCSprite spriteWithSpriteFrameName:@"hand1.png"];
+    [self.hand runAction:[CCSequence actions:fadeIn,[CCAnimate actionWithAnimation:walkAnim],[CCCallFunc actionWithTarget:self selector:@selector(moveSpriteSoldierOriginal)],nil]];
+    [spriteSheetHand addChild:self.hand];
+ 
+}
+
+-(void)moveSpriteSoldierOriginal{
+     CGPoint newPosition = ccp(initialLocation.x,initialLocation.y);
+    float moveTime = (float)1/[self getSPEED];
+    id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:newPosition]];
+    S_position =initialLocation;
+    [self runAction:[CCSequence actions:move2,[CCCallFunc actionWithTarget:self selector:@selector(superEvilGrabbingHand)],nil]];
+}
+ 
+//=)
+-(void)superEvilGrabbingHand{
+    CCFadeOut * fadeOut=  [CCFadeOut actionWithDuration:0.05];
+         [self.hand runAction:[CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(setStopController)],fadeOut,nil]];
+}
+
+>>>>>>> 4faac77968b584a9424edd074484e52aca2144be
 -(float)getMoveTime{
     return MoveTime;
 }
@@ -241,7 +306,7 @@
         //animation
         walkAnimFrames = [NSMutableArray array];
         //add
-        [musicManagerSingleton playEffect:@"sound 2.wav"];
+        [musicManagerSingleton playEffect:@"sound 9.wav"];
         if (isRunner) {
             for (int i=1; i<=10; i++) {
                 [walkAnimFrames addObject:
@@ -285,18 +350,30 @@
     
     
 }
+-(void)setStopController{
+    stopController=false;
+}
+-(bool) getStopController{
+    return stopController;
+}
+-(bool) getIsAttacking{
+    return isAttacking;
+}
 
 
 - (void) attack:(CGPoint) tower  Target:(id) target{
       targetLocation=tower;
     attackTarget = (TowerGeneric *) target;
-    //[self schedule: @selector(animatonAttack:) interval:1];
+    isAttacking=true;
+    //[self schedule: @selector(animatonAttack:) interval:0.5];
     [self animatonAttack];
     //[bullet setVisible:false];
     attackCD = 0;
     
+    
 }
 
+//-(void) animatonAttack:(ccTime)delta
 -(void) animatonAttack
 {
     // bla bla bla
@@ -312,15 +389,10 @@
  
     movePoint = [CCMoveTo actionWithDuration:.2 position:targetLocations];
     //returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
-    
+  
     
     [bullet runAction:[CCSequence actions: movePoint,[CCCallFunc actionWithTarget:self selector:@selector(bulletDisapp)],nil]];
  
-    
-   // [self unscheduleAllSelectors];
- 
-  
-    
 }
 
 - (void)setInitLocation:(CGPoint)loc{
@@ -333,9 +405,11 @@
 -(void)bulletDisapp
 {
     [attackTarget beignattacked];
-    attackTarget = nil;
+    //attackTarget = nil;
     [bullet setPosition:targetPrevious];
     [bullet setVisible:false];
+    isAttacking=false;
+    //[self unschedule: @selector(animatonAttack:)];
 }
 
 -(NormalBullet*)getBullet{

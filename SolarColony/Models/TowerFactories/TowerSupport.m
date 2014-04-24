@@ -26,7 +26,7 @@
 @synthesize isDrop;
 @synthesize mapLocation;
 
-- (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType{
+- (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward{
    
     self = [super init];
     if (!self) return(nil);
