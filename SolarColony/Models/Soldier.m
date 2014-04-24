@@ -15,6 +15,8 @@
 @implementation Soldier{
     TowerGeneric *attackTarget;
     int gainReward;
+    bool isAttacking;
+    bool stopController;
 }
 @synthesize targetLocation;
 
@@ -68,7 +70,8 @@
     [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
     [self addChild:spriteSheetHand z:10];
     [self setAnchorPoint:ccp(.5,.5)];
-    
+    isAttacking=false;
+    stopController=false;
     return self;
 }
 
@@ -109,7 +112,8 @@
     [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
     [self addChild:spriteSheetHand z:10];
     [self setAnchorPoint:ccp(.5,.5)];
-    
+    isAttacking=false;
+    stopController=false;
     return self;
 }
 
@@ -232,19 +236,19 @@
 
 //test
 - (void)moveOriginalTest{
-  
+    stopController=true;
     CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
     //animation
     walkAnimFramesHands = [NSMutableArray array];
     
-    for (int i=1; i<=5; i++) {
+    for (int i=1; i<=6; i++) {
         [walkAnimFramesHands addObject:
          [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
           [NSString stringWithFormat:@"hand%d.png",i]]];
     }
     [spriteSheet setPosition:[self position]];
     walkAnim = [CCAnimation
-                animationWithSpriteFrames:walkAnimFramesHands delay:0.02f];
+                animationWithSpriteFrames:walkAnimFramesHands delay:0.1f ] ;
     
     self.hand = [CCSprite spriteWithSpriteFrameName:@"hand1.png"];
     [self.hand runAction:[CCSequence actions:fadeIn,[CCAnimate actionWithAnimation:walkAnim],[CCCallFunc actionWithTarget:self selector:@selector(moveSpriteSoldierOriginal)],nil]];
@@ -253,17 +257,18 @@
 }
 
 -(void)moveSpriteSoldierOriginal{
-    CCFadeOut * fadeOut=  [CCFadeOut actionWithDuration:0.05];
-    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];
-    CGPoint newPosition = ccp(initialLocation.x-1,initialLocation.y);
-    float moveTime = (float)1/[self getSPEED]+1;
+     CGPoint newPosition = ccp(initialLocation.x,initialLocation.y);
+    float moveTime = (float)1/[self getSPEED];
     id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:newPosition]];
     S_position =initialLocation;
-    [self runAction:move2];
-    
-    [self.hand runAction:[CCSequence actions:fadeOut,nil]];
+    [self runAction:[CCSequence actions:move2,[CCCallFunc actionWithTarget:self selector:@selector(superEvilGrabbingHand)],nil]];
 }
-
+ 
+//=)
+-(void)superEvilGrabbingHand{
+    CCFadeOut * fadeOut=  [CCFadeOut actionWithDuration:0.05];
+         [self.hand runAction:[CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(setStopController)],fadeOut,nil]];
+}
 
 -(float)getMoveTime{
     return MoveTime;
@@ -298,7 +303,7 @@
         //animation
         walkAnimFrames = [NSMutableArray array];
         //add
-        [musicManagerSingleton playEffect:@"sound 2.wav"];
+        [musicManagerSingleton playEffect:@"sound 9.wav"];
         if (isRunner) {
             for (int i=1; i<=10; i++) {
                 [walkAnimFrames addObject:
@@ -342,18 +347,30 @@
     
     
 }
+-(void)setStopController{
+    stopController=false;
+}
+-(bool) getStopController{
+    return stopController;
+}
+-(bool) getIsAttacking{
+    return isAttacking;
+}
 
 
 - (void) attack:(CGPoint) tower  Target:(id) target{
       targetLocation=tower;
     attackTarget = (TowerGeneric *) target;
-    //[self schedule: @selector(animatonAttack:) interval:1];
+    isAttacking=true;
+    //[self schedule: @selector(animatonAttack:) interval:0.5];
     [self animatonAttack];
     //[bullet setVisible:false];
     attackCD = 0;
     
+    
 }
 
+//-(void) animatonAttack:(ccTime)delta
 -(void) animatonAttack
 {
     // bla bla bla
@@ -369,15 +386,10 @@
  
     movePoint = [CCMoveTo actionWithDuration:.2 position:targetLocations];
     //returnPoint = [CCMoveTo actionWithDuration:.01 position:targetPrevious];
-    
+  
     
     [bullet runAction:[CCSequence actions: movePoint,[CCCallFunc actionWithTarget:self selector:@selector(bulletDisapp)],nil]];
  
-    
-   // [self unscheduleAllSelectors];
- 
-  
-    
 }
 
 - (void)setInitLocation:(CGPoint)loc{
@@ -390,9 +402,11 @@
 -(void)bulletDisapp
 {
     [attackTarget beignattacked];
-    attackTarget = nil;
+    //attackTarget = nil;
     [bullet setPosition:targetPrevious];
     [bullet setVisible:false];
+    isAttacking=false;
+    //[self unschedule: @selector(animatonAttack:)];
 }
 
 -(NormalBullet*)getBullet{

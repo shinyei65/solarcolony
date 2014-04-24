@@ -41,3 +41,13 @@
 +(NSMutableDictionary*) SaveWave:(NSString*)WaveName:(NSString*)WaveKey;
 - (void) AddWave: (int) waveID;
 @end
+
+@interface WaveSetting : NSObject
++ (instancetype) setting: (int) idx;
+- (instancetype) init: (int) idx;
+@end
+
+@interface SoldierSetting : NSObject
++ (instancetype) setting: (NSString*) type;
+- (instancetype) init: (NSString*) type;
+@end
