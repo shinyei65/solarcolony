@@ -59,6 +59,14 @@
     [self addChild:spriteSheet z:10];
     musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     [spriteSheet setAnchorPoint:ccp(.5,.5)];
+    
+    //grab hands
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"handsmoving.plist"];
+    spriteSheetHand = [CCSpriteBatchNode
+                       batchNodeWithFile:@"handsmoving.png"];
+    [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
+    [self addChild:spriteSheetHand z:10];
     [self setAnchorPoint:ccp(.5,.5)];
     
     return self;
@@ -93,7 +101,13 @@
                    batchNodeWithFile:@"acidbullet.png"];
     [spriteSheet setAnchorPoint:ccp(.5,.5)];
     [self addChild:spriteSheet z:10];
-   
+    //grab hands
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile:
+     @"handsmoving.plist"];
+    spriteSheetHand = [CCSpriteBatchNode
+                       batchNodeWithFile:@"handsmoving.png"];
+    [spriteSheetHand setAnchorPoint:ccp(.5,.5)];
+    [self addChild:spriteSheetHand z:10];
     [self setAnchorPoint:ccp(.5,.5)];
     
     return self;
@@ -207,6 +221,42 @@
     
     
 }
+
+//test
+- (void)moveOriginalTest{
+  
+    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
+    //animation
+    walkAnimFramesHands = [NSMutableArray array];
+    
+    for (int i=1; i<=5; i++) {
+        [walkAnimFramesHands addObject:
+         [[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:
+          [NSString stringWithFormat:@"hand%d.png",i]]];
+    }
+    [spriteSheet setPosition:[self position]];
+    walkAnim = [CCAnimation
+                animationWithSpriteFrames:walkAnimFramesHands delay:0.02f];
+    
+    self.hand = [CCSprite spriteWithSpriteFrameName:@"hand1.png"];
+    [self.hand runAction:[CCSequence actions:fadeIn,[CCAnimate actionWithAnimation:walkAnim],[CCCallFunc actionWithTarget:self selector:@selector(moveSpriteSoldierOriginal)],nil]];
+    [spriteSheetHand addChild:self.hand];
+ 
+}
+
+-(void)moveSpriteSoldierOriginal{
+    CCFadeOut * fadeOut=  [CCFadeOut actionWithDuration:0.05];
+    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];
+    CGPoint newPosition = ccp(initialLocation.x-1,initialLocation.y);
+    float moveTime = (float)1/[self getSPEED]+1;
+    id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:newPosition]];
+    S_position =initialLocation;
+    [self runAction:move2];
+    
+    [self.hand runAction:[CCSequence actions:fadeOut,nil]];
+}
+
+
 -(float)getMoveTime{
     return MoveTime;
 }

@@ -34,7 +34,9 @@
     CGPoint targetPrevious;
     CCAnimation *walkAnim;
     CCSpriteBatchNode *spriteSheet;
+    CCSpriteBatchNode * spriteSheetHand;
     NSMutableArray *walkAnimFrames ;
+    NSMutableArray *walkAnimFramesHands ;
     bool isRunner;
     CGPoint initialLocation;
     MusicManagerSingleton* musicManagerSingleton;
@@ -72,4 +74,5 @@
 
 @property(assign, atomic) CGPoint targetLocation;
 @property (nonatomic, strong) CCSprite *explotion;
+@property (nonatomic, strong) CCSprite *hand;
 @end
