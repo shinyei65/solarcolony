@@ -24,12 +24,12 @@
     if ([towerKey isEqualToString:@"Support"]) {
         
         //choose based on current race
-            towerCreated=[[TowerSupport alloc] initTower:location Race:raceType];
+            towerCreated=[[TowerSupport alloc] initTower:location Race:raceType Reward:[stats.stats[raceType][@"Tower1"][@"reward"] integerValue]];
         
     } else if ([towerKey isEqualToString:@"Special"]) {
         
         //choose based on current race
-            towerCreated=[[TowerSpecial alloc] initTower:location Race:raceType];
+            towerCreated=[[TowerSpecial alloc] initTower:location Race:raceType Reward:[stats.stats[raceType][@"Tower1"][@"reward"] integerValue]];
         
     }  else if ([towerKey isEqualToString:@"Attackv1"]) {
         

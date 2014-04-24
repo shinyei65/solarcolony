@@ -87,7 +87,7 @@
                  if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
                      
                      if (!tower.isCharging) {
-                         [soldier moveOriginal];
+                         [soldier moveOriginalTest];
                          [tower attackTest:soldierpoint Target:soldier];
                          break;
                      } else {

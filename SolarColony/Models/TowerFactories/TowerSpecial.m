@@ -23,8 +23,8 @@
 @synthesize isDeath;
 @synthesize whichRace;
 @synthesize mapLocation;
-
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType{
+@synthesize towerReward;
+- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Reward: (int) reward{
     
     self = [super init];
     if (!self) return(nil);
@@ -44,7 +44,7 @@
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
         [self setIsAttacking:false];
-        
+        towerReward = reward;
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -65,7 +65,7 @@
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
         [self setIsAttacking:false];
-        
+        towerReward = reward;
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -85,7 +85,7 @@
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
         [self setIsAttacking:false];
-        
+        towerReward = reward;
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
