@@ -334,7 +334,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "163"
-            endingLineNumber = "163">
+            endingLineNumber = "163"
+            landmarkName = "@implementation WavesOfSoldiers"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -348,7 +350,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "159"
-            endingLineNumber = "159">
+            endingLineNumber = "159"
+            landmarkName = "@implementation WavesOfSoldiers"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -362,7 +366,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "160"
-            endingLineNumber = "160">
+            endingLineNumber = "160"
+            landmarkName = "@implementation WavesOfSoldiers"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -408,7 +414,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
-            endingLineNumber = "122">
+            endingLineNumber = "122"
+            landmarkName = "-init"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -452,7 +460,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "143"
-            endingLineNumber = "143">
+            endingLineNumber = "143"
+            landmarkName = "-moveToScene:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -466,7 +476,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "135"
-            endingLineNumber = "135">
+            endingLineNumber = "135"
+            landmarkName = "-init"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -480,7 +492,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
-            endingLineNumber = "148">
+            endingLineNumber = "148"
+            landmarkName = "@implementation WavesOfSoldiers"
+            landmarkType = "3">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -524,7 +538,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "155"
-            endingLineNumber = "155">
+            endingLineNumber = "155"
+            landmarkName = "@implementation WavesOfSoldiers"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1858,11 +1874,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/Soldier.m"
-            timestampString = "420004276.016315"
+            timestampString = "420011753.307585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "383"
-            endingLineNumber = "383"
+            startingLineNumber = "380"
+            endingLineNumber = "380"
             landmarkName = "-animatonAttack"
             landmarkType = "5">
          </BreakpointContent>
@@ -1874,12 +1890,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/Soldier.m"
-            timestampString = "420004276.016315"
+            timestampString = "420011753.307585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "399"
-            endingLineNumber = "399"
-            landmarkName = "-bulletDisapp"
+            startingLineNumber = "396"
+            endingLineNumber = "396"
+            landmarkName = "-setInitLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1890,12 +1906,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/Soldier.m"
-            timestampString = "420004276.016315"
+            timestampString = "420011753.307585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "-moveSpriteSoldierOriginal"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-moveOriginalTest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1906,12 +1922,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Models/Soldier.m"
-            timestampString = "420004276.016315"
+            timestampString = "420011753.307585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
-            landmarkName = "-moveSpriteSoldierOriginal"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-moveOriginalTest"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

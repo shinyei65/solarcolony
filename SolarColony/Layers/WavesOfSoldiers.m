@@ -454,9 +454,6 @@ static NSMutableArray* WavesSave;
     int newResource;
 /**Soldier add and reduce*/
 
--(void) setSoldierNumber:(id) soldierType{
-    CCMenuItemImage *menuItemImage = (CCMenuItemImage*)soldierType;
-
     if (menuItemImage == soldierA_increase) {
         price = [loader.stats[race][@"Runner"][@"price"] integerValue];
         newResource = [player getResource] - price;

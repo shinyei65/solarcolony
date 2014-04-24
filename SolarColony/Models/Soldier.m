@@ -234,8 +234,6 @@
     
 }
 
-<<<<<<< HEAD
-=======
 //test
 - (void)moveOriginalTest{
     stopController=true;
@@ -272,7 +270,6 @@
          [self.hand runAction:[CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(setStopController)],fadeOut,nil]];
 }
 
->>>>>>> 4faac77968b584a9424edd074484e52aca2144be
 -(float)getMoveTime{
     return MoveTime;
 }
