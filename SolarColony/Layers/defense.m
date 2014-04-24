@@ -21,7 +21,7 @@
 #import "SupportTowerTouch.h"
 #import "GameStatsLoader.h"
 #import "GameLandingScene.h"
-
+static defense *sharedInstance = nil;
 @implementation defense{
     SoldierController *solController;
     WaveController *waveController;
@@ -42,7 +42,11 @@
 
 + (instancetype)scene
 {
-    return [[self alloc] init];
+    if (sharedInstance == nil) {
+        sharedInstance = [[super allocWithZone:NULL] init];
+    }
+    
+    return sharedInstance;
 }
 
 // -----------------------------------------------------------------------
@@ -222,9 +226,10 @@
      colissionsManager.soldiers=[solController getSoldierArray];
  
     if ([player getLife]==0) {
+        [[NetWorkManager NetWorkManager] setRewardtoAttacker:[[ArmyQueue layer] getCurrentAttacker] Reward: 1000];
         [gameStatusEssentialsSingleton setPaused:true];
-        [[CCDirector sharedDirector] pushScene:[PauseScene node]];
         [[CCDirector sharedDirector] pause];
+        [[CCDirector sharedDirector] pushScene:[PauseScene node]];
     }
     
 }
@@ -232,12 +237,42 @@
 -(void) resume{
     
     [gameStatusEssentialsSingleton setPaused:false];
+    [gameStatusEssentialsSingleton setPaused:false];
+    [[CCDirector sharedDirector] resume];
 }
 
 - (void) reset{
-    humanPrice = 300;
-    robotPrice = 400;
-    //[gameStatusEssentialsSingleton ]
+    [player setResource:500];
+    [player setLife:10];
+    // remove tower(100) soldier(200)
+    CCArray *arr= [CCArray arrayWithArray: [grid children]];
+    for (CCNode *mynode in arr){
+        // remove tower
+        if (mynode.tag==100){
+            TowerGeneric *tower = (TowerGeneric *) mynode;
+            [tower stopAllActions];
+            [tower unscheduleAllSelectors];
+            //[tower.bullet stopAllActions];
+            //[tower.bullet unscheduleAllSelectors];
+            [grid removeTower:mynode];
+        // remove soldier
+        }else if(mynode.tag == 200){
+            Soldier *sol = (Soldier *) mynode;
+            [sol stopAllActions];
+            [sol unscheduleAllSelectors];
+            [[sol getBullet] stopAllActions];
+            [[sol getBullet] unscheduleAllSelectors];
+            [grid removeChild:sol cleanup:YES];
+        }
+    }
+    [gameStatusEssentialsSingleton removeAllSoldiers];
+    [gameStatusEssentialsSingleton removeAllTowers];
+    // reset controller
+    [solController reset];
+    [waveController reset];
+    [[ArmyQueue layer] reset];
+    
+    [self resume];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "PauseScene.h"
 #import "HomeScene.h"
-
+#import "defense.h"
 @implementation PauseScene
 
 +(CCScene *) scene
@@ -63,7 +63,7 @@
 
 -(void) restart: (id) sender {
     
-    // [[CCDirector sharedDirector] resume];
+    [[defense scene] reset];
     [[CCDirector sharedDirector] popScene];
 }
 

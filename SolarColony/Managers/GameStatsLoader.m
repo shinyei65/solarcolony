@@ -85,11 +85,11 @@ static GameStatsLoader *sharedInstance = nil;
         void (^selectedCase)(NSString *, GameStatsLoader *) = @{
                                    @"mapIndexFile" : ^(NSString *val, GameStatsLoader * me){
                                        GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
-                                       [gameStatus setMapIndexName: val];
+                                       [gameStatus setMapIndexName: [val retain]];
                                    },
                                    @"mapImageFile" : ^(NSString *val, GameStatsLoader * me){
                                        GameStatusEssentialsSingleton *gameStatus=[GameStatusEssentialsSingleton sharedInstance];
-                                       [gameStatus setMapImageName: val];
+                                       [gameStatus setMapImageName: [val retain]];
                                    },
                                    @"robotTower1" : ^(NSString *val, GameStatsLoader * me){
                                        NSArray *attrs = [val componentsSeparatedByString:@","];

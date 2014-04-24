@@ -18,4 +18,5 @@
 - (void) startWave: (Wave *) target;
 - (void) endWave;
 - (void) gainReward:(int) gain;
+- (void) reset;
 @end

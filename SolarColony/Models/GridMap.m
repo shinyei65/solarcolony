@@ -176,8 +176,10 @@ static GridMap *sharedInstance = nil;
 
 - (void) addTower: (id) tower index: (CGPoint) idx z: (NSInteger) z
 {
+    CCNode *node = (CCNode *) tower;
+    node.tag = 100;
     [self setMap:TOWER X:idx.x Y:idx.y];
-    [self addChild: tower z: z];
+    [self addChild: node z: z];
 }
 
 - (void) removeTower: (id) tower

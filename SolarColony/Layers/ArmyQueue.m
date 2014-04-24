@@ -32,6 +32,7 @@ NSString *AI_REQUEST = @"AI";
     NSMutableArray *_sprite_queue;
     BOOL _get_reward_flag;
     int tagOfArmy;
+    NSString *currentAttacker;
 }
 + (instancetype) layer
 {
@@ -55,6 +56,7 @@ NSString *AI_REQUEST = @"AI";
         _wave_show_tick = 0;
         _army_gen_count = 0;
         tagOfArmy = 0;
+        currentAttacker = nil;
         CCLabelTTF *label = [CCLabelTTF labelWithString:@"Waves: " fontName:@"Outlier.ttf" fontSize:15];
         [label setAnchorPoint:ccp(0,1)];
         [label setPosition:ccp(-100,0)];
@@ -100,7 +102,20 @@ NSString *AI_REQUEST = @"AI";
     _inWave = FALSE;
     [self resumeAnimate];
 }
-
+-(NSString *) getCurrentAttacker{
+    return currentAttacker;
+}
+- (void) reset
+{
+    _inWave = FALSE;
+    _showMSG = TRUE;
+    _get_reward_flag = TRUE;
+    _army_gen_tick = 0;
+    _wave_show_tick = 0;
+    _army_gen_count = 0;
+    tagOfArmy = 0;
+    currentAttacker = nil;
+}
 #pragma mark - Army operation
 
 - (void) pauseAnimate
@@ -130,9 +145,11 @@ NSString *AI_REQUEST = @"AI";
     [self pauseAnimate];
     Wave *target = (Wave *)[_show_queue objectAtIndex:0];
     if(_showMSG && ![target.attacker isEqualToString:AI_REQUEST]){
+        currentAttacker = [target.attacker copy];
         [[GridMap map] showMessage:[NSString stringWithFormat:@"%@ Attack!", target.attacker]];
         _showMSG = FALSE;
     }else{
+        currentAttacker = nil;
         if ([target getEndFlag])
             _showMSG = TRUE;
     }

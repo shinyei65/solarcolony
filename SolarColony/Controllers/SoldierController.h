@@ -20,7 +20,7 @@
 -(void)addSoldier:(Soldier *) newSoldier;
 -(int)getArraylength;
 -(void)updateSoldier:(ccTime) time;
-
+- (void) reset;
 //eder logic dont delete
 -(NSMutableArray*)getSoldierArray;
 

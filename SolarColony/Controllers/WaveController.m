@@ -79,6 +79,7 @@ int SOL_GEN_RATE = 4;
     [sol setPOSITION:start.x Y:start.y];
     [sol setPosition:[grid convertMapIndexToCenterGL:start]];
     [sol setInitLocation: ccp(start.x,start.y)];
+    sol.tag = 200;
     [grid addChild:sol z:0];
     [gameStatusEssentialsSingleton addSoldier: sol];
 }
@@ -119,6 +120,13 @@ int SOL_GEN_RATE = 4;
     [self sendAndRefreshReward];
     [_wave release]; _wave = nil;
     [[ArmyQueue layer] endWave];
+}
+
+- (void) reset
+{
+    _wave = nil;
+    _tick = 0;
+    [_monitor removeAllObjects];
 }
 
 - (void) gainReward:(int) gain

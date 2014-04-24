@@ -14,16 +14,20 @@
 #import "ArmyNetwork.h"
 #import "JSONModel.h"
 #import "TestArmyNetwork.h"
+#import "GameStatsLoader.h"
 
 static NSMutableDictionary *dict;
 
 @implementation WavesOfSoldiers{
     SoldiersLayer *soldierlayer;
-    
+    CCLabelTTF *resource_number;
     int wave_num;
     NSArray *ItemArray;
     int wave_sol[8][6];
     int cur_wave;
+    PlayerInfo *player;
+    NSString *race;
+    GameStatsLoader *loader;
 }
 @synthesize mobileDisplaySize;
 
@@ -55,7 +59,7 @@ static NSMutableDictionary *dict;
         
         //Game status global variables
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-        
+        race = [gameStatusEssentialsSingleton raceType];
         
         //initial SoldierLayer variable
         if(gameStatusEssentialsSingleton.getSoldierInit == false)
@@ -116,6 +120,26 @@ static NSMutableDictionary *dict;
         [self addChild:[self loadTable] z:3];
         [self addChild:[self loadButton] z:3];
         
+        // game stats loader
+        loader = [GameStatsLoader loader];
+        
+        // add resource bar
+        NSString *bar_img = nil;
+        if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]){
+            bar_img = @"human_resource.gif";
+        }else if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]){
+            bar_img = @"robot_resource.gif";
+        }else{
+            bar_img = @"magic_resource.gif";
+        }
+        CCSprite *resource_bar = [CCSprite spriteWithFile:bar_img];
+        [resource_bar setPosition:ccp(120, 300)];
+        resource_bar.opacity = 200;
+        [self addChild:resource_bar];
+        player = [PlayerInfo Player];
+        resource_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getResource]] fontName:@"Outlier.ttf" fontSize:15];
+        resource_number.position = ccp(100,300);
+        [self addChild:resource_number];
     }
     return self;
 }
@@ -459,18 +483,32 @@ static NSMutableDictionary *dict;
 
 /**used to be in SoldierLayer Start*/
 
+- (void) setResource:(int) newResource {
+    [player setResource:newResource];
+    [resource_number setString:[NSString stringWithFormat:@"%d", newResource]];
+}
 
 -(void) setSoldierNumber:(id) soldierType{
     CCMenuItemImage *menuItemImage = (CCMenuItemImage*)soldierType;
-    
     //add....
+    int price;
+    int newResource;
     if (menuItemImage == soldierA_increase) {
-        wave_sol[cur_wave][0]++;
-        counterA++;
+        price = [loader.stats[race][@"Runner"][@"price"] integerValue];
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            wave_sol[cur_wave][0]++;
+            counterA++;
+            
+        }
     }
     if (menuItemImage == soldierA_decrease) {
         if(counterA >0)
         {
+            price = [loader.stats[race][@"Runner"][@"price"] integerValue];
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
             wave_sol[cur_wave][0]--;
             counterA--;
             
@@ -478,12 +516,20 @@ static NSMutableDictionary *dict;
     }
     
     if (menuItemImage == soldierB_increase) {
-        wave_sol[cur_wave][0]++;
-        counterB++;
+        price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            wave_sol[cur_wave][0]++;
+            counterB++;
+        }
     }
     if (menuItemImage == soldierB_decrease) {
         if(counterB >0)
         {
+            price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
             wave_sol[cur_wave][0]--;
             counterB--;
             

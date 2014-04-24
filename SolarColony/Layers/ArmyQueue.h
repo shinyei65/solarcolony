@@ -23,6 +23,8 @@
 - (void) genertateTestarmy;
 - (void) resetGetRewardFlag;
 - (BOOL) getInWave;
+- (NSString *) getCurrentAttacker;
+- (void) reset;
 @end
 
 @interface WaveSprite : CCNode

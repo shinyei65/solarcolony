@@ -81,5 +81,8 @@ static SoldierController *sharedSoldierController = nil;
     return soldierarray;
 }
 
-
+- (void) reset
+{
+    [soldierarray removeAllObjects];
+}
 @end

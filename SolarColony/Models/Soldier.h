@@ -44,6 +44,7 @@
 + (instancetype) runner:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 - (instancetype) attacker_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
 - (instancetype) runner_init:(int)health ATTACK:(int)attack Speed:(int)speed ATTACK_SP:(int)attack_sp;
+- (NormalBullet *) getBullet;
 - (void)setHEALTH:(int)health;
 - (int)getHEALTH;
 - (void)setATTACK:(int)attack;
