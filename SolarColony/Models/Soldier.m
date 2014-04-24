@@ -290,7 +290,7 @@
         //animation
         walkAnimFrames = [NSMutableArray array];
         //add
-        [musicManagerSingleton playEffect:@"sound 2.wav"];
+        [musicManagerSingleton playEffect:@"sound 9.wav"];
         if (isRunner) {
             for (int i=1; i<=10; i++) {
                 [walkAnimFrames addObject:
