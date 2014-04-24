@@ -101,17 +101,25 @@
 
 - (void)setHEALTH:(int)health{
     S_health = health;
+    if (health > S_health_max) {
+        NSLog(@"chang max health");
+        S_health_max = health;
+    }
     if (health <= S_health_max*3/4 && health > S_health_max*1/2) {
         //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+        NSLog(@"blood 3/4");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
     if (health <= S_health_max*1/2 && health > S_health_max*1/4) {
+        NSLog(@"blood 1/2");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
     }
     if (health <= S_health_max*1/4 && health > S_health_max*1/10) {
+        NSLog(@"blood 1/4");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
     }
     if (health <= S_health_max*1/10 && health > S_health_max*1/20) {
+        NSLog(@"blood 0");
         [_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
     @synchronized(self){

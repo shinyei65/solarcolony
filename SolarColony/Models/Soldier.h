@@ -27,6 +27,7 @@
     float AttackTime;
     float attackCD;
     BOOL S_attack_flag;
+    char currentDirection;
     NSString* type;
     CGPoint S_position; // grid coordinate
     id movePoint, returnPoint;
