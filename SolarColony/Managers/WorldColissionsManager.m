@@ -87,7 +87,7 @@
                  if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
                      
                      if (!tower.isCharging) {
-                         [soldier moveOriginal];
+                         [soldier moveOriginalTest];
                          [tower attackTest:soldierpoint Target:soldier];
                          break;
                      } else {
@@ -108,8 +108,11 @@
             
             if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)) {
                 //CCLOG(@"soldier attack!!!!!");
-                [soldier attack:towerpoint Target:tower];
-                //[tower beignattacked];
+                if (![soldier getIsAttacking]) {
+                    [soldier attack:towerpoint Target:tower];
+                    //[tower beignattacked];
+                }
+
             }
         }
         

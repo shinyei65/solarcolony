@@ -241,6 +241,12 @@
 		F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5675F1918FC71E0001BA0AB /* friend_bar_sel.png */; };
 		F56A654618A9516A00AE0884 /* Soldier.m in Sources */ = {isa = PBXBuildFile; fileRef = F56A654518A9516A00AE0884 /* Soldier.m */; };
 		F573783818AC2BA5008C9ADC /* AttackScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F573783718AC2BA5008C9ADC /* AttackScene.m */; };
+		F57912CB1908B08200D85F21 /* HumanSoldier_Basic_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912C51908B08200D85F21 /* HumanSoldier_Basic_left.png */; };
+		F57912CC1908B08200D85F21 /* HumanSoldier_Special_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912C61908B08200D85F21 /* HumanSoldier_Special_left.png */; };
+		F57912CD1908B08200D85F21 /* MageSoldier_Basic_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912C71908B08200D85F21 /* MageSoldier_Basic_left.png */; };
+		F57912CE1908B08200D85F21 /* MageSoldier_Special_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912C81908B08200D85F21 /* MageSoldier_Special_left.png */; };
+		F57912CF1908B08200D85F21 /* RobotSoldier_Basic_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912C91908B08200D85F21 /* RobotSoldier_Basic_left.png */; };
+		F57912D01908B08200D85F21 /* RobotSoldier_Special_left.png in Resources */ = {isa = PBXBuildFile; fileRef = F57912CA1908B08200D85F21 /* RobotSoldier_Special_left.png */; };
 		F58529051905A8F800AF750C /* towerAcharge.png in Resources */ = {isa = PBXBuildFile; fileRef = F58529041905A8F800AF750C /* towerAcharge.png */; };
 		F58529071905B70700AF750C /* sound 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = F58529061905B70700AF750C /* sound 2.wav */; };
 		F585A74018F234F300802CA6 /* SupportTowerTouch.m in Sources */ = {isa = PBXBuildFile; fileRef = F585A73F18F234F300802CA6 /* SupportTowerTouch.m */; };
@@ -274,6 +280,8 @@
 		F5B0FBB418FC606200E5AB31 /* toff.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B0FBAC18FC606200E5AB31 /* toff.png */; };
 		F5B0FBB518FC606200E5AB31 /* ton.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B0FBAD18FC606200E5AB31 /* ton.png */; };
 		F5B11AD718B803C6002FB681 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B11AD618B803C6002FB681 /* CCScrollLayer.m */; };
+		F5B56D3E1908ACFD0000B54C /* handsmoving.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5B56D3C1908ACFD0000B54C /* handsmoving.plist */; };
+		F5B56D3F1908ACFD0000B54C /* handsmoving.png in Resources */ = {isa = PBXBuildFile; fileRef = F5B56D3D1908ACFD0000B54C /* handsmoving.png */; };
 		F5BD5F4D18F63BBB004EB055 /* addFriend_button_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4918F63BBB004EB055 /* addFriend_button_sel.png */; };
 		F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4A18F63BBB004EB055 /* addFriend_button.png */; };
 		F5BD5F5018F63BBB004EB055 /* friend_menu_clipped.png in Resources */ = {isa = PBXBuildFile; fileRef = F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */; };
@@ -741,6 +749,12 @@
 		F56A654518A9516A00AE0884 /* Soldier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Soldier.m; sourceTree = "<group>"; };
 		F573783618AC2BA5008C9ADC /* AttackScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttackScene.h; sourceTree = "<group>"; };
 		F573783718AC2BA5008C9ADC /* AttackScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttackScene.m; sourceTree = "<group>"; };
+		F57912C51908B08200D85F21 /* HumanSoldier_Basic_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HumanSoldier_Basic_left.png; sourceTree = "<group>"; };
+		F57912C61908B08200D85F21 /* HumanSoldier_Special_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HumanSoldier_Special_left.png; sourceTree = "<group>"; };
+		F57912C71908B08200D85F21 /* MageSoldier_Basic_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MageSoldier_Basic_left.png; sourceTree = "<group>"; };
+		F57912C81908B08200D85F21 /* MageSoldier_Special_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MageSoldier_Special_left.png; sourceTree = "<group>"; };
+		F57912C91908B08200D85F21 /* RobotSoldier_Basic_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Basic_left.png; sourceTree = "<group>"; };
+		F57912CA1908B08200D85F21 /* RobotSoldier_Special_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Special_left.png; sourceTree = "<group>"; };
 		F58529041905A8F800AF750C /* towerAcharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerAcharge.png; sourceTree = "<group>"; };
 		F58529061905B70700AF750C /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
 		F585A73E18F234F300802CA6 /* SupportTowerTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupportTowerTouch.h; sourceTree = "<group>"; };
@@ -779,6 +793,8 @@
 		F5B0FBAD18FC606200E5AB31 /* ton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ton.png; sourceTree = "<group>"; };
 		F5B11AD518B803C6002FB681 /* CCScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCScrollLayer.h; sourceTree = "<group>"; };
 		F5B11AD618B803C6002FB681 /* CCScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCScrollLayer.m; sourceTree = "<group>"; };
+		F5B56D3C1908ACFD0000B54C /* handsmoving.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = handsmoving.plist; sourceTree = "<group>"; };
+		F5B56D3D1908ACFD0000B54C /* handsmoving.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handsmoving.png; sourceTree = "<group>"; };
 		F5BD5F4918F63BBB004EB055 /* addFriend_button_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriend_button_sel.png; sourceTree = "<group>"; };
 		F5BD5F4A18F63BBB004EB055 /* addFriend_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = addFriend_button.png; sourceTree = "<group>"; };
 		F5BD5F4C18F63BBB004EB055 /* friend_menu_clipped.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = friend_menu_clipped.png; sourceTree = "<group>"; };
@@ -908,6 +924,12 @@
 			children = (
 				F5ACE32D190597E9004BDC17 /* magic_resource.gif */,
 				F5ACE329190597C1004BDC17 /* robot_resource.gif */,
+				F57912C51908B08200D85F21 /* HumanSoldier_Basic_left.png */,
+				F57912C61908B08200D85F21 /* HumanSoldier_Special_left.png */,
+				F57912C71908B08200D85F21 /* MageSoldier_Basic_left.png */,
+				F57912C81908B08200D85F21 /* MageSoldier_Special_left.png */,
+				F57912C91908B08200D85F21 /* RobotSoldier_Basic_left.png */,
+				F57912CA1908B08200D85F21 /* RobotSoldier_Special_left.png */,
 				F5ACE32F190597FE004BDC17 /* life_bar.jpg */,
 				F5ACE32B190597CD004BDC17 /* human_resource.gif */,
 				F54AFDB919032755000D45E1 /* bullets */,
@@ -1085,6 +1107,8 @@
 		F54AFDB919032755000D45E1 /* bullets */ = {
 			isa = PBXGroup;
 			children = (
+				F5B56D3C1908ACFD0000B54C /* handsmoving.plist */,
+				F5B56D3D1908ACFD0000B54C /* handsmoving.png */,
 				F54AFDCA19033654000D45E1 /* acidbullet.plist */,
 				F54AFDCB19033654000D45E1 /* acidbullet.png */,
 				F54AFDCC19033654000D45E1 /* bluebullet.plist */,
@@ -1898,6 +1922,7 @@
 				F5A75A6718C523F700B9F093 /* angrybomb.png in Resources */,
 				F55948C818A56F3B008ADDED /* Default.png in Resources */,
 				09345A661905A523006D2062 /* TileMap_3.tmx in Resources */,
+				F5B56D3E1908ACFD0000B54C /* handsmoving.plist in Resources */,
 				2123A44918ECEACB00981468 /* AddButton.png in Resources */,
 				F54714F418EA01CC0099CD70 /* select1.png in Resources */,
 				F5191C4918FF749B00C62839 /* select3.png in Resources */,
@@ -1907,10 +1932,12 @@
 				F53E306018DFB51F007A2A3A /* progress.png in Resources */,
 				21152FEE18B7643100C1274C /* Military_Might.mp3 in Resources */,
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
+				F57912D01908B08200D85F21 /* RobotSoldier_Special_left.png in Resources */,
 				0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */,
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F503E2BF18F637350022F629 /* target.png in Resources */,
+				F57912CD1908B08200D85F21 /* MageSoldier_Basic_left.png in Resources */,
 				FC6DCD7D18E8FA0100DC98A3 /* portal.png in Resources */,
 				F5B0FBB218FC606200E5AB31 /* foff.png in Resources */,
 				F5C5CA0A18F899C0002A9D40 /* wizardRace.png in Resources */,
@@ -1924,16 +1951,19 @@
 				F5DA46C818CE387400291A0A /* RobotSoldier_Basic.png in Resources */,
 				5671D0A11900B3E200D72BEE /* robot_icon.gif in Resources */,
 				F5C5CA0718F899C0002A9D40 /* descriptionBox.png in Resources */,
+				F57912CB1908B08200D85F21 /* HumanSoldier_Basic_left.png in Resources */,
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
 				0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */,
 				FC6DCD7A18E8F68B00DC98A3 /* towerBcharge.png in Resources */,
 				F5FDE39418FC591800C48D48 /* map_4.txt in Resources */,
+				F57912CE1908B08200D85F21 /* MageSoldier_Special_left.png in Resources */,
 				F5A6ECD618C50A6A00308F11 /* attackBotton_select.png in Resources */,
 				F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */,
 				F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
 				F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */,
+				F57912CF1908B08200D85F21 /* RobotSoldier_Basic_left.png in Resources */,
 				F58529051905A8F800AF750C /* towerAcharge.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
@@ -1946,6 +1976,7 @@
 				5671D0981900B3CC00D72BEE /* wizard_icon_small.gif in Resources */,
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5191C4618FF6E2C00C62839 /* towers.png in Resources */,
+				F5B56D3F1908ACFD0000B54C /* handsmoving.png in Resources */,
 				F5FDE39218FC591800C48D48 /* map_2.txt in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				FC6DCD7418E8F65F00DC98A3 /* cherno.png in Resources */,
@@ -1961,6 +1992,7 @@
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F5B0FBAF18FC606200E5AB31 /* aon.png in Resources */,
 				F55948DA18A56F3B008ADDED /* Icon@2x.png in Resources */,
+				F57912CC1908B08200D85F21 /* HumanSoldier_Special_left.png in Resources */,
 				09345A641905A523006D2062 /* TileMap_1.tmx in Resources */,
 				F54AFDD119033654000D45E1 /* bluebullet.png in Resources */,
 				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
