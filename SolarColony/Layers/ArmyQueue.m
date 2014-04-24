@@ -172,10 +172,7 @@ NSString *AI_REQUEST = @"AI";
     int count = [army count];
     for(int i=0; i<count; i++){
         Wave* temp = [army popWave];
-        NSMutableArray *list = [temp getList];
-        Soldier *sol;
-        for(sol in list)
-            [sol setHEALTH:AI_HEALTH];
+
         if(i==count-1)
             [temp setEndFlag:TRUE];
         [_queue addObject:temp];
@@ -196,7 +193,6 @@ NSString *AI_REQUEST = @"AI";
     
     Wave *wave = [Wave wave];
     for (int i=0; i< numberOfRunner; i++) {
-        //CCLOG(@"runner!!!");
         Soldier *temp;
         if(_army_gen_count ==0){
             wave.race = @"Human";
@@ -213,7 +209,6 @@ NSString *AI_REQUEST = @"AI";
         [wave addSoldier: temp];
     }
     for (int i=0; i< numberOfAttacker; i++) {
-        //CCLOG(@"attacker!!!");
         Soldier *temp;
         if(_army_gen_count ==0)
             temp = [HumanSoldier soldierWithType:@"typeA"];
@@ -221,10 +216,11 @@ NSString *AI_REQUEST = @"AI";
             temp = [RobotSoldier soldierWithType:@"typeA"];
         else
             temp = [MageSoldier soldierWithType:@"typeA"];
-        
-        [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
-        [temp setATTACK:pow(1.3, tagOfArmy)*[temp getATTACK]];
-        [temp setSPEED:pow(1.1, tagOfArmy)*[temp getSPEED]];
+        NSLog(@"original health: %d",[temp getHEALTH]);
+        NSLog(@"new health: %d",(int)pow(1.2, tagOfArmy)*[temp getHEALTH]);
+        [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
+        [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
+        [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
         [wave addSoldier: temp];
     }
     _army_gen_count++;
@@ -234,8 +230,7 @@ NSString *AI_REQUEST = @"AI";
     [army addWave: wave];
     
     [self addArmy: army];
-    if(AI_HEALTH < 100)
-        AI_HEALTH *= 1.3f;
+
     
 }
 

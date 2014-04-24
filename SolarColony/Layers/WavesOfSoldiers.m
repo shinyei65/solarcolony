@@ -15,10 +15,11 @@
 #import "JSONModel.h"
 #import "TestArmyNetwork.h"
 
-static NSMutableDictionary *dict;
+static NSMutableDictionary *SoldiersSave;
+static NSMutableArray* WavesSave;
 
 @implementation WavesOfSoldiers{
-    SoldiersLayer *soldierlayer;
+    NSMutableArray* Waves;
     
     int wave_num;
     NSArray *ItemArray;
@@ -58,35 +59,25 @@ static NSMutableDictionary *dict;
         
         
         //initial SoldierLayer variable
-        if(gameStatusEssentialsSingleton.getSoldierInit == false)
+        if(gameStatusEssentialsSingleton.getFirstVisit == true)
         {
+            SoldiersSave = [[NSMutableDictionary alloc]init];
+            WavesSave = [[NSMutableArray alloc]init];
+            
             counterA=0;
             counterB=0;
             counterC=0;
-            //CCLOG(@"Initialization %i",counterA);
             
-            gameStatusEssentialsSingleton.soldierInit = true;
+            gameStatusEssentialsSingleton.FirstVisit = false;
         }
         else{
             counterA = gameStatusEssentialsSingleton.GetCounterA;
             wave_sol[cur_wave][0] = counterA;
             counterB = gameStatusEssentialsSingleton.GetCounterB;
             wave_sol[cur_wave][1] = counterB;
-            counterC = gameStatusEssentialsSingleton.GetCounterC;
-            wave_sol[cur_wave][2] = counterC;
             
         }
-        CCLOG(@"Initialization %i",wave_sol[cur_wave][0]);
         
-        
-        
-        if([gameStatusEssentialsSingleton FirstVisit ]==true){
-            dict = [[NSMutableDictionary alloc]init];
-            [gameStatusEssentialsSingleton notFirstVisit];
-            
-        }
-        CCLOG(@"%@",gameStatusEssentialsSingleton.currentWave);
-        [dict setObject:@"Wave 1" forKey:@"w1"];
         
         
         //UI part
@@ -99,7 +90,7 @@ static NSMutableDictionary *dict;
         CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         
-        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveRequest:)];
+        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
         
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
         
@@ -128,6 +119,8 @@ static NSMutableDictionary *dict;
         [transitionManagerSingleton transitionTo:6];
     }
 }
+/*save*/
+/*
 -(void)saveRequest:(id)sender{
     ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
     army.race=gameStatusEssentialsSingleton.raceType;
@@ -158,121 +151,81 @@ static NSMutableDictionary *dict;
     CCLOG(jsonstringFixed);
     
 }
+*/
 
 
 
-
-/**used to be in WaveLayer Start*/
+/**set up initial menu of waves*/
 
 -(CCMenu*)LoadWaveMenu{
     //Plus button
     CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
     [addItemButton setPosition:ccp(-50,50)];
     
+    wave_num = 1;
+    
     wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
     wave1.tag = 1;
     [wave1 setFontSize:20];
-    
-    //[gameStatusEssentialsSingleton setCurrentWave:@"w1"];
-    
+    [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
     
     
-     NSArray *keys = [dict allKeys];
-     NSLog(@"dict %@",dict);
-     NSLog(@"%@",keys);
-    
-    
-     // values in foreach loop
+    /*
+     NSArray *keys = [SoldiersSave allKeys];
+     NSLog(@"dict %@",SoldiersSave);
+     NSLog(@"%@",SoldiersSave);
+    // values in foreach loop
      for (NSString *key in keys) {
-     ItemArray = [NSMutableArray arrayWithObject:[dict objectForKey:key]];
+         NSLog(@"Item %@",key);
      
      }
-     NSLog(@"Item %@",ItemArray);
-    
-    
-    
-    
-    
-    
+    */
+ 
     waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
     [waveMenus alignItemsVertically];
     [waveMenus setPosition:ccp( mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2)];
-    
-    /*
-    for (int i =0 ; i < [friends count]; i++) {
-        
-        CCMenuItemFont *newFriend = [CCMenuItemFont itemWithString:[friends objectAtIndex:i]];
-        [mainMenu addChild:newFriend z:4];
-        newFriend.fontName = @"Outlier.ttf";
-        newFriend.fontSize = 20;
-        [newFriend.label setColor:ccc3(200, 200, 230)];
-        newFriend.position = ccp(origin_X_ForName, origin_Y_ForName - nameYDistance*i);
-        
-        
-    }*/
+
     return waveMenus;
-    
-    
-    
-    
-    
-    
-    
-    
 }
 
 
+/**to check which wave is been selected and show different soldiers*/
 -(void) setSoldierinWave:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
     NSString *currwave;
     switch (menuItem.tag) {
         case 1:
             [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
-            
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         case 2:
             [gameStatusEssentialsSingleton setCurrentWave:@"w2"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            // CCLOG(currwave);
             break;
         case 3:
             [gameStatusEssentialsSingleton setCurrentWave:@"w3"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         case 4:
             [gameStatusEssentialsSingleton setCurrentWave:@"w4"];
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         case 5:
             [gameStatusEssentialsSingleton setCurrentWave:@"w5"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         case 6:
             [gameStatusEssentialsSingleton setCurrentWave:@"w6"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         case 7:
             [gameStatusEssentialsSingleton setCurrentWave:@"w7"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
+            
             break;
         case 8:
             [gameStatusEssentialsSingleton setCurrentWave:@"w8"];
-            
             currwave = [gameStatusEssentialsSingleton currentWave];
-            CCLOG(currwave);
             break;
         default:
             break;
@@ -280,12 +233,13 @@ static NSMutableDictionary *dict;
     
 }
 
+/**After clicking adding button, add new wave to menu list*/
 -(void)AddNewItem{
     CCLOG(@"add new item");
     
     wave_num = wave_num + 1;
     NSString *Wave_num =[NSString stringWithFormat:@"Wave %i",wave_num];
-    NSString *wave_key = [NSString stringWithFormat:@"w%i",wave_num];
+   // NSString *wave_key = [NSString stringWithFormat:@"w%i",wave_num];
     
     CCMenuItemFont* WaveNum = [CCMenuItemFont itemWithString: Wave_num target:self selector:@selector(setSoldierinWave:)];
     WaveNum.tag = wave_num;
@@ -294,11 +248,10 @@ static NSMutableDictionary *dict;
     [waveMenus addChild:WaveNum];
     [waveMenus alignItemsVertically];
     
-    
-    [dict setObject:Wave_num  forKey:wave_key];
-    
+ 
 }
-/**used to be in WaveLayer End*/
+
+/**show the table of soldier selection*/
 -(CCMenu*) loadTable{
     NSString *robot = @"Robot";
     NSString *human = @"Human";
@@ -370,11 +323,13 @@ static NSMutableDictionary *dict;
     [SoldierMenu addChild:soldierF_number z:0];
     [SoldierMenu addChild:soldierA z:1];
     [SoldierMenu addChild:soldierB z:1];
-    [SoldierMenu addChild:soldierC z:1];
+    //[SoldierMenu addChild:soldierC z:1];
     
     [SoldierMenu setPosition:ccp(mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     return SoldierMenu;
 }
+
+/**increase and decrease button*/
 -(CCMenu*) loadButton{
     
     soldierA_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
@@ -384,18 +339,20 @@ static NSMutableDictionary *dict;
     soldierB_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
     soldierB_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
-    soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
-    soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
     
-    soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
-    soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
     
-    soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
-    soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png"];
+    soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
     
-    soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png"];
+    soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
+    soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    
+    soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
+    soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    
+    soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
     
     soldierA_decrease.position = ccp(-4, 5);
     soldierA_increase.position = ccp(44, 5);
@@ -457,13 +414,11 @@ static NSMutableDictionary *dict;
 }
 
 
-/**used to be in SoldierLayer Start*/
-
+/**Soldier add and reduce*/
 
 -(void) setSoldierNumber:(id) soldierType{
     CCMenuItemImage *menuItemImage = (CCMenuItemImage*)soldierType;
-    
-    //add....
+
     if (menuItemImage == soldierA_increase) {
         wave_sol[cur_wave][0]++;
         counterA++;
@@ -550,7 +505,7 @@ static NSMutableDictionary *dict;
     
     
     NSString* wave= [gameStatusEssentialsSingleton currentWave];
-    NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
+    /*NSMutableDictionary * tempdictonary=[[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] objectForKey:wave];
     
     
     [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterA] forKey:@"SA"];
@@ -561,23 +516,20 @@ static NSMutableDictionary *dict;
     [tempdictonary setObject:[NSString stringWithFormat:@"%d", counterF] forKey:@"SF"];
     
     [[gameStatusEssentialsSingleton.armynetwork waveComplexStructure] setObject:tempdictonary forKey:wave];
+    */
     
-    
-    //add
     gameStatusEssentialsSingleton.counterA = counterA;
     gameStatusEssentialsSingleton.counterB = counterB;
     gameStatusEssentialsSingleton.counterC = counterC;
 }
 
-- (void) AddWave: (int) waveID
+-(void)saveWaveSetting:(id)sender
 {
-    cur_wave = waveID;
-    counterA = wave_sol[cur_wave][0];
-    counterB = wave_sol[cur_wave][1];
-    [item1 setString:[NSString stringWithFormat:@"%d", wave_sol[cur_wave][0]]];
-    [item2 setString:[NSString stringWithFormat:@"%d", wave_sol[cur_wave][1]]];
+    [SoldiersSave setValue:[NSNumber numberWithInt:counterA] forKey:@"SoldierA"];
+    [SoldiersSave setValue:[NSNumber numberWithInt:counterB] forKey:@"SoldierB"];
+    [WavesSave addObject:SoldiersSave];
+    
 }
-/**used to be in SoldierLayer End*/
 
 
 -(Army*)generateArmyFromNetworkResource{
@@ -595,4 +547,42 @@ static NSMutableDictionary *dict;
     
 }
 
+@end
+
+@implementation WaveSetting {
+    int index;
+    NSMutableArray *_list;
+}
++ (instancetype) setting: (int) idx
+{
+    return [[self alloc] init:idx];
+}
+
+- (instancetype) init: (int) idx
+{
+    self = [super init];
+    if (!self) return(nil);
+    index = idx;
+    _list = [[NSMutableArray alloc] init];
+    return self;
+}
+@end
+
+@implementation SoldierSetting {
+    NSString *_type;
+    int _count;
+}
++ (instancetype) setting:(NSString *) type
+{
+    return [[self alloc] init: type];
+}
+
+- (instancetype) init:(NSString *) type
+{
+    self = [super init];
+    if (!self) return(nil);
+    _type = type;
+    _count = 0;
+    return self;
+}
 @end
