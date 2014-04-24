@@ -108,8 +108,11 @@
             
             if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)) {
                 //CCLOG(@"soldier attack!!!!!");
-                [soldier attack:towerpoint Target:tower];
-                //[tower beignattacked];
+                if (![soldier getIsAttacking]) {
+                    [soldier attack:towerpoint Target:tower];
+                    //[tower beignattacked];
+                }
+
             }
         }
         

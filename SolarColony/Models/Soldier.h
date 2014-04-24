@@ -71,6 +71,8 @@
 - (void)moveOriginal;
 - (void)setInitLocation:(CGPoint)loc;
 - (CGPoint)getInitLocation;
+-(bool) getIsAttacking;
+-(bool) getStopController;
 
 @property(assign, atomic) CGPoint targetLocation;
 @property (nonatomic, strong) CCSprite *explotion;
