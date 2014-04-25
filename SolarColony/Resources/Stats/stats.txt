@@ -7,8 +7,8 @@ humanTower2: health=65,price=210,reward=80,attspeed=70,power=10
 magicTower1: health=30,price=130,reward=40,attspeed=50,power=7
 magicTower2: health=50,price=210,reward=80,attspeed=70,power=10
 humanRunner: health=5,speed=2,price=10,reward=20
-humanAttacker1: health=8,speed=1,price=10,reward=20,attspeed=60,power=20
+humanAttacker1: health=8,speed=1,price=10,reward=20,attspeed=2,power=20
 robotRunner: health=8,speed=2,price=10,reward=20
-robotAttacker1: health=10,speed=1,price=10,reward=20,attspeed=60,power=20
+robotAttacker1: health=10,speed=1,price=10,reward=20,attspeed=2,power=20
 magicRunner: health=5,speed=2,price=10,reward=20
-magicAttacker1: health=8,speed=1,price=10,reward=20,attspeed=65,power=20
+magicAttacker1: health=8,speed=1,price=10,reward=20,attspeed=2,power=20
