@@ -24,7 +24,7 @@
 @synthesize whichRace;
 @synthesize mapLocation;
 @synthesize towerReward;
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Reward: (int) reward{
+- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Reward: (int) reward Life: (int) health{
     
     self = [super init];
     if (!self) return(nil);
@@ -39,7 +39,7 @@
         [self setLocation:location];
         towerTowerId=4;
         selfLocation=location;
-        [self setLife:200];
+        [self setLife:health];
         [self setPower:10];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -60,7 +60,7 @@
         [self setLocation:location];
         towerTowerId=4;
         selfLocation=location;
-        [self setLife:200];
+        [self setLife:health];
         [self setPower:10];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -80,7 +80,7 @@
         [self setLocation:location];
         towerTowerId=4;
         selfLocation=location;
-        [self setLife:200];
+        [self setLife:health];
         [self setPower:10];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -92,7 +92,7 @@
  
         
     }
-    _health=200;
+    _health=health;
     whichRace=raceType;
     [self setPosition:[self getLocation]];
     [bullet setVisible:FALSE];
@@ -169,14 +169,15 @@
 
 -(void)beignHealed{
     
-    [self setLife:([self getLife]+200)];
+    [self setLife:_health];
     [self setHEALTH:200];
     
 }
 - (void)setHEALTH:(int)reduceHealth{
-    
+    if (towerLife > _health*3/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
+    }
     if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
-        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
     if (towerLife <= _health*1/2 && towerLife > _health*1/4) {
