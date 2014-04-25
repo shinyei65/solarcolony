@@ -23,4 +23,5 @@
 -(void)getReward;
 -(void)resetReward;
 -(void)setRewardtoAttacker:(NSString *) attacker Reward:(int) reward;
+-(NSString *) generateJSONfromWaveSettings;
 @end
