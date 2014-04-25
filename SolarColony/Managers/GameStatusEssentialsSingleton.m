@@ -34,6 +34,7 @@
 @synthesize counterA;
 @synthesize counterB;
 @synthesize counterC;
+@synthesize WaveSettings;
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
@@ -53,6 +54,7 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
     
     if (self) {
         // Work your initialising magic here as you normally would
+        WaveSettings = [[NSMutableArray alloc] init];
         soldiers=[[NSMutableArray alloc] init];
         towers=[[NSMutableArray alloc] init];
         armynetwork=[[ArmyNetwork alloc] init];
