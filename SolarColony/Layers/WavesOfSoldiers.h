@@ -46,6 +46,7 @@
 + (instancetype) setting: (int) idx;
 - (instancetype) initWave: (int) idx;
 - (NSMutableArray*) getList;
+-(NSString *) toJSONstring;
 @end
 
 @interface SoldierSetting : NSObject
@@ -55,4 +56,5 @@
 -(int) getCount;
 -(void) increaseCount;
 -(void) decreaseCount;
+-(NSString *) toJSONstring;
 @end

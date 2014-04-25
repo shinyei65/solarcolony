@@ -13,6 +13,7 @@
 #import "HumanSoldier.h"
 #import "RobotSoldier.h"
 #import "MageSoldier.h"
+#import "WavesOfSoldiers.h"
 static NetWorkManager *sharedNetWorkManager = nil;
 
 @implementation NetWorkManager{
@@ -38,12 +39,18 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 -(void)sendAttackRequest:(Army*)sendingArmy attackTarget:(NSString *)target
 {
-    
+    NSString *jtest = [[NetWorkManager NetWorkManager] generateJSONfromWaveSettings];
+    if(jtest)
+        CCLOG(jtest);
+    else{
+        CCLOG(@"no soldiers");
+        return;
+    }
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]];
     NSLog(@"sending url: %@",[NSString stringWithFormat:@"http://solarcolony-back.appspot.com/request?user_name=%@",target]);
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
-    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army={\"wavesArray\":[{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"B\",\"quantity\":\"5\"}]},{\"soldiersArray\":[{\"soldiertype\":\"A\",\"quantity\":\"5\"},{\"soldiertype\":\"B\",\"quantity\":\"5\"}]}],\"race\":\"Human\"}",[PlayerInfo Player].username];
+    NSString *jsonRequest = [NSString stringWithFormat:@"attacker=%@&army=%@",[PlayerInfo Player].username, jtest];
     NSLog(@"Json Request: %@",jsonRequest);
     NSData *requestData = [NSData dataWithBytes:[jsonRequest UTF8String] length:[jsonRequest length]];
     
@@ -347,6 +354,26 @@ static NetWorkManager *sharedNetWorkManager = nil;
     }
     //CCLOG(test);
 }
-
+- (NSString *) generateJSONfromWaveSettings
+{
+    NSMutableArray * settings = [[GameStatusEssentialsSingleton sharedInstance] WaveSettings];
+    int sum = 0;
+    for(WaveSetting * ws in settings){
+        for(SoldierSetting *ss in [ws getList]){
+            sum += [ss getCount];
+        }
+    }
+    if(sum == 0) return nil;
+    NSString *root = @"{\"wavesArray\": [";
+    NSString *tail = [NSString stringWithFormat:@"], \"race\": \"%@\"}", [[GameStatusEssentialsSingleton sharedInstance] raceType]];
+    NSMutableArray *arr = [NSMutableArray array];
+    for(WaveSetting * ws in settings){
+        NSString *tmp = [ws toJSONstring];
+        if(tmp)
+            [arr addObject:tmp];
+    }
+    root = [root stringByAppendingString:[arr componentsJoinedByString:@","]];
+    return [root stringByAppendingString:tail];
+}
 
 @end

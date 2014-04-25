@@ -65,7 +65,7 @@
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:health];
         [self setPower:power];
         //[self setSetSpeedAttack:20];
         [self setSetSpeedAttack:attspeed];
@@ -84,7 +84,7 @@
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
-        [self setLife:100];
+        [self setLife:health];
         [self setPower:power];
         //[self setSetSpeedAttack:20];
         [self setSetSpeedAttack:attspeed];
@@ -195,7 +195,7 @@
 
 -(void)beignHealed{    
   
-        [self setLife:([self getLife]+30)];
+        [self setLife:_health];
         [self setHEALTH:100];
     
 }
@@ -225,8 +225,10 @@
 }
 - (void)setHEALTH:(int)reduceHealth{
     
+    if (towerLife > _health*3/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
+    }
     if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
-        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
     if (towerLife <= _health*1/2 && towerLife > _health*1/4) {

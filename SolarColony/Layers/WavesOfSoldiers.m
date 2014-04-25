@@ -601,6 +601,21 @@ static NSMutableArray* WavesSave;
 -(NSMutableArray*) getList{
     return _list;
 }
+-(NSString *) toJSONstring
+{
+    int sum = 0;
+    for (SoldierSetting* ss in _list) {
+        sum += [ss getCount];
+    }
+    if (sum == 0) return nil;
+    NSMutableArray *arr = [NSMutableArray array];
+    for(SoldierSetting* ss in _list){
+        NSString * tmp = [ss toJSONstring];
+        if(tmp)
+            [arr addObject:tmp];
+    }
+    return [NSString stringWithFormat:@"{\"soldiersArray\":[%@]}", [arr componentsJoinedByString:@","]];
+}
 @end
 
 @implementation SoldierSetting {
@@ -631,5 +646,15 @@ static NSMutableArray* WavesSave;
 }
 -(void) decreaseCount{
     _count--;
+}
+-(NSString *) toJSONstring{
+    if(_count == 0)
+        return nil;
+    if([_type isEqualToString:@"Runner"])
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\"}", _count];
+    else if([_type isEqualToString:@"Attacker1"])
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\"}", _count];
+    else
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\"}", _count];
 }
 @end

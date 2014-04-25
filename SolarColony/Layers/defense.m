@@ -38,6 +38,9 @@ static defense *sharedInstance = nil;
     int robotPrice;
     CCLayerColor *pauseLayer;
     TowerFactory* factoryTowers;
+    bool isCharging;
+    CCProgressTimer *timeBar;
+    int counter;
 }
 
 + (instancetype)scene
@@ -136,6 +139,14 @@ static defense *sharedInstance = nil;
     [self addChild:mainMenu z:20];
 
 
+    
+    // passive button
+    CCMenuItemImage *manuItemPassive=[CCMenuItemImage itemWithNormalImage:@"panic.png" selectedImage:@"panicOn.png" target:self selector:@selector(triggerPassiveAbilities:)];
+    CCMenu *passiveMenu=[CCMenu menuWithItems:manuItemPassive, nil];
+    [passiveMenu setPosition:ccp(550,15)];
+    [self addChild:passiveMenu z:20];
+
+
     [self addChild:supportCavas z:50];
     [self scheduleUpdate];    
 
@@ -147,6 +158,51 @@ static defense *sharedInstance = nil;
     if ([menuItem.label.string isEqualToString:@"back"]) {
         [[CCDirector sharedDirector] pushScene:[GameLandingScene scene] ];
     }
+}
+
+-(void)triggerPassiveAbilities:(id)sender{
+
+    if (isCharging==false) {
+        if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"])
+        {
+            //passive for human
+        }
+        else if([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Robot"]){
+             //passive for robot
+            for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
+                    [tower beignHealed];
+            }
+            [self reloadAnimation];
+        }else {
+            //passive for wizard
+        }
+        
+    }
+}
+
+
+-(void) reloadAnimation
+{
+    
+    if (isCharging==false) {
+        isCharging=true;
+        CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:20 from:100 to:0];
+        CCSprite* progressSprite = [CCSprite spriteWithFile:@"panicCharging.png"];
+        timeBar = [CCProgressTimer progressWithSprite:progressSprite];
+        //[timeBar setAnchorPoint:ccp(.8, 0.5)];
+        [timeBar setPosition:ccp(550,15)];
+        [self addChild:timeBar z:50];
+        [timeBar runAction:to1];
+        [self schedule: @selector(doNothingCharge:) interval:20];
+    }
+    
+}
+
+-(void) doNothingCharge: (ccTime) dt{
+     NSLog(@"stopped 1st scheduler");
+    isCharging=false;
+    [self unschedule:@selector(doNothingCharge:)];
+ 
 }
 
 //creates tower and adds it to current active towers queue
