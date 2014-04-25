@@ -26,7 +26,7 @@
 @synthesize isDrop;
 @synthesize mapLocation;
 
-- (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward{
+- (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward Life: (int) health{
    
     self = [super init];
     if (!self) return(nil);
@@ -42,7 +42,7 @@
         [self setLocation:location];
         selfLocation=location;
         towerTowerId=9;
-        [self setLife:140];
+        [self setLife:health];
         [self setPower:20];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -60,7 +60,7 @@
         [self setLocation:location];
         selfLocation=location;
         towerTowerId=3;
-        [self setLife:140];
+        [self setLife:health];
         [self setPower:20];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -78,7 +78,7 @@
         [self setLocation:location];
         selfLocation=location;
         towerTowerId=6;
-        [self setLife:140];
+        [self setLife:health];
         [self setPower:20];
         [self setSetSpeedAttack:20];
         [self setSetSpeedAttack:10];
@@ -90,7 +90,7 @@
     }
     [bullet setVisible:FALSE];
     actionTowerLocation=ccp(0, 0);
-    _health = 140;
+    _health = health;
     whichRace=raceType;
     isDrop=false;
     [self setPosition:[self getLocation]];
@@ -135,11 +135,21 @@
         [self setHEALTH:-1];
     }
 }
+-(void)beignHealed{
+    
+    [self setLife:_health];
+    [self setHEALTH:200];
+    
+}
+
 
 - (void)setHEALTH:(int)reduceHealth{
     
+    if (towerLife > _health*3/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
+    }
     if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
-        //CCTexture2D* tex = [[CCTextureCache sharedTextureCache] addImage:@"blood_3:4.jpg"];
+ 
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
     }
     if (towerLife <= _health*1/2 && towerLife > _health*1/4) {

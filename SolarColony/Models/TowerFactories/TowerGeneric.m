@@ -117,5 +117,14 @@
     
 }
 
+-(void)beignHealed{
+    
+    
+}
+
+
+- (void)setHEALTH:(int)reduceHealth{
+ 
+}
 -(void)dealloc{}
 @end
