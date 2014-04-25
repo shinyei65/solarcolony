@@ -324,6 +324,10 @@
 		F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0418F899C0002A9D40 /* humanRace.png */; };
 		F5C5CA0918F899C0002A9D40 /* robotRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0518F899C0002A9D40 /* robotRace.png */; };
 		F5C5CA0A18F899C0002A9D40 /* wizardRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0618F899C0002A9D40 /* wizardRace.png */; };
+		F5C72559190B12FC006E9088 /* Mage_select.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C72558190B12FC006E9088 /* Mage_select.png */; };
+		F5C7255D190B2514006E9088 /* tower_ball.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255A190B2514006E9088 /* tower_ball.gif */; };
+		F5C7255E190B2514006E9088 /* Tower_corn.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255B190B2514006E9088 /* Tower_corn.gif */; };
+		F5C7255F190B2514006E9088 /* tower_head.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255C190B2514006E9088 /* tower_head.gif */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
@@ -797,7 +801,6 @@
 		F57912C91908B08200D85F21 /* RobotSoldier_Basic_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Basic_left.png; sourceTree = "<group>"; };
 		F57912CA1908B08200D85F21 /* RobotSoldier_Special_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RobotSoldier_Special_left.png; sourceTree = "<group>"; };
 		F57912D11908D7A000D85F21 /* Human_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Human_select.png; sourceTree = "<group>"; };
-		F57912D21908D7A000D85F21 /* Mage_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mage_select.png; sourceTree = "<group>"; };
 		F57912D31908D7A000D85F21 /* Robot_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Robot_select.png; sourceTree = "<group>"; };
 		F58529041905A8F800AF750C /* towerAcharge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towerAcharge.png; sourceTree = "<group>"; };
 		F58529061905B70700AF750C /* sound 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 2.wav"; sourceTree = "<group>"; };
@@ -870,6 +873,10 @@
 		F5C5CA0418F899C0002A9D40 /* humanRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = humanRace.png; sourceTree = "<group>"; };
 		F5C5CA0518F899C0002A9D40 /* robotRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robotRace.png; sourceTree = "<group>"; };
 		F5C5CA0618F899C0002A9D40 /* wizardRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizardRace.png; sourceTree = "<group>"; };
+		F5C72558190B12FC006E9088 /* Mage_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mage_select.png; sourceTree = "<group>"; };
+		F5C7255A190B2514006E9088 /* tower_ball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tower_ball.gif; sourceTree = "<group>"; };
+		F5C7255B190B2514006E9088 /* Tower_corn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tower_corn.gif; sourceTree = "<group>"; };
+		F5C7255C190B2514006E9088 /* tower_head.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tower_head.gif; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -990,8 +997,8 @@
 				F57912C71908B08200D85F21 /* MageSoldier_Basic_left.png */,
 				F57912C81908B08200D85F21 /* MageSoldier_Special_left.png */,
 				F57912C91908B08200D85F21 /* RobotSoldier_Basic_left.png */,
+				F5C72558190B12FC006E9088 /* Mage_select.png */,
 				F57912D11908D7A000D85F21 /* Human_select.png */,
-				F57912D21908D7A000D85F21 /* Mage_select.png */,
 				F57912D31908D7A000D85F21 /* Robot_select.png */,
 				F57912CA1908B08200D85F21 /* RobotSoldier_Special_left.png */,
 				F5ACE32F190597FE004BDC17 /* life_bar.jpg */,
@@ -1893,6 +1900,9 @@
 			isa = PBXGroup;
 			children = (
 				F58529041905A8F800AF750C /* towerAcharge.png */,
+				F5C7255A190B2514006E9088 /* tower_ball.gif */,
+				F5C7255B190B2514006E9088 /* Tower_corn.gif */,
+				F5C7255C190B2514006E9088 /* tower_head.gif */,
 				F503E2BE18F637350022F629 /* target.png */,
 				FC6DCD7B18E8FA0100DC98A3 /* portal.png */,
 				FC6DCD7C18E8FA0100DC98A3 /* powerplant.png */,
@@ -2039,6 +2049,7 @@
 				2123A44918ECEACB00981468 /* AddButton.png in Resources */,
 				F54714F418EA01CC0099CD70 /* select1.png in Resources */,
 				F5191C4918FF749B00C62839 /* select3.png in Resources */,
+				F5C72559190B12FC006E9088 /* Mage_select.png in Resources */,
 				F5BD5F5218F64EB8004EB055 /* friend_bar.png in Resources */,
 				09345A671905A523006D2062 /* TileMap_4.tmx in Resources */,
 				F5BD5F4D18F63BBB004EB055 /* addFriend_button_sel.png in Resources */,
@@ -2047,6 +2058,7 @@
 				F55948D218A56F3B008ADDED /* Icon-Small-50.png in Resources */,
 				F57912D01908B08200D85F21 /* RobotSoldier_Special_left.png in Resources */,
 				0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */,
+				F5C7255E190B2514006E9088 /* Tower_corn.gif in Resources */,
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F503E2BF18F637350022F629 /* target.png in Resources */,
@@ -2109,6 +2121,7 @@
 				F5B0FBB418FC606200E5AB31 /* toff.png in Resources */,
 				F54714F718EA01CC0099CD70 /* select2Active.png in Resources */,
 				5671D09C1900B3D700D72BEE /* human_icon_small.gif in Resources */,
+				F5C7255D190B2514006E9088 /* tower_ball.gif in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F594EA77190B20080046CFA8 /* p20.png in Resources */,

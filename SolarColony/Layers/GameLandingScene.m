@@ -33,7 +33,7 @@
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Player X" fontName:@"Marker Felt" fontSize:32];
+        CCLabelTTF *splash = [CCLabelTTF labelWithString:[PlayerInfo Player].username fontName:@"Marker Felt" fontSize:32];
         
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
@@ -47,13 +47,16 @@
         CCSprite *raceSprite;
         NSString * raceType=gameStatusEssentialsSingleton.raceType;
         if ([raceType isEqualToString:@"Human"]) {
-            raceSprite = [CCSprite spriteWithFile:@"humanRace.png"];
+            raceSprite = [CCSprite spriteWithFile:@"human_icon.gif"];
+            raceSprite.scale = 0.9;
             raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
         } else if ([raceType isEqualToString:@"Robot"]) {
-            raceSprite = [CCSprite spriteWithFile:@"robotRace.png"];
+            raceSprite = [CCSprite spriteWithFile:@"robot_icon.gif"];
+            raceSprite.scale = 0.8;
             raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
         } else if ([raceType isEqualToString:@"Magic"]) {
-            raceSprite = [CCSprite spriteWithFile:@"wizardRace.png"];
+            raceSprite = [CCSprite spriteWithFile:@"wizard_icon.gif"];
+            raceSprite.scale = 1.3;
             raceSprite.position = ccp(mobileDisplaySize.width*.18, mobileDisplaySize.height*.35);
         }
         

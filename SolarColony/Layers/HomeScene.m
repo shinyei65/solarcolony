@@ -63,7 +63,7 @@
         [PlayerInfo Player].username = username;
          
         if(username == nil){
-        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Sign in" otherButtonTitles:nil, nil];
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Register" otherButtonTitles:nil, nil];
         myAlertView.alertViewStyle = UIAlertViewStylePlainTextInput;
         UITextField *myTextField = [myAlertView textFieldAtIndex:0];
         myTextField.placeholder=@"Player";
