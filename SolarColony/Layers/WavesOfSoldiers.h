@@ -44,10 +44,17 @@
 
 @interface WaveSetting : NSObject
 + (instancetype) setting: (int) idx;
-- (instancetype) init: (int) idx;
+- (instancetype) initWave: (int) idx;
+- (NSMutableArray*) getList;
+-(NSString *) toJSONstring;
 @end
 
 @interface SoldierSetting : NSObject
 + (instancetype) setting: (NSString*) type;
-- (instancetype) init: (NSString*) type;
+- (instancetype) initSoldier: (NSString*) type;
+-(NSString*) getType;
+-(int) getCount;
+-(void) increaseCount;
+-(void) decreaseCount;
+-(NSString *) toJSONstring;
 @end

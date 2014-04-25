@@ -52,6 +52,6 @@
 @property(assign, nonatomic) int counterA;
 @property(assign, nonatomic) int counterB;
 @property(assign, nonatomic) int counterC;
-
+@property(assign, nonatomic) NSMutableArray *WaveSettings;
 
 @end

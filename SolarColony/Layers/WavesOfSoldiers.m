@@ -68,12 +68,12 @@ static NSMutableArray* WavesSave;
         if(gameStatusEssentialsSingleton.getFirstVisit == true)
         {
             SoldiersSave = [[NSMutableDictionary alloc]init];
-            WavesSave = [[NSMutableArray alloc]init];
-            
+            Waves = gameStatusEssentialsSingleton.WaveSettings;
+            wave_num = 0;
+            [Waves addObject:[self CreateWaveSetting]];
             counterA=0;
             counterB=0;
             counterC=0;
-            
             gameStatusEssentialsSingleton.FirstVisit = false;
         }
         else{
@@ -81,7 +81,8 @@ static NSMutableArray* WavesSave;
             wave_sol[cur_wave][0] = counterA;
             counterB = gameStatusEssentialsSingleton.GetCounterB;
             wave_sol[cur_wave][1] = counterB;
-            
+            Waves = gameStatusEssentialsSingleton.WaveSettings;
+            wave_num = [gameStatusEssentialsSingleton.WaveSettings count];
         }
         
         
@@ -112,6 +113,9 @@ static NSMutableArray* WavesSave;
         [self addChild:[self LoadWaveMenu] z:3];
         [self addChild:[self loadTable] z:3];
         [self addChild:[self loadButton] z:3];
+        cur_wave = 0;
+        [self setcolor];
+        [self loadWaveSetting:cur_wave];
         
         // game stats loader
         loader = [GameStatsLoader loader];
@@ -137,133 +141,107 @@ static NSMutableArray* WavesSave;
     return self;
 }
 
+- (WaveSetting*) CreateWaveSetting
+{
+    WaveSetting* createwave = [[WaveSetting alloc]initWave:wave_num];
+    NSMutableArray* list = [createwave getList];
+    SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner"];
+    SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1"];
+    [list addObject:S1];
+    [list addObject:S2];
+    wave_num++;
+    return createwave;
+}
 
+-(void)loadWaveSetting:(int)idx{
+    NSMutableArray* list = [[Waves objectAtIndex:idx] getList];
+    for(SoldierSetting* setting in list){
+        if ([[setting getType] isEqualToString:@"Runner"]) {
+            counterA = [setting getCount];
+            [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
+        }
+        else if([[setting getType] isEqualToString:@"Attacker1"]){
+            counterB = [setting getCount];
+            [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
+        }
+    }
+}
+-(SoldierSetting*)getSoldierSetting:(NSString*)Type {
+    NSMutableArray* list = [[Waves objectAtIndex:cur_wave] getList];
+    for(SoldierSetting* setting in list){
+        if ([[setting getType] isEqualToString:Type]) {
+            return setting;
+        }
+    }
+    return nil;
+}
 
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    gameStatusEssentialsSingleton.WaveSettings = Waves;
+    
     if ([menuItem.label.string isEqualToString:@"back"]) {
         [transitionManagerSingleton transitionTo:6];
+        
     }
 }
-/*save*/
-/*
--(void)saveRequest:(id)sender{
-    ArmyNetwork* army = gameStatusEssentialsSingleton.armynetwork;
-    army.race=gameStatusEssentialsSingleton.raceType;
-    NSString * jsonstring= [army toJSONString];
-    // CCLOG(jsonstring);
-    
-    //test save request
-    ArmyNetworkRequest *armyNetwork = [[ArmyNetworkRequest alloc] init];
-    
-    for(id key in army.waveComplexStructure) {
-        NSMutableDictionary* value = [army.waveComplexStructure objectForKey:key];
-        WaveNetwork *waveNetwork = [[WaveNetwork alloc] init];
-        
-        for(id keyInner in value) {
-            NSString* valueInner = [value objectForKey:keyInner];
-            // CCLOG(valueInner);
-            SoldierTypeNetwork *soldiersNetwork = [[SoldierTypeNetwork alloc] init];
-            soldiersNetwork.quantity=valueInner;
-            soldiersNetwork.soldiertype=keyInner;
-            [waveNetwork.soldiersArray addObject:soldiersNetwork];
-        }
-        
-        [armyNetwork.wavesArray addObject:waveNetwork];
-    }
-    armyNetwork.race=gameStatusEssentialsSingleton.raceType;
-    NSString * jsonstringFixed= [armyNetwork toJSONString];
-    
-    CCLOG(jsonstringFixed);
-    
-}
-*/
-
-
 
 /**set up initial menu of waves*/
 
 -(CCMenu*)LoadWaveMenu{
     //Plus button
     CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
+    addItemButton.tag = -1;
     [addItemButton setPosition:ccp(-50,50)];
     
-    wave_num = 1;
-    
-    wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
-    wave1.tag = 1;
+    /*wave1=[CCMenuItemFont itemWithString:@"Wave 1" target:self selector:@selector(setSoldierinWave:)];
+    wave1.tag = 0;
     [wave1 setFontSize:20];
     [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
-    
-    
-    /*
-     NSArray *keys = [SoldiersSave allKeys];
-     NSLog(@"dict %@",SoldiersSave);
-     NSLog(@"%@",SoldiersSave);
-    // values in foreach loop
-     for (NSString *key in keys) {
-         NSLog(@"Item %@",key);
-     
-     }
-    */
+    WaveSetting *W1 = [WaveSetting setting:wave_num];
+    [Waves addObject:W1];*/
+    NSMutableArray* arr = [NSMutableArray array];
+    [arr addObject:addItemButton];
+    for (int i = 0; i < [Waves count]; i++) {
+        wave1=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"Wave %d",i] target:self selector:@selector(setSoldierinWave:)];
+        wave1.tag = i;
+        [wave1 setFontSize:20];
+        [arr addObject:wave1];
+    }
  
-    waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
+    //waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
+    waveMenus= [CCMenu menuWithArray:[NSArray arrayWithArray:arr]];
     [waveMenus alignItemsVertically];
     [waveMenus setPosition:ccp( mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2)];
 
     return waveMenus;
 }
 
+-(void) setcolor
+{
+    for (CCMenuItemFont* item in waveMenus.children){
+        if (item.tag == cur_wave) {
+            [item setColor:ccc3(255, 255, 0)];
+        }
+        else if(item.tag >= 0)
+        {
+            [item setColor:ccc3(255, 255, 255)];
+        }
+    }
+}
 
 /**to check which wave is been selected and show different soldiers*/
 -(void) setSoldierinWave:(id) soldierType{
     CCMenuItemFont *menuItem = (CCMenuItemFont*)soldierType;
-    NSString *currwave;
-    switch (menuItem.tag) {
-        case 1:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w1"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 2:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w2"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 3:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w3"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 4:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w4"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 5:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w5"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 6:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w6"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        case 7:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w7"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            
-            break;
-        case 8:
-            [gameStatusEssentialsSingleton setCurrentWave:@"w8"];
-            currwave = [gameStatusEssentialsSingleton currentWave];
-            break;
-        default:
-            break;
-    }
-    
+    [menuItem setColor:ccc3(0, 255, 255)];
+    cur_wave = menuItem.tag;
+    [self setcolor];
+    [self loadWaveSetting:cur_wave];
 }
 
 /**After clicking adding button, add new wave to menu list*/
 -(void)AddNewItem{
-    CCLOG(@"add new item");
-    
-    wave_num = wave_num + 1;
+
     NSString *Wave_num =[NSString stringWithFormat:@"Wave %i",wave_num];
    // NSString *wave_key = [NSString stringWithFormat:@"w%i",wave_num];
     
@@ -274,7 +252,7 @@ static NSMutableArray* WavesSave;
     [waveMenus addChild:WaveNum];
     [waveMenus alignItemsVertically];
     
- 
+    [Waves addObject:[self CreateWaveSetting]];
 }
 
 /**show the table of soldier selection*/
@@ -453,15 +431,15 @@ static NSMutableArray* WavesSave;
     int price;
     int newResource;
 /**Soldier add and reduce*/
-
+    
     if (menuItemImage == soldierA_increase) {
         price = [loader.stats[race][@"Runner"][@"price"] integerValue];
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            wave_sol[cur_wave][0]++;
-            counterA++;
-            
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            [setting increaseCount];
+            counterA = [setting getCount];
         }
     }
     if (menuItemImage == soldierA_decrease) {
@@ -470,9 +448,9 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Runner"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            wave_sol[cur_wave][0]--;
-            counterA--;
-            
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            [setting decreaseCount];
+            counterA = [setting getCount];
         }
     }
     
@@ -481,8 +459,9 @@ static NSMutableArray* WavesSave;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            wave_sol[cur_wave][0]++;
-            counterB++;
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            [setting increaseCount];
+            counterB = [setting getCount];
         }
     }
     if (menuItemImage == soldierB_decrease) {
@@ -491,9 +470,9 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            wave_sol[cur_wave][0]--;
-            counterB--;
-            
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            [setting decreaseCount];
+            counterB = [setting getCount];
         }
     }
     
@@ -607,16 +586,35 @@ static NSMutableArray* WavesSave;
 }
 + (instancetype) setting: (int) idx
 {
-    return [[self alloc] init:idx];
+    return [[self alloc] initWave:idx];
 }
 
-- (instancetype) init: (int) idx
+- (instancetype) initWave:(int)idx
 {
     self = [super init];
     if (!self) return(nil);
     index = idx;
     _list = [[NSMutableArray alloc] init];
     return self;
+}
+
+-(NSMutableArray*) getList{
+    return _list;
+}
+-(NSString *) toJSONstring
+{
+    int sum = 0;
+    for (SoldierSetting* ss in _list) {
+        sum += [ss getCount];
+    }
+    if (sum == 0) return nil;
+    NSMutableArray *arr = [NSMutableArray array];
+    for(SoldierSetting* ss in _list){
+        NSString * tmp = [ss toJSONstring];
+        if(tmp)
+            [arr addObject:tmp];
+    }
+    return [NSString stringWithFormat:@"{\"soldiersArray\":[%@]}", [arr componentsJoinedByString:@","]];
 }
 @end
 
@@ -626,15 +624,37 @@ static NSMutableArray* WavesSave;
 }
 + (instancetype) setting:(NSString *) type
 {
-    return [[self alloc] init: type];
+    return [[self alloc] initSoldier: type];
 }
 
-- (instancetype) init:(NSString *) type
+- (instancetype) initSoldier:(NSString *)type
 {
     self = [super init];
     if (!self) return(nil);
     _type = type;
     _count = 0;
     return self;
+}
+-(NSString*) getType{
+    return  _type;
+}
+-(int) getCount{
+    return _count;
+}
+-(void) increaseCount{
+    _count++;
+}
+-(void) decreaseCount{
+    _count--;
+}
+-(NSString *) toJSONstring{
+    if(_count == 0)
+        return nil;
+    if([_type isEqualToString:@"Runner"])
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\"}", _count];
+    else if([_type isEqualToString:@"Attacker1"])
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\"}", _count];
+    else
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\"}", _count];
 }
 @end
