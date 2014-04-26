@@ -16,8 +16,7 @@
 #import "TestArmyNetwork.h"
 #import "GameStatsLoader.h"
 
-static NSMutableDictionary *SoldiersSave;
-static NSMutableArray* WavesSave;
+
 
 @implementation WavesOfSoldiers{
     SoldiersLayer *soldierlayer;
@@ -26,7 +25,6 @@ static NSMutableArray* WavesSave;
     
     int wave_num;
     NSArray *ItemArray;
-    int wave_sol[8][6];
     int cur_wave;
     PlayerInfo *player;
     NSString *race;
@@ -67,7 +65,6 @@ static NSMutableArray* WavesSave;
         //initial SoldierLayer variable
         if(gameStatusEssentialsSingleton.getWaveFirstVisit == true)
         {
-            SoldiersSave = [[NSMutableDictionary alloc]init];
             Waves = gameStatusEssentialsSingleton.WaveSettings;
             wave_num = 0;
             [Waves addObject:[self CreateWaveSetting]];
@@ -78,9 +75,7 @@ static NSMutableArray* WavesSave;
         }
         else{
             counterA = gameStatusEssentialsSingleton.GetCounterA;
-            wave_sol[cur_wave][0] = counterA;
             counterB = gameStatusEssentialsSingleton.GetCounterB;
-            wave_sol[cur_wave][1] = counterB;
             Waves = gameStatusEssentialsSingleton.WaveSettings;
             wave_num = [gameStatusEssentialsSingleton.WaveSettings count];
         }
@@ -97,11 +92,12 @@ static NSMutableArray* WavesSave;
         CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         
-        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
+        //CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
         
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
         
-        CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
+        //CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
+        CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
         [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
@@ -477,52 +473,45 @@ static NSMutableArray* WavesSave;
     }
     
     if (menuItemImage == soldierC_increase) {
-        wave_sol[cur_wave][0]++;
-        counterC++;
+                counterC++;
     }
     if (menuItemImage == soldierC_decrease) {
         if(counterC >0)
         {
-            wave_sol[cur_wave][0]--;
             counterC--;
             
         }
     }
     
     if (menuItemImage == soldierD_increase) {
-        wave_sol[cur_wave][0]++;
         counterD++;
     }
     if (menuItemImage == soldierD_decrease) {
         if(counterD >0)
         {
-            wave_sol[cur_wave][0]--;
             counterD--;
             
         }
     }
     
     if (menuItemImage == soldierE_increase) {
-        wave_sol[cur_wave][0]++;
         counterE++;
     }
     if (menuItemImage == soldierE_decrease) {
         if(counterE >0)
         {
-            wave_sol[cur_wave][0]--;
+
             counterE--;
             
         }
     }
     
     if (menuItemImage == soldierF_increase) {
-        wave_sol[cur_wave][0]++;
         counterF++;
     }
     if (menuItemImage == soldierF_decrease) {
         if(counterF >0)
         {
-            wave_sol[cur_wave][0]--;
             counterF--;
             
         }
@@ -554,13 +543,6 @@ static NSMutableArray* WavesSave;
     gameStatusEssentialsSingleton.counterC = counterC;
 }
 
--(void)saveWaveSetting:(id)sender
-{
-    [SoldiersSave setValue:[NSNumber numberWithInt:counterA] forKey:@"SoldierA"];
-    [SoldiersSave setValue:[NSNumber numberWithInt:counterB] forKey:@"SoldierB"];
-    [WavesSave addObject:SoldiersSave];
-    
-}
 
 
 -(Army*)generateArmyFromNetworkResource{

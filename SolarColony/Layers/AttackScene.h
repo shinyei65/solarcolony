@@ -8,13 +8,18 @@
 
 #import "AbstractScene.h"
 #import "NetWorkManager.h"
-#import "NetWorkManager.h"
+
 
 
 @interface AttackScene : CCLayer<AbstractScene>{
     TransitionManagerSingleton* transitionManagerSingleton;
-    MusicManagerSingleton* musicManagerSingleton;
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     NetWorkManager* networkManager;
     int army_num;
 }
+@end
+
+@interface ArmySetting: NSObject
++ (instancetype) setting: (int) idx;
+- (instancetype) initArmy:(int)idx;
 @end
