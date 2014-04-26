@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A1FEFE14-9814-45BD-8640-BED733649B97</string>
+	<string>05E29957-5AB6-44DA-92FA-5A8C2E375953</string>
 	<key>IDESourceControlProjectName</key>
 	<string>SolarColony</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>5364EB41-5D3D-43FF-B28F-D588EFED1104</key>
-		<string>https://bitbucket.org/solarcolony/solarcolony.git</string>
+		<key>03DE9084-979A-49DA-A788-3F6D4437C4D0</key>
+		<string>https://bitbucket.org/solarcolony/solarcolony</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>SolarColony.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>5364EB41-5D3D-43FF-B28F-D588EFED1104</key>
+		<key>03DE9084-979A-49DA-A788-3F6D4437C4D0</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://bitbucket.org/solarcolony/solarcolony.git</string>
+	<string>https://bitbucket.org/solarcolony/solarcolony</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>5364EB41-5D3D-43FF-B28F-D588EFED1104</string>
+	<string>03DE9084-979A-49DA-A788-3F6D4437C4D0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>5364EB41-5D3D-43FF-B28F-D588EFED1104</string>
+			<string>03DE9084-979A-49DA-A788-3F6D4437C4D0</string>
 			<key>IDESourceControlWCCName</key>
 			<string>solarcolony</string>
 		</dict>

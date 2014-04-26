@@ -30,7 +30,8 @@
 - (void) removeAllTowers;
 
 //add
-- (BOOL)getFirstVisit;
+- (BOOL)getWaveFirstVisit;
+- (BOOL)getArmyFirstVisit;
 - (int) GetCounterA;
 - (int) GetCounterB;
 - (int) GetCounterC;
@@ -48,10 +49,12 @@
 @property(assign, nonatomic) bool paused;
 
 //add
-@property(assign, nonatomic) bool FirstVisit;
+@property(assign, nonatomic) bool WaveFirstVisit;
+@property(assign, nonatomic) bool ArmyFirstVisit;
 @property(assign, nonatomic) int counterA;
 @property(assign, nonatomic) int counterB;
 @property(assign, nonatomic) int counterC;
 @property(assign, nonatomic) NSMutableArray *WaveSettings;
+@property(assign, nonatomic) NSMutableArray *ArmySettings;
 
 @end

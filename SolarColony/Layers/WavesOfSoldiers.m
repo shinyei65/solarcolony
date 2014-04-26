@@ -65,7 +65,7 @@ static NSMutableArray* WavesSave;
         race = [gameStatusEssentialsSingleton raceType];
         
         //initial SoldierLayer variable
-        if(gameStatusEssentialsSingleton.getFirstVisit == true)
+        if(gameStatusEssentialsSingleton.getWaveFirstVisit == true)
         {
             SoldiersSave = [[NSMutableDictionary alloc]init];
             Waves = gameStatusEssentialsSingleton.WaveSettings;
@@ -74,7 +74,7 @@ static NSMutableArray* WavesSave;
             counterA=0;
             counterB=0;
             counterC=0;
-            gameStatusEssentialsSingleton.FirstVisit = false;
+            gameStatusEssentialsSingleton.WaveFirstVisit = false;
         }
         else{
             counterA = gameStatusEssentialsSingleton.GetCounterA;
