@@ -221,9 +221,17 @@ NSString *AI_REQUEST = @"AI";
             wave.race = @"Magic";
             temp = [BasicSoldier soldierWithRace:wave.race];
         }
-        [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
-        [temp setSPEED:pow(1.3, tagOfArmy)*[temp getSPEED]];
-        [wave addSoldier: temp];
+        if(tagOfArmy < 5 ){
+            [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
+            [temp setSPEED:pow(1.3, tagOfArmy)*[temp getSPEED]];
+            [wave addSoldier: temp];
+        }
+        else
+        {
+            [temp setHEALTH:pow(1.2, 3)*[temp getHEALTH]];
+            [temp setSPEED:pow(1.3, 3)*[temp getSPEED]];
+            [wave addSoldier: temp];
+        }
     }
     for (int i=0; i< numberOfAttacker; i++) {
         Soldier *temp;
@@ -233,10 +241,19 @@ NSString *AI_REQUEST = @"AI";
             temp = [RobotSoldier soldierWithType:@"typeA"];
         else
             temp = [MageSoldier soldierWithType:@"typeA"];
-        [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
-        [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
-        [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
-        [wave addSoldier: temp];
+        if(tagOfArmy < 5 ){
+            [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
+            [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
+            [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
+            [wave addSoldier: temp];
+        }
+        else
+        {
+            [temp setHEALTH:(int)pow(1.2, 5)*[temp getHEALTH]];
+            [temp setATTACK:(int)pow(1.3, 5)*[temp getATTACK]];
+            [temp setSPEED:(int)pow(1.1, 5)*[temp getSPEED]];
+            [wave addSoldier: temp];
+        }
     }
     _army_gen_count++;
     tagOfArmy++;
