@@ -1762,7 +1762,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
-            endingLineNumber = "58">
+            endingLineNumber = "58"
+            landmarkName = "-updateSoldier:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1856,7 +1858,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
-            endingLineNumber = "47">
+            endingLineNumber = "47"
+            landmarkName = "-updateSoldier:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

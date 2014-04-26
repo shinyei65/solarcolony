@@ -57,31 +57,31 @@
     CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"Human_select.png" selectedImage:@"Human_select.png" target:self selector:@selector(moveToScene:)];
     menuItemHuman.userData=@"Human";
     menuItemHuman.scale = 0.3;
-    [menuItemHuman setPosition:ccp(30,100)];
+    [menuItemHuman setPosition:ccp(0,100)];
     
     CCSprite *menuItemHumanBox = [CCSprite spriteWithFile:@"descriptionBox_human.png"];
-    menuItemHumanBox.position = ccp(200,100);
+    menuItemHumanBox.position = ccp(205,130);
     
     
     
     CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"Robot_select.png" selectedImage:@"Robot_select.png" target:self selector:@selector(moveToScene:)];
     MenuItemRobot.scale = 0.2;
     MenuItemRobot.userData=@"Robot";
-    [MenuItemRobot setPosition:ccp(230,100)];
+    [MenuItemRobot setPosition:ccp(260,100)];
     
     
     CCSprite *menuItemRobotBox = [CCSprite spriteWithFile:@"descriptionBox_robot.png"];
-    menuItemRobotBox.position = ccp(440,100);
+    menuItemRobotBox.position = ccp(470,140);
     
     
     CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"Mage_select.png" selectedImage:@"Mage_select.png" target:self selector:@selector(moveToScene:)];
     menuItemMagic.scale = 0.3;
     menuItemMagic.userData=@"Magic";
-    [menuItemMagic setPosition:ccp(140,250)];
+    [menuItemMagic setPosition:ccp(180,240)];
     
     
     CCSprite *menuItemWizardBox = [CCSprite spriteWithFile:@"descriptionBox_magic.png"];
-    menuItemWizardBox.position = ccp(320,250);
+    menuItemWizardBox.position = ccp(380,250);
     
     
     CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot, menuItemMagic,nil];

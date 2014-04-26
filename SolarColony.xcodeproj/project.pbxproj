@@ -22,9 +22,6 @@
 		09345A861908C5F8006D2062 /* sound 14.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09345A841908C5F8006D2062 /* sound 14.wav */; };
 		09345A871908C5F8006D2062 /* sound 13.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09345A851908C5F8006D2062 /* sound 13.wav */; };
 		09345A891908C7D3006D2062 /* tower_blast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09345A881908C7D3006D2062 /* tower_blast.wav */; };
-		09345A951908D876006D2062 /* descriptionBox_human.png in Resources */ = {isa = PBXBuildFile; fileRef = 09345A921908D876006D2062 /* descriptionBox_human.png */; };
-		09345A961908D876006D2062 /* descriptionBox_magic.png in Resources */ = {isa = PBXBuildFile; fileRef = 09345A931908D876006D2062 /* descriptionBox_magic.png */; };
-		09345A971908D876006D2062 /* descriptionBox_robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 09345A941908D876006D2062 /* descriptionBox_robot.png */; };
 		0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */; };
 		0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */; };
 		0941DF1618D1276200AA3DA4 /* universe-wallpaper5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */; };
@@ -40,6 +37,9 @@
 		09B30E1618F6557800A616FB /* sample_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 09B30E1418F6557800A616FB /* sample_1.png */; };
 		09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 09D8B55D18AC891900EE54CB /* braincandy.mp3 */; };
 		09E9FDC618A94B1C000082B0 /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = 09E9FDC518A94B1C000082B0 /* Settings.m */; };
+		09EF612D190B46E100D896DA /* descriptionBox_human.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF612A190B46E100D896DA /* descriptionBox_human.png */; };
+		09EF612E190B46E100D896DA /* descriptionBox_magic.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF612B190B46E100D896DA /* descriptionBox_magic.png */; };
+		09EF6131190B495100D896DA /* descriptionBox_robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF6130190B495100D896DA /* descriptionBox_robot.png */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
 		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
 		210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506C18B5C0DA00F7A1DE /* sound 4.wav */; };
@@ -389,9 +389,6 @@
 		09345A841908C5F8006D2062 /* sound 14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 14.wav"; sourceTree = "<group>"; };
 		09345A851908C5F8006D2062 /* sound 13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 13.wav"; sourceTree = "<group>"; };
 		09345A881908C7D3006D2062 /* tower_blast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = tower_blast.wav; sourceTree = "<group>"; };
-		09345A921908D876006D2062 /* descriptionBox_human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_human.png; sourceTree = "<group>"; };
-		09345A931908D876006D2062 /* descriptionBox_magic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_magic.png; sourceTree = "<group>"; };
-		09345A941908D876006D2062 /* descriptionBox_robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_robot.png; sourceTree = "<group>"; };
 		0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper2.jpg"; sourceTree = "<group>"; };
 		0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper3.jpg"; sourceTree = "<group>"; };
 		0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper5.jpg"; sourceTree = "<group>"; };
@@ -412,6 +409,9 @@
 		09D8B55D18AC891900EE54CB /* braincandy.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = braincandy.mp3; sourceTree = "<group>"; };
 		09E9FDC418A94B1C000082B0 /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
 		09E9FDC518A94B1C000082B0 /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
+		09EF612A190B46E100D896DA /* descriptionBox_human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_human.png; sourceTree = "<group>"; };
+		09EF612B190B46E100D896DA /* descriptionBox_magic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_magic.png; sourceTree = "<group>"; };
+		09EF6130190B495100D896DA /* descriptionBox_robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_robot.png; sourceTree = "<group>"; };
 		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
 		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
 		210D506C18B5C0DA00F7A1DE /* sound 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 4.wav"; sourceTree = "<group>"; };
@@ -1772,9 +1772,9 @@
 		F5C5CA0218F899C0002A9D40 /* race */ = {
 			isa = PBXGroup;
 			children = (
-				09345A921908D876006D2062 /* descriptionBox_human.png */,
-				09345A931908D876006D2062 /* descriptionBox_magic.png */,
-				09345A941908D876006D2062 /* descriptionBox_robot.png */,
+				09EF6130190B495100D896DA /* descriptionBox_robot.png */,
+				09EF612A190B46E100D896DA /* descriptionBox_human.png */,
+				09EF612B190B46E100D896DA /* descriptionBox_magic.png */,
 				F5C5CA0318F899C0002A9D40 /* descriptionBox.png */,
 				F5C5CA0418F899C0002A9D40 /* humanRace.png */,
 				F5C5CA0518F899C0002A9D40 /* robotRace.png */,
@@ -1986,12 +1986,11 @@
 				566FB0A018E008C900A77C4D /* StartGame.png in Resources */,
 				5671D0991900B3CC00D72BEE /* wizard_icon.gif in Resources */,
 				F5191C4218FF6E2C00C62839 /* kills.png in Resources */,
-				F594EA7C190B280D0046CFA8 /* attackTowerTypeCharge1.gif in Resources */,
+				09EF6131190B495100D896DA /* descriptionBox_robot.png in Resources */,
 				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
 				09345A871908C5F8006D2062 /* sound 13.wav in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF518B779F000C1274C /* On.png in Resources */,
-				09345A961908D876006D2062 /* descriptionBox_magic.png in Resources */,
 				F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
@@ -2096,11 +2095,12 @@
 				F53F539618B82D9400FCDB4E /* Outlier.ttf in Resources */,
 				F594EA8D190B36070046CFA8 /* m100.png in Resources */,
 				F55948CE18A56F3B008ADDED /* Default-Landscape~ipad.png in Resources */,
-				09345A971908D876006D2062 /* descriptionBox_robot.png in Resources */,
+				F594EA6E190B1AB80046CFA8 /* m20.png in Resources */,
 				09345A7E1908BD11006D2062 /* sound 11.mp3 in Resources */,
 				F5A6ECDA18C5226500308F11 /* HumanSoldier_Special.gif in Resources */,
 				F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */,
 				F57912CF1908B08200D85F21 /* RobotSoldier_Basic_left.png in Resources */,
+				09EF612D190B46E100D896DA /* descriptionBox_human.png in Resources */,
 				F58529051905A8F800AF750C /* towerAcharge.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
 				F57912D41908D7A000D85F21 /* Human_select.png in Resources */,
@@ -2116,8 +2116,6 @@
 				F55948CC18A56F3B008ADDED /* Default-568h@2x.png in Resources */,
 				F5191C4618FF6E2C00C62839 /* towers.png in Resources */,
 				F5B56D3F1908ACFD0000B54C /* handsmoving.png in Resources */,
-				09345A951908D876006D2062 /* descriptionBox_human.png in Resources */,
-				F594EA96190B36070046CFA8 /* p40.png in Resources */,
 				F5FDE39218FC591800C48D48 /* map_2.txt in Resources */,
 				F5584E4918AEDB8100C81B59 /* testmap.txt in Resources */,
 				FC6DCD7418E8F65F00DC98A3 /* cherno.png in Resources */,
@@ -2145,6 +2143,7 @@
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
+				09EF612E190B46E100D896DA /* descriptionBox_magic.png in Resources */,
 				09B30E1618F6557800A616FB /* sample_1.png in Resources */,
 				F5B0FBAE18FC606200E5AB31 /* aoff.png in Resources */,
 			);
