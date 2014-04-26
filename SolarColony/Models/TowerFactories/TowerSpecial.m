@@ -120,7 +120,7 @@
     CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgradev2.png" selectedImage:@"upgradev2on.png" target:self selector:@selector(upgradeTowerPower)];
     
     
-    CCMenuItemFont *manuItemUpgradeText=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"+%d Upgrade",towerPrice] target:self selector:nil];
+    CCMenuItemFont *manuItemUpgradeText=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"-%d Upgrade",towerPrice] target:self selector:nil];
     
     [manuItemUpgradeText setFontSize:10];
     
@@ -183,7 +183,7 @@
 
 -(void) doNothingCharge: (ccTime) dt{
     
-    NSLog(@" waitting to charge %d", counter);
+   // NSLog(@" waitting to charge %d", counter);
     
     // if (counter > 1) {
     // NSLog(@"stopped 1st scheduler");

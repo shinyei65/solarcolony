@@ -189,7 +189,7 @@
     float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
     float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
    // bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)); // correct discontinuity
-     CCLOG(@"ANGLE RADIANS %f",bearingRadians);
+    // CCLOG(@"ANGLE RADIANS %f",bearingRadians);
     
     if ((bearingDegrees>=270.0&&bearingDegrees<359)||(bearingDegrees>=0.0&&bearingDegrees<20)) {
         isRightdirection=true;
@@ -202,7 +202,7 @@
 -(bool) getBulletDirection{
     return isRightdirection;
 }
--(void) animatonAttackWizard
+-(void) animatonAttackWizardÏ
 {
 
     [self setVisible:true];

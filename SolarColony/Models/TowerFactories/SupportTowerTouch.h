@@ -17,6 +17,12 @@
     NSString* raceType;
     bool isUpgradable;
     CGPoint centerTower;
+    
+    // fancy background
+    CCParallaxNode *_backgroundNode;
+    CCSprite *_spacedust1;
+    CCSprite *_spacedust2;
+    NSArray *spaceDusts;
 }
 
 @end
