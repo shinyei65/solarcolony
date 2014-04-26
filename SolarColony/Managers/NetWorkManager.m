@@ -34,7 +34,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     self = [super init];
     if(self){
         queue = [[NSOperationQueue alloc] init];
-        tagOfArmy = 10;
+        tagOfArmy = 1;
     }
     return self;
 }
