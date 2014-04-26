@@ -34,7 +34,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     self = [super init];
     if(self){
         queue = [[NSOperationQueue alloc] init];
-        tagOfArmy = 0;
+        tagOfArmy = 10;
     }
     return self;
 }
@@ -348,12 +348,12 @@ static NetWorkManager *sharedNetWorkManager = nil;
                         Soldier *temp;
                         temp = selectedCase();
                         if([type isEqualToString:@"A"]){
-                            [temp setHEALTH:pow(1.3, tagOfArmy)*[temp getHEALTH]];
-                            [temp setSPEED:pow(1.4, tagOfArmy)*[temp getSPEED]];
+                            [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
+                            [temp setSPEED:pow(1.3, tagOfArmy)*[temp getSPEED]];
                         }else{
-                            [temp setHEALTH:(int)pow(1.3, tagOfArmy)*[temp getHEALTH]];
-                            [temp setATTACK:(int)pow(1.4, tagOfArmy)*[temp getATTACK]];
-                            [temp setSPEED:(int)pow(1.2, tagOfArmy)*[temp getSPEED]];
+                            [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
+                            [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
+                            [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
                         }
                         [wave addSoldier: temp];
                         quantity--;
@@ -361,7 +361,6 @@ static NetWorkManager *sharedNetWorkManager = nil;
                 }
                 [army addWave: wave];
             }
-            tagOfArmy++;
             [[ArmyQueue layer] addArmy:army];
             //NSLog(@"WAVECOUNT = %d", [army count]);
         }
