@@ -64,7 +64,6 @@ static defense *sharedInstance = nil;
     SupportTowerTouch *supportCavas= [[SupportTowerTouch alloc] init];
     // test square cell
     player = [PlayerInfo Player];
-    [player setResource:5000];
     [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];
@@ -300,7 +299,7 @@ static defense *sharedInstance = nil;
 }
 
 - (void) reset{
-    [player setResource:5000];
+    [player setResource:700];
     [player setLife:10];
     // remove tower(100) soldier(200)
     CCArray *arr= [CCArray arrayWithArray: [grid children]];
