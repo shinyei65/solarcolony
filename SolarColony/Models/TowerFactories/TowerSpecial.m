@@ -46,8 +46,8 @@
         [self setPower:10];
         [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerPrice = price;
-        towerReward= reward;
+        
+ 
         
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
@@ -68,8 +68,7 @@
         [self setPower:10];
         [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerPrice = price;
-        towerReward= reward;
+
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -88,14 +87,15 @@
         [self setPower:10];
         [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerPrice = price;
-        towerReward= reward;
+ 
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
  
         
     }
+    towerPrice = price;
+    towerReward= reward;
     _health=health;
     whichRace=raceType;
     [self loadMenuUpgrade];
@@ -111,17 +111,26 @@
     return self;
 }
 
--(void) setMenuUpgradeVisible{
-    [mainMenuUpgrade setVisible:true];
+-(void) setMenuUpgradeVisible:(bool) state{
+    [mainMenuUpgrade setVisible:state];
 }
 
 - (void)loadMenuUpgrade
 {
-    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgrade.png" selectedImage:@"upgrade.png" target:self selector:@selector(upgradeTowerPower)];
+    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgradev2.png" selectedImage:@"upgradev2on.png" target:self selector:@selector(upgradeTowerPower)];
     
-    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade, nil];
     
-    [mainMenuUpgrade setPosition:ccp( 20, 0)];
+    CCMenuItemFont *manuItemUpgradeText=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"-%d Upgrade",towerPrice] target:self selector:nil];
+    
+    [manuItemUpgradeText setFontSize:10];
+    
+    [manuItemUpgradeText setColor:ccGREEN];
+ 
+    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade,manuItemUpgradeText, nil];
+    
+    [mainMenuUpgrade alignItemsVertically];
+    
+    [mainMenuUpgrade setPosition:ccp( 40, 0)];
     
     [mainMenuUpgrade setVisible:false];
     
@@ -174,7 +183,7 @@
 
 -(void) doNothingCharge: (ccTime) dt{
     
-    NSLog(@" waitting to charge %d", counter);
+   // NSLog(@" waitting to charge %d", counter);
     
     // if (counter > 1) {
     // NSLog(@"stopped 1st scheduler");

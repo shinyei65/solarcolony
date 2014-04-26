@@ -26,6 +26,7 @@
 -(void)delegateRaceAttack;
 @optional
 -(int)dummyMethodForReference:(int) value;
+-(bool) getBulletDirection;
 
 @property  CGSize mobileDisplaySize;
 @property(assign, nonatomic) CGPoint bulletLocation;

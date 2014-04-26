@@ -21,6 +21,7 @@
     double VY0; // meters per second
     float angle;
     CGPoint prev_loc;
+    bool isRightdirection;
 }
 @synthesize bulletLocation;
 @synthesize targetLocation;
@@ -63,7 +64,7 @@
     float angleRadians = atan2(targetLocation.x-initBulletLocation.x , targetLocation.x-initBulletLocation.y );
     float angleDegrees = CC_RADIANS_TO_DEGREES(angleRadians);
     angle = -1 * angleDegrees;
-    //CCLOG(@"ANGLE RADIANS %f",angleDegrees);
+    CCLOG(@"ANGLE RADIANS %f",angleDegrees);
     angle = angleDegrees;
     bulletLocation=initBulletLocation;
     //2) call folow target
@@ -176,9 +177,32 @@
     CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.31 bezier:bezier];
     
     [self runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
+    
+    [self setUpshootDirection:targetLocation];
+ 
+
    
 }
--(void) animatonAttackWizard
+
+-(void) setUpshootDirection:(CGPoint)targetLocations  {
+    CGPoint originPoint = CGPointMake(targetLocations.x - prev_loc.x, targetLocations.y - prev_loc.y); // get origin point to origin by subtracting end from start
+    float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
+    float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
+   // bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)); // correct discontinuity
+    // CCLOG(@"ANGLE RADIANS %f",bearingRadians);
+    
+    if ((bearingDegrees>=270.0&&bearingDegrees<359)||(bearingDegrees>=0.0&&bearingDegrees<20)) {
+        isRightdirection=true;
+    } else {
+        isRightdirection=false;
+    }
+    
+}
+
+-(bool) getBulletDirection{
+    return isRightdirection;
+}
+-(void) animatonAttackWizardÏ
 {
 
     [self setVisible:true];

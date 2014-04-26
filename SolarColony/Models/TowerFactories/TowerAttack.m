@@ -50,7 +50,6 @@
         [self setLocation:location];
         [self setLife:health];
         [self setPower:power];
-        towerPrice = price;
         towerReward = reward;
         //[self setSetSpeedAttack:20];
         [self setSetSpeedAttack:attspeed];
@@ -100,6 +99,7 @@
         [self setPosition:[self getLocation]];
 
     }
+    towerPrice = price;
     whichRace=raceType;
     _health=health;
     [self loadMenuUpgrade];
@@ -112,16 +112,27 @@
 }
 
 
--(void) setMenuUpgradeVisible{
-    [mainMenuUpgrade setVisible:true];
+-(void) setMenuUpgradeVisible:(bool) state{
+    [mainMenuUpgrade setVisible:state];
 }
+
+
 
 - (void)loadMenuUpgrade
 {
-    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgrade.png" selectedImage:@"upgrade.png" target:self selector:@selector(upgradeTowerPower)];
- 
-    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade, nil];
-  
+    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgradev2.png" selectedImage:@"upgradev2on.png" target:self selector:@selector(upgradeTowerPower)];
+    
+    
+    CCMenuItemFont *manuItemUpgradeText=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"-%d Upgrade",towerPrice] target:self selector:nil];
+    
+    [manuItemUpgradeText setFontSize:10];
+    
+    [manuItemUpgradeText setColor:ccGREEN];
+    
+    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade,manuItemUpgradeText, nil];
+    
+    [mainMenuUpgrade alignItemsVertically];
+    
     [mainMenuUpgrade setPosition:ccp( 40, 0)];
     
     [mainMenuUpgrade setVisible:false];
@@ -193,8 +204,16 @@
         //NSLog(@"SPEED = %g", (float)towerSpeed/60);
         CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:(float)towerSpeed/60 from:100 to:0];
         CCSprite* progressSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerTypeCharge%d.gif",towerType]];
+        if ([bullet getBulletDirection]) {
+            towerSprite.flipX=true;
+            progressSprite.flipX=true;
+        }else{
+            towerSprite.flipX=false;
+            progressSprite.flipX=false;
+        }
+        
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
-        //[timeBar setAnchorPoint:ccp(.8, 0.5)];
+
         counter=0;
         [self addChild:timeBar];
         [timeBar runAction:to1];
@@ -205,7 +224,7 @@
 
 -(void) doNothingCharge: (ccTime) dt{
 
-    NSLog(@" waitting to charge %d", counter);
+   // NSLog(@" waitting to charge %d", counter);
     
    // if (counter > 1) {
        // NSLog(@"stopped 1st scheduler");

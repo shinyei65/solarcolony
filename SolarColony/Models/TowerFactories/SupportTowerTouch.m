@@ -7,7 +7,7 @@
 //
 
 #import "SupportTowerTouch.h"
-
+#import "CCParallaxNode-Extras.h"
 
 @implementation SupportTowerTouch
 
@@ -18,6 +18,28 @@
         [self setTouchEnabled: YES];
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
         raceType=gameStatusEssentialsSingleton.raceType;
+        
+        //items for the background
+        // 1) Create the CCParallaxNode
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        _backgroundNode = [CCParallaxNode node];
+        [self addChild:_backgroundNode z:-1];
+        
+        // 2) Create the sprites we'll add to the CCParallaxNode
+        _spacedust1 = [CCSprite spriteWithFile:@"bg_front_spacedust.png"];
+        _spacedust2 = [CCSprite spriteWithFile:@"bg_front_spacedust.png"];
+       
+        
+        // 3) Determine relative movement speeds for space dust and background
+        CGPoint dustSpeed = ccp(0.1, 0.1);
+        
+        // 4) Add children to CCParallaxNode
+        [_backgroundNode addChild:_spacedust1 z:0 parallaxRatio:dustSpeed positionOffset:ccp(0,winSize.height/2)];
+        [_backgroundNode addChild:_spacedust2 z:0 parallaxRatio:dustSpeed positionOffset:ccp(_spacedust1.contentSize.width,winSize.height/2)];    
+  
+        
+        
+        [self schedule:@selector(tick:)interval:1/2];
     }
     return self;
 }
@@ -31,18 +53,21 @@
     CGPoint drop = [touch locationInView:[touch view]];
     // calculate select cell
     drop = [self convertToWorldSpaceAR:[[CCDirector sharedDirector] convertToGL:loc]];
-   
+    CGRect towerBounding;
    
     CCLOG(@"printing fine");
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
+        CGPoint dropTest = [self convertToWorldSpace:[[CCDirector sharedDirector] convertToGL:ccp([tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y)]];
+        towerBounding=CGRectMake(dropTest.x, dropTest.y, [tower getBoundingBoxTower].size.width, [tower getBoundingBoxTower].size.width);
         //CCLOG(@"--------printing LOS AT %f %f",loc.x,loc.y);
         //CCLOG(@"--------printing CONVERTED LOS AT %f %f",drop.x,drop.y);
         //CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
-         isUpgradable=FALSE;
-           if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
+        //CCLOG(@"--------printing TOWER TAT LOS AT %f %f",dropTest.x,dropTest.y);
+        // if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
+           if (CGRectContainsPoint(towerBounding, loc )) {
                //CCLOG(@"***************** CONTAINS TOWER *****************");
                //isUpgradable=true;
-               [tower setMenuUpgradeVisible];
+               [tower setMenuUpgradeVisible:true];
                centerTower=loc;
                
                if([raceType isEqualToString:@"Robot"]){
@@ -87,28 +112,30 @@
                    }*/
                }
          
+           }else{
+               [tower setMenuUpgradeVisible:false];
+               isUpgradable=FALSE;
            }
        }
     
 }
 
 
-
--(void) draw {
-    if (isUpgradable)
-    {
-        ccDrawColor4F(150, 100, 150, 255);
-        CGPoint center = centerTower;
-        CGFloat radius = 70.f;
-        CGFloat angle = 0.f;
-        NSInteger segments = 6;
-        BOOL drawLineToCenter = NO;
-        
-        ccDrawCircle(center, radius, angle, segments, drawLineToCenter);
+// Add new update method
+- (void)tick:(ccTime)dt {
+    
+    CGPoint backgroundScrollVel = ccp(-1000, 0);
+    _backgroundNode.position = ccpAdd(_backgroundNode.position, ccpMult(backgroundScrollVel, dt));
+    
+       spaceDusts = [NSArray arrayWithObjects:_spacedust1, _spacedust2, nil];
+    for (CCSprite *spaceDust in spaceDusts) {
+        if ([_backgroundNode convertToWorldSpace:spaceDust.position].x < -spaceDust.contentSize.width) {
+            [_backgroundNode incrementOffset:ccp(2*spaceDust.contentSize.width,0) forChild:spaceDust];
+        }
     }
+   // [spaceDusts remo]
+    
 }
-
-
 
 - (void) ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
