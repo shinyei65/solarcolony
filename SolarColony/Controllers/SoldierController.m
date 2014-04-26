@@ -48,7 +48,8 @@ static SoldierController *sharedSoldierController = nil;
             if(status == GOAL){
                 if([sol visible]){
                     [sol setVisible:FALSE];
-                    [[WaveController controller] gainReward:100];
+                    [[WaveController controller] gainReward:300];
+                    [[PlayerInfo Player] setResource:[[PlayerInfo Player] getResource]-300];
                     int newLife = [[PlayerInfo Player] getLife]-1;
                     if(newLife >= 0)
                         [[PlayerInfo Player] setLife:newLife];

@@ -249,6 +249,8 @@ static defense *sharedInstance = nil;
         [tower setMapLocation:[[grid getTowerMenu] getMapLocation]];
         [colissionsManager addTower:tower];
         [grid addTower:tower index:[[grid getTowerMenu] getMapLocation]  z:1];
+        if([race isEqualToString:@"Robot"])
+            tower.position = ccp(tower.position.x, tower.position.y - 15);
         
     }else if ([interface isEqualToString:@"TowerD"] && [player getResource]>=[stats[race][@"Tower1"][@"price"] integerValue]) {
         

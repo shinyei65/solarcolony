@@ -18,7 +18,7 @@
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 20;
-int ARMY_GEN_RATE = 120;
+int ARMY_GEN_RATE = 60;
 float AI_HEALTH = 5;
 NSString *AI_REQUEST = @"AI";
 
@@ -233,8 +233,6 @@ NSString *AI_REQUEST = @"AI";
             temp = [RobotSoldier soldierWithType:@"typeA"];
         else
             temp = [MageSoldier soldierWithType:@"typeA"];
-        NSLog(@"original health: %d",[temp getHEALTH]);
-        NSLog(@"new health: %d",(int)pow(1.2, tagOfArmy)*[temp getHEALTH]);
         [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
         [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
         [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
