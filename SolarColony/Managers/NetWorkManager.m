@@ -18,6 +18,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
 
 @implementation NetWorkManager{
     NSOperationQueue *queue;
+    int tagOfArmy;
 }
 
 +(id)NetWorkManager{
@@ -33,6 +34,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     self = [super init];
     if(self){
         queue = [[NSOperationQueue alloc] init];
+        tagOfArmy = 0;
     }
     return self;
 }
@@ -65,12 +67,15 @@ static NetWorkManager *sharedNetWorkManager = nil;
         
         if ([ResponseData length] >0 && error == nil)
         {
+            [[[GameStatusEssentialsSingleton sharedInstance] WaveSettings] removeAllObjects];
+            [[GameStatusEssentialsSingleton sharedInstance] setFirstVisit:true];
             [request release];
             
         }
         else if ([ResponseData length] == 0 && error == nil)
         {
-            NSLog(@"Nothing was downloaded.");
+            [[[GameStatusEssentialsSingleton sharedInstance] WaveSettings] removeAllObjects];
+            [[GameStatusEssentialsSingleton sharedInstance] setFirstVisit:true];
             [request release];
         }
         else if (error != nil){
@@ -342,12 +347,21 @@ static NetWorkManager *sharedNetWorkManager = nil;
                     while(quantity > 0){
                         Soldier *temp;
                         temp = selectedCase();
+                        if([type isEqualToString:@"A"]){
+                            [temp setHEALTH:pow(1.3, tagOfArmy)*[temp getHEALTH]];
+                            [temp setSPEED:pow(1.4, tagOfArmy)*[temp getSPEED]];
+                        }else{
+                            [temp setHEALTH:(int)pow(1.3, tagOfArmy)*[temp getHEALTH]];
+                            [temp setATTACK:(int)pow(1.4, tagOfArmy)*[temp getATTACK]];
+                            [temp setSPEED:(int)pow(1.2, tagOfArmy)*[temp getSPEED]];
+                        }
                         [wave addSoldier: temp];
                         quantity--;
                     }
                 }
                 [army addWave: wave];
             }
+            tagOfArmy++;
             [[ArmyQueue layer] addArmy:army];
             //NSLog(@"WAVECOUNT = %d", [army count]);
         }
