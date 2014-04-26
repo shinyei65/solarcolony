@@ -28,7 +28,7 @@
 @synthesize towerReward;
 @synthesize mapLocation;
 
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power{
+- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power TowerType:(int) typeT{
     
     self = [super init];
     if (!self) return(nil);
@@ -36,9 +36,10 @@
     //Game status global variables
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     
+    towerType=typeT;
     if ([raceType isEqualToString:@"Human"]) {
         attack_target = nil;
-        towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
+        towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
        // [towerSprite setAnchorPoint:ccp(.8, 0.5)];
@@ -59,7 +60,7 @@
 
     }if ([raceType isEqualToString:@"Robot"]) {
         
-        towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
+        towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
         towerTowerId=2;
@@ -156,7 +157,7 @@
         isCharging=true;
         //NSLog(@"SPEED = %g", (float)towerSpeed/60);
         CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:(float)towerSpeed/60 from:100 to:0];
-        CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerBcharge.png"];
+        CCSprite* progressSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerTypeCharge%d.gif",towerType]];
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
         //[timeBar setAnchorPoint:ccp(.8, 0.5)];
         counter=0;

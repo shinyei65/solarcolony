@@ -39,11 +39,15 @@ static GameStatsLoader *sharedInstance = nil;
         // robot init
         NSMutableDictionary *rtower1 = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0}];
         NSMutableDictionary *rtower2 = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0}];
+        NSMutableDictionary *rTowerSupport = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0}];
+        NSMutableDictionary *rtowerSpecial = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0}];
         NSMutableDictionary *rrunner = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"speed": @0, @"price": @0, @"reward": @0}];
         NSMutableDictionary *rattacker = [NSMutableDictionary dictionaryWithDictionary:@{@"health": @0, @"speed": @0, @"price": @0, @"reward": @0, @"attspeed": @0, @"power": @0}];
         NSMutableDictionary *robot = [NSMutableDictionary new];
         [robot setObject:rtower1 forKey:@"Tower1"];
         [robot setObject:rtower2 forKey:@"Tower2"];
+        [robot setObject:rtowerSpecial forKey:@"TowerSpecial"];
+        [robot setObject:rTowerSupport forKey:@"TowerSupport"];
         [robot setObject:rrunner forKey:@"Runner"];
         [robot setObject:rattacker forKey:@"Attacker1"];
         // magic init
@@ -142,6 +146,52 @@ static GameStatsLoader *sharedInstance = nil;
                                                [me.stats[@"Robot"][@"Tower2"] removeObjectForKey:@"power"];
                                                me.stats[@"Robot"][@"Tower2"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
                                            }
+                                       }
+                                   },@"robotTowerSpecial" : ^(NSString *val, GameStatsLoader * me){
+                                       NSArray *attrs = [val componentsSeparatedByString:@","];
+                                       for (NSString *attr in attrs) {
+                                           NSArray *pair = [attr componentsSeparatedByString:@"="];
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
+                                               [me.stats[@"Robot"][@"TowerSpecial"] removeObjectForKey:@"health"];
+                                               me.stats[@"Robot"][@"TowerSpecial"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
+                                               [me.stats[@"Robot"][@"TowerSpecial"] removeObjectForKey:@"price"];
+                                               me.stats[@"Robot"][@"TowerSpecial"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
+                                               [me.stats[@"Robot"][@"TowerSpecial"] removeObjectForKey:@"reward"];
+                                               me.stats[@"Robot"][@"TowerSpecial"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
+                                               [me.stats[@"Robot"][@"TowerSpecial"] removeObjectForKey:@"attspeed"];
+                                               me.stats[@"Robot"][@"TowerSpecial"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"power"]) {
+                                               [me.stats[@"Robot"][@"TowerSpecial"] removeObjectForKey:@"power"];
+                                               me.stats[@"Robot"][@"TowerSpecial"][@"power"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                       }
+                                   },@"robotTowerSupport" : ^(NSString *val, GameStatsLoader * me){
+                                       NSArray *attrs = [val componentsSeparatedByString:@","];
+                                       for (NSString *attr in attrs) {
+                                           NSArray *pair = [attr componentsSeparatedByString:@"="];
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"health"]) {
+                                               [me.stats[@"Robot"][@"TowerSupport"] removeObjectForKey:@"health"];
+                                               me.stats[@"Robot"][@"TowerSupport"][@"health"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"price"]) {
+                                               [me.stats[@"Robot"][@"TowerSupport"] removeObjectForKey:@"price"];
+                                               me.stats[@"Robot"][@"TowerSupport"][@"price"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"reward"]) {
+                                               [me.stats[@"Robot"][@"TowerSupport"] removeObjectForKey:@"reward"];
+                                               me.stats[@"Robot"][@"TowerSupport"][@"reward"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }
+                                           if ([[pair objectAtIndex:0] isEqualToString:@"attspeed"]) {
+                                               [me.stats[@"Robot"][@"TowerSupport"] removeObjectForKey:@"attspeed"];
+                                               me.stats[@"Robot"][@"TowerSupport"][@"attspeed"] = @([[pair objectAtIndex:1] integerValue]);
+                                           }                                           
                                        }
                                    },
                                    @"humanTower1" : ^(NSString *val, GameStatsLoader * me){

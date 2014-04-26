@@ -280,6 +280,9 @@
 		F594EA77190B20080046CFA8 /* p20.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA73190B20080046CFA8 /* p20.png */; };
 		F594EA78190B20080046CFA8 /* p30.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA74190B20080046CFA8 /* p30.png */; };
 		F594EA79190B20080046CFA8 /* p40.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA75190B20080046CFA8 /* p40.png */; };
+		F594EA7C190B280D0046CFA8 /* attackTowerTypeCharge1.gif in Resources */ = {isa = PBXBuildFile; fileRef = F594EA7A190B280D0046CFA8 /* attackTowerTypeCharge1.gif */; };
+		F594EA7D190B280D0046CFA8 /* attackTowerTypeCharge2.gif in Resources */ = {isa = PBXBuildFile; fileRef = F594EA7B190B280D0046CFA8 /* attackTowerTypeCharge2.gif */; };
+		F594EA81190B31E70046CFA8 /* attackTowerType2.gif in Resources */ = {isa = PBXBuildFile; fileRef = F594EA80190B31E70046CFA8 /* attackTowerType2.gif */; };
 		F59D52A718AC703000B62B5D /* TowerHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52A618AC703000B62B5D /* TowerHuman.m */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
@@ -325,9 +328,8 @@
 		F5C5CA0918F899C0002A9D40 /* robotRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0518F899C0002A9D40 /* robotRace.png */; };
 		F5C5CA0A18F899C0002A9D40 /* wizardRace.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C5CA0618F899C0002A9D40 /* wizardRace.png */; };
 		F5C72559190B12FC006E9088 /* Mage_select.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C72558190B12FC006E9088 /* Mage_select.png */; };
-		F5C7255D190B2514006E9088 /* tower_ball.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255A190B2514006E9088 /* tower_ball.gif */; };
+		F5C7255D190B2514006E9088 /* attackTowerType1.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255A190B2514006E9088 /* attackTowerType1.gif */; };
 		F5C7255E190B2514006E9088 /* Tower_corn.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255B190B2514006E9088 /* Tower_corn.gif */; };
-		F5C7255F190B2514006E9088 /* tower_head.gif in Resources */ = {isa = PBXBuildFile; fileRef = F5C7255C190B2514006E9088 /* tower_head.gif */; };
 		F5C8460318A9647A0019F6F7 /* defense.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8460218A9647A0019F6F7 /* defense.m */; };
 		F5D5F6B918B6A3AD004D0CBA /* DefenseSettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */; };
 		F5DA46B518CE2D4500291A0A /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5DA46B418CE2D4500291A0A /* NetWorkManager.m */; };
@@ -825,6 +827,9 @@
 		F594EA73190B20080046CFA8 /* p20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p20.png; sourceTree = "<group>"; };
 		F594EA74190B20080046CFA8 /* p30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p30.png; sourceTree = "<group>"; };
 		F594EA75190B20080046CFA8 /* p40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p40.png; sourceTree = "<group>"; };
+		F594EA7A190B280D0046CFA8 /* attackTowerTypeCharge1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = attackTowerTypeCharge1.gif; sourceTree = "<group>"; };
+		F594EA7B190B280D0046CFA8 /* attackTowerTypeCharge2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = attackTowerTypeCharge2.gif; sourceTree = "<group>"; };
+		F594EA80190B31E70046CFA8 /* attackTowerType2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = attackTowerType2.gif; sourceTree = "<group>"; };
 		F59D52A518AC703000B62B5D /* TowerHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerHuman.h; sourceTree = "<group>"; };
 		F59D52A618AC703000B62B5D /* TowerHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerHuman.m; sourceTree = "<group>"; };
 		F59D52AD18AC805A00B62B5D /* WorldColissionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldColissionsManager.h; sourceTree = "<group>"; };
@@ -874,9 +879,8 @@
 		F5C5CA0518F899C0002A9D40 /* robotRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = robotRace.png; sourceTree = "<group>"; };
 		F5C5CA0618F899C0002A9D40 /* wizardRace.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wizardRace.png; sourceTree = "<group>"; };
 		F5C72558190B12FC006E9088 /* Mage_select.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mage_select.png; sourceTree = "<group>"; };
-		F5C7255A190B2514006E9088 /* tower_ball.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tower_ball.gif; sourceTree = "<group>"; };
+		F5C7255A190B2514006E9088 /* attackTowerType1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = attackTowerType1.gif; sourceTree = "<group>"; };
 		F5C7255B190B2514006E9088 /* Tower_corn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tower_corn.gif; sourceTree = "<group>"; };
-		F5C7255C190B2514006E9088 /* tower_head.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = tower_head.gif; sourceTree = "<group>"; };
 		F5C8460118A9647A0019F6F7 /* defense.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defense.h; sourceTree = "<group>"; };
 		F5C8460218A9647A0019F6F7 /* defense.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defense.m; sourceTree = "<group>"; };
 		F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefenseSettingsScene.h; sourceTree = "<group>"; };
@@ -1899,10 +1903,12 @@
 		FC6DCD7218E8F65F00DC98A3 /* towers */ = {
 			isa = PBXGroup;
 			children = (
+				F594EA80190B31E70046CFA8 /* attackTowerType2.gif */,
+				F594EA7A190B280D0046CFA8 /* attackTowerTypeCharge1.gif */,
+				F594EA7B190B280D0046CFA8 /* attackTowerTypeCharge2.gif */,
 				F58529041905A8F800AF750C /* towerAcharge.png */,
-				F5C7255A190B2514006E9088 /* tower_ball.gif */,
+				F5C7255A190B2514006E9088 /* attackTowerType1.gif */,
 				F5C7255B190B2514006E9088 /* Tower_corn.gif */,
-				F5C7255C190B2514006E9088 /* tower_head.gif */,
 				F503E2BE18F637350022F629 /* target.png */,
 				FC6DCD7B18E8FA0100DC98A3 /* portal.png */,
 				FC6DCD7C18E8FA0100DC98A3 /* powerplant.png */,
@@ -1978,6 +1984,7 @@
 				5671D0991900B3CC00D72BEE /* wizard_icon.gif in Resources */,
 				F594EA6F190B1AB80046CFA8 /* m40.png in Resources */,
 				F5191C4218FF6E2C00C62839 /* kills.png in Resources */,
+				F594EA7C190B280D0046CFA8 /* attackTowerTypeCharge1.gif in Resources */,
 				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
 				09345A871908C5F8006D2062 /* sound 13.wav in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
@@ -2072,6 +2079,7 @@
 				F55948D618A56F3B008ADDED /* Icon-Small@2x.png in Resources */,
 				F5B0FBB518FC606200E5AB31 /* ton.png in Resources */,
 				0941DF1718D1276200AA3DA4 /* universe-wallpaper6.jpg in Resources */,
+				F594EA7D190B280D0046CFA8 /* attackTowerTypeCharge2.gif in Resources */,
 				0941DF1618D1276200AA3DA4 /* universe-wallpaper5.jpg in Resources */,
 				F5DA46C818CE387400291A0A /* RobotSoldier_Basic.png in Resources */,
 				5671D0A11900B3E200D72BEE /* robot_icon.gif in Resources */,
@@ -2096,6 +2104,7 @@
 				F58529051905A8F800AF750C /* towerAcharge.png in Resources */,
 				FC6DCD7918E8F68B00DC98A3 /* towerB.png in Resources */,
 				F57912D41908D7A000D85F21 /* Human_select.png in Resources */,
+				F594EA81190B31E70046CFA8 /* attackTowerType2.gif in Resources */,
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09345A651905A523006D2062 /* TileMap_2.tmx in Resources */,
 				F5B0FB9318FC515300E5AB31 /* backgroundLayers.png in Resources */,
@@ -2121,7 +2130,7 @@
 				F5B0FBB418FC606200E5AB31 /* toff.png in Resources */,
 				F54714F718EA01CC0099CD70 /* select2Active.png in Resources */,
 				5671D09C1900B3D700D72BEE /* human_icon_small.gif in Resources */,
-				F5C7255D190B2514006E9088 /* tower_ball.gif in Resources */,
+				F5C7255D190B2514006E9088 /* attackTowerType1.gif in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
 				2123A44A18ECEACB00981468 /* AddButton_select.png in Resources */,
 				F594EA77190B20080046CFA8 /* p20.png in Resources */,

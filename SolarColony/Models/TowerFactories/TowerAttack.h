@@ -20,6 +20,7 @@
     int counter;
     CCSprite* towerSprite;
     CCSprite* towerSprite_hp;
+    int towerType;
 }
 -(void) endAttack;
 @property(assign, atomic) CGPoint targetLocation;
