@@ -75,6 +75,7 @@
     
     
     CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"Mage_select.png" selectedImage:@"Mage_select.png" target:self selector:@selector(moveToScene:)];
+    menuItemMagic.scale = 0.3;
     menuItemMagic.userData=@"Magic";
     [menuItemMagic setPosition:ccp(140,250)];
     
@@ -83,7 +84,8 @@
     menuItemWizardBox.position = ccp(320,250);
     
     
-    CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot,menuItemMagic, nil];
+    CCMenu *mainMenu=[CCMenu menuWithItems:menuItemHuman,MenuItemRobot, menuItemMagic,nil];
+
     
     //[mainMenu alignItemsHorizontallyWithPadding:20];
     
@@ -91,12 +93,14 @@
     
     CCSprite *bg = [CCSprite spriteWithFile:@"backgroundLayers.png"];
     bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
+    
     [self addChild:bg];
     [self addChild:menuItemHumanBox];
     [self addChild:menuItemRobotBox];
     [self addChild:menuItemWizardBox];
     [self addChild:splash];
-    return mainMenu;
+    
+     return mainMenu;
     
 }
 
