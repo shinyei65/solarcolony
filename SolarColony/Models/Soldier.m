@@ -14,6 +14,7 @@
 
 @implementation Soldier{
     TowerGeneric *attackTarget;
+    CCSprite * reward;
     int gainReward;
     bool isAttacking;
     bool stopController;
@@ -72,6 +73,14 @@
     [self setAnchorPoint:ccp(.5,.5)];
     isAttacking=false;
     stopController=false;
+    
+    
+    reward = [CCSprite spriteWithFile:[NSString stringWithFormat:@"p%d.png",S_reward]];
+    reward.position = ccp(0, 5);
+    //[reward setVisible:false];
+    reward.opacity=0;
+    [self addChild:reward];
+    
     return self;
 }
 
@@ -114,6 +123,12 @@
     [self setAnchorPoint:ccp(.5,.5)];
     isAttacking=false;
     stopController=false;
+    
+    reward = [CCSprite spriteWithFile:[NSString stringWithFormat:@"p%d.png",S_reward]];
+    reward.position = ccp(0, 5);
+    reward.opacity=0;
+    [self addChild:reward];
+    
     return self;
 }
 
@@ -142,14 +157,26 @@
     }
     @synchronized(self){
         if (health <= 0 && [self visible]){
-            [self setVisible:FALSE];
-            //NSLog(@"REWARD!!!!:");
-            int newResource = [[PlayerInfo Player] getResource];
-            newResource +=  S_reward;
-            [[PlayerInfo Player] setResource:newResource];
+            float moveTime = (float)1/[self getSPEED];
+            CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
+            //id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:ccp([self position].x, [self position].y+5)]];
+            id move2 = [CCMoveTo actionWithDuration:moveTime position:ccp([reward position].x, [reward position].y+35)];
+            [reward runAction:[CCSequence actions:fadeIn,move2,[CCCallFunc actionWithTarget:self selector:@selector(setVisibleAndGiveRward)],nil]];
+        
         }
     }
 }
+
+
+-(void) setVisibleAndGiveRward{
+    [self setVisible:FALSE];
+    //NSLog(@"REWARD!!!!:");
+    int newResource = [[PlayerInfo Player] getResource];
+    newResource +=  S_reward;
+    [[PlayerInfo Player] setResource:newResource];
+
+}
+
 - (int)getHEALTH{
     return S_health;
 }
@@ -401,7 +428,7 @@
 
 -(void)bulletDisapp
 {
-    [attackTarget beignattacked];
+    [attackTarget beignattacked:S_attack];
     //attackTarget = nil;
     [bullet setPosition:targetPrevious];
     [bullet setVisible:false];

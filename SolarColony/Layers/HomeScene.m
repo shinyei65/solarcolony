@@ -126,7 +126,7 @@
             playername = [CCLabelTTF labelWithString:textfield.text fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
-            player.username =  textfield.text;
+            [PlayerInfo Player].username =  textfield.text;
             [[NSUserDefaults standardUserDefaults] setObject:textfield.text forKey:@"username"];
             /*
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];

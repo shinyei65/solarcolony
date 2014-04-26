@@ -28,13 +28,15 @@
 @synthesize paused;
 @synthesize mapImageName;
 @synthesize mapIndexName;
-@synthesize FirstVisit;
+@synthesize WaveFirstVisit;
+@synthesize ArmyFirstVisit;
 //add
 
 @synthesize counterA;
 @synthesize counterB;
 @synthesize counterC;
 @synthesize WaveSettings;
+@synthesize ArmySettings;
 
 static GameStatusEssentialsSingleton *sharedInstance = nil;
 
@@ -66,7 +68,8 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
         mapImageName = @"";
         mapIndexName = @"";
         paused=false;
-        FirstVisit = true;
+        WaveFirstVisit = true;
+        ArmyFirstVisit = true;
         
         //add
         
@@ -157,8 +160,11 @@ static GameStatusEssentialsSingleton *sharedInstance = nil;
 
 
 //add
-- (BOOL)getFirstVisit {
-    return FirstVisit;
+- (BOOL)getWaveFirstVisit {
+    return WaveFirstVisit;
+}
+- (BOOL)getArmyFirstVisit {
+    return ArmyFirstVisit;
 }
 - (int) GetCounterA{
     return counterA;

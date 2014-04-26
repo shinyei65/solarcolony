@@ -21,6 +21,7 @@
     int counter;
     CCSprite* towerSprite;
     CCSprite* towerSprite_hp;
+    int towerType;
     MusicManagerSingleton *musicManagerSingleton;
 }
 -(void) endAttack;
