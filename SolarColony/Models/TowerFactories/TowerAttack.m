@@ -35,7 +35,9 @@
     
     //Game status global variables
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     
+   
     if ([raceType isEqualToString:@"Human"]) {
         attack_target = nil;
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
@@ -123,6 +125,7 @@
     attack_target = target;
     [self setIsAttacking:true];    
     targetLocation=soldier;
+    [musicManagerSingleton playEffect:@"sound 9.wav"];
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     //[self schedule: @selector(animatonAttackTest:) interval:1];
