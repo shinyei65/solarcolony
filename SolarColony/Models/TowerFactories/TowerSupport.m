@@ -224,7 +224,13 @@ return nil;
 -(void) destroyedAnimation{}
 
 -(void)beingAttacked:(int)attack_power{
- 
+    
+    if ([self getLife]<=0) {
+        isDeath=true;
+    }else{
+        [self setLife:([self getLife]-attack_power)];
+        [self setHEALTH:-attack_power];
+    }
 }
 
 -(void) setActionTowerLocation:(CGPoint) Location{

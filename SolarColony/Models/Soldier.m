@@ -428,7 +428,7 @@
 
 -(void)bulletDisapp
 {
-    [attackTarget beignattacked];
+    [attackTarget beignattacked:S_attack];
     //attackTarget = nil;
     [bullet setPosition:targetPrevious];
     [bullet setVisible:false];

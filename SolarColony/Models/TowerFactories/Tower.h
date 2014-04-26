@@ -34,7 +34,7 @@
 -(void) setIsattacking:(bool) attack;
 -(CGRect) getBoundingBoxTower;
 -(void) destroyedAnimation;
--(void) beignattacked;
+-(void) beignattacked:(int) attack_power;
 -(void) reloadAnimation;
 -(void)dealloc;
 
