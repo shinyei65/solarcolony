@@ -9,6 +9,7 @@
 #import "Tower.h"
 #import "NormalBullet.h"
 #import "GameStatusEssentialsSingleton.h"
+#import "MusicManagerSingleton.h"
 
 @interface TowerAttack : CCNode<Tower>{
     int counterTest;
@@ -20,6 +21,8 @@
     int counter;
     CCSprite* towerSprite;
     CCSprite* towerSprite_hp;
+    int towerType;
+    MusicManagerSingleton *musicManagerSingleton;
 }
 -(void) endAttack;
 @property(assign, atomic) CGPoint targetLocation;

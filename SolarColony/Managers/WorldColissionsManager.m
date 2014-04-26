@@ -65,15 +65,17 @@
             }
             soldierpoint = [soldier getPOSITION];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
-            
+            int diff_x =towerpoint.x -soldierpoint.x;
+            int diff_y =towerpoint.y -soldierpoint.y;
+            float d = sqrtf(diff_x*diff_x + diff_y*diff_y);
             if (tower.towerTowerId==1) {
                 
-                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+                if ( d<80&&[tower isAttacking]==false) {
                     [tower attackTest:soldierpoint Target:soldier];
                     break;
                 }
             } else if(tower.towerTowerId==2) {
-                if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+                if ( d<80&&[tower isAttacking]==false) {
 
                     if (!tower.isCharging) {
                         [tower attackTest:soldierpoint Target:soldier];
@@ -84,7 +86,7 @@
                     
                }
             } else if (tower.towerTowerId==4)  {
-                 if ( (towerpoint.x>=soldierpoint.x-80&&towerpoint.x<=soldierpoint.x+80)&&(towerpoint.y>=soldierpoint.y-80&& towerpoint.y<=soldierpoint.y+80)&&[tower isAttacking]==false) {
+                 if ( d<80&&[tower isAttacking]==false) {
                      
                      if (!tower.isCharging) {
                          [soldier moveOriginalTest];
@@ -105,8 +107,10 @@
             
             soldierpoint = [soldier getPOSITION];
             soldierpoint=[grid convertMapIndexToGL:soldierpoint];
-            
-            if ( (towerpoint.x>=soldierpoint.x-60&&towerpoint.x<=soldierpoint.x+60)&&(towerpoint.y>=soldierpoint.y-60&& towerpoint.y<=soldierpoint.y+60)) {
+            int diff_x =towerpoint.x -soldierpoint.x;
+            int diff_y =towerpoint.y -soldierpoint.y;
+            float d = sqrtf(diff_x*diff_x + diff_y*diff_y);
+            if ( d < 60) {
                 //CCLOG(@"soldier attack!!!!!");
                 if (![soldier getIsAttacking]) {
                     [soldier attack:towerpoint Target:tower];
