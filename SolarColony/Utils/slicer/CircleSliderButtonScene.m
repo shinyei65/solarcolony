@@ -39,37 +39,33 @@
         
         selectOn00 = [CCMenuItemImage itemWithNormalImage:@"select0.png"
                                                         selectedImage:@"select0.png" target:nil selector:nil];
-        selectOff00 = [CCMenuItemImage itemWithNormalImage:@"select0Active.png"
-                                                         selectedImage:@"select0Active.png" target:nil selector:nil];
+
         selectItem00 = [CCMenuItemToggle itemWithTarget:self
-                                                               selector:@selector(selectButtonTapped:) items:selectOn00, selectOff00, nil];
-        selectItem00.tag="0";
+                                                               selector:@selector(selectButtonTapped:) items:selectOn00,  nil];
+        
         
         
         selectOn01 = [CCMenuItemImage itemWithNormalImage:@"select1.png"
                                                         selectedImage:@"select1.png" target:nil selector:nil];
-        selectOff01 = [CCMenuItemImage itemWithNormalImage:@"select1Active.png"
-                                                         selectedImage:@"select1Active.png" target:nil selector:nil];
+
         selectItem01 = [CCMenuItemToggle itemWithTarget:self
-                                                                 selector:@selector(selectButtonTapped:) items:selectOn01, selectOff01, nil];
-        selectItem01.tag="1";
+                                                                 selector:@selector(selectButtonTapped:) items:selectOn01,  nil];
+      
         
         selectOn02 = [CCMenuItemImage itemWithNormalImage:@"select2.png"
                                                         selectedImage:@"select2.png" target:nil selector:nil];
-        selectOff02 = [CCMenuItemImage itemWithNormalImage:@"select2Active.png"
-                                                         selectedImage:@"select2Active.png" target:nil selector:nil];
+
         selectItem02 = [CCMenuItemToggle itemWithTarget:self
-                                                                 selector:@selector(selectButtonTapped:) items:selectOn02, selectOff02, nil];
+                                                                 selector:@selector(selectButtonTapped:) items:selectOn02,  nil];
         
-        selectItem02.tag="2";
+       
         selectOn03 = [CCMenuItemImage itemWithNormalImage:@"select3.png"
                                             selectedImage:@"select3.png" target:nil selector:nil];
-        selectOff03 = [CCMenuItemImage itemWithNormalImage:@"select3Active.png"
-                                             selectedImage:@"select3Active.png" target:nil selector:nil];
+
         selectItem03 = [CCMenuItemToggle itemWithTarget:self
-                                               selector:@selector(selectButtonTapped:) items:selectOn03, selectOff03, nil];
+                                               selector:@selector(selectButtonTapped:) items:selectOn03,  nil];
     
-        selectItem03.tag="3";
+      
         
         circleButton = [[CircleSliderButtonLayer alloc] init];
         circleButton = [circleButton menuWithRaidus:60 andItems:selectItem00, selectItem01, selectItem02, selectItem03, nil];
@@ -91,11 +87,7 @@
         toggleMenu.anchorPoint = ccp(0, 0);
         toggleMenu.position = ccp(0,0);
         
-        
-        //[circleButton openButtonsRight];
-        //[circleButton openButtonsLeft];
-       // [circleButton openButtonsUp];
-        //[circleButton openButtonsDown];
+
 	
 	}
 	return self;
@@ -130,17 +122,17 @@
     //CCLOG(@"End location.y %f", location.y);   //I just get location.y = 0
     //CCLOG(@"End location.y %@", menuItem.selectedItem);
     
-    if ((menuItem.selectedItem == selectOn00) || (menuItem.selectedItem == selectOff00)) {
+    if ((menuItem.selectedItem == selectOn00)) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerA",@"point", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
         
-    } else if ((menuItem.selectedItem == selectOn01) || (menuItem.selectedItem == selectOff01)) {
+    } else if ((menuItem.selectedItem == selectOn01) ) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerB",@"point", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
-    }else if ((menuItem.selectedItem == selectOn02) || (menuItem.selectedItem == selectOff02)) {
+    }else if ((menuItem.selectedItem == selectOn02)) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerC",@"point", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
-    }else if ((menuItem.selectedItem == selectOn03) || (menuItem.selectedItem == selectOff03)) {
+    }else if ((menuItem.selectedItem == selectOn03) ) {
         NSDictionary *userInfo =    [NSDictionary dictionaryWithObjectsAndKeys:@"TowerD",@"point", nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"TowerOption" object:self userInfo:userInfo];
     }

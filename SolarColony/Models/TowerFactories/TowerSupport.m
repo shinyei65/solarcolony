@@ -36,7 +36,7 @@
     [towerSpriteSelected setAnchorPoint:ccp(0.5,1.6)];
     [towerSpriteSelected setVisible:false];
     if ([raceType isEqualToString:@"Human"]) {
-        towerSprite = [CCSprite spriteWithFile:@"powerplant.png"];
+        towerSprite = [CCSprite spriteWithFile:@"Tower_cornCharge.gif"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
@@ -56,7 +56,7 @@
 
     }else if([raceType isEqualToString:@"Robot"]){
         
-        towerSprite = [CCSprite spriteWithFile:@"cherno.png"];
+        towerSprite = [CCSprite spriteWithFile:@"Tower_corn.gif"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
@@ -76,7 +76,7 @@
 
     }else if([raceType isEqualToString:@"Magic"]){
         
-        towerSprite = [CCSprite spriteWithFile:@"portal.png"];
+        towerSprite = [CCSprite spriteWithFile:@"Tower_cornCharge.gif"];
         [towerSprite setAnchorPoint:ccp(0.5,0.5)];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);

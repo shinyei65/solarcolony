@@ -41,8 +41,10 @@
     NSMutableArray *delTarray = [NSMutableArray array];
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
         if ([tower isDeath]) {
-            [[WaveController controller] gainReward:tower.towerReward];
-            [grid removeTower:tower];
+            if([tower visible]){
+                [[WaveController controller] gainReward:tower.towerReward];
+                [grid removeTower:tower];
+            }
             if(![[ArmyQueue layer] getInWave]){
                 [delTarray addObject:tower];
             }

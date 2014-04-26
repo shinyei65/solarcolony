@@ -61,6 +61,7 @@
         */
         NSString *username = [standardUserDefaults objectForKey:@"username"];
         [PlayerInfo Player].username = username;
+
          
         if(username == nil){
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Player Name" message:@"" delegate:self cancelButtonTitle:@"Register" otherButtonTitles:nil, nil];
@@ -70,7 +71,7 @@
         [myTextField becomeFirstResponder];
         [myTextField setBackgroundColor:[UIColor whiteColor]];
        // myTextField.textAlignment= UIControlContentVerticalAlignmentCenter;
-        
+            [[PlayerInfo Player] setResource:700];
         // myTextField.layer.cornerRadius=5.0; Use this if you have added QuartzCore framework
         
         [myAlertView addSubview:myTextField];
@@ -86,7 +87,7 @@
             }
             CCLOG(@"\nnumber of friends: %d",[player.friends count]);
           */
-            
+            [[PlayerInfo Player] setResource:[standardUserDefaults integerForKey:@"resource"]];
             playername = [CCLabelTTF labelWithString:username fontName:@"Outlier.ttf" fontSize:15];
             playername.position = ccp(mobileDisplaySize.width/2,50);
             [self addChild:playername];
@@ -128,6 +129,7 @@
             [self addChild:playername];
             [PlayerInfo Player].username =  textfield.text;
             [[NSUserDefaults standardUserDefaults] setObject:textfield.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
             /*
             NSData *data = [NSKeyedArchiver archivedDataWithRootObject:player];
             [[NSUserDefaults standardUserDefaults] setObject:data forKey:@"playerInfo"];

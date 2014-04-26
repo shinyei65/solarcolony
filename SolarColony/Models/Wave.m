@@ -66,8 +66,9 @@
 
 - (Soldier *) popSoldier
 {
-    Soldier *sol = (Soldier *)[_list objectAtIndex: 0];
-    [_list removeObjectAtIndex: 0];
+    int r = arc4random() % [_list count];
+    Soldier *sol = (Soldier *)[_list objectAtIndex: r];
+    [_list removeObjectAtIndex: r];
     return sol;
 }
 

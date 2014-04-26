@@ -121,7 +121,7 @@ static GridMap *sharedInstance = nil;
     // setup tower menu
     _towermenu2 = [CircleSliderButtonScene menu];
     [_towermenu2 setVisible: FALSE];
-    [self addChild: _towermenu2 z:99];
+    [self addChild: _towermenu2 z:100];
     [self setTouchEnabled: YES];
     
     // set up message
@@ -187,7 +187,7 @@ static GridMap *sharedInstance = nil;
     [tower setVisible:false];
     TowerGeneric *tw = (TowerGeneric *) tower;
     [self setMap:EMPTY X: tw.mapLocation.x Y:tw.mapLocation.y];
-    [self removeChild:tower];
+    [self removeChild:tower cleanup:YES];
 }
 
 - (CGSize) getCellSize
