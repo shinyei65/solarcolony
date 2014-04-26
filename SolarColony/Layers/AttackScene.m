@@ -14,6 +14,7 @@ static const int nameYDistance = 28;
 
 @implementation AttackScene{
     NSMutableArray* friends;
+    NSMutableArray* Armys;
     int seletedFrd;
     CCMenu *mainMenu;
     CCMenu *ArmyList;
@@ -43,36 +44,62 @@ static const int nameYDistance = 28;
     if (self) {
         transitionManagerSingleton=[TransitionManagerSingleton sharedInstance];
         
-        musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
+        //Game status global variables
+        gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+        
         networkManager = [NetWorkManager NetWorkManager];
         friends = [[NSUserDefaults standardUserDefaults]  objectForKey:@"friends"];
         seletedFrd = -2;
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        
-        int *army_num = 1;
-       // [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5)];
+        //initial SoldierLayer variable
+        if(gameStatusEssentialsSingleton.getArmyFirstVisit == true)
+        {
+            Armys = gameStatusEssentialsSingleton.ArmySettings;
+             army_num = 1;
+            ArmySetting* army_setup = [[ArmySetting alloc]initArmy:army_num];
+            [Armys addObject:army_setup];
+            army_num++;
+          //  [Armys addObject:[self CreateWaveSetting]];
+            gameStatusEssentialsSingleton.ArmyFirstVisit = false;
+        }
+        else{
+            
+            Armys = gameStatusEssentialsSingleton.ArmySettings;
+            army_num = [gameStatusEssentialsSingleton.ArmySettings count];
+        }
+       
+
         CCSprite *bg = [CCSprite spriteWithFile:@"AttackPage_wallpaper.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         [self addChild:bg];
 
         [self addChild:[self loadMenu]];
+        [self addChild:[self loadArmyList]];
     }
     return self;
 }
 
+- (CCMenu*)loadArmyList{
+    NSMutableArray* Army_arr = [NSMutableArray array];
+    //Plus button
+    CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
+    [Army_arr addObject:addItemButton];
+    
+    CCMenuItemFont *menuItemArmy1=[CCMenuItemFont itemWithString:@"Army 1" target:self selector:@selector(moveToScene:)];
+    [menuItemArmy1 setFontSize:20];
+    [Army_arr addObject:menuItemArmy1];
+    
+    ArmyList = [CCMenu menuWithArray:Army_arr];
+    [ArmyList alignItemsVertically];
+    [ArmyList setPosition:ccp(mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2) ];
+    return ArmyList;
+    
+}
 
 
 
 - (CCMenu*)loadMenu
 {
-    //Plus button
-    CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
-    [addItemButton setPosition:ccp(-200,50)];
-    
-    
-    CCMenuItemFont *menuItemArmy1=[CCMenuItemFont itemWithString:@"Army 1" target:self selector:@selector(moveToScene:)];
-    menuItemArmy1.position = ccp(-200, 0);
-    [menuItemArmy1 setFontSize:20];
 
     CCMenuItem *attackBotton=[CCMenuItemImage itemWithNormalImage:@"attackBotton.png" selectedImage:@"attackBotton_select.png" target:self selector:@selector(sendAttack)];
     attackBotton.position = ccp(200, 0);
@@ -88,8 +115,6 @@ static const int nameYDistance = 28;
     CCMenuItemImage *bar6 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png" target:self selector:@selector(selectFriend:)];
     CCMenuItemImage *bar7 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png" target:self selector:@selector(selectFriend:)];
     CCMenuItemImage *bar8 = [CCMenuItemImage itemWithNormalImage:@"friend_bar.png" selectedImage:@"friend_bar.png" target:self selector:@selector(selectFriend:)];
-    //[CCMenuItemImage itemWithNormalImage:<#(NSString *)#> selectedImage:<#(NSString *)#> target:self selector:(selectFriend)]
-    
     FriendsMenu.position = ccp(20,-33);
     FriendsMenu.opacity = 200;
     bar1.scale = 1.2;
@@ -118,8 +143,7 @@ static const int nameYDistance = 28;
     bar7.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*6);
     bar8.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*7);
     
-    //mainMenu=[CCMenu menuWithItems:addItemButton,menuItemArmy1,attackBotton,menuItemBack,nil];
-    mainMenu=[CCMenu menuWithItems:menuItemArmy1,attackBotton,menuItemBack,nil];
+    mainMenu=[CCMenu menuWithItems:attackBotton,menuItemBack,nil];
     [mainMenu addChild:FriendsMenu z:2];
     [mainMenu addChild:bar1 z:1];
     [mainMenu addChild:bar2 z:1];
@@ -202,8 +226,17 @@ static const int nameYDistance = 28;
 }
                      
 
--(void)AddNewItem:(id)sender{
-    
+-(void)AddNewItem{
+    ArmySetting* army_setup = [[ArmySetting alloc]initArmy:army_num];
+    NSString *ArmyItemStr =[NSString stringWithFormat:@"Army %i",army_num];
+    CCMenuItemFont* ArmyNum = [CCMenuItemFont itemWithString: ArmyItemStr target:self selector:@selector(setSoldierinWave:)];
+    ArmyNum.tag = army_num;
+    [ArmyNum setFontSize:20];
+    [ArmyNum setZOrder:2];
+    [ArmyList addChild:ArmyNum];
+    [ArmyList alignItemsVertically];
+    [Armys addObject:army_setup];
+    army_num++;
 }
 
 
@@ -216,4 +249,26 @@ static const int nameYDistance = 28;
 
 
 
+@end
+
+@implementation ArmySetting {
+    int index;
+    NSMutableArray *_list;
+}
++ (instancetype) setting: (int) idx
+{
+    return [[self alloc] initArmy:idx];
+}
+
+- (instancetype) initArmy:(int)idx
+{
+    self = [super init];
+    if (!self) return(nil);
+    index = idx;
+    _list = [[NSMutableArray alloc] init];
+    return self;
+}
+-(NSMutableArray*) getList{
+    return _list;
+}
 @end
