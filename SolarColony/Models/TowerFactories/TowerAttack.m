@@ -38,6 +38,7 @@
     musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     
     towerType=typeT;
+   
     if ([raceType isEqualToString:@"Human"]) {
         attack_target = nil;
         towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
