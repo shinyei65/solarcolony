@@ -15,6 +15,8 @@
     TowerGeneric* towerHelper;
     bool isDroppingTower;
     NSString* raceType;
+    bool isUpgradable;
+    CGPoint centerTower;
 }
 
 @end

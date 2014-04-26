@@ -64,6 +64,7 @@ static defense *sharedInstance = nil;
     SupportTowerTouch *supportCavas= [[SupportTowerTouch alloc] init];
     // test square cell
     player = [PlayerInfo Player];
+    [player setResource:700];
     [player setLife:10];
     solController = [SoldierController Controller];
     [self addChild:solController];

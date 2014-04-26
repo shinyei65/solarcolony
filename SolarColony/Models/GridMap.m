@@ -187,7 +187,7 @@ static GridMap *sharedInstance = nil;
     [tower setVisible:false];
     TowerGeneric *tw = (TowerGeneric *) tower;
     [self setMap:EMPTY X: tw.mapLocation.x Y:tw.mapLocation.y];
-    [self removeChild:tower cleanup:YES];
+    [self removeChild:tower];
 }
 
 - (CGSize) getCellSize

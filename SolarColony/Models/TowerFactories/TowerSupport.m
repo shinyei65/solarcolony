@@ -112,6 +112,20 @@
     originTower.size.height=30;
     return originTower;
 }
+
+-(void) setMenuUpgradeVisible{
+    
+}
+
+- (void)loadMenuUpgrade
+{
+    
+    
+    
+}
+-(void) upgradeTowerPower{
+ 
+}
 - (void) surveilance{
     
 }

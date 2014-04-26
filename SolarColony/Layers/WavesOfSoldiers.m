@@ -212,7 +212,7 @@ static NSMutableArray* WavesSave;
     //waveMenus= [CCMenu menuWithItems:addItemButton,wave1, nil];
     waveMenus= [CCMenu menuWithArray:[NSArray arrayWithArray:arr]];
     [waveMenus alignItemsVertically];
-    [waveMenus setPosition:ccp( mobileDisplaySize.width/2 - 200, mobileDisplaySize.height/2)];
+    [waveMenus setPosition:ccp( mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2)];
 
     return waveMenus;
 }
@@ -279,18 +279,18 @@ static NSMutableArray* WavesSave;
     
     //hard coded ccp don't change
     
-    TableSoldierA.position = ccp(-50,70);//with 195*195
-    TableSoldierB.position = ccp(70,70);
-    TableSoldierC.position = ccp(190,70);
-    TableSoldierD.position = ccp(-50,-50);
-    TableSoldierE.position = ccp(70,-50);
-    TableSoldierF.position = ccp(190,-50);
-    soldierA_number.position = ccp(-50,10);
-    soldierB_number.position = ccp(70,10);
-    soldierC_number.position = ccp(190,10);
-    soldierD_number.position = ccp(-50,-110);
-    soldierE_number.position = ccp(70,-110);
-    soldierF_number.position = ccp(190,-110);
+    TableSoldierA.position = ccp(20,50);//with 150*150
+    TableSoldierB.position = ccp(90,50);
+    TableSoldierC.position = ccp(160,50);
+    TableSoldierD.position = ccp(20,-45);
+    TableSoldierE.position = ccp(90,-45);
+    TableSoldierF.position = ccp(160,-45);
+    soldierA_number.position = ccp(20,3);
+    soldierB_number.position = ccp(90,3);
+    soldierC_number.position = ccp(160,3);
+    soldierD_number.position = ccp(20,-92);
+    soldierE_number.position = ccp(90,-92);
+    soldierF_number.position = ccp(160,-92);
     
     if([gameStatusEssentialsSingleton raceType] == human){
         soldierA=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
@@ -307,12 +307,9 @@ static NSMutableArray* WavesSave;
         soldierB=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
         soldierC=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
     }
-    soldierA.scale = 2.5;
-    soldierB.scale = 2.5;
-    soldierC.scale = 2.5;
-    soldierA.position = ccp(-50,70);
-    soldierB.position = ccp(70,70);
-    soldierC.position = ccp(190,70);
+    soldierA.position = ccp(20, 50);
+    soldierB.position = ccp(90, 50);
+    soldierC.position = ccp(160,50);
     
     
     CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
@@ -361,18 +358,18 @@ static NSMutableArray* WavesSave;
     
     soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
     
-    soldierA_decrease.position = ccp(-80, 11);
-    soldierA_increase.position = ccp(-20, 11);
-    soldierB_decrease.position = ccp(40, 11);
-    soldierB_increase.position = ccp(100, 11);
-    soldierC_decrease.position = ccp(160, 11);
-    soldierC_increase.position = ccp(220, 11);
-    soldierD_decrease.position = ccp(-80, -108);
-    soldierD_increase.position = ccp(-20, -108);
-    soldierE_decrease.position = ccp(40, -108);
-    soldierE_increase.position = ccp(100,-108);
-    soldierF_decrease.position = ccp(160, -108);
-    soldierF_increase.position = ccp(220, -108);
+    soldierA_decrease.position = ccp(-4, 5);
+    soldierA_increase.position = ccp(44, 5);
+    soldierB_decrease.position = ccp(66, 5);
+    soldierB_increase.position = ccp(114, 5);
+    soldierC_decrease.position = ccp(136, 5);
+    soldierC_increase.position = ccp(184, 5);
+    soldierD_decrease.position = ccp(-4, -90);
+    soldierD_increase.position = ccp(44, -90);
+    soldierE_decrease.position = ccp(66, -90);
+    soldierE_increase.position = ccp(114,-90);
+    soldierF_decrease.position = ccp(136, -90);
+    soldierF_increase.position = ccp(184, -90);
     
     
     
@@ -388,12 +385,12 @@ static NSMutableArray* WavesSave;
     [item5 setFontSize:20];
     item6=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterF]];
     [item6 setFontSize:20];
-    item1.position = ccp(-50,10);
-    item2.position = ccp(70,10);
-    item3.position = ccp(190,10);
-    item4.position = ccp(-50,-110);
-    item5.position = ccp(70,-110);
-    item6.position = ccp(190,-110);
+    item1.position = ccp(20,3);
+    item2.position = ccp(90,3);
+    item3.position = ccp(160,3);
+    item4.position = ccp(20,-92);
+    item5.position = ccp(90,-92);
+    item6.position = ccp(160,-92);
     CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
     
     

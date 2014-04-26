@@ -10,6 +10,7 @@
 #import "Soldier.h"
 #import <GameKit/GameKit.h>
 #import <UIKit/UIKit.h>
+#import "PlayerInfo.h"
 
 @protocol Tower
 
@@ -47,7 +48,7 @@
 - (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power TowerType:(int) typeT;
 - (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward Life: (int) health  Price:(int) price;
 - (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward Life: (int) health  Price:(int) price Attspeed:(int) speed;
-
+-(void) setMenuUpgradeVisible;
 -(void) beignHealed;
 
 -(bool) getIsattacking;
