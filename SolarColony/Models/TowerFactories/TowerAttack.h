@@ -9,6 +9,7 @@
 #import "Tower.h"
 #import "NormalBullet.h"
 #import "GameStatusEssentialsSingleton.h"
+#import "MusicManagerSingleton.h"
 
 @interface TowerAttack : CCNode<Tower>{
     int counterTest;
