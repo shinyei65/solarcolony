@@ -42,10 +42,16 @@ static NetWorkManager *sharedNetWorkManager = nil;
 -(void)sendAttackRequest:(Army*)sendingArmy attackTarget:(NSString *)target
 {
     NSString *jtest = [[NetWorkManager NetWorkManager] generateJSONfromWaveSettings];
-    if(jtest)
+    if(jtest){
         CCLOG(jtest);
-    else{
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Your army is sent to %@ !", target] message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [myAlertView show];
+        [myAlertView release];
+    }else{
         CCLOG(@"no soldiers");
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"No soldiers in your army !" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [myAlertView show];
+        [myAlertView release];
         return;
     }
     
@@ -253,6 +259,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
                 NSLog(@"NetworkManerger: reward = %d",[result integerValue]);
                 int newResource = [[PlayerInfo Player] getResource] + reward;
                 [[PlayerInfo Player] setResource:newResource];
+                [[GridMap map] showMessage:@"Gain Reward From your Army!!"];
                 [self resetReward];
             }else
                 [[ArmyQueue layer] resetGetRewardFlag];

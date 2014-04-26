@@ -16,8 +16,7 @@
 #import "TestArmyNetwork.h"
 #import "GameStatsLoader.h"
 
-static NSMutableDictionary *SoldiersSave;
-static NSMutableArray* WavesSave;
+
 
 @implementation WavesOfSoldiers{
     SoldiersLayer *soldierlayer;
@@ -26,7 +25,6 @@ static NSMutableArray* WavesSave;
     
     int wave_num;
     NSArray *ItemArray;
-    int wave_sol[8][6];
     int cur_wave;
     PlayerInfo *player;
     NSString *race;
@@ -67,7 +65,6 @@ static NSMutableArray* WavesSave;
         //initial SoldierLayer variable
         if(gameStatusEssentialsSingleton.getWaveFirstVisit == true)
         {
-            SoldiersSave = [[NSMutableDictionary alloc]init];
             Waves = gameStatusEssentialsSingleton.WaveSettings;
             wave_num = 0;
             [Waves addObject:[self CreateWaveSetting]];
@@ -78,9 +75,7 @@ static NSMutableArray* WavesSave;
         }
         else{
             counterA = gameStatusEssentialsSingleton.GetCounterA;
-            wave_sol[cur_wave][0] = counterA;
             counterB = gameStatusEssentialsSingleton.GetCounterB;
-            wave_sol[cur_wave][1] = counterB;
             Waves = gameStatusEssentialsSingleton.WaveSettings;
             wave_num = [gameStatusEssentialsSingleton.WaveSettings count];
         }
@@ -97,11 +92,12 @@ static NSMutableArray* WavesSave;
         CCSprite *bg = [CCSprite spriteWithFile:@"Earth_Day.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
         
-        CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
+        //CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
         
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
         
-        CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
+        //CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
+        CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
         [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
@@ -145,8 +141,8 @@ static NSMutableArray* WavesSave;
 {
     WaveSetting* createwave = [[WaveSetting alloc]initWave:wave_num];
     NSMutableArray* list = [createwave getList];
-    SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner"];
-    SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1"];
+    SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner" Level:0];
+    SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1" Level:0];
     [list addObject:S1];
     [list addObject:S2];
     wave_num++;
@@ -166,10 +162,10 @@ static NSMutableArray* WavesSave;
         }
     }
 }
--(SoldierSetting*)getSoldierSetting:(NSString*)Type {
+-(SoldierSetting*)getSoldierSetting:(NSString*)Type Level:(int) level{
     NSMutableArray* list = [[Waves objectAtIndex:cur_wave] getList];
     for(SoldierSetting* setting in list){
-        if ([[setting getType] isEqualToString:Type]) {
+        if ([[setting getType] isEqualToString:Type] && [setting getLevel] == level) {
             return setting;
         }
     }
@@ -437,7 +433,7 @@ static NSMutableArray* WavesSave;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:0];
             [setting increaseCount];
             counterA = [setting getCount];
         }
@@ -448,7 +444,7 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Runner"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:0];
             [setting decreaseCount];
             counterA = [setting getCount];
         }
@@ -459,7 +455,7 @@ static NSMutableArray* WavesSave;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
             [setting increaseCount];
             counterB = [setting getCount];
         }
@@ -470,59 +466,52 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
             [setting decreaseCount];
             counterB = [setting getCount];
         }
     }
     
     if (menuItemImage == soldierC_increase) {
-        wave_sol[cur_wave][0]++;
-        counterC++;
+                counterC++;
     }
     if (menuItemImage == soldierC_decrease) {
         if(counterC >0)
         {
-            wave_sol[cur_wave][0]--;
             counterC--;
             
         }
     }
     
     if (menuItemImage == soldierD_increase) {
-        wave_sol[cur_wave][0]++;
         counterD++;
     }
     if (menuItemImage == soldierD_decrease) {
         if(counterD >0)
         {
-            wave_sol[cur_wave][0]--;
             counterD--;
             
         }
     }
     
     if (menuItemImage == soldierE_increase) {
-        wave_sol[cur_wave][0]++;
         counterE++;
     }
     if (menuItemImage == soldierE_decrease) {
         if(counterE >0)
         {
-            wave_sol[cur_wave][0]--;
+
             counterE--;
             
         }
     }
     
     if (menuItemImage == soldierF_increase) {
-        wave_sol[cur_wave][0]++;
         counterF++;
     }
     if (menuItemImage == soldierF_decrease) {
         if(counterF >0)
         {
-            wave_sol[cur_wave][0]--;
             counterF--;
             
         }
@@ -554,13 +543,6 @@ static NSMutableArray* WavesSave;
     gameStatusEssentialsSingleton.counterC = counterC;
 }
 
--(void)saveWaveSetting:(id)sender
-{
-    [SoldiersSave setValue:[NSNumber numberWithInt:counterA] forKey:@"SoldierA"];
-    [SoldiersSave setValue:[NSNumber numberWithInt:counterB] forKey:@"SoldierB"];
-    [WavesSave addObject:SoldiersSave];
-    
-}
 
 
 -(Army*)generateArmyFromNetworkResource{
@@ -621,19 +603,24 @@ static NSMutableArray* WavesSave;
 @implementation SoldierSetting {
     NSString *_type;
     int _count;
+    int _level;
 }
-+ (instancetype) setting:(NSString *) type
++ (instancetype) setting:(NSString *) type Level:(int) level
 {
-    return [[self alloc] initSoldier: type];
+    return [[self alloc] initSoldier: type Level:level];
 }
 
-- (instancetype) initSoldier:(NSString *)type
+- (instancetype) initSoldier:(NSString *)type Level:(int) level
 {
     self = [super init];
     if (!self) return(nil);
     _type = type;
     _count = 0;
+    _level = level;
     return self;
+}
+-(int) getLevel{
+    return  _level;
 }
 -(NSString*) getType{
     return  _type;
@@ -651,10 +638,10 @@ static NSMutableArray* WavesSave;
     if(_count == 0)
         return nil;
     if([_type isEqualToString:@"Runner"])
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
     else if([_type isEqualToString:@"Attacker1"])
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
     else
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
 }
 @end
