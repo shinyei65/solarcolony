@@ -57,6 +57,8 @@ static const float resource_inc_time = 5;
 -(void)setResource:(int)resource{
     @synchronized(self){
         player_resource = resource;
+        [[NSUserDefaults standardUserDefaults] setInteger:resource forKey:@"resource"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
     }
 }
 
