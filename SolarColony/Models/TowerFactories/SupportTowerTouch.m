@@ -39,7 +39,7 @@
   
         
         
-        [self schedule:@selector(tick:)interval:1/2];
+        [self schedule:@selector(tick:)interval:1/15];
     }
     return self;
 }
