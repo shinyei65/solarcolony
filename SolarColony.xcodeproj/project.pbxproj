@@ -40,6 +40,10 @@
 		09EF612D190B46E100D896DA /* descriptionBox_human.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF612A190B46E100D896DA /* descriptionBox_human.png */; };
 		09EF612E190B46E100D896DA /* descriptionBox_magic.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF612B190B46E100D896DA /* descriptionBox_magic.png */; };
 		09EF6131190B495100D896DA /* descriptionBox_robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF6130190B495100D896DA /* descriptionBox_robot.png */; };
+		09EF6140190B63D300D896DA /* Settings_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613C190B63D300D896DA /* Settings_press.png */; };
+		09EF6141190B63D300D896DA /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613D190B63D300D896DA /* Settings.png */; };
+		09EF6142190B63D300D896DA /* StartGame_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613E190B63D300D896DA /* StartGame_press.png */; };
+		09EF6143190B63D300D896DA /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613F190B63D300D896DA /* StartGame.png */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
 		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
 		210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506C18B5C0DA00F7A1DE /* sound 4.wav */; };
@@ -61,8 +65,6 @@
 		326C327619011E3E00A7E9B1 /* soldier_table_number.png in Resources */ = {isa = PBXBuildFile; fileRef = 326C327119011E3E00A7E9B1 /* soldier_table_number.png */; };
 		326C327819011E4D00A7E9B1 /* Table_Soldier.png in Resources */ = {isa = PBXBuildFile; fileRef = 326C327719011E4D00A7E9B1 /* Table_Soldier.png */; };
 		566F28D018D123C600E297D3 /* WavesOfSoldiers.m in Sources */ = {isa = PBXBuildFile; fileRef = 566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */; };
-		566FB09F18E008C900A77C4D /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 566FB09D18E008C900A77C4D /* Settings.png */; };
-		566FB0A018E008C900A77C4D /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 566FB09E18E008C900A77C4D /* StartGame.png */; };
 		5671D0981900B3CC00D72BEE /* wizard_icon_small.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5671D0961900B3CC00D72BEE /* wizard_icon_small.gif */; };
 		5671D0991900B3CC00D72BEE /* wizard_icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5671D0971900B3CC00D72BEE /* wizard_icon.gif */; };
 		5671D09C1900B3D700D72BEE /* human_icon_small.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5671D09A1900B3D700D72BEE /* human_icon_small.gif */; };
@@ -408,6 +410,10 @@
 		09EF612A190B46E100D896DA /* descriptionBox_human.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_human.png; sourceTree = "<group>"; };
 		09EF612B190B46E100D896DA /* descriptionBox_magic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_magic.png; sourceTree = "<group>"; };
 		09EF6130190B495100D896DA /* descriptionBox_robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_robot.png; sourceTree = "<group>"; };
+		09EF613C190B63D300D896DA /* Settings_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_press.png; sourceTree = "<group>"; };
+		09EF613D190B63D300D896DA /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		09EF613E190B63D300D896DA /* StartGame_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame_press.png; sourceTree = "<group>"; };
+		09EF613F190B63D300D896DA /* StartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame.png; sourceTree = "<group>"; };
 		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
 		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
 		210D506C18B5C0DA00F7A1DE /* sound 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 4.wav"; sourceTree = "<group>"; };
@@ -430,8 +436,6 @@
 		326C327719011E4D00A7E9B1 /* Table_Soldier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Table_Soldier.png; sourceTree = "<group>"; };
 		566F28CE18D123C600E297D3 /* WavesOfSoldiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesOfSoldiers.h; sourceTree = "<group>"; };
 		566F28CF18D123C600E297D3 /* WavesOfSoldiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesOfSoldiers.m; sourceTree = "<group>"; };
-		566FB09D18E008C900A77C4D /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
-		566FB09E18E008C900A77C4D /* StartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame.png; sourceTree = "<group>"; };
 		5671D0961900B3CC00D72BEE /* wizard_icon_small.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wizard_icon_small.gif; sourceTree = "<group>"; };
 		5671D0971900B3CC00D72BEE /* wizard_icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wizard_icon.gif; sourceTree = "<group>"; };
 		5671D09A1900B3D700D72BEE /* human_icon_small.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = human_icon_small.gif; sourceTree = "<group>"; };
@@ -985,6 +989,10 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				09EF613C190B63D300D896DA /* Settings_press.png */,
+				09EF613D190B63D300D896DA /* Settings.png */,
+				09EF613E190B63D300D896DA /* StartGame_press.png */,
+				09EF613F190B63D300D896DA /* StartGame.png */,
 				F594EA82190B36070046CFA8 /* coins */,
 				F5ACDF5B190B29CA00A348DE /* panic.png */,
 				F5ACDF5C190B29CA00A348DE /* panicCharging.png */,
@@ -1033,8 +1041,6 @@
 				0941DF0E18D1274800AA3DA4 /* universe-wallpaper2.jpg */,
 				0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */,
 				F5A75A6618C523F700B9F093 /* angrybomb.png */,
-				566FB09D18E008C900A77C4D /* Settings.png */,
-				566FB09E18E008C900A77C4D /* StartGame.png */,
 				F5A75A6418C5062000B9F093 /* goshty.png */,
 				21152FF218B779F000C1274C /* Off.png */,
 				21152FF318B779F000C1274C /* On.png */,
@@ -1975,11 +1981,9 @@
 				326C327519011E3E00A7E9B1 /* soldier_increase_unselect.png in Resources */,
 				326C327619011E3E00A7E9B1 /* soldier_table_number.png in Resources */,
 				F5FDE39C18FF67BE00C48D48 /* Earth_Day.jpg in Resources */,
-				566FB0A018E008C900A77C4D /* StartGame.png in Resources */,
 				5671D0991900B3CC00D72BEE /* wizard_icon.gif in Resources */,
 				F5191C4218FF6E2C00C62839 /* kills.png in Resources */,
 				09EF6131190B495100D896DA /* descriptionBox_robot.png in Resources */,
-				566FB09F18E008C900A77C4D /* Settings.png in Resources */,
 				09345A871908C5F8006D2062 /* sound 13.wav in Resources */,
 				F52FFDA118D1611A00AA6C19 /* AttackPage_wallpaper.jpg in Resources */,
 				21152FF518B779F000C1274C /* On.png in Resources */,
@@ -2011,6 +2015,7 @@
 				5671D09D1900B3D700D72BEE /* human_icon.gif in Resources */,
 				F57912D61908D7A000D85F21 /* Robot_select.png in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
+				09EF6142190B63D300D896DA /* StartGame_press.png in Resources */,
 				F5191C4518FF6E2C00C62839 /* soldiers.png in Resources */,
 				09345A7D1908BD11006D2062 /* sound 10.mp3 in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
@@ -2057,6 +2062,7 @@
 				0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */,
 				F5C7255E190B2514006E9088 /* Tower_corn.gif in Resources */,
 				F5A6ECD918C5226500308F11 /* HumanSoldier_Basic.gif in Resources */,
+				09EF6141190B63D300D896DA /* Settings.png in Resources */,
 				210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */,
 				F503E2BF18F637350022F629 /* target.png in Resources */,
 				F57912CD1908B08200D85F21 /* MageSoldier_Basic_left.png in Resources */,
@@ -2099,6 +2105,7 @@
 				F5B0FB9318FC515300E5AB31 /* backgroundLayers.png in Resources */,
 				F5ACE32A190597C1004BDC17 /* robot_resource.gif in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
+				09EF6140190B63D300D896DA /* Settings_press.png in Resources */,
 				F5B0FBB018FC606200E5AB31 /* doff.png in Resources */,
 				09D8B55E18AC891900EE54CB /* braincandy.mp3 in Resources */,
 				5671D0981900B3CC00D72BEE /* wizard_icon_small.gif in Resources */,
@@ -2116,6 +2123,7 @@
 				F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
 				5671D0A01900B3E200D72BEE /* robot_icon_small.gif in Resources */,
+				09EF6143190B63D300D896DA /* StartGame.png in Resources */,
 				F5B0FBB418FC606200E5AB31 /* toff.png in Resources */,
 				F5486CE4190B593C007525CF /* upgrade.png in Resources */,
 				5671D09C1900B3D700D72BEE /* human_icon_small.gif in Resources */,
