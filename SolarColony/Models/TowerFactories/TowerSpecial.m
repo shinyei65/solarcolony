@@ -98,6 +98,7 @@
     }
     _health=health;
     whichRace=raceType;
+    [self loadMenuUpgrade];
     [self setPosition:[self getLocation]];
     [bullet setVisible:FALSE];
     [self addChild:bullet];
@@ -108,6 +109,31 @@
     
     
     return self;
+}
+
+-(void) setMenuUpgradeVisible{
+    [mainMenuUpgrade setVisible:true];
+}
+
+- (void)loadMenuUpgrade
+{
+    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgrade.png" selectedImage:@"upgrade.png" target:self selector:@selector(upgradeTowerPower)];
+    
+    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade, nil];
+    
+    [mainMenuUpgrade setPosition:ccp( 20, 0)];
+    
+    [mainMenuUpgrade setVisible:false];
+    
+    [self addChild:mainMenuUpgrade];
+    
+    
+}
+-(void) upgradeTowerPower{
+    //reduce money
+    [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
+    [self setPower:[self getPower]+10];
+    [mainMenuUpgrade setVisible:false];
 }
 -(CGRect) getBoundingBoxTower{
     CGRect originTower;

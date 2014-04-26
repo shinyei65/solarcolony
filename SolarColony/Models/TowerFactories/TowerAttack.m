@@ -102,13 +102,45 @@
     }
     whichRace=raceType;
     _health=health;
+    [self loadMenuUpgrade];
     [self addChild:towerSprite];
     [bullet setVisible:FALSE];
     [self addChild:bullet];
     [self addChild:towerSprite_hp z:100];
+    
     return self;
 }
 
+
+-(void) setMenuUpgradeVisible{
+    [mainMenuUpgrade setVisible:true];
+}
+
+- (void)loadMenuUpgrade
+{
+    CCMenuItemImage *manuItemUpgrade=[CCMenuItemImage itemWithNormalImage:@"upgrade.png" selectedImage:@"upgrade.png" target:self selector:@selector(upgradeTowerPower)];
+ 
+    mainMenuUpgrade=[CCMenu menuWithItems:manuItemUpgrade, nil];
+  
+    [mainMenuUpgrade setPosition:ccp( 40, 0)];
+    
+    [mainMenuUpgrade setVisible:false];
+    
+    [self addChild:mainMenuUpgrade];
+    
+    
+}
+-(void) upgradeTowerPower{
+    //reduce money
+    int newscore= [[PlayerInfo Player] getResource]-200;
+    
+    if (newscore>0) {
+         [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
+         [self setPower:[self getPower]+5];
+    }
+   
+    [mainMenuUpgrade setVisible:false];
+}
 -(CGRect) getBoundingBoxTower{
     CGRect originTower;
     originTower.origin=ccp(towerLocation.x-5, towerLocation.y-5);

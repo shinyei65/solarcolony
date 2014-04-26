@@ -126,5 +126,19 @@
 - (void)setHEALTH:(int)reduceHealth{
  
 }
+
+-(void) setMenuUpgradeVisible{
+  
+}
+
+- (void)loadMenuUpgrade
+{
+  
+    
+    
+}
+-(void) upgradeTowerPower{
+ 
+}
 -(void)dealloc{}
 @end
