@@ -132,13 +132,13 @@
     [self setIsAttacking:false];
 }
 
--(void)beignattacked{
+-(void)beignattacked:(int) attack_power{
     
     if ([self getLife]<=0) {
         isDeath=true;
     }else{
-        [self setLife:([self getLife]-1)];
-        [self setHEALTH:-1];
+        [self setLife:([self getLife]-attack_power)];
+        [self setHEALTH:-attack_power];
     }
 }
 -(void)beignHealed{
