@@ -359,6 +359,7 @@
 		F5EA8D0F18CE7F11009EF24B /* JSONValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5EA8D0418CE7F11009EF24B /* JSONValueTransformer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 		F5EA8D1D18CE814B009EF24B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EA8D1C18CE814B009EF24B /* SystemConfiguration.framework */; };
 		F5EA8D1F18CE81E2009EF24B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EA8D1E18CE81E2009EF24B /* CoreData.framework */; };
+		F5F059E4190C624700F422F1 /* LaserBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F059E3190C624700F422F1 /* LaserBullet.m */; };
 		F5FDE39218FC591800C48D48 /* map_2.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE38F18FC591800C48D48 /* map_2.txt */; };
 		F5FDE39318FC591800C48D48 /* map_3.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE39018FC591800C48D48 /* map_3.txt */; };
 		F5FDE39418FC591800C48D48 /* map_4.txt in Resources */ = {isa = PBXBuildFile; fileRef = F5FDE39118FC591800C48D48 /* map_4.txt */; };
@@ -936,6 +937,8 @@
 		F5EA8D0418CE7F11009EF24B /* JSONValueTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONValueTransformer.m; sourceTree = "<group>"; };
 		F5EA8D1C18CE814B009EF24B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		F5EA8D1E18CE81E2009EF24B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F5F059E2190C624700F422F1 /* LaserBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaserBullet.h; sourceTree = "<group>"; };
+		F5F059E3190C624700F422F1 /* LaserBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaserBullet.m; sourceTree = "<group>"; };
 		F5FDE38F18FC591800C48D48 /* map_2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_2.txt; sourceTree = "<group>"; };
 		F5FDE39018FC591800C48D48 /* map_3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_3.txt; sourceTree = "<group>"; };
 		F5FDE39118FC591800C48D48 /* map_4.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map_4.txt; sourceTree = "<group>"; };
@@ -1098,6 +1101,8 @@
 				FC99236A18CA90A00015F57C /* ArmyNetwork.m */,
 				F52FFD9B18D15C8700AA6C19 /* TestArmyNetwork.h */,
 				F52FFD9C18D15C8700AA6C19 /* TestArmyNetwork.m */,
+				F5F059E2190C624700F422F1 /* LaserBullet.h */,
+				F5F059E3190C624700F422F1 /* LaserBullet.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2226,6 +2231,7 @@
 				F5594A4418A56F40008ADDED /* plane.c in Sources */,
 				F5DFA3BE18A5AD04000F0A00 /* HomeScene.m in Sources */,
 				F55949F018A56F3F008ADDED /* CCProfiling.m in Sources */,
+				F5F059E4190C624700F422F1 /* LaserBullet.m in Sources */,
 				F559498718A56F3E008ADDED /* CCShaderCache.m in Sources */,
 				F559498D18A56F3E008ADDED /* CCSprite.m in Sources */,
 				F559493418A56F3C008ADDED /* CCGrabber.m in Sources */,

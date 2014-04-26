@@ -8,7 +8,7 @@
 
 #import "Friends.h"
 #import "HomeScene.h"
-#import "TowerHuman.h"
+
 
 static const int origin_X_ForName = -15;
 static const int origin_Y_ForName = 66;
