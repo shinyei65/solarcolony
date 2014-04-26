@@ -28,17 +28,20 @@
 @synthesize towerReward;
 @synthesize mapLocation;
 
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power{
+- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Life: (int) health Price: (int) price Reward: (int) reward Attspeed: (int) attspeed Power: (int) power TowerType:(int) typeT{
     
     self = [super init];
     if (!self) return(nil);
     
     //Game status global variables
     gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     
+    towerType=typeT;
+   
     if ([raceType isEqualToString:@"Human"]) {
         attack_target = nil;
-        towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
+        towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
        // [towerSprite setAnchorPoint:ccp(.8, 0.5)];
@@ -59,7 +62,7 @@
 
     }if ([raceType isEqualToString:@"Robot"]) {
         
-        towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
+        towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
         towerTowerId=2;
@@ -123,6 +126,7 @@
     attack_target = target;
     [self setIsAttacking:true];    
     targetLocation=soldier;
+    [musicManagerSingleton playEffect:@"sound 9.wav"];
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     //[self schedule: @selector(animatonAttackTest:) interval:1];
@@ -156,7 +160,7 @@
         isCharging=true;
         //NSLog(@"SPEED = %g", (float)towerSpeed/60);
         CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:(float)towerSpeed/60 from:100 to:0];
-        CCSprite* progressSprite = [CCSprite spriteWithFile:@"towerBcharge.png"];
+        CCSprite* progressSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerTypeCharge%d.gif",towerType]];
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
         //[timeBar setAnchorPoint:ccp(.8, 0.5)];
         counter=0;
@@ -183,13 +187,13 @@
 }
 
 
--(void)beignattacked{
+-(void)beignattacked:(int) attack_power{
     
     if ([self getLife]<=0) {
         isDeath=true;
     }else{
-       [self setLife:([self getLife]-1)];
-        [self setHEALTH:-1];
+       [self setLife:([self getLife]-attack_power)];
+        [self setHEALTH:-attack_power];
     }
 }
 

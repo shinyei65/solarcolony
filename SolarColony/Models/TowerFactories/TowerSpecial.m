@@ -24,7 +24,10 @@
 @synthesize whichRace;
 @synthesize mapLocation;
 @synthesize towerReward;
-- (instancetype) initTower:(CGPoint)location Race: (NSString*) raceType Reward: (int) reward Life: (int) health{
+@synthesize towerPrice;
+
+- (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward Life: (int) health  Price:(int) price Attspeed:(int) speed
+{
     
     self = [super init];
     if (!self) return(nil);
@@ -41,10 +44,11 @@
         selfLocation=location;
         [self setLife:health];
         [self setPower:10];
-        [self setSetSpeedAttack:20];
-        [self setSetSpeedAttack:10];
+        [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerReward = reward;
+        towerPrice = price;
+        towerReward= reward;
+        
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -62,10 +66,10 @@
         selfLocation=location;
         [self setLife:health];
         [self setPower:10];
-        [self setSetSpeedAttack:20];
-        [self setSetSpeedAttack:10];
+        [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerReward = reward;
+        towerPrice = price;
+        towerReward= reward;
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -82,10 +86,10 @@
         selfLocation=location;
         [self setLife:health];
         [self setPower:10];
-        [self setSetSpeedAttack:20];
-        [self setSetSpeedAttack:10];
+        [self setSetSpeedAttack:speed];
         [self setIsAttacking:false];
-        towerReward = reward;
+        towerPrice = price;
+        towerReward= reward;
         //bullet= [CCSprite spriteWithFile:@"bulletA.png"];
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
@@ -157,13 +161,13 @@
     
 }
 
--(void)beignattacked{
+-(void)beignattacked:(int) attack_power{
     
     if ([self getLife]<=0) {
         isDeath=true;
     }else{
-        [self setLife:([self getLife]-1)];
-        [self setHEALTH:-1];
+        [self setLife:([self getLife]-attack_power)];
+        [self setHEALTH:-attack_power];
     }
 }
 
