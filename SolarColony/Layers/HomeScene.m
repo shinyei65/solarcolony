@@ -100,11 +100,11 @@
 
 - (CCMenu*)loadMenu
 {
-    CCMenuItemImage *manuItemStart=[CCMenuItemImage itemWithNormalImage:@"StartGame.png" selectedImage:@"StartGame.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *manuItemStart=[CCMenuItemImage itemWithNormalImage:@"StartGame.png" selectedImage:@"StartGame_press.png" target:self selector:@selector(moveToScene:)];
     manuItemStart.tag=1;
     
     CCMenuItemImage *manuItemSettings=[CCMenuItemImage itemWithNormalImage:@"Settings.png"
-        selectedImage:@"Settings.png" target:self selector:@selector(moveToScene:)];
+        selectedImage:@"Settings_press.png" target:self selector:@selector(moveToScene:)];
     manuItemSettings.tag=2;
     
     CCMenu *mainMenu=[CCMenu menuWithItems:manuItemStart,manuItemSettings, nil];
