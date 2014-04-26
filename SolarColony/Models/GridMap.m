@@ -121,7 +121,7 @@ static GridMap *sharedInstance = nil;
     // setup tower menu
     _towermenu2 = [CircleSliderButtonScene menu];
     [_towermenu2 setVisible: FALSE];
-    [self addChild: _towermenu2 z:99];
+    [self addChild: _towermenu2 z:100];
     [self setTouchEnabled: YES];
     
     // set up message

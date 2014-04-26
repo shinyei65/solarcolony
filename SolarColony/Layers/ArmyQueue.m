@@ -18,7 +18,7 @@
 static ArmyQueue *sharedInstance = nil;
 int WAVE_START_RATE = 4;
 int WAVE_SHOW_RATE = 20;
-int ARMY_GEN_RATE = 120;
+int ARMY_GEN_RATE = 60;
 float AI_HEALTH = 5;
 NSString *AI_REQUEST = @"AI";
 
