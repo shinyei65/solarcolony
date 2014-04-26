@@ -50,9 +50,10 @@
 @end
 
 @interface SoldierSetting : NSObject
-+ (instancetype) setting: (NSString*) type;
-- (instancetype) initSoldier: (NSString*) type;
++ (instancetype) setting: (NSString*) type Level:(int) level;
+- (instancetype) initSoldier: (NSString*) type Level:(int) level;
 -(NSString*) getType;
+-(int) getLevel;
 -(int) getCount;
 -(void) increaseCount;
 -(void) decreaseCount;

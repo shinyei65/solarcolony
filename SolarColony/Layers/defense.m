@@ -32,6 +32,8 @@ static defense *sharedInstance = nil;
     PlayerInfo* player;
     //CCLabelTTF *resource_label;
     CCLabelTTF *resource_number;
+    CCLabelTTF *resource_inc;
+    int previous_resource;
     //CCLabelTTF *life_label;
     CCLabelTTF *life_number;
     int humanPrice;
@@ -113,8 +115,13 @@ static defense *sharedInstance = nil;
     //[self addChild:resource_label];
     //resource_label.position = ccp(80,300);
     resource_number = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d", [player getResource]] fontName:@"Outlier.ttf" fontSize:15];
-    [self addChild:resource_number];
+    previous_resource = [player getResource];
     resource_number.position = ccp(100,300);
+    [self addChild:resource_number];
+    resource_inc = [CCLabelTTF labelWithString:@"" fontName:@"Outlier.ttf" fontSize:15];
+    resource_inc.position = ccp(172,300);
+    [resource_inc setOpacity:255];
+    [self addChild:resource_inc];
     //life_label = [CCLabelTTF labelWithString:@"Life: " fontName:@"Outlier.ttf" fontSize:15];
     //[self addChild:life_label];
     //life_label.position = ccp(400,300);
@@ -271,7 +278,7 @@ static defense *sharedInstance = nil;
 - (void)update:(ccTime)delta
 {
     [player increaseResource:delta];
-    [resource_number setString:[NSString stringWithFormat:@"%d", [player getResource]]];
+    [self updateResourceBar];
     [life_number setString:[NSString stringWithFormat:@"%d", [player getLife]]];
 
     //tower surveliance
@@ -289,6 +296,24 @@ static defense *sharedInstance = nil;
         [[CCDirector sharedDirector] pushScene:[PauseScene node]];
     }
     
+}
+
+- (void) updateResourceBar
+{
+    int cur_resource = [player getResource];
+    if(previous_resource != cur_resource){
+        int diff = cur_resource - previous_resource;
+        [resource_number setString:[NSString stringWithFormat:@"%d", cur_resource]];
+        if(diff > 0)
+            [resource_inc setString:[NSString stringWithFormat:@"+%d", diff]];
+        else
+            [resource_inc setString:[NSString stringWithFormat:@"%d", diff]];
+        previous_resource = cur_resource;
+        CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.5 opacity:255];
+        CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:0.5 opacity:0];
+        CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+        [resource_inc runAction:pulseSequence];
+    }
 }
 
 -(void) resume{

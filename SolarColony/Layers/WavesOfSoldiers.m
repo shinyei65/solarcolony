@@ -145,8 +145,8 @@ static NSMutableArray* WavesSave;
 {
     WaveSetting* createwave = [[WaveSetting alloc]initWave:wave_num];
     NSMutableArray* list = [createwave getList];
-    SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner"];
-    SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1"];
+    SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner" Level:0];
+    SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1" Level:0];
     [list addObject:S1];
     [list addObject:S2];
     wave_num++;
@@ -166,10 +166,10 @@ static NSMutableArray* WavesSave;
         }
     }
 }
--(SoldierSetting*)getSoldierSetting:(NSString*)Type {
+-(SoldierSetting*)getSoldierSetting:(NSString*)Type Level:(int) level{
     NSMutableArray* list = [[Waves objectAtIndex:cur_wave] getList];
     for(SoldierSetting* setting in list){
-        if ([[setting getType] isEqualToString:Type]) {
+        if ([[setting getType] isEqualToString:Type] && [setting getLevel] == level) {
             return setting;
         }
     }
@@ -437,7 +437,7 @@ static NSMutableArray* WavesSave;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:0];
             [setting increaseCount];
             counterA = [setting getCount];
         }
@@ -448,7 +448,7 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Runner"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Runner"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:0];
             [setting decreaseCount];
             counterA = [setting getCount];
         }
@@ -459,7 +459,7 @@ static NSMutableArray* WavesSave;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
             [setting increaseCount];
             counterB = [setting getCount];
         }
@@ -470,7 +470,7 @@ static NSMutableArray* WavesSave;
             price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1"];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
             [setting decreaseCount];
             counterB = [setting getCount];
         }
@@ -621,19 +621,24 @@ static NSMutableArray* WavesSave;
 @implementation SoldierSetting {
     NSString *_type;
     int _count;
+    int _level;
 }
-+ (instancetype) setting:(NSString *) type
++ (instancetype) setting:(NSString *) type Level:(int) level
 {
-    return [[self alloc] initSoldier: type];
+    return [[self alloc] initSoldier: type Level:level];
 }
 
-- (instancetype) initSoldier:(NSString *)type
+- (instancetype) initSoldier:(NSString *)type Level:(int) level
 {
     self = [super init];
     if (!self) return(nil);
     _type = type;
     _count = 0;
+    _level = level;
     return self;
+}
+-(int) getLevel{
+    return  _level;
 }
 -(NSString*) getType{
     return  _type;
@@ -651,10 +656,10 @@ static NSMutableArray* WavesSave;
     if(_count == 0)
         return nil;
     if([_type isEqualToString:@"Runner"])
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"A\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
     else if([_type isEqualToString:@"Attacker1"])
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"B\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
     else
-        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\"}", _count];
+        return [NSString stringWithFormat:@"{\"soldiertype\": \"C\",\"quantity\": \"%d\",\"level\": \"%d\"}", _count, _level];
 }
 @end

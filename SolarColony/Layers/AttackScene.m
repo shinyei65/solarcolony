@@ -155,7 +155,7 @@ static const int nameYDistance = 28;
     if (seletedFrd >= 0 && seletedFrd < [friends count]) {
         Army* test;
         [[NetWorkManager NetWorkManager] sendAttackRequest:test attackTarget:[friends objectAtIndex:seletedFrd]];
-        CCLOG(@"SEND ATTACK!!!");
+        //CCLOG(@"SEND ATTACK!!!");
     }
 }
 
