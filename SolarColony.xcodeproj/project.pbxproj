@@ -42,8 +42,8 @@
 		09EF6131190B495100D896DA /* descriptionBox_robot.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF6130190B495100D896DA /* descriptionBox_robot.png */; };
 		09EF6140190B63D300D896DA /* Settings_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613C190B63D300D896DA /* Settings_press.png */; };
 		09EF6141190B63D300D896DA /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613D190B63D300D896DA /* Settings.png */; };
-		09EF6142190B63D300D896DA /* StartGame_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613E190B63D300D896DA /* StartGame_press.png */; };
 		09EF6143190B63D300D896DA /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF613F190B63D300D896DA /* StartGame.png */; };
+		09EF6145190B674B00D896DA /* StartGame_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09EF6144190B674B00D896DA /* StartGame_press.png */; };
 		210D506E18B5C0DA00F7A1DE /* sound 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506918B5C0DA00F7A1DE /* sound 1.wav */; };
 		210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506B18B5C0DA00F7A1DE /* sound 3.wav */; };
 		210D507118B5C0DA00F7A1DE /* sound 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 210D506C18B5C0DA00F7A1DE /* sound 4.wav */; };
@@ -412,8 +412,8 @@
 		09EF6130190B495100D896DA /* descriptionBox_robot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = descriptionBox_robot.png; sourceTree = "<group>"; };
 		09EF613C190B63D300D896DA /* Settings_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings_press.png; sourceTree = "<group>"; };
 		09EF613D190B63D300D896DA /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
-		09EF613E190B63D300D896DA /* StartGame_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame_press.png; sourceTree = "<group>"; };
 		09EF613F190B63D300D896DA /* StartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame.png; sourceTree = "<group>"; };
+		09EF6144190B674B00D896DA /* StartGame_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame_press.png; sourceTree = "<group>"; };
 		210D506918B5C0DA00F7A1DE /* sound 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 1.wav"; sourceTree = "<group>"; };
 		210D506B18B5C0DA00F7A1DE /* sound 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 3.wav"; sourceTree = "<group>"; };
 		210D506C18B5C0DA00F7A1DE /* sound 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sound 4.wav"; sourceTree = "<group>"; };
@@ -991,7 +991,6 @@
 			children = (
 				09EF613C190B63D300D896DA /* Settings_press.png */,
 				09EF613D190B63D300D896DA /* Settings.png */,
-				09EF613E190B63D300D896DA /* StartGame_press.png */,
 				09EF613F190B63D300D896DA /* StartGame.png */,
 				F594EA82190B36070046CFA8 /* coins */,
 				F5ACDF5B190B29CA00A348DE /* panic.png */,
@@ -1269,6 +1268,7 @@
 		F55948C618A56F3B008ADDED /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				09EF6144190B674B00D896DA /* StartGame_press.png */,
 				F541DED318F315ED00FD6492 /* Stats */,
 				F53F539418B82D9400FCDB4E /* Fonts */,
 				F5584E4718AEDB8100C81B59 /* maps */,
@@ -2015,7 +2015,6 @@
 				5671D09D1900B3D700D72BEE /* human_icon.gif in Resources */,
 				F57912D61908D7A000D85F21 /* Robot_select.png in Resources */,
 				F5A75A6518C5062000B9F093 /* goshty.png in Resources */,
-				09EF6142190B63D300D896DA /* StartGame_press.png in Resources */,
 				F5191C4518FF6E2C00C62839 /* soldiers.png in Resources */,
 				09345A7D1908BD11006D2062 /* sound 10.mp3 in Resources */,
 				F55948CA18A56F3B008ADDED /* Default@2x.png in Resources */,
@@ -2138,6 +2137,7 @@
 				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
+				09EF6145190B674B00D896DA /* StartGame_press.png in Resources */,
 				F594EA98190B4B560046CFA8 /* Tower_cornCharge.gif in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
 				09EF612E190B46E100D896DA /* descriptionBox_magic.png in Resources */,
