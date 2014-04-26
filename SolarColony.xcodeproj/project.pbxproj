@@ -80,7 +80,6 @@
 		F5191C4518FF6E2C00C62839 /* soldiers.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4018FF6E2C00C62839 /* soldiers.png */; };
 		F5191C4618FF6E2C00C62839 /* towers.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4118FF6E2C00C62839 /* towers.png */; };
 		F5191C4918FF749B00C62839 /* select3.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4718FF749B00C62839 /* select3.png */; };
-		F5191C4A18FF749B00C62839 /* select3Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F5191C4818FF749B00C62839 /* select3Active.png */; };
 		F51C381A18BEE7AD00AFD1BA /* NormalBullet.m in Sources */ = {isa = PBXBuildFile; fileRef = F51C381918BEE7AD00AFD1BA /* NormalBullet.m */; };
 		F528C72C18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72B18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.m */; };
 		F528C72F18B5B18D003B4FB8 /* ThreadSafeMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = F528C72E18B5B18D003B4FB8 /* ThreadSafeMutableArray.m */; };
@@ -100,11 +99,8 @@
 		F54714F018EA01CC0099CD70 /* ioButtonOFF.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */; };
 		F54714F118EA01CC0099CD70 /* ioButtonON.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DB18EA01CC0099CD70 /* ioButtonON.png */; };
 		F54714F218EA01CC0099CD70 /* select0.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DC18EA01CC0099CD70 /* select0.png */; };
-		F54714F318EA01CC0099CD70 /* select0Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DD18EA01CC0099CD70 /* select0Active.png */; };
 		F54714F418EA01CC0099CD70 /* select1.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DE18EA01CC0099CD70 /* select1.png */; };
-		F54714F518EA01CC0099CD70 /* select1Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714DF18EA01CC0099CD70 /* select1Active.png */; };
 		F54714F618EA01CC0099CD70 /* select2.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E018EA01CC0099CD70 /* select2.png */; };
-		F54714F718EA01CC0099CD70 /* select2Active.png in Resources */ = {isa = PBXBuildFile; fileRef = F54714E118EA01CC0099CD70 /* select2Active.png */; };
 		F54714FD18EA01CC0099CD70 /* CircleSliderButtonLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */; };
 		F54714FE18EA01CC0099CD70 /* CircleSliderButtonScene.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714EB18EA01CC0099CD70 /* CircleSliderButtonScene.m */; };
 		F54714FF18EA01CC0099CD70 /* DoubleAngleCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = F54714ED18EA01CC0099CD70 /* DoubleAngleCircle.m */; };
@@ -280,6 +276,7 @@
 		F594EA94190B36070046CFA8 /* p20.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA8A190B36070046CFA8 /* p20.png */; };
 		F594EA95190B36070046CFA8 /* p30.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA8B190B36070046CFA8 /* p30.png */; };
 		F594EA96190B36070046CFA8 /* p40.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA8C190B36070046CFA8 /* p40.png */; };
+		F594EA98190B4B560046CFA8 /* Tower_cornCharge.gif in Resources */ = {isa = PBXBuildFile; fileRef = F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */; };
 		F59D52A718AC703000B62B5D /* TowerHuman.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52A618AC703000B62B5D /* TowerHuman.m */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
@@ -459,7 +456,6 @@
 		F5191C4018FF6E2C00C62839 /* soldiers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = soldiers.png; sourceTree = "<group>"; };
 		F5191C4118FF6E2C00C62839 /* towers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = towers.png; sourceTree = "<group>"; };
 		F5191C4718FF749B00C62839 /* select3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select3.png; sourceTree = "<group>"; };
-		F5191C4818FF749B00C62839 /* select3Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select3Active.png; sourceTree = "<group>"; };
 		F51C381818BEE7AC00AFD1BA /* NormalBullet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalBullet.h; sourceTree = "<group>"; };
 		F51C381918BEE7AD00AFD1BA /* NormalBullet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalBullet.m; sourceTree = "<group>"; };
 		F528C72A18B5A8F4003B4FB8 /* GameStatusEssentialsSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameStatusEssentialsSingleton.h; sourceTree = "<group>"; };
@@ -487,11 +483,8 @@
 		F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ioButtonOFF.png; sourceTree = "<group>"; };
 		F54714DB18EA01CC0099CD70 /* ioButtonON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ioButtonON.png; sourceTree = "<group>"; };
 		F54714DC18EA01CC0099CD70 /* select0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select0.png; sourceTree = "<group>"; };
-		F54714DD18EA01CC0099CD70 /* select0Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select0Active.png; sourceTree = "<group>"; };
 		F54714DE18EA01CC0099CD70 /* select1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select1.png; sourceTree = "<group>"; };
-		F54714DF18EA01CC0099CD70 /* select1Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select1Active.png; sourceTree = "<group>"; };
 		F54714E018EA01CC0099CD70 /* select2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select2.png; sourceTree = "<group>"; };
-		F54714E118EA01CC0099CD70 /* select2Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = select2Active.png; sourceTree = "<group>"; };
 		F54714E818EA01CC0099CD70 /* CircleSliderButtonLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSliderButtonLayer.h; sourceTree = "<group>"; };
 		F54714E918EA01CC0099CD70 /* CircleSliderButtonLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSliderButtonLayer.m; sourceTree = "<group>"; };
 		F54714EA18EA01CC0099CD70 /* CircleSliderButtonScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSliderButtonScene.h; sourceTree = "<group>"; };
@@ -827,6 +820,7 @@
 		F594EA8A190B36070046CFA8 /* p20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p20.png; sourceTree = "<group>"; };
 		F594EA8B190B36070046CFA8 /* p30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p30.png; sourceTree = "<group>"; };
 		F594EA8C190B36070046CFA8 /* p40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p40.png; sourceTree = "<group>"; };
+		F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tower_cornCharge.gif; sourceTree = "<group>"; };
 		F59D52A518AC703000B62B5D /* TowerHuman.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TowerHuman.h; sourceTree = "<group>"; };
 		F59D52A618AC703000B62B5D /* TowerHuman.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TowerHuman.m; sourceTree = "<group>"; };
 		F59D52AD18AC805A00B62B5D /* WorldColissionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldColissionsManager.h; sourceTree = "<group>"; };
@@ -1161,15 +1155,11 @@
 			isa = PBXGroup;
 			children = (
 				F5191C4718FF749B00C62839 /* select3.png */,
-				F5191C4818FF749B00C62839 /* select3Active.png */,
 				F54714DA18EA01CC0099CD70 /* ioButtonOFF.png */,
 				F54714DB18EA01CC0099CD70 /* ioButtonON.png */,
 				F54714DC18EA01CC0099CD70 /* select0.png */,
-				F54714DD18EA01CC0099CD70 /* select0Active.png */,
 				F54714DE18EA01CC0099CD70 /* select1.png */,
-				F54714DF18EA01CC0099CD70 /* select1Active.png */,
 				F54714E018EA01CC0099CD70 /* select2.png */,
-				F54714E118EA01CC0099CD70 /* select2Active.png */,
 			);
 			path = png;
 			sourceTree = "<group>";
@@ -1905,6 +1895,7 @@
 		FC6DCD7218E8F65F00DC98A3 /* towers */ = {
 			isa = PBXGroup;
 			children = (
+				F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */,
 				F594EA80190B31E70046CFA8 /* attackTowerType2.gif */,
 				F594EA7A190B280D0046CFA8 /* attackTowerTypeCharge1.gif */,
 				F594EA7B190B280D0046CFA8 /* attackTowerTypeCharge2.gif */,
@@ -1995,7 +1986,6 @@
 				F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
-				F54714F518EA01CC0099CD70 /* select1Active.png in Resources */,
 				F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
@@ -2035,7 +2025,6 @@
 				09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */,
 				FC6DCD7818E8F68B00DC98A3 /* towerA.png in Resources */,
 				F5DA46C618CE387400291A0A /* MageSoldier_Basic.png in Resources */,
-				F54714F318EA01CC0099CD70 /* select0Active.png in Resources */,
 				21152FED18B7643100C1274C /* Marines.mp3 in Resources */,
 				F5C5CA0818F899C0002A9D40 /* humanRace.png in Resources */,
 				F5191C4318FF6E2C00C62839 /* rankin.png in Resources */,
@@ -2126,12 +2115,10 @@
 				F594EA91190B36070046CFA8 /* m60.png in Resources */,
 				09345A811908BD11006D2062 /* sound 7.wav in Resources */,
 				F5DA46C918CE387400291A0A /* RobotSoldier_Special.png in Resources */,
-				F5191C4A18FF749B00C62839 /* select3Active.png in Resources */,
 				F5C329DF18E9E76300822EB0 /* sample1.jpg in Resources */,
 				21DD4D0518AF5C1C009E55DC /* background.mp3 in Resources */,
 				5671D0A01900B3E200D72BEE /* robot_icon_small.gif in Resources */,
 				F5B0FBB418FC606200E5AB31 /* toff.png in Resources */,
-				F54714F718EA01CC0099CD70 /* select2Active.png in Resources */,
 				5671D09C1900B3D700D72BEE /* human_icon_small.gif in Resources */,
 				F5C7255D190B2514006E9088 /* attackTowerType1.gif in Resources */,
 				21DD4D0618AF5C1C009E55DC /* dark.mp3 in Resources */,
@@ -2144,6 +2131,7 @@
 				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
+				F594EA98190B4B560046CFA8 /* Tower_cornCharge.gif in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
 				09B30E1618F6557800A616FB /* sample_1.png in Resources */,
 				F5B0FBAE18FC606200E5AB31 /* aoff.png in Resources */,
