@@ -31,18 +31,21 @@
     CGPoint drop = [touch locationInView:[touch view]];
     // calculate select cell
     drop = [self convertToWorldSpaceAR:[[CCDirector sharedDirector] convertToGL:loc]];
-   
+    CGRect towerBounding;
    
     CCLOG(@"printing fine");
     for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
-        //CCLOG(@"--------printing LOS AT %f %f",loc.x,loc.y);
+        CGPoint dropTest = [self convertToWorldSpace:[[CCDirector sharedDirector] convertToGL:ccp([tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y)]];
+        towerBounding=CGRectMake(dropTest.x, dropTest.y, [tower getBoundingBoxTower].size.width, [tower getBoundingBoxTower].size.width);
+        CCLOG(@"--------printing LOS AT %f %f",loc.x,loc.y);
         //CCLOG(@"--------printing CONVERTED LOS AT %f %f",drop.x,drop.y);
         //CCLOG(@"--------printing TOWER TAT LOS AT %f %f",[tower getBoundingBoxTower].origin.x,[tower getBoundingBoxTower].origin.y);
-         isUpgradable=FALSE;
-           if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
+        CCLOG(@"--------printing TOWER TAT LOS AT %f %f",dropTest.x,dropTest.y);
+        // if (CGRectContainsPoint([tower getBoundingBoxTower], loc )) {
+           if (CGRectContainsPoint(towerBounding, loc )) {
                //CCLOG(@"***************** CONTAINS TOWER *****************");
                //isUpgradable=true;
-               [tower setMenuUpgradeVisible];
+               [tower setMenuUpgradeVisible:true];
                centerTower=loc;
                
                if([raceType isEqualToString:@"Robot"]){
@@ -87,6 +90,9 @@
                    }*/
                }
          
+           }else{
+               [tower setMenuUpgradeVisible:false];
+               isUpgradable=FALSE;
            }
        }
     

@@ -127,7 +127,7 @@
  
 }
 
--(void) setMenuUpgradeVisible{
+-(void) setMenuUpgradeVisible:(bool) state{
   
 }
 
