@@ -118,8 +118,8 @@ static const int nameYDistance = 28;
     bar7.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*6);
     bar8.position = ccp(origin_X_ForName,origin_Y_ForName-nameYDistance*7);
     
-    mainMenu=[CCMenu menuWithItems:addItemButton,menuItemArmy1,attackBotton,menuItemBack,nil];
-    
+    //mainMenu=[CCMenu menuWithItems:addItemButton,menuItemArmy1,attackBotton,menuItemBack,nil];
+    mainMenu=[CCMenu menuWithItems:menuItemArmy1,attackBotton,menuItemBack,nil];
     [mainMenu addChild:FriendsMenu z:2];
     [mainMenu addChild:bar1 z:1];
     [mainMenu addChild:bar2 z:1];
