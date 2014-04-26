@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168671.653211"
+            timestampString = "419553111.588142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
+            timestampString = "419553111.588142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
@@ -378,11 +378,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
+            timestampString = "419553111.588142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
@@ -394,11 +394,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
+            timestampString = "419553111.588142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "-getAttackRequest"
             landmarkType = "5">
          </BreakpointContent>
@@ -795,7 +795,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "238"
             endingLineNumber = "238"
-            landmarkName = "-replaceOriginAction"
+            landmarkName = "-setActionTowerLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -953,7 +953,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "254"
             endingLineNumber = "254"
-            landmarkName = "-selectAction"
+            landmarkName = "-empowerOriginAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1001,7 +1001,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "255"
             endingLineNumber = "255"
-            landmarkName = "-selectAction"
+            landmarkName = "-empowerOriginAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1122,27 +1122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "420168425.274257"
+            timestampString = "420169030.693762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
-            landmarkName = "-genertateAIarmy"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "420168425.274257"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "253"
+            endingLineNumber = "253"
             landmarkName = "-genertateTestarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1154,11 +1138,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/ArmyQueue.m"
-            timestampString = "420168425.274257"
+            timestampString = "420169030.693762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "257"
             endingLineNumber = "257"
+            landmarkName = "-genertateTestarmy"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SolarColony/Layers/ArmyQueue.m"
+            timestampString = "420169030.693762"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "-genertateTestarmy"
             landmarkType = "5">
          </BreakpointContent>
@@ -1967,8 +1967,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "199"
             endingLineNumber = "199"
-            landmarkName = "-beignHealed"
-            landmarkType = "5">
+            landmarkName = "@implementation TowerAttack"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2159,8 +2159,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "225"
             endingLineNumber = "225"
-            landmarkName = "-setLife:"
-            landmarkType = "5">
+            landmarkName = "@implementation TowerAttack"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2175,7 +2175,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
             endingLineNumber = "224"
-            landmarkName = "-setLife:"
+            landmarkName = "-getPower"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -2478,70 +2478,6 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420168739.4651"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420168743.185086"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420168744.625223"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
-            landmarkName = "-init"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168873.406451"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

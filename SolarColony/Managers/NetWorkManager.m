@@ -68,14 +68,14 @@ static NetWorkManager *sharedNetWorkManager = nil;
         if ([ResponseData length] >0 && error == nil)
         {
             [[[GameStatusEssentialsSingleton sharedInstance] WaveSettings] removeAllObjects];
-            [[GameStatusEssentialsSingleton sharedInstance] setFirstVisit:true];
+            [[GameStatusEssentialsSingleton sharedInstance] setWaveFirstVisit:true];
             [request release];
             
         }
         else if ([ResponseData length] == 0 && error == nil)
         {
             [[[GameStatusEssentialsSingleton sharedInstance] WaveSettings] removeAllObjects];
-            [[GameStatusEssentialsSingleton sharedInstance] setFirstVisit:true];
+            [[GameStatusEssentialsSingleton sharedInstance] setWaveFirstVisit:true];
             [request release];
         }
         else if (error != nil){
