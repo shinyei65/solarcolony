@@ -73,7 +73,10 @@
         [self setSetSpeedAttack:attspeed];
         [self setIsAttacking:false];
         isDeath=false;
-        bullet = [[ NormalBullet alloc] initTower:location];
+        if (towerType == 2)
+            bullet = [[LaserBullet alloc] initTower:location];
+        else
+            bullet = [[ NormalBullet alloc] initTower:location];
         isCharging=false;
      
         [self setPosition:[self getLocation]];
@@ -173,6 +176,7 @@
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     //[self schedule: @selector(animatonAttackTest:) interval:1];
+    
     [self animatonAttackTest:.01];
  
 }

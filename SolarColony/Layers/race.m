@@ -54,7 +54,7 @@
     
     
     
-    CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"Human_select.png" selectedImage:@"Human_select.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *menuItemHuman=[CCMenuItemImage itemWithNormalImage:@"Human_select.png" selectedImage:@"Human_select_press.png" target:self selector:@selector(moveToScene:)];
     menuItemHuman.userData=@"Human";
     menuItemHuman.scale = 0.3;
     [menuItemHuman setPosition:ccp(0,100)];
@@ -64,7 +64,7 @@
     
     
     
-    CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"Robot_select.png" selectedImage:@"Robot_select.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *MenuItemRobot=[CCMenuItemImage itemWithNormalImage:@"Robot_select.png" selectedImage:@"Robot_select_press.png" target:self selector:@selector(moveToScene:)];
     MenuItemRobot.scale = 0.2;
     MenuItemRobot.userData=@"Robot";
     [MenuItemRobot setPosition:ccp(260,100)];
@@ -74,7 +74,7 @@
     menuItemRobotBox.position = ccp(470,140);
     
     
-    CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"Mage_select.png" selectedImage:@"Mage_select.png" target:self selector:@selector(moveToScene:)];
+    CCMenuItemImage *menuItemMagic=[CCMenuItemImage itemWithNormalImage:@"Mage_select.png" selectedImage:@"Mage_select_press.png" target:self selector:@selector(moveToScene:)];
     menuItemMagic.scale = 0.3;
     menuItemMagic.userData=@"Magic";
     [menuItemMagic setPosition:ccp(180,240)];

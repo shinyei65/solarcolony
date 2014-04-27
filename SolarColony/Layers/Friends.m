@@ -9,6 +9,7 @@
 #import "Friends.h"
 #import "HomeScene.h"
 
+
 static const int origin_X_ForName = -15;
 static const int origin_Y_ForName = 66;
 static const int nameYDistance = 28;
