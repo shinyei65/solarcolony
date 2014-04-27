@@ -35,10 +35,13 @@
         musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
         standardUserDefaults = [NSUserDefaults standardUserDefaults];
         //initial label
-        CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
-        [splash setColor:ccc3(240,60,20)];
+     //   CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Solar Colony" fontName:@"Marker Felt" fontSize:64];
+     //   [splash setColor:ccc3(240,60,20)];
+        
+        CCSprite *GameTitle = [CCSprite spriteWithFile:@"solar colony title.png"];
+        
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5+10)];
+        [GameTitle setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5+10)];
         
         //initial background
         CCSprite *bg = [CCSprite spriteWithFile:@"universe-wallpaper4.jpg"];
@@ -49,7 +52,7 @@
         
         [self addChild:bg];
         
-        [self addChild:splash];
+        [self addChild:GameTitle];
         [self addChild:[self loadMenu]];
         
         /*
@@ -110,7 +113,7 @@
     
     [mainMenu alignItemsHorizontallyWithPadding:20];
     
-    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 50)];
+    [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 60)];
     
     return mainMenu;
     
