@@ -84,7 +84,6 @@
         
         //UI part
         CCLabelTTF *splash = [CCLabelTTF labelWithString:@"Assign Waves" fontName:@"Marker Felt" fontSize:32];
-        
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
         
         [splash setPosition:ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.95)];
@@ -95,12 +94,14 @@
         //CCMenuItemFont *menuSave=[CCMenuItemFont itemWithString:@"save" target:self selector:@selector(saveWaveSetting:)];
         
         CCMenuItemFont *manuItemBack=[CCMenuItemFont itemWithString:@"back" target:self selector:@selector(moveToScene:)];
+        [manuItemBack setFontName:@"Outlier.ttf"];
+        [manuItemBack setFontSize:15];
         
         //CCMenu *mainMenu=[CCMenu menuWithItems:menuSave,manuItemBack, nil];
         CCMenu *mainMenu=[CCMenu menuWithItems:manuItemBack, nil];
         [mainMenu alignItemsHorizontallyWithPadding:20];
         
-        [mainMenu setPosition:ccp( mobileDisplaySize.width/2, mobileDisplaySize.height/2 - 140)];
+        [mainMenu setPosition:ccp( mobileDisplaySize.width/2 -230, mobileDisplaySize.height/2 - 140)];
         
         [self addChild:bg z:0];
         
@@ -256,9 +257,21 @@
     NSString *robot = @"Robot";
     NSString *human = @"Human";
     NSString *magic = @"Magic";
-    CCMenuItemImage *soldierA;
-    CCMenuItemImage *soldierB;
-    CCMenuItemImage *soldierC;
+    CCMenuItemImage *soldierA1;
+    CCMenuItemImage *soldierA2;
+    CCMenuItemImage *soldierA3;
+    CCMenuItemImage *soldierB1;
+    CCMenuItemImage *soldierB2;
+    CCMenuItemImage *soldierB3;
+    CCMenuItemImage *soldierLv1=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
+    CCMenuItemImage *soldierLv2=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
+    CCMenuItemImage *soldierLv3=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
+    CCMenuItemFont *Lv1Str = [CCMenuItemFont itemWithString:@"Level 1"];
+    [Lv1Str setFontSize:15];
+    CCMenuItemFont *Lv2Str = [CCMenuItemFont itemWithString:@"Level 2"];
+    [Lv2Str setFontSize:15];
+    CCMenuItemFont *Lv3Str = [CCMenuItemFont itemWithString:@"Level 3"];
+    [Lv3Str setFontSize:15];
     CCMenuItemImage *TableSoldierA = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
     CCMenuItemImage *TableSoldierB = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
     CCMenuItemImage *TableSoldierC = [CCMenuItemImage itemWithNormalImage:@"Table_Soldier.png" selectedImage:@"Table_Soldier.png"];
@@ -274,41 +287,71 @@
     CCMenuItemImage *soldierF_number=[CCMenuItemImage itemWithNormalImage:@"soldier_table_number.png" selectedImage:@"soldier_table_number.png"];
     
     //hard coded ccp don't change
-    
-    TableSoldierA.position = ccp(20,50);//with 150*150
-    TableSoldierB.position = ccp(90,50);
-    TableSoldierC.position = ccp(160,50);
-    TableSoldierD.position = ccp(20,-45);
-    TableSoldierE.position = ccp(90,-45);
-    TableSoldierF.position = ccp(160,-45);
-    soldierA_number.position = ccp(20,3);
-    soldierB_number.position = ccp(90,3);
-    soldierC_number.position = ccp(160,3);
-    soldierD_number.position = ccp(20,-92);
-    soldierE_number.position = ccp(90,-92);
-    soldierF_number.position = ccp(160,-92);
+    soldierLv1.position = ccp(-10, 105);
+    soldierLv2.position = ccp(80, 105);
+    soldierLv3.position = ccp(170, 105);
+    Lv1Str.position = ccp(-10, 105);
+    Lv2Str.position = ccp(80, 105);
+    Lv3Str.position = ccp(170, 105);
+    TableSoldierA.position = ccp(-10,50);//with 195*195
+    TableSoldierB.position = ccp(80,50);
+    TableSoldierC.position = ccp(170,50);
+    TableSoldierD.position = ccp(-10,-63);
+    TableSoldierE.position = ccp(80,-63);
+    TableSoldierF.position = ccp(170,-63);
+    soldierA_number.position = ccp(-10,-5);
+    soldierB_number.position = ccp(80,-5);
+    soldierC_number.position = ccp(170,-5);
+    soldierD_number.position = ccp(-10,-118);
+    soldierE_number.position = ccp(80,-118);
+    soldierF_number.position = ccp(170,-118);
     
     if([gameStatusEssentialsSingleton raceType] == human){
-        soldierA=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
-        soldierB=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
-        soldierC=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_Basic.gif"];
+        soldierA1=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
+        soldierA2=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_Basic.gif"];
+        soldierA3=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_Basic.gif"];
+        soldierB1=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
+        soldierB2=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
+        soldierB3=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Special.gif" selectedImage:@"HumanSoldier_Special.gif"];
     }
     if([gameStatusEssentialsSingleton raceType] == robot){
-        soldierA=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
-        soldierB=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Special.png" selectedImage:@"RobotSoldier_Special.png"];
-        soldierC=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+        soldierA1=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+        soldierA2=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+        soldierA3=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Basic.png" selectedImage:@"RobotSoldier_Basic.png"];
+        soldierB1=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Special.png" selectedImage:@"RobotSoldier_Special.png"];
+        soldierB2=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Special.png" selectedImage:@"RobotSoldier_Special.png"];
+        soldierB3=[CCMenuItemImage itemWithNormalImage:@"RobotSoldier_Special.png" selectedImage:@"RobotSoldier_Special.png"];
+        
+        
     }
     if([gameStatusEssentialsSingleton raceType] == magic){
-        soldierA=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
-        soldierB=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
-        soldierC=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+        soldierA1=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+        soldierA2=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+        soldierA3=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Basic.png" selectedImage:@"MageSoldier_Basic.png"];
+        soldierB1=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
+        soldierB2=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
+        soldierB3=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
     }
-    soldierA.position = ccp(20, 50);
-    soldierB.position = ccp(90, 50);
-    soldierC.position = ccp(160,50);
-    
+    soldierA1.position = ccp(-10, 50);
+    soldierA2.position = ccp(80, 50);
+    soldierA3.position = ccp(170,50);
+    soldierB1.position = ccp(-10, -63);
+    soldierB2.position = ccp(80, -63);
+    soldierB3.position = ccp(170,-63);
+    soldierA1.scale = 2.5;
+    soldierA2.scale = 2.5;
+    soldierA3.scale = 2.5;
+    soldierB1.scale = 2.5;
+    soldierB2.scale = 2.5;
+    soldierB3.scale = 2.5;
     
     CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
+    [SoldierMenu addChild:soldierLv1 z:0];
+    [SoldierMenu addChild:soldierLv2 z:0];
+    [SoldierMenu addChild:soldierLv3 z:0];
+    [SoldierMenu addChild:Lv1Str z:1];
+    [SoldierMenu addChild:Lv2Str z:1];
+    [SoldierMenu addChild:Lv3Str z:1];
     [SoldierMenu addChild:TableSoldierA z:0];
     [SoldierMenu addChild:TableSoldierB z:0];
     [SoldierMenu addChild:TableSoldierC z:0];
@@ -321,10 +364,12 @@
     [SoldierMenu addChild:soldierD_number z:0];
     [SoldierMenu addChild:soldierE_number z:0];
     [SoldierMenu addChild:soldierF_number z:0];
-    [SoldierMenu addChild:soldierA z:1];
-    [SoldierMenu addChild:soldierB z:1];
-    //[SoldierMenu addChild:soldierC z:1];
-    
+    [SoldierMenu addChild:soldierA1 z:1];
+    [SoldierMenu addChild:soldierA2 z:1];
+    [SoldierMenu addChild:soldierA3 z:1];
+    [SoldierMenu addChild:soldierB1 z:1];
+    [SoldierMenu addChild:soldierB2 z:1];
+    [SoldierMenu addChild:soldierB3 z:1];
     [SoldierMenu setPosition:ccp(mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     return SoldierMenu;
 }
@@ -354,18 +399,18 @@
     
     soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
     
-    soldierA_decrease.position = ccp(-4, 5);
-    soldierA_increase.position = ccp(44, 5);
-    soldierB_decrease.position = ccp(66, 5);
-    soldierB_increase.position = ccp(114, 5);
-    soldierC_decrease.position = ccp(136, 5);
-    soldierC_increase.position = ccp(184, 5);
-    soldierD_decrease.position = ccp(-4, -90);
-    soldierD_increase.position = ccp(44, -90);
-    soldierE_decrease.position = ccp(66, -90);
-    soldierE_increase.position = ccp(114,-90);
-    soldierF_decrease.position = ccp(136, -90);
-    soldierF_increase.position = ccp(184, -90);
+    soldierA_decrease.position = ccp(-38, -4);
+    soldierA_increase.position = ccp(19,-4);
+    soldierB_decrease.position = ccp(51, -4);
+    soldierB_increase.position = ccp(110, -4);
+    soldierC_decrease.position = ccp(142, -4);
+    soldierC_increase.position = ccp(199, -4);
+    soldierD_decrease.position = ccp(-38, -117);
+    soldierD_increase.position = ccp(19, -117);
+    soldierE_decrease.position = ccp(51, -117);
+    soldierE_increase.position = ccp(110,-117);
+    soldierF_decrease.position = ccp(142, -117);
+    soldierF_increase.position = ccp(199, -117);
     
     
     
@@ -381,12 +426,12 @@
     [item5 setFontSize:20];
     item6=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"%i", counterF]];
     [item6 setFontSize:20];
-    item1.position = ccp(20,3);
-    item2.position = ccp(90,3);
-    item3.position = ccp(160,3);
-    item4.position = ccp(20,-92);
-    item5.position = ccp(90,-92);
-    item6.position = ccp(160,-92);
+    item1.position = ccp(-10,-6);
+    item2.position = ccp(80,-6);
+    item3.position = ccp(170,-6);
+    item4.position = ccp(-10,-118);
+    item5.position = ccp(80,-118);
+    item6.position = ccp(170,-118);
     CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
     
     
