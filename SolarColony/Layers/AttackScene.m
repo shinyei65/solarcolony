@@ -16,6 +16,7 @@ static const int nameYDistance = 28;
     NSMutableArray* friends;
     NSMutableArray* Armys;
     int seletedFrd;
+    int army_num;
     CCMenu *mainMenu;
     CCMenu *ArmyList;
 }
@@ -28,8 +29,6 @@ static const int nameYDistance = 28;
 	
 	// 'layer' is an autorelease object.
 	AttackScene *layer = [AttackScene node];
-    
-    AttackScene *selectlayer = [AttackScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -46,28 +45,21 @@ static const int nameYDistance = 28;
         
         //Game status global variables
         gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
-        
         networkManager = [NetWorkManager NetWorkManager];
         friends = [[NSUserDefaults standardUserDefaults]  objectForKey:@"friends"];
         seletedFrd = -2;
         mobileDisplaySize= [[CCDirector sharedDirector] winSize];
-        //initial SoldierLayer variable
         if(gameStatusEssentialsSingleton.getArmyFirstVisit == true)
         {
             Armys = gameStatusEssentialsSingleton.ArmySettings;
-             army_num = 1;
-            ArmySetting* army_setup = [[ArmySetting alloc]initArmy:army_num];
-            [Armys addObject:army_setup];
-            army_num++;
-          //  [Armys addObject:[self CreateWaveSetting]];
+            army_num = 1;
+            [Armys addObject:[self CreateArmy]];
             gameStatusEssentialsSingleton.ArmyFirstVisit = false;
         }
         else{
-            
             Armys = gameStatusEssentialsSingleton.ArmySettings;
-            army_num = [gameStatusEssentialsSingleton.ArmySettings count];
+            army_num = [gameStatusEssentialsSingleton.ArmySettings count] + 1;
         }
-       
 
         CCSprite *bg = [CCSprite spriteWithFile:@"AttackPage_wallpaper.jpg"];
         bg.position = ccp(mobileDisplaySize.width*.5, mobileDisplaySize.height*.5);
@@ -83,12 +75,18 @@ static const int nameYDistance = 28;
     NSMutableArray* Army_arr = [NSMutableArray array];
     //Plus button
     CCMenuItem *addItemButton = [CCMenuItemImage itemWithNormalImage:@"AddButton.png" selectedImage:@"AddButton_select.png" target:self selector:@selector(AddNewItem)];
-    [Army_arr addObject:addItemButton];
+    /*[Army_arr addObject:addItemButton];
     
-    CCMenuItemFont *menuItemArmy1=[CCMenuItemFont itemWithString:@"Army 1" target:self selector:@selector(moveToScene:)];
-    [menuItemArmy1 setFontSize:20];
-    [Army_arr addObject:menuItemArmy1];
-    
+    for(int i = 0 ; i <= [Armys count]; i++){
+        i++;
+        CCMenuItemFont *menuItemArmy=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"Army %d",i] target:self selector:@selector(moveToScene:)];
+        [menuItemArmy setFontSize:20];
+        [Army_arr addObject:menuItemArmy];
+    }
+    */
+    CCMenuItemFont *menuItemArmy=[CCMenuItemFont itemWithString:[NSString stringWithFormat:@"Army %d",1] target:self selector:@selector(moveToScene:)];
+    [menuItemArmy setFontSize:20];
+    [Army_arr addObject:menuItemArmy];
     ArmyList = [CCMenu menuWithArray:Army_arr];
     [ArmyList alignItemsVertically];
     [ArmyList setPosition:ccp(mobileDisplaySize.width/2 - 150, mobileDisplaySize.height/2) ];
@@ -185,6 +183,7 @@ static const int nameYDistance = 28;
 
 -(void)moveToScene:(id)sender{
     CCMenuItemFont* menuItem = (CCMenuItemFont*)sender;
+    gameStatusEssentialsSingleton.ArmySettings = Armys;
     if ([menuItem.label.string isEqualToString:@"Back"]) {
         [transitionManagerSingleton transitionTo:1];
     } else if ([menuItem.label.string isEqualToString:@"Army 1"]) {
@@ -224,10 +223,15 @@ static const int nameYDistance = 28;
         NSLog(@"seletedFrd: %d",seletedFrd);
     }
 }
+
+-(ArmySetting*)CreateArmy{
+    ArmySetting* createArmy = [[ArmySetting alloc]initArmy:army_num];
+    army_num++;
+    return createArmy;
+}
                      
 
 -(void)AddNewItem{
-    ArmySetting* army_setup = [[ArmySetting alloc]initArmy:army_num];
     NSString *ArmyItemStr =[NSString stringWithFormat:@"Army %i",army_num];
     CCMenuItemFont* ArmyNum = [CCMenuItemFont itemWithString: ArmyItemStr target:self selector:@selector(setSoldierinWave:)];
     ArmyNum.tag = army_num;
@@ -235,8 +239,7 @@ static const int nameYDistance = 28;
     [ArmyNum setZOrder:2];
     [ArmyList addChild:ArmyNum];
     [ArmyList alignItemsVertically];
-    [Armys addObject:army_setup];
-    army_num++;
+    [Armys addObject:[self CreateArmy]];
 }
 
 

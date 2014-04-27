@@ -15,7 +15,7 @@
     TransitionManagerSingleton* transitionManagerSingleton;
     GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
     NetWorkManager* networkManager;
-    int army_num;
+    
 }
 @end
 
