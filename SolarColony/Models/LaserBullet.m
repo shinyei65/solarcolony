@@ -36,7 +36,7 @@
     bulletLocation = location;
     bulletLocation=ccp(0,0);
     initBulletLocation=bulletLocation;
-    
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
     gravity = 19.8; // metres per second square
     X = 0;
     Y = 0;
@@ -56,13 +56,7 @@
     
     prev_loc = targetPrevious;
     //id startAttack = [CCCallFunc actionWithTarget:<#(id)#> selector:<#(SEL)#>];
-    id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];
- 
-
-    
-    ///
-    
-    
+    id returnPoint = [CCCallFunc actionWithTarget:self selector:@selector(endAttack)];  
     
     [self setUpshootDirection:targetLocation];
     
@@ -113,15 +107,15 @@
     CGPoint temptarget;
     
     if (targetLocations.x < targetPrevious.x) {
-        temptarget.x = 0;
+        temptarget.x = -480;
         temptarget.y = ((targetPrevious.y-targetLocations.y)/(targetPrevious.x-targetLocations.x))*(temptarget.x-targetLocations.x)+targetLocations.y;
     }
     else{
         temptarget.x = 480;
         temptarget.y = ((targetLocations.y-targetPrevious.y)/(targetLocations.x-targetPrevious.x))*(temptarget.x-targetPrevious.x)+targetPrevious.y;
     }
-    
-    ccDrawLine(targetLocations,targetPrevious);
+    //temptarget = ccp(0,0);
+    ccDrawLine(temptarget,targetPrevious);
     glLineWidth(1.0f);
     ccDrawColor4F(1.0, 1.0, 1.0, 1.0);
     numberOfDraw ++;

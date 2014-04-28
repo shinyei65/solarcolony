@@ -9,7 +9,10 @@
 #import "CCNode.h"
 #import "Bullet.h"
 #import "TowerAttack.h"
+#import "Soldier.h"
 
-@interface LaserBullet : CCNode<Bullet>
+@interface LaserBullet : CCNode<Bullet>{
+    GameStatusEssentialsSingleton * gameStatusEssentialsSingleton;
+}
 - (NormalBullet*) initTower:(CGPoint)location;
 @end
