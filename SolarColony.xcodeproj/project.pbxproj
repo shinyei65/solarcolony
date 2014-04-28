@@ -26,8 +26,6 @@
 		0941DF1218D1274800AA3DA4 /* universe-wallpaper3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */; };
 		0941DF1618D1276200AA3DA4 /* universe-wallpaper5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */; };
 		0941DF1718D1276200AA3DA4 /* universe-wallpaper6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */; };
-		0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553118CB01DC00194099 /* SoldiersLayer.m */; };
-		0975553518CB036300194099 /* WavesLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0975553418CB036300194099 /* WavesLayer.m */; };
 		09939D2618D14416004EFF55 /* universe-wallpaper1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */; };
 		09939D2818D14427004EFF55 /* universe-wallpaper4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */; };
 		09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */ = {isa = PBXBuildFile; fileRef = 09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */; };
@@ -402,10 +400,6 @@
 		0941DF0F18D1274800AA3DA4 /* universe-wallpaper3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper3.jpg"; sourceTree = "<group>"; };
 		0941DF1418D1276200AA3DA4 /* universe-wallpaper5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper5.jpg"; sourceTree = "<group>"; };
 		0941DF1518D1276200AA3DA4 /* universe-wallpaper6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper6.jpg"; sourceTree = "<group>"; };
-		0975553018CB01DC00194099 /* SoldiersLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldiersLayer.h; sourceTree = "<group>"; };
-		0975553118CB01DC00194099 /* SoldiersLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoldiersLayer.m; sourceTree = "<group>"; };
-		0975553318CB036300194099 /* WavesLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WavesLayer.h; sourceTree = "<group>"; };
-		0975553418CB036300194099 /* WavesLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WavesLayer.m; sourceTree = "<group>"; };
 		09939D2518D14416004EFF55 /* universe-wallpaper1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper1.jpg"; sourceTree = "<group>"; };
 		09939D2718D14427004EFF55 /* universe-wallpaper4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "universe-wallpaper4.jpg"; sourceTree = "<group>"; };
 		09939D2B18D1460D004EFF55 /* iPhoneIcon_Big.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhoneIcon_Big.png; sourceTree = "<group>"; };
@@ -1865,10 +1859,6 @@
 				F573783718AC2BA5008C9ADC /* AttackScene.m */,
 				F5D5F6B718B6A3AD004D0CBA /* DefenseSettingsScene.h */,
 				F5D5F6B818B6A3AD004D0CBA /* DefenseSettingsScene.m */,
-				0975553018CB01DC00194099 /* SoldiersLayer.h */,
-				0975553118CB01DC00194099 /* SoldiersLayer.m */,
-				0975553318CB036300194099 /* WavesLayer.h */,
-				0975553418CB036300194099 /* WavesLayer.m */,
 				F53E306318DFD243007A2A3A /* PauseScene.h */,
 				F53E306418DFD243007A2A3A /* PauseScene.m */,
 			);
@@ -2214,7 +2204,6 @@
 				F5594A4018A56F40008ADDED /* mat4.c in Sources */,
 				F559491C18A56F3C008ADDED /* ccDeprecated.m in Sources */,
 				F5DFA3B518A5ACC8000F0A00 /* IntroLayer.m in Sources */,
-				0975553518CB036300194099 /* WavesLayer.m in Sources */,
 				F5DCE6DD18ED06EA006DB428 /* GameStatsLoader.m in Sources */,
 				F55949D718A56F3F008ADDED /* CCDirectorMac.m in Sources */,
 				F559493118A56F3C008ADDED /* ccGLStateCache.m in Sources */,
@@ -2375,7 +2364,6 @@
 				F559490C18A56F3C008ADDED /* CCAnimationCache.m in Sources */,
 				F54714FD18EA01CC0099CD70 /* CircleSliderButtonLayer.m in Sources */,
 				F559492E18A56F3C008ADDED /* CCGLProgram.m in Sources */,
-				0975553218CB01DC00194099 /* SoldiersLayer.m in Sources */,
 				F5594A1E18A56F40008ADDED /* SimpleAudioEngine.m in Sources */,
 				F55949D018A56F3F008ADDED /* CCTouchDispatcher.m in Sources */,
 				F559495318A56F3D008ADDED /* CCNode.m in Sources */,

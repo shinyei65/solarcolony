@@ -49,7 +49,7 @@
     _hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
     _hp.position = ccp(0, 15);
     [self addChild:_hp];
-    bullet = [[ NormalBullet alloc] initTower:ccp(150, 150)];
+    bullet = [[ NormalBullet alloc] initSoldier:ccp(150, 150)];
     [self addChild:bullet];
     [bullet setVisible:false];
     
