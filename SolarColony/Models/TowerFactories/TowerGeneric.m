@@ -79,11 +79,11 @@
 }
 
 -(void) setLife:(int) life{
-   
+    towerLife=life;
 }
 
 -(int) getLife{
-    return nil;
+    return towerLife;
 }
 
 -(void) setSetSpeedAttack:(int) speed{
@@ -133,7 +133,9 @@
 
 
 - (void)setHEALTH:(int)reduceHealth{
-    
+    NSLog(@"%d",towerLife);
+    NSLog(@"%d",_health);
+    NSLog(@"%b",towerLife > _health*1/2);
     if (towerLife > _health*3/4) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
     }

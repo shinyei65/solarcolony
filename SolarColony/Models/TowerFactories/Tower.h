@@ -38,6 +38,7 @@
 -(void) destroyedAnimation;
 -(void) beignattacked:(int) attack_power;
 -(void) reloadAnimation;
+- (void)setHEALTH:(int)reduceHealth;
 -(void)dealloc;
 
 

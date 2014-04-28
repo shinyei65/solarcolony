@@ -12,7 +12,7 @@
 @synthesize  targetLocation;
 @synthesize towerTowerId;
 
-@synthesize towerLife;
+//@synthesize towerLife;
 @synthesize towerPower;
 @synthesize towerLocation;
 @synthesize towerSpeed;
@@ -216,25 +216,7 @@
     }
 }
 
- 
-- (void)setHEALTH:(int)reduceHealth{
-    if (towerLife > _health*3/4) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
-    }
-    if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/2 && towerLife > _health*1/4) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/4 && towerLife > _health*1/10) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/10 && towerLife > _health*1/20) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
-    }
-    
-}
+
 -(bool) getIsattacking{
     
     return nil;
@@ -256,13 +238,13 @@
     return towerPower;
 }
 
--(void) setLife:(int) life{
+/*-(void) setLife:(int) life{
     towerLife=life;
 }
 
 -(int) getLife{
     return towerLife;
-}
+}*/
 
 -(void) setSetSpeedAttack:(int) speed{
     towerSpeed=speed;

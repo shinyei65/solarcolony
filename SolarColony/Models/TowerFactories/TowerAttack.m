@@ -14,7 +14,7 @@
 @synthesize  targetLocation;
 @synthesize towerTowerId;
 
-@synthesize towerLife;
+//@synthesize towerLife;
 @synthesize towerPower;
 @synthesize towerLocation;
 @synthesize towerSpeed;
@@ -316,7 +316,7 @@
     return towerPower;
 }
 
--(void) setLife:(int) life{
+/*-(void) setLife:(int) life{
     towerLife=life;
     
 }
@@ -341,7 +341,7 @@
 }
 -(int) getLife{
     return towerLife;
-}
+}*/
 
 -(void) setSetSpeedAttack:(int) speed{
     towerSpeed=speed;

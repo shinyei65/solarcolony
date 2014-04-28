@@ -192,14 +192,14 @@ static defense *sharedInstance = nil;
     
     if (isCharging==false) {
         isCharging=true;
-        CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:20 from:100 to:0];
+        CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:60 from:100 to:0];
         CCSprite* progressSprite = [CCSprite spriteWithFile:@"panicCharging.png"];
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
         //[timeBar setAnchorPoint:ccp(.8, 0.5)];
         [timeBar setPosition:ccp(550,15)];
         [self addChild:timeBar z:50];
         [timeBar runAction:to1];
-        [self schedule: @selector(doNothingCharge:) interval:20];
+        [self schedule: @selector(doNothingCharge:) interval:60];
     }
     
 }
