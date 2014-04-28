@@ -182,7 +182,7 @@
     attack_target = target;
     [self setIsAttacking:true];
     targetLocation=soldier;
-    [musicManagerSingleton playEffect:@"sound 9.wav"];
+    //[musicManagerSingleton playEffect:@"sound 9.wav"];
     //  [self schedule: @selector(animatonAttack:) interval:1];
     bullet.targetLocation=soldier;
     //[self schedule: @selector(animatonAttackTest:) interval:1];
