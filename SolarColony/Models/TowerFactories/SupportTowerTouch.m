@@ -31,15 +31,15 @@
        
         
         // 3) Determine relative movement speeds for space dust and background
-        CGPoint dustSpeed = ccp(0.1, 0.1);
+        CGPoint dustSpeed = ccp(0.05, 0.1);
         
         // 4) Add children to CCParallaxNode
         [_backgroundNode addChild:_spacedust1 z:0 parallaxRatio:dustSpeed positionOffset:ccp(0,winSize.height/2)];
-        [_backgroundNode addChild:_spacedust2 z:0 parallaxRatio:dustSpeed positionOffset:ccp(_spacedust1.contentSize.width,winSize.height/2)];    
+        [_backgroundNode addChild:_spacedust2 z:0 parallaxRatio:dustSpeed positionOffset:ccp(_spacedust1.contentSize.width,winSize.height/2)];
   
+        isDroppingTower=false;
         
-        
-        [self schedule:@selector(tick:)interval:1/15];
+        [self schedule:@selector(tick:)interval:1/25];
     }
     return self;
 }
@@ -72,6 +72,31 @@
                
                if([raceType isEqualToString:@"Robot"]){
                    // ABILITY FOR ROBOT
+                   if ([tower towerTowerId]==3) {
+                       if (![tower getReadySpecial]) {
+                           [tower setReadySpecial:true];
+                           isDroppingTower=true;
+                           towerHelper=tower;
+                           [tower setActionTowerLocation:[tower getBoundingBoxTower].origin];
+                           break;
+                       }else  {
+                           [tower setReadySpecial:false];
+                           isDroppingTower=false;
+                       }
+                   } else if(isDroppingTower){
+                       
+                           [tower setPosition:[towerHelper getLocation]];
+                           [tower setLocation:[towerHelper getLocation]];
+                           for (TowerGeneric* tower in gameStatusEssentialsSingleton.towers) {
+                               if ([towerHelper isEqual:tower]) {
+                                   [tower setActionTowerLocation:loc];
+                                   [tower selectAction];
+                                   [tower setVisible:false];
+                                   isDroppingTower=false;
+                               }
+                           }
+                       }
+                   
                   /* if ([tower towerTowerId]==3) {
                        towerHelper=tower;
                        [tower setActionTowerLocation:[tower getBoundingBoxTower].origin];
