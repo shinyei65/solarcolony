@@ -283,6 +283,7 @@
 		F594EA94190B36070046CFA8 /* p20.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA8A190B36070046CFA8 /* p20.png */; };
 		F594EA95190B36070046CFA8 /* p30.png in Resources */ = {isa = PBXBuildFile; fileRef = F594EA8B190B36070046CFA8 /* p30.png */; };
 		F594EA98190B4B560046CFA8 /* Tower_cornCharge.gif in Resources */ = {isa = PBXBuildFile; fileRef = F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */; };
+		F59B1E4D190DF9DC006D553E /* healedTurrets.png in Resources */ = {isa = PBXBuildFile; fileRef = F59B1E4C190DF9DC006D553E /* healedTurrets.png */; };
 		F59D52AF18AC805A00B62B5D /* WorldColissionsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */; };
 		F59D52B518AC8C8400B62B5D /* SoldierController.m in Sources */ = {isa = PBXBuildFile; fileRef = F59D52B418AC8C8400B62B5D /* SoldierController.m */; };
 		F5A6ECD518C50A6A00308F11 /* attackBotton.png in Resources */ = {isa = PBXBuildFile; fileRef = F5A6ECD318C50A6A00308F11 /* attackBotton.png */; };
@@ -836,6 +837,7 @@
 		F594EA8B190B36070046CFA8 /* p30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p30.png; sourceTree = "<group>"; };
 		F594EA8C190B36070046CFA8 /* p40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = p40.png; sourceTree = "<group>"; };
 		F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Tower_cornCharge.gif; sourceTree = "<group>"; };
+		F59B1E4C190DF9DC006D553E /* healedTurrets.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = healedTurrets.png; sourceTree = "<group>"; };
 		F59D52AD18AC805A00B62B5D /* WorldColissionsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WorldColissionsManager.h; sourceTree = "<group>"; };
 		F59D52AE18AC805A00B62B5D /* WorldColissionsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WorldColissionsManager.m; sourceTree = "<group>"; };
 		F59D52B318AC8C8400B62B5D /* SoldierController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoldierController.h; sourceTree = "<group>"; };
@@ -1926,6 +1928,7 @@
 		FC6DCD7218E8F65F00DC98A3 /* towers */ = {
 			isa = PBXGroup;
 			children = (
+				F59B1E4C190DF9DC006D553E /* healedTurrets.png */,
 				F594EA97190B4B560046CFA8 /* Tower_cornCharge.gif */,
 				F594EA80190B31E70046CFA8 /* attackTowerType2.gif */,
 				F594EA7A190B280D0046CFA8 /* attackTowerTypeCharge1.gif */,
@@ -2131,6 +2134,7 @@
 				09345A651905A523006D2062 /* TileMap_2.tmx in Resources */,
 				F5B0FB9318FC515300E5AB31 /* backgroundLayers.png in Resources */,
 				F5ACE32A190597C1004BDC17 /* robot_resource.gif in Resources */,
+				F59B1E4D190DF9DC006D553E /* healedTurrets.png in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				F5E93146190C4CA3008C4B66 /* upgradev2.png in Resources */,
 				F5B0FBB018FC606200E5AB31 /* doff.png in Resources */,

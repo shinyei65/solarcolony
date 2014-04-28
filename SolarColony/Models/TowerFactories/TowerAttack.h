@@ -11,19 +11,19 @@
 #import "LaserBullet.h"
 #import "GameStatusEssentialsSingleton.h"
 #import "MusicManagerSingleton.h"
- @interface TowerAttack : CCNode<Tower>{
+#import "TowerGeneric.h"
+ @interface TowerAttack : TowerGeneric{
     int counterTest;
-    int _health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
     CCProgressTimer *timeBar;
     int counter;
     CCSprite* towerSprite;
-    CCSprite* towerSprite_hp;
-    int towerType;
+     int towerType;
     MusicManagerSingleton *musicManagerSingleton;
     CCMenu *mainMenuUpgrade;
+   // CCSprite* healedSprite;
 }
 -(void) endAttack;
 @property(assign, atomic) CGPoint targetLocation;
