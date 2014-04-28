@@ -13,7 +13,7 @@
     int counterTest;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
-    CCSprite* towerSprite;
+    //CCSprite* towerSprite;
     CCSprite* towerSpriteSelected;
     bool readySpecial;
 

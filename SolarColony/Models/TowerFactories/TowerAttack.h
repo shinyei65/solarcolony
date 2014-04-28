@@ -19,7 +19,7 @@
     GameStatusEssentialsSingleton* gameStatusEssentialsSingleton;
     CCProgressTimer *timeBar;
     int counter;
-    CCSprite* towerSprite;
+    //CCSprite* towerSprite;
      int towerType;
     MusicManagerSingleton *musicManagerSingleton;
     CCMenu *mainMenuUpgrade;

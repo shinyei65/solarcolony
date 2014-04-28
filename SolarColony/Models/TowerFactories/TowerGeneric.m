@@ -155,6 +155,10 @@
     
 }
 
+- (void) flipTower:(BOOL) flag
+{
+    towerSprite.flipX=flag;
+}
 
 -(void) setMenuUpgradeVisible:(bool) state{
   
