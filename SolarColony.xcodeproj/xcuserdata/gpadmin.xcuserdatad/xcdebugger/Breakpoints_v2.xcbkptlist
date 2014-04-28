@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168671.653211"
+            timestampString = "420343331.048841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
@@ -314,69 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
+            timestampString = "420343331.048841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "-sendAttackRequest:attackTarget:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "160"
-            endingLineNumber = "160">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>
@@ -388,11 +330,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168806.532131"
+            timestampString = "420343331.048841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "-sendAttackRequest:attackTarget:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SolarColony/Managers/NetWorkManager.m"
+            timestampString = "420343331.048841"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-getAttackRequest"
             landmarkType = "5">
          </BreakpointContent>
@@ -404,11 +362,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122">
+            startingLineNumber = "125"
+            endingLineNumber = "125"
+            landmarkName = "-init"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -448,11 +408,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-CreateWaveSetting"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -462,11 +424,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135">
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "-init"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -476,11 +440,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148">
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "-CreateWaveSetting"
+            landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -520,11 +486,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420000698.413808"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155">
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "-loadWaveSetting:"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2556,7 +2524,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
-            endingLineNumber = "68">
+            endingLineNumber = "68"
+            landmarkName = "-init"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2570,7 +2540,9 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "70"
-            endingLineNumber = "70">
+            endingLineNumber = "70"
+            landmarkName = "-init"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2580,11 +2552,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Layers/WavesOfSoldiers.m"
-            timestampString = "420168744.625223"
+            timestampString = "420343031.020691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80">
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-init"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2594,11 +2568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SolarColony/Managers/NetWorkManager.m"
-            timestampString = "420168873.406451"
+            timestampString = "420343331.048841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "-sendAttackRequest:attackTarget:"
             landmarkType = "5">
          </BreakpointContent>

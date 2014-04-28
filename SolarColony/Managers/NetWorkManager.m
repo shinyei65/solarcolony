@@ -47,6 +47,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Your army is sent to %@ !", target] message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlertView show];
         [myAlertView release];
+        return;
     }else{
         CCLOG(@"no soldiers");
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"No soldiers in your army !" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
@@ -322,6 +323,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
                 for(NSDictionary *sol in sols){
                     NSString *type = [sol objectForKey:@"soldiertype"];
                     int quantity = [[sol objectForKey:@"quantity"] integerValue];
+                    int level = [[sol objectForKey:@"level"] integerValue];
                     Soldier * (^selectedCase)() = @{
                                                     @"Human": @{
                                                             @"A" : ^{
@@ -355,12 +357,12 @@ static NetWorkManager *sharedNetWorkManager = nil;
                         Soldier *temp;
                         temp = selectedCase();
                         if([type isEqualToString:@"A"]){
-                            [temp setHEALTH:pow(1.2, tagOfArmy)*[temp getHEALTH]];
-                            [temp setSPEED:pow(1.3, tagOfArmy)*[temp getSPEED]];
+                            [temp setHEALTH:pow(1.3, tagOfArmy+level)*[temp getHEALTH]];
+                            [temp setSPEED:pow(1.4, tagOfArmy+level)*[temp getSPEED]];
                         }else{
-                            [temp setHEALTH:(int)pow(1.2, tagOfArmy)*[temp getHEALTH]];
-                            [temp setATTACK:(int)pow(1.3, tagOfArmy)*[temp getATTACK]];
-                            [temp setSPEED:(int)pow(1.1, tagOfArmy)*[temp getSPEED]];
+                            [temp setHEALTH:(int)pow(1.3, tagOfArmy+level)*[temp getHEALTH]];
+                            [temp setATTACK:(int)pow(1.4, tagOfArmy+level)*[temp getATTACK]];
+                            [temp setSPEED:(int)pow(1.2, tagOfArmy+level)*[temp getSPEED]];
                         }
                         [wave addSoldier: temp];
                         quantity--;
