@@ -36,6 +36,10 @@
 		09A57409190CBC7A00D63E78 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57405190CBC7A00D63E78 /* Settings.png */; };
 		09A5740A190CBC7A00D63E78 /* StartGame_press.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57406190CBC7A00D63E78 /* StartGame_press.png */; };
 		09A5740B190CBC7A00D63E78 /* StartGame.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57407190CBC7A00D63E78 /* StartGame.png */; };
+		09A5741B190DFA0B00D63E78 /* missle_1_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57417190DFA0B00D63E78 /* missle_1_left.png */; };
+		09A5741C190DFA0B00D63E78 /* missle_1_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57418190DFA0B00D63E78 /* missle_1_right.png */; };
+		09A5741D190DFA0B00D63E78 /* missle_2_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A57419190DFA0B00D63E78 /* missle_2_left.png */; };
+		09A5741E190DFA0B00D63E78 /* missle_2_right.png in Resources */ = {isa = PBXBuildFile; fileRef = 09A5741A190DFA0B00D63E78 /* missle_2_right.png */; };
 		09A7183318A6249800FC9BB2 /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A7183218A6249800FC9BB2 /* Friends.m */; };
 		09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937818B5B2A40064A95D /* braincandy.wav */; };
 		09AB937C18B5B2A40064A95D /* dark.wav in Resources */ = {isa = PBXBuildFile; fileRef = 09AB937918B5B2A40064A95D /* dark.wav */; };
@@ -409,6 +413,10 @@
 		09A57405190CBC7A00D63E78 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
 		09A57406190CBC7A00D63E78 /* StartGame_press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame_press.png; sourceTree = "<group>"; };
 		09A57407190CBC7A00D63E78 /* StartGame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartGame.png; sourceTree = "<group>"; };
+		09A57417190DFA0B00D63E78 /* missle_1_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missle_1_left.png; sourceTree = "<group>"; };
+		09A57418190DFA0B00D63E78 /* missle_1_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missle_1_right.png; sourceTree = "<group>"; };
+		09A57419190DFA0B00D63E78 /* missle_2_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missle_2_left.png; sourceTree = "<group>"; };
+		09A5741A190DFA0B00D63E78 /* missle_2_right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = missle_2_right.png; sourceTree = "<group>"; };
 		09A7183118A6249800FC9BB2 /* Friends.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		09A7183218A6249800FC9BB2 /* Friends.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		09AB937718B5B2A40064A95D /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
@@ -1000,6 +1008,10 @@
 		F5080CB418A96B5E00E99AD9 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				09A57417190DFA0B00D63E78 /* missle_1_left.png */,
+				09A57418190DFA0B00D63E78 /* missle_1_right.png */,
+				09A57419190DFA0B00D63E78 /* missle_2_left.png */,
+				09A5741A190DFA0B00D63E78 /* missle_2_right.png */,
 				09A57404190CBC7A00D63E78 /* Settings_press.png */,
 				09A57405190CBC7A00D63E78 /* Settings.png */,
 				09A57406190CBC7A00D63E78 /* StartGame_press.png */,
@@ -2015,6 +2027,7 @@
 				F5675F1A18FC71E0001BA0AB /* friend_bar_sel.png in Resources */,
 				21152FF118B769A500C1274C /* blood_empty.jpg in Resources */,
 				09939D2C18D1460D004EFF55 /* iPhoneIcon_Big.png in Resources */,
+				09A5741E190DFA0B00D63E78 /* missle_2_right.png in Resources */,
 				F5C329DA18E9E2CE00822EB0 /* testmap.tmx in Resources */,
 				F55948D818A56F3B008ADDED /* Icon.png in Resources */,
 				09AB937C18B5B2A40064A95D /* dark.wav in Resources */,
@@ -2109,6 +2122,7 @@
 				F5C5CA0718F899C0002A9D40 /* descriptionBox.png in Resources */,
 				F57912CB1908B08200D85F21 /* HumanSoldier_Basic_left.png in Resources */,
 				F5ADFE8418B69FEC0004C3D5 /* bulletA.gif in Resources */,
+				09A5741D190DFA0B00D63E78 /* missle_2_left.png in Resources */,
 				0941DF1118D1274800AA3DA4 /* universe-wallpaper2.jpg in Resources */,
 				FC6DCD7A18E8F68B00DC98A3 /* towerBcharge.png in Resources */,
 				F5FDE39418FC591800C48D48 /* map_4.txt in Resources */,
@@ -2130,6 +2144,7 @@
 				21152FF418B779F000C1274C /* Off.png in Resources */,
 				09345A651905A523006D2062 /* TileMap_2.tmx in Resources */,
 				F5B0FB9318FC515300E5AB31 /* backgroundLayers.png in Resources */,
+				09A5741B190DFA0B00D63E78 /* missle_1_left.png in Resources */,
 				F5ACE32A190597C1004BDC17 /* robot_resource.gif in Resources */,
 				09AB937B18B5B2A40064A95D /* braincandy.wav in Resources */,
 				F5E93146190C4CA3008C4B66 /* upgradev2.png in Resources */,
@@ -2166,6 +2181,7 @@
 				F54AFDD119033654000D45E1 /* bluebullet.png in Resources */,
 				F5BD5F4E18F63BBB004EB055 /* addFriend_button.png in Resources */,
 				F53E795818B5B58D0037A48A /* blood_full.jpg in Resources */,
+				09A5741C190DFA0B00D63E78 /* missle_1_right.png in Resources */,
 				F53E795918B5B58D0037A48A /* blood_half.jpg in Resources */,
 				F594EA98190B4B560046CFA8 /* Tower_cornCharge.gif in Resources */,
 				210D507018B5C0DA00F7A1DE /* sound 3.wav in Resources */,
