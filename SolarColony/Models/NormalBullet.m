@@ -19,9 +19,10 @@
     double V0 ;// meters per second -- elevation
     double VX0; // meters per second
     double VY0; // meters per second
-    float angle;
+    double angle;
     CGPoint prev_loc;
     bool isRightdirection;
+    bool ifFlip;
 }
 @synthesize bulletLocation;
 @synthesize targetLocation;
@@ -36,12 +37,15 @@
     if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"bulletA.gif"];
     } else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Robot"]){
-         towerSprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+         towerSprite = [CCSprite spriteWithFile:@"missle_1_left.png"];
+        towerSprite.scale = 0.25;
     }else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Magic"]){
         towerSprite = [CCSprite spriteWithFile:@"goshty.png"];
     }
     
     [self setLocation:location];
+    isRightdirection = false;
+    ifFlip = false;
     bulletLocation=ccp(0,0);
     initBulletLocation=bulletLocation;
     [self addChild:towerSprite];
@@ -175,32 +179,71 @@
     bezier.controlPoint_2 = ccp(targetPrevious.x*.75, targetLocations.y*.25);
     bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
     CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.31 bezier:bezier];
-    
+    [self setUpshootDirection:targetLocations];
     [self runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-    
-    [self setUpshootDirection:targetLocation];
- 
-
    
 }
 
 -(void) setUpshootDirection:(CGPoint)targetLocations  {
     CGPoint originPoint = CGPointMake(targetLocations.x - prev_loc.x, targetLocations.y - prev_loc.y); // get origin point to origin by subtracting end from start
+    double diff_x = (prev_loc.x-targetLocations.x);
+    double diff_y = (prev_loc.y-targetLocations.y);
+
+    angle =atan(diff_x/diff_y);
+    angle = abs(360*angle/(2*M_PI));
+    if (diff_x == 0) {
+        if (diff_y > 0)
+            angle = 0;
+        else
+            angle = 180;
+    }
+    else if (diff_y == 0){
+        if (diff_x > 0)
+            angle = 90;
+        else
+            angle = 270;
+    }
+    else if(diff_x>0 && diff_y>0)
+        angle = angle;
+    else if(diff_x >0 && diff_y<0)
+        angle += 90;
+    else if(diff_x <0 && diff_y<0)
+        angle += 180;
+    else if(diff_x <0 && diff_y>0)
+        angle += 270;
+
+    
+    towerSprite.rotation = angle - 90;
+    //atan(-1);
+    NSLog(@"the angle is %f",angle);
+    
+    if (isRightdirection) {
+        NSLog(@"right@@@@@@@@");
+    }
+    else
+        NSLog(@"left$$$$$$$$$");
+    
     float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
     float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
    // bearingDegrees = (bearingDegrees > 0.0 ? bearingDegrees : (360.0 + bearingDegrees)); // correct discontinuity
     // CCLOG(@"ANGLE RADIANS %f",bearingRadians);
     
-    if ((bearingDegrees>=270.0&&bearingDegrees<359)||(bearingDegrees>=0.0&&bearingDegrees<20)) {
+    if ((angle>=180.0&&angle<359) && isRightdirection == false) {
         isRightdirection=true;
-    } else {
-        isRightdirection=false;
+        ifFlip = true;
     }
-    
+    else if((angle>=0.0&&angle<180) && isRightdirection == true){
+        isRightdirection=false;
+        ifFlip = true;
+    }
+    else
+        ifFlip = false;
+   
+
 }
 
--(bool) getBulletDirection{
-    return isRightdirection;
+-(bool) getFlipFlag{
+    return ifFlip;
 }
 -(void) animatonAttackWizardÏ
 {

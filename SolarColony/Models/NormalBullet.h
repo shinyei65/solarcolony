@@ -10,4 +10,5 @@
 
 @interface NormalBullet : CCNode<Bullet>
 - (NormalBullet*) initTower:(CGPoint)location;
+-(bool) getFlipFlag;
 @end
