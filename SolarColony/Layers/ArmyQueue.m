@@ -138,7 +138,10 @@ NSString *AI_REQUEST = @"AI";
     }
     
 }
-
+- (void) showGainRewardMSG
+{
+    [[GridMap map] showMessage:@"Gain Reward From your Army!!"];
+}
 - (void) startWave
 {
     _inWave = TRUE;

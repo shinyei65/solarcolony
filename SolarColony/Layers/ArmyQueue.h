@@ -25,6 +25,7 @@
 - (BOOL) getInWave;
 - (NSString *) getCurrentAttacker;
 - (void) reset;
+- (void) showGainRewardMSG;
 @end
 
 @interface WaveSprite : CCNode

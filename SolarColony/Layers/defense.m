@@ -220,8 +220,8 @@ static defense *sharedInstance = nil;
     NSMutableDictionary *stats = [GameStatsLoader loader].stats;
     
     
-    if ([interface isEqualToString:@"TowerA"] && [player getResource]>=humanPrice) {
-        int newResource = [player getResource] - humanPrice;
+    if ([interface isEqualToString:@"TowerA"] && [player getResource]>=[stats[race][@"TowerSupport"][@"price"] integerValue]) {
+        int newResource = [player getResource] - [stats[race][@"TowerSupport"][@"price"] integerValue];
         [player setResource:newResource];
         
         float pointX=grid.menuLocation.x;
@@ -232,11 +232,11 @@ static defense *sharedInstance = nil;
         [colissionsManager addTower:t3];
         [grid addTower:t3 index:[[grid getTowerMenu] getMapLocation] z:1];
        
-    } else if ([interface isEqualToString:@"TowerB"] && [player getResource]>=robotPrice) {
+    } else if ([interface isEqualToString:@"TowerB"] && [player getResource]>=[stats[race][@"TowerSpecial"][@"price"] integerValue]) {
 
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
-        int newResource = [player getResource] - robotPrice;
+        int newResource = [player getResource] - [stats[race][@"TowerSpecial"][@"price"] integerValue];
         [player setResource:newResource];
 
         CCNode<Tower>* tower=[factoryTowers towerForKey:@"Special" Location:[self convertToWorldSpace:ccp(pointX,pointY)]];
@@ -258,7 +258,7 @@ static defense *sharedInstance = nil;
         if([race isEqualToString:@"Robot"])
             tower.position = ccp(tower.position.x, tower.position.y - 15);
         
-    }else if ([interface isEqualToString:@"TowerD"] && [player getResource]>=[stats[race][@"Tower1"][@"price"] integerValue]) {
+    }else if ([interface isEqualToString:@"TowerD"] && [player getResource]>=[stats[race][@"Tower2"][@"price"] integerValue]) {
         
         float pointX=grid.menuLocation.x;
         float pointY=grid.menuLocation.y;
