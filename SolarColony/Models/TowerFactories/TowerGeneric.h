@@ -13,6 +13,7 @@
     CCSprite* healedSprite;
     int _health;
     CCSprite* towerSprite_hp;
+    CCSprite* towerSprite;
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;

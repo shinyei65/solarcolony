@@ -15,7 +15,7 @@
     int counterTest;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
-    CCSprite* towerSprite;
+    //CCSprite* towerSprite;
     CCProgressTimer *timeBar;
     int counter;
     CCMenu *mainMenuUpgrade;

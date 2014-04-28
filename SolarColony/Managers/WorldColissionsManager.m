@@ -80,6 +80,10 @@
                 if ( d<80&&[tower isAttacking]==false) {
 
                     if (!tower.isCharging) {
+                        if (diff_x > 0)
+                            [tower flipTower:FALSE];
+                        else
+                            [tower flipTower:TRUE];
                         [tower attackTest:soldierpoint Target:soldier];
                         break;
                     } else {
