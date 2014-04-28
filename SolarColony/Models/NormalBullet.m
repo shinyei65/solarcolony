@@ -37,7 +37,8 @@
     if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]) {
         towerSprite = [CCSprite spriteWithFile:@"bulletA.gif"];
     } else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Robot"]){
-         towerSprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+         towerSprite = [CCSprite spriteWithFile:@"missle_1_left.png"];
+        towerSprite.scale = 0.25;
     }else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Magic"]){
         towerSprite = [CCSprite spriteWithFile:@"goshty.png"];
     }
@@ -178,12 +179,8 @@
     bezier.controlPoint_2 = ccp(targetPrevious.x*.75, targetLocations.y*.25);
     bezier.endPosition = ccp(targetLocations.x,targetLocations.y);
     CCBezierTo *bezierAction = [CCBezierTo actionWithDuration:.31 bezier:bezier];
-    
-    [self runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
-    
     [self setUpshootDirection:targetLocations];
- 
-
+    [self runAction:[CCSequence actions:bezierAction,returnPoint,nil]];
    
 }
 
@@ -215,7 +212,8 @@
     else if(diff_x <0 && diff_y>0)
         angle += 270;
 
-                
+    
+    towerSprite.rotation = angle - 90;
     //atan(-1);
     NSLog(@"the angle is %f",angle);
     
