@@ -193,7 +193,27 @@
 -(void) endAttack
 {
     if([[gameStatusEssentialsSingleton soldiers] count] > 0){
-        [attack_target beingAttacked:[self getPower]];
+        if (towerType == 2) {
+            for (Soldier* soldier in gameStatusEssentialsSingleton.soldiers) {
+                if (![soldier visible]) {
+                    continue;
+                }
+                
+                CGPoint soldierpoint = [soldier getPOSITION];
+                soldierpoint=[[GridMap map] convertMapIndexToGL:soldierpoint];
+                int diff;
+                
+                diff = abs(((selfLocation.y-targetLocation.y)/(selfLocation.x-targetLocation.x))*(soldierpoint.x-targetLocation.x)+targetLocation.y - soldierpoint.y);
+                
+                if (diff < 10) {
+                    [soldier beingAttacked:[self getPower]];
+                }
+
+                
+            }
+        }
+        else
+            [attack_target beingAttacked:[self getPower]];
     }
     attack_target = nil;
     [bullet setVisible:FALSE];
