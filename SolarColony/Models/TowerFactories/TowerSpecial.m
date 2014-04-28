@@ -150,7 +150,7 @@
 
 -(void) upgradeTowerPower{
     //reduce money
-    [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
+    [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-towerPrice)];
     [self setPower:[self getPower]+10];
     [mainMenuUpgrade setVisible:false];
 }

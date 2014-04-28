@@ -156,10 +156,10 @@
 }
 -(void) upgradeTowerPower{
     //reduce money
-    int newscore= [[PlayerInfo Player] getResource]-200;
+    int newscore= [[PlayerInfo Player] getResource]-towerPrice;
     
     if (newscore>0) {
-        [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
+        [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-towerPrice)];
         [self setPower:[self getPower]+5];
     }
     
