@@ -120,12 +120,39 @@
 -(void)beignHealed{
     
     
+    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];
+    CCFadeOut *fadeOut= [CCFadeOut actionWithDuration:.05];
+    //id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:ccp([self position].x, [self position].y+5)]];
+    id move2 = [CCMoveTo actionWithDuration:1 position:ccp([healedSprite position].x, [healedSprite position].y+35)];
+    [healedSprite runAction:[CCSequence actions:fadeIn,move2,fadeOut,nil]];
+    
+    [self setLife:_health];
+    [self setHEALTH:100];
 }
+
 
 
 - (void)setHEALTH:(int)reduceHealth{
- 
+    
+    if (towerLife > _health*3/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
+    }
+    if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
+        
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
+    }
+    if (towerLife <= _health*1/2 && towerLife > _health*1/4) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
+    }
+    if (towerLife <= _health*1/4 && towerLife > _health*1/10) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
+    }
+    if (towerLife <= _health*1/10 && towerLife > _health*1/20) {
+        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
+    }
+    
 }
+
 
 -(void) setMenuUpgradeVisible:(bool) state{
   

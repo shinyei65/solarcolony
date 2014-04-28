@@ -38,13 +38,13 @@
     musicManagerSingleton = [MusicManagerSingleton shareSoundManager];
     
     towerType=typeT;
-   
+    
     if ([raceType isEqualToString:@"Human"]) {
         attack_target = nil;
         towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
         towerSprite_hp = [CCSprite spriteWithFile:@"blood_full.jpg"];
         towerSprite_hp.position = ccp(0, 15);
-       // [towerSprite setAnchorPoint:ccp(.8, 0.5)];
+        // [towerSprite setAnchorPoint:ccp(.8, 0.5)];
         towerTowerId=2;
         selfLocation=location;
         [self setLocation:location];
@@ -58,7 +58,7 @@
         bullet = [[ NormalBullet alloc] initTower:location];
         isCharging=false;
         [self setPosition:[self getLocation]];
-
+        
     }if ([raceType isEqualToString:@"Robot"]) {
         
         towerSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerType%d.gif",towerType]];
@@ -78,9 +78,9 @@
         else
             bullet = [[ NormalBullet alloc] initTower:location];
         isCharging=false;
-     
+        
         [self setPosition:[self getLocation]];
-
+        
     }if ([raceType isEqualToString:@"Magic"]) {
         
         towerSprite = [CCSprite spriteWithFile:@"towerB.png"];
@@ -94,17 +94,27 @@
         //[self setSetSpeedAttack:20];
         [self setSetSpeedAttack:attspeed];
         [self setIsAttacking:false];
-
+        
         isDeath=false;
         bullet = [[ NormalBullet alloc] initTower:location];
         isCharging=false;
-  
+        
         [self setPosition:[self getLocation]];
-
+        
     }
     towerPrice = price;
     whichRace=raceType;
     _health=health;
+    
+    //healing sprite
+    
+    healedSprite = [CCSprite spriteWithFile:@"healedTurrets.png"];
+    healedSprite.position = ccp(0, 5);
+    //[reward setVisible:false];
+    healedSprite.opacity=0;
+    [self addChild:healedSprite];
+    
+    
     [self loadMenuUpgrade];
     [self addChild:towerSprite];
     [bullet setVisible:FALSE];
@@ -146,13 +156,13 @@
 }
 -(void) upgradeTowerPower{
     //reduce money
-    int newscore= [[PlayerInfo Player] getResource]-200;
+    int newscore= [[PlayerInfo Player] getResource]-towerPrice;
     
     if (newscore>0) {
-         [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
-         [self setPower:[self getPower]+5];
+        [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-towerPrice)];
+        [self setPower:[self getPower]+5];
     }
-   
+    
     [mainMenuUpgrade setVisible:false];
 }
 -(CGRect) getBoundingBoxTower{
@@ -170,7 +180,7 @@
 }
 - (void) attackTest:(CGPoint) soldier Target:(Soldier*) target{
     attack_target = target;
-    [self setIsAttacking:true];    
+    [self setIsAttacking:true];
     targetLocation=soldier;
     [musicManagerSingleton playEffect:@"sound 9.wav"];
     //  [self schedule: @selector(animatonAttack:) interval:1];
@@ -178,7 +188,7 @@
     //[self schedule: @selector(animatonAttackTest:) interval:1];
     
     [self animatonAttackTest:.01];
- 
+    
 }
 -(void) endAttack
 {
@@ -213,7 +223,7 @@
 
 -(void) animatonAttackTest: (ccTime) dt
 {
-   
+    
     [bullet setVisible:TRUE];
     [bullet delegateRaceAttack];
     //[self unscheduleAllSelectors];
@@ -237,7 +247,7 @@
         }
         
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
-
+        
         counter=0;
         [self addChild:timeBar];
         [timeBar runAction:to1];
@@ -247,18 +257,18 @@
 }
 
 -(void) doNothingCharge: (ccTime) dt{
-
-   // NSLog(@" waitting to charge %d", counter);
     
-   // if (counter > 1) {
-       // NSLog(@"stopped 1st scheduler");
-        isCharging=false;
-        counter=0;
-        [self unschedule:@selector(doNothingCharge:)];
-   // }else{
-   //      counter++;
-   // }
- 
+    // NSLog(@" waitting to charge %d", counter);
+    
+    // if (counter > 1) {
+    // NSLog(@"stopped 1st scheduler");
+    isCharging=false;
+    counter=0;
+    [self unschedule:@selector(doNothingCharge:)];
+    // }else{
+    //      counter++;
+    // }
+    
 }
 
 
@@ -267,19 +277,26 @@
     if ([self getLife]<=0) {
         isDeath=true;
     }else{
-       [self setLife:([self getLife]-attack_power)];
+        [self setLife:([self getLife]-attack_power)];
         [self setHEALTH:-attack_power];
     }
 }
 
--(void)beignHealed{    
-  
-        [self setLife:_health];
-        [self setHEALTH:100];
+-(void)beignHealed{
+    
+    
+    CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];
+    CCFadeOut *fadeOut= [CCFadeOut actionWithDuration:.05];
+    //id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:ccp([self position].x, [self position].y+5)]];
+    id move2 = [CCMoveTo actionWithDuration:1 position:ccp([healedSprite position].x, [healedSprite position].y+35)];
+    [healedSprite runAction:[CCSequence actions:fadeIn,move2,fadeOut,nil]];
+        
+    [self setLife:_health];
+    [self setHEALTH:100];
     
 }
 
--(bool) getIsattacking{    
+-(bool) getIsattacking{
     return nil;
 }
 -(void) setIsattacking:(bool) attack{
@@ -319,7 +336,7 @@
     if (towerLife <= _health*1/10 && towerLife > _health*1/20) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
     }
-   
+    
 }
 -(int) getLife{
     return towerLife;
@@ -349,7 +366,7 @@
 -(void) destroyedAnimation{}
 
 -(void)beingAttacked:(int)attack_power{
-
+    
 }
 
 -(void)dealloc{

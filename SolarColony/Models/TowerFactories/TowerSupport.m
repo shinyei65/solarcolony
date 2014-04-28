@@ -99,6 +99,15 @@
     _health = health;
     whichRace=raceType;
     isDrop=false;
+    
+    //healed turret sprite
+    healedSprite = [CCSprite spriteWithFile:@"healedTurrets.png"];
+    healedSprite.position = ccp(0, 5);
+    //[reward setVisible:false];
+    healedSprite.opacity=0;
+    [self addChild:healedSprite];
+    
+    
     [self setPosition:[self getLocation]];
     [self addChild:towerSpriteSelected];
     [self addChild:towerSprite];
@@ -161,34 +170,8 @@
         [self setHEALTH:-attack_power];
     }
 }
--(void)beignHealed{
-    
-    [self setLife:_health];
-    [self setHEALTH:200];
-    
-}
 
 
-- (void)setHEALTH:(int)reduceHealth{
-    
-    if (towerLife > _health*3/4) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
-    }
-    if (towerLife <= _health*3/4 && towerLife > _health*1/2) {
- 
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_3:4.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/2 && towerLife > _health*1/4) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_half.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/4 && towerLife > _health*1/10) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_1:4.jpg"]texture]];
-    }
-    if (towerLife <= _health*1/10 && towerLife > _health*1/20) {
-        [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_empty.jpg"]texture]];
-    }
-    
-}
 
 
 -(bool) getIsattacking{

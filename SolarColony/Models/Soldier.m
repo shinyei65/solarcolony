@@ -158,7 +158,7 @@
     @synchronized(self){
         if (health <= 0 && [self visible]){
             float moveTime = (float)1/[self getSPEED];
-            CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];;
+            CCFadeIn *fadeIn =  [CCFadeIn actionWithDuration:0.05];
             //id move2 = [CCMoveTo actionWithDuration:moveTime position:[[GridMap map] convertMapIndexToCenterGL:ccp([self position].x, [self position].y+5)]];
             id move2 = [CCMoveTo actionWithDuration:moveTime position:ccp([reward position].x, [reward position].y+35)];
             [reward runAction:[CCSequence actions:fadeIn,move2,[CCCallFunc actionWithTarget:self selector:@selector(setVisibleAndGiveRward)],nil]];

@@ -98,8 +98,8 @@
 -(void) openButtons {
     for (int i = 0; i < totalButtons; i++) {
         circleMenu.opacity = 0.0f;
-        circleMenu.visible = YES;
-        
+        //circleMenu.visible = YES;
+        [circleMenu setVisible:true];
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
         //CCLOG(@"X: %f, Y: %f", p.x, p.y);
@@ -123,7 +123,7 @@
             [circleMenu runAction:fadeMenu];
             
             //item.position = [[circleCoordinates.points objectAtIndex:j] CGPointValue];
-            [item setIsEnabled:YES];
+            [item setIsEnabled:true];
         } else {
             CGPoint p = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
             CCMoveTo *moveItem = [CCMoveTo actionWithDuration:0.1f position:p];
@@ -134,7 +134,8 @@
             
             
             //item.position = [[circleCoordinates.points objectAtIndex:i] CGPointValue];
-            [item setIsEnabled:YES];
+           // [item setIsEnabled:YES];
+            [item setIsEnabled:true];
             [item performSelector:@selector(setIsEnabled:) withObject:self  afterDelay:0.1f];
         }
     }
@@ -154,7 +155,8 @@
         CirclePosition.y=(((i+1)*50)-100);
         //CirclePosition.x=((i+1)*20);
         circleMenu.opacity = 0.0f;
-        circleMenu.visible = YES;
+        //circleMenu.visible = YES;
+        [circleMenu setVisible:true];
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
@@ -185,7 +187,8 @@
         CirclePosition.y=(((i+1)*50)-100);
         //CirclePosition.x=((i+1)*20);
         circleMenu.opacity = 0.0f;
-        circleMenu.visible = YES;
+        //circleMenu.visible = YES;
+        [circleMenu setVisible:true];
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
@@ -219,7 +222,8 @@
         CirclePosition.x=(((i+1)*50)-100);
         //CirclePosition.x=((i+1)*20);
         circleMenu.opacity = 0.0f;
-        circleMenu.visible = YES;
+        //circleMenu.visible = YES;
+        [circleMenu setVisible:true];
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
@@ -251,7 +255,8 @@
         CirclePosition.x=(((i+1)*50)-100);
         //CirclePosition.x=((i+1)*20);
         circleMenu.opacity = 0.0f;
-        circleMenu.visible = YES;
+        //circleMenu.visible = YES;
+        [circleMenu setVisible:true];
         
         CCMenuItem *item = (CCMenuItem *)[circleMenu.children objectAtIndex:i];
         CGPoint p =CirclePosition;
@@ -282,7 +287,8 @@
         [item setIsEnabled:NO];
         
     }
-    circleMenu.visible = NO;
+    //circleMenu.visible = false;
+    [circleMenu setVisible:false];
 
 }
 

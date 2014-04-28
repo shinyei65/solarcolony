@@ -8,15 +8,15 @@
 
 #import "Tower.h"
 #import "NormalBullet.h"
-@interface TowerSupport : CCNode<Tower>{
+#import "TowerGeneric.h"
+@interface TowerSupport : TowerGeneric{
     int counterTest;
-    int _health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     CCSprite* towerSprite;
     CCSprite* towerSpriteSelected;
-    CCSprite* towerSprite_hp;
     bool readySpecial;
+
 }
 -(void) setReadySpecial:(bool) ready;
 -(bool) getReadySpecial;

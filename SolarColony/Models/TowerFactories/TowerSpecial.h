@@ -9,18 +9,16 @@
 
 #import "Tower.h"
 #import "NormalBullet.h"
+#import "TowerGeneric.h"
 
-@interface TowerSpecial : CCNode<Tower>{
+@interface TowerSpecial : TowerGeneric{
     int counterTest;
-    int _health;
     NormalBullet* bullet;
     id movePoint, returnPoint ;
     CCSprite* towerSprite;
-    CCSprite* towerSprite_hp;
     CCProgressTimer *timeBar;
     int counter;
     CCMenu *mainMenuUpgrade;
-    
 }
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
