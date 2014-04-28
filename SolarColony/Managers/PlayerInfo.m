@@ -20,7 +20,7 @@
 @synthesize friends;
 
 static PlayerInfo* sharedInstance = nil;
-static const int resource_inc_amount = 100;
+static const int resource_inc_amount = 20;
 static const float resource_inc_time = 5;
 
 +(instancetype)Player{
