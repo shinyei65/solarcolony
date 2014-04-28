@@ -16,7 +16,10 @@
     CCSprite* towerSprite;
     CCSprite* towerSpriteSelected;
     CCSprite* towerSprite_hp;
+    bool readySpecial;
 }
+-(void) setReadySpecial:(bool) ready;
+-(bool) getReadySpecial;
 @property(assign, atomic) CGPoint targetLocation;
 @property(assign, atomic) CGPoint selfLocation;
 @property(assign, nonatomic) CGPoint actionTowerLocation;

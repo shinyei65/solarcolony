@@ -50,7 +50,8 @@
 - (instancetype) initTower:(CGPoint)location  Race: (NSString*) raceType Reward: (int) reward Life: (int) health  Price:(int) price Attspeed:(int) speed;
 -(void) setMenuUpgradeVisible:(bool) state;
 -(void) beignHealed;
-
+-(void) setReadySpecial:(bool) ready;
+-(bool) getReadySpecial;
 -(bool) getIsattacking;
 
 // METHODS USED FOR SUPORT TOWER action tower is the  tower tht must be

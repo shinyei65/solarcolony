@@ -138,6 +138,7 @@
     
     
 }
+
 -(void) upgradeTowerPower{
     //reduce money
     [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
