@@ -98,6 +98,15 @@
     towerReward= reward;
     _health=health;
     whichRace=raceType;
+    
+    //healed turret sprite
+    healedSprite = [CCSprite spriteWithFile:@"healedTurrets.png"];
+    healedSprite.position = ccp(0, 5);
+    //[reward setVisible:false];
+    healedSprite.opacity=0;
+    [self addChild:healedSprite];
+    
+    
     [self loadMenuUpgrade];
     [self setPosition:[self getLocation]];
     [bullet setVisible:FALSE];
@@ -141,7 +150,7 @@
 
 -(void) upgradeTowerPower{
     //reduce money
-    [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-200)];
+    [[PlayerInfo Player] setResource:([[PlayerInfo Player] getResource]-towerPrice)];
     [self setPower:[self getPower]+10];
     [mainMenuUpgrade setVisible:false];
 }
@@ -207,12 +216,7 @@
     }
 }
 
--(void)beignHealed{
-    
-    [self setLife:_health];
-    [self setHEALTH:200];
-    
-}
+ 
 - (void)setHEALTH:(int)reduceHealth{
     if (towerLife > _health*3/4) {
         [towerSprite_hp setTexture:[[CCSprite spriteWithFile:@"blood_full.jpg"]texture]];
