@@ -113,10 +113,16 @@
     return originTower;
 }
 
--(void) setMenuUpgradeVisible{
-    
+-(void) setReadySpecial:(bool) ready{
+    readySpecial=ready;
+}
+-(bool) getReadySpecial{
+    return readySpecial;
 }
 
+-(void) setMenuUpgradeVisible:(bool) state{
+    
+}
 - (void)loadMenuUpgrade
 {
     
