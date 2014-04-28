@@ -87,6 +87,7 @@ NSString *AI_REQUEST = @"AI";
         _get_reward_flag = FALSE;
         [[NetWorkManager NetWorkManager] getReward];
     }
+    [self showGainRewardMSG];
 }
 - (void) updateTick
 {
@@ -98,7 +99,6 @@ NSString *AI_REQUEST = @"AI";
         _wave_show_tick = 0;
         [self showArmy];
     }
-    [self showGainRewardMSG];
 }
 - (void) endWave
 {
