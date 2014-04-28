@@ -20,6 +20,7 @@
 - (void) attack:(Soldier*) soldier;
 - (void) attackTest:(CGPoint) soldier Target:(Soldier*) target;
 
+- (void) flipTower:(BOOL) flag;
 -(CCMenu*)loadMenu;
 -(void) setPower:(int) power;
 -(int) getPower;

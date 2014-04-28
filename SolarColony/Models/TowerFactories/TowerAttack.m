@@ -238,6 +238,14 @@
         //NSLog(@"SPEED = %g", (float)towerSpeed/60);
         CCProgressFromTo *to1 = [CCProgressFromTo actionWithDuration:(float)towerSpeed/60 from:100 to:0];
         CCSprite* progressSprite = [CCSprite spriteWithFile:[NSString stringWithFormat:@"attackTowerTypeCharge%d.gif",towerType]];
+        progressSprite.flipX = towerSprite.flipX;
+        /*if ([bullet getBulletDirection]) {
+            towerSprite.flipX=true;
+            progressSprite.flipX=true;
+        }else{
+            towerSprite.flipX=false;
+            progressSprite.flipX=false;
+        }*/
         
         timeBar = [CCProgressTimer progressWithSprite:progressSprite];
         
