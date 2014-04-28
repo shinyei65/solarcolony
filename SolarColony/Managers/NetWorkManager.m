@@ -259,7 +259,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
                 NSLog(@"NetworkManerger: reward = %d",[result integerValue]);
                 int newResource = [[PlayerInfo Player] getResource] + reward;
                 [[PlayerInfo Player] setResource:newResource];
-                [[ArmyQueue layer] showGainRewardMSG];
+                [[ArmyQueue layer] setShowMSGflag];
                 [self resetReward];
             }else
                 [[ArmyQueue layer] resetGetRewardFlag];

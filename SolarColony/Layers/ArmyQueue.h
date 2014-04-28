@@ -26,6 +26,7 @@
 - (NSString *) getCurrentAttacker;
 - (void) reset;
 - (void) showGainRewardMSG;
+- (void) setShowMSGflag;
 @end
 
 @interface WaveSprite : CCNode

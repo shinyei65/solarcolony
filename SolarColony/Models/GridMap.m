@@ -128,7 +128,7 @@ static GridMap *sharedInstance = nil;
     message = [CCLabelTTF labelWithString:@"AI Attck!!" fontName:@"Outlier.ttf" fontSize:15];
     [message setAnchorPoint:ccp(0.5,0.5)];
     [message setPosition: ccp(_screenSize.width*0.5,_screenSize.height*0.5)];
-    [message setVisible:FALSE];
+    [message setOpacity:0];
     [self addChild: message];
     
     // done
@@ -138,11 +138,10 @@ static GridMap *sharedInstance = nil;
 - (void) showMessage: (NSString *) str
 {
     [message setString:str];
-    [message setVisible:TRUE];
-    id delay = [CCDelayTime actionWithDuration: 1.0f];
-    id wrapperAction = [CCCallFunc actionWithTarget:self selector:@selector(hideMessage)];
-    id sequence = [CCSequence actions: delay, wrapperAction, nil];
-    [self runAction:sequence];
+    CCFadeTo *fadeIn = [CCFadeTo actionWithDuration:0.5 opacity:255];
+    CCFadeTo *fadeOut = [CCFadeTo actionWithDuration:1 opacity:0];
+    CCSequence *pulseSequence = [CCSequence actionOne:fadeIn two:fadeOut];
+    [message runAction:pulseSequence];
 }
 
 - (void) hideMessage

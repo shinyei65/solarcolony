@@ -23,6 +23,7 @@ float AI_HEALTH = 5;
 NSString *AI_REQUEST = @"AI";
 
 @implementation ArmyQueue {
+    BOOL _showMSGflag;
     BOOL _inWave;
     BOOL _showMSG;
     int _army_gen_tick;
@@ -51,6 +52,7 @@ NSString *AI_REQUEST = @"AI";
         _sprite_queue = [[NSMutableArray alloc] init];
         _inWave = FALSE;
         _showMSG = TRUE;
+        _showMSGflag = FALSE;
         _get_reward_flag = TRUE;
         _army_gen_tick = 0;
         _wave_show_tick = 0;
@@ -65,7 +67,7 @@ NSString *AI_REQUEST = @"AI";
         [self genertateAIarmy];
         [self schedule:@selector(update:) interval:0.1];
     }
-
+    
     return self;
 }
 - (void) resetGetRewardFlag
@@ -88,14 +90,15 @@ NSString *AI_REQUEST = @"AI";
 }
 - (void) updateTick
 {
-        if(_army_gen_tick == ARMY_GEN_RATE){
-            _army_gen_tick = 0;
-            [self genertateAIarmy];
-        }
-        if(_wave_show_tick == WAVE_SHOW_RATE){
-            _wave_show_tick = 0;
-            [self showArmy];
-        }
+    if(_army_gen_tick == ARMY_GEN_RATE){
+        _army_gen_tick = 0;
+        [self genertateAIarmy];
+    }
+    if(_wave_show_tick == WAVE_SHOW_RATE){
+        _wave_show_tick = 0;
+        [self showArmy];
+    }
+    [self showGainRewardMSG];
 }
 - (void) endWave
 {
@@ -138,9 +141,16 @@ NSString *AI_REQUEST = @"AI";
     }
     
 }
+-(void) setShowMSGflag
+{
+    _showMSGflag = TRUE;
+}
 - (void) showGainRewardMSG
 {
-    [[GridMap map] showMessage:@"Gain Reward From your Army!!"];
+    if(_showMSGflag){
+        [[GridMap map] showMessage:[NSString stringWithFormat:@"Gain Reward From your Army!!"]];
+        _showMSGflag = FALSE;
+    }
 }
 - (void) startWave
 {
@@ -192,7 +202,7 @@ NSString *AI_REQUEST = @"AI";
     int count = [army count];
     for(int i=0; i<count; i++){
         Wave* temp = [army popWave];
-
+        
         if(i==count-1)
             [temp setEndFlag:TRUE];
         [_queue addObject:temp];
@@ -206,10 +216,10 @@ NSString *AI_REQUEST = @"AI";
     NSLog(@"ArmyQueue: generate AI army");
     // add one AI army in queue
     Army *army = [Army army: AI_REQUEST Attacker:AI_REQUEST];
-
+    
     int numberOfRunner = 5+2*tagOfArmy;
     int numberOfAttacker = 5+2*tagOfArmy;
-
+    
     
     Wave *wave = [Wave wave];
     for (int i=0; i< numberOfRunner; i++) {
@@ -265,7 +275,7 @@ NSString *AI_REQUEST = @"AI";
     [army addWave: wave];
     
     [self addArmy: army];
-
+    
     
 }
 
