@@ -62,6 +62,39 @@
     return self;
 }
 
+- (NormalBullet*) initSoldier:(CGPoint)location{
+    
+    self = [super init];
+    if (!self) return(nil);
+    gameStatusEssentialsSingleton=[GameStatusEssentialsSingleton sharedInstance];
+    
+    if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Human"]) {
+        towerSprite = [CCSprite spriteWithFile:@"bulletA.gif"];
+    } else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Robot"]){
+        towerSprite = [CCSprite spriteWithFile:@"angrybomb.png"];
+     }else if ([[gameStatusEssentialsSingleton raceType] isEqualToString:@"Magic"]){
+        towerSprite = [CCSprite spriteWithFile:@"goshty.png"];
+    }
+    
+    [self setLocation:location];
+    isRightdirection = false;
+    ifFlip = false;
+    bulletLocation=ccp(0,0);
+    initBulletLocation=bulletLocation;
+    [self addChild:towerSprite];
+    
+    
+    
+    gravity = 19.8; // metres per second square
+    X = 0;
+    Y = 0;
+    V0 = 50; // meters per second -- elevation
+    VX0 = V0 * cos(angle); // meters per second
+    VY0 = V0 * sin(angle); // meters per second
+    gametime=0.0;
+    return self;
+}
+
 -(void)startAttackTarget{
     //calculate initial angles velocities
    // float angleRadians = atan2(initBulletLocation.x - 00, initBulletLocation.y -   0);
@@ -215,13 +248,13 @@
     
     towerSprite.rotation = angle - 90;
     //atan(-1);
-    NSLog(@"the angle is %f",angle);
+   // NSLog(@"the angle is %f",angle);
     
-    if (isRightdirection) {
-        NSLog(@"right@@@@@@@@");
-    }
-    else
-        NSLog(@"left$$$$$$$$$");
+   // if (isRightdirection) {
+      //  NSLog(@"right@@@@@@@@");
+   // }
+   // else
+     //   NSLog(@"left$$$$$$$$$");
     
     float bearingRadians = atan2f(originPoint.y, originPoint.x); // get bearing in radians
     float bearingDegrees = bearingRadians * (180.0 / M_PI); // convert to degrees
