@@ -139,6 +139,7 @@
         [self addChild:soldierB3content z:4];
         
         
+        
         cur_wave = 0;
         [self setcolor];
         [self loadWaveSetting:cur_wave];
