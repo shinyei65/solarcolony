@@ -71,11 +71,14 @@
             counterA=0;
             counterB=0;
             counterC=0;
+            counterD=0;
+            counterE=0;
+            counterF=0;
             gameStatusEssentialsSingleton.WaveFirstVisit = false;
         }
         else{
-            counterA = gameStatusEssentialsSingleton.GetCounterA;
-            counterB = gameStatusEssentialsSingleton.GetCounterB;
+            //counterA = gameStatusEssentialsSingleton.GetCounterA;
+            //counterB = gameStatusEssentialsSingleton.GetCounterB;
             Waves = gameStatusEssentialsSingleton.WaveSettings;
             wave_num = [gameStatusEssentialsSingleton.WaveSettings count];
         }
@@ -144,8 +147,16 @@
     NSMutableArray* list = [createwave getList];
     SoldierSetting* S1 = [[SoldierSetting alloc]initSoldier:@"Runner" Level:0];
     SoldierSetting* S2 = [[SoldierSetting alloc]initSoldier:@"Attacker1" Level:0];
+    SoldierSetting* S3 = [[SoldierSetting alloc]initSoldier:@"Runner" Level:1];
+    SoldierSetting* S4 = [[SoldierSetting alloc]initSoldier:@"Attacker1" Level:1];
+    SoldierSetting* S5 = [[SoldierSetting alloc]initSoldier:@"Runner" Level:2];
+    SoldierSetting* S6 = [[SoldierSetting alloc]initSoldier:@"Attacker1" Level:2];
     [list addObject:S1];
     [list addObject:S2];
+    [list addObject:S3];
+    [list addObject:S4];
+    [list addObject:S5];
+    [list addObject:S6];
     wave_num++;
     return createwave;
 }
@@ -153,13 +164,33 @@
 -(void)loadWaveSetting:(int)idx{
     NSMutableArray* list = [[Waves objectAtIndex:idx] getList];
     for(SoldierSetting* setting in list){
-        if ([[setting getType] isEqualToString:@"Runner"]) {
-            counterA = [setting getCount];
-            [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
-        }
-        else if([[setting getType] isEqualToString:@"Attacker1"]){
-            counterB = [setting getCount];
-            [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
+        if ([setting getLevel] == 0) {
+            if ([[setting getType] isEqualToString:@"Runner"]) {
+                counterA = [setting getCount];
+                [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
+            }
+            else if([[setting getType] isEqualToString:@"Attacker1"]){
+                counterD = [setting getCount];
+                [item4 setString:[NSString stringWithFormat:@"%d", counterD]];
+            }
+        } else if ([setting getLevel] == 1) {
+            if ([[setting getType] isEqualToString:@"Runner"]) {
+                counterB = [setting getCount];
+                [item2 setString:[NSString stringWithFormat:@"%d", counterB]];
+            }
+            else if([[setting getType] isEqualToString:@"Attacker1"]){
+                counterE = [setting getCount];
+                [item5 setString:[NSString stringWithFormat:@"%d", counterE]];
+            }
+        } else if ([setting getLevel] == 2) {
+            if ([[setting getType] isEqualToString:@"Runner"]) {
+                counterC = [setting getCount];
+                [item3 setString:[NSString stringWithFormat:@"%d", counterC]];
+            }
+            else if([[setting getType] isEqualToString:@"Attacker1"]){
+                counterF = [setting getCount];
+                [item6 setString:[NSString stringWithFormat:@"%d", counterF]];
+            }
         }
     }
 }
@@ -385,19 +416,19 @@
     
     soldierB_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    soldierC_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
+    soldierC_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    soldierD_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
-    soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    soldierD_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
+    soldierE_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
-    soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_unselect.png"];
+    soldierE_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
+    soldierF_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
-    soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_unselect.png"];
+    soldierF_increase=[CCMenuItemImage itemWithNormalImage:@"soldier_increase_unselect.png" selectedImage:@"soldier_increase_select.png" target:self selector:@selector(setSoldierNumber:)];
     
     soldierA_decrease.position = ccp(-38, -4);
     soldierA_increase.position = ccp(19,-4);
@@ -496,11 +527,11 @@
     }
     
     if (menuItemImage == soldierB_increase) {
-        price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+        price = [loader.stats[race][@"Runner"][@"price"] integerValue] * 2;
         newResource = [player getResource] - price;
         if(newResource >= 0){
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:1];
             [setting increaseCount];
             counterB = [setting getCount];
         }
@@ -508,57 +539,101 @@
     if (menuItemImage == soldierB_decrease) {
         if(counterB >0)
         {
-            price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+            price = [loader.stats[race][@"Runner"][@"price"] integerValue] * 2;
             newResource = [player getResource] + price;
             [self setResource:newResource];
-            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:1];
             [setting decreaseCount];
             counterB = [setting getCount];
         }
     }
     
     if (menuItemImage == soldierC_increase) {
-                counterC++;
+        price = [loader.stats[race][@"Runner"][@"price"] integerValue] * 3;
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:2];
+            [setting increaseCount];
+            counterC = [setting getCount];
+        }
     }
     if (menuItemImage == soldierC_decrease) {
         if(counterC >0)
         {
-            counterC--;
-            
+            price = [loader.stats[race][@"Runner"][@"price"] integerValue] * 3;
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Runner" Level:2];
+            [setting decreaseCount];
+            counterC = [setting getCount];
         }
     }
     
     if (menuItemImage == soldierD_increase) {
-        counterD++;
+        price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
+            [setting increaseCount];
+            counterD = [setting getCount];
+        }
     }
     if (menuItemImage == soldierD_decrease) {
         if(counterD >0)
         {
-            counterD--;
+            price = [loader.stats[race][@"Attacker1"][@"price"] integerValue];
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:0];
+            [setting decreaseCount];
+            counterD = [setting getCount];
             
         }
     }
     
     if (menuItemImage == soldierE_increase) {
-        counterE++;
+        price = [loader.stats[race][@"Attacker1"][@"price"] integerValue] * 2;
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:1];
+            [setting increaseCount];
+            counterE = [setting getCount];
+        }
     }
     if (menuItemImage == soldierE_decrease) {
         if(counterE >0)
         {
-
-            counterE--;
-            
+            price = [loader.stats[race][@"Attacker1"][@"price"] integerValue] * 2;
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:1];
+            [setting decreaseCount];
+            counterE = [setting getCount];
         }
     }
     
     if (menuItemImage == soldierF_increase) {
-        counterF++;
+        price = [loader.stats[race][@"Attacker1"][@"price"] integerValue] * 3;
+        newResource = [player getResource] - price;
+        if(newResource >= 0){
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:2];
+            [setting increaseCount];
+            counterF = [setting getCount];
+        }
     }
     if (menuItemImage == soldierF_decrease) {
         if(counterF >0)
         {
-            counterF--;
-            
+            price = [loader.stats[race][@"Attacker1"][@"price"] integerValue] * 3;
+            newResource = [player getResource] + price;
+            [self setResource:newResource];
+            SoldierSetting* setting = [self getSoldierSetting:@"Attacker1" Level:2];
+            [setting decreaseCount];
+            counterF = [setting getCount];
         }
     }
     [item1 setString:[NSString stringWithFormat:@"%d", counterA]];
