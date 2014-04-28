@@ -47,7 +47,6 @@ static NetWorkManager *sharedNetWorkManager = nil;
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Your army is sent to %@ !", target] message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [myAlertView show];
         [myAlertView release];
-        return;
     }else{
         CCLOG(@"no soldiers");
         UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"No soldiers in your army !" message:nil delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

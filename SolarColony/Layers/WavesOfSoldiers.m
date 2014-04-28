@@ -8,8 +8,6 @@
 
 #import "WavesOfSoldiers.h"
 #import "CCScrollLayer.h"
-#import "WavesLayer.h"
-#import "SoldiersLayer.h"
 #import "cocos2d.h"
 #import "ArmyNetwork.h"
 #import "JSONModel.h"
@@ -19,7 +17,6 @@
 
 
 @implementation WavesOfSoldiers{
-    SoldiersLayer *soldierlayer;
     CCLabelTTF *resource_number;
     NSMutableArray* Waves;
     
@@ -113,6 +110,35 @@
         [self addChild:[self LoadWaveMenu] z:3];
         [self addChild:[self loadTable] z:3];
         [self addChild:[self loadButton] z:3];
+        
+        
+        int priceR = [[GameStatsLoader loader].stats[gameStatusEssentialsSingleton.raceType][@"Runner"][@"price"] integerValue];
+        int priceA = [[GameStatsLoader loader].stats[gameStatusEssentialsSingleton.raceType][@"Attacker1"][@"price"] integerValue];
+        CCLabelTTF* soldierA1content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceR] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierA1content.position = ccp(mobileDisplaySize.width/2 + 15, mobileDisplaySize.height/2-28);
+        [self addChild:soldierA1content z:4];
+        
+        CCLabelTTF* soldierA2content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceR*2] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierA2content.position = ccp(mobileDisplaySize.width/2 + 105, mobileDisplaySize.height/2-28);
+        [self addChild:soldierA2content z:4];
+        
+        CCLabelTTF* soldierA3content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceR*3] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierA3content.position = ccp(mobileDisplaySize.width/2 + 195, mobileDisplaySize.height/2-28);
+        [self addChild:soldierA3content z:4];
+        
+        CCLabelTTF* soldierB1content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceA] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierB1content.position = ccp(mobileDisplaySize.width/2 + 15, mobileDisplaySize.height/2-141);
+        [self addChild:soldierB1content z:4];
+        
+        CCLabelTTF* soldierB2content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceA*2] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierB2content.position = ccp(mobileDisplaySize.width/2 + 105, mobileDisplaySize.height/2-141);
+        [self addChild:soldierB2content z:4];
+        
+        CCLabelTTF* soldierB3content = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"Price: %d",priceA*3] fontName:@"Outlier.ttf" fontSize:10 dimensions:CGSizeMake(100, 100) hAlignment:NSLineBreakByWordWrapping];
+        soldierB3content.position = ccp(mobileDisplaySize.width/2 + 195, mobileDisplaySize.height/2-141);
+        [self addChild:soldierB3content z:4];
+        
+        
         cur_wave = 0;
         [self setcolor];
         [self loadWaveSetting:cur_wave];
@@ -337,6 +363,8 @@
     soldierE_number.position = ccp(80,-118);
     soldierF_number.position = ccp(170,-118);
     
+    
+    
     if([gameStatusEssentialsSingleton raceType] == human){
         soldierA1=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_basic.gif"];
         soldierA2=[CCMenuItemImage itemWithNormalImage:@"HumanSoldier_Basic.gif" selectedImage:@"HumanSoldier_Basic.gif"];
@@ -363,12 +391,14 @@
         soldierB2=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
         soldierB3=[CCMenuItemImage itemWithNormalImage:@"MageSoldier_Special.png" selectedImage:@"MageSoldier_Special.png"];
     }
+    
     soldierA1.position = ccp(-10, 50);
     soldierA2.position = ccp(80, 50);
     soldierA3.position = ccp(170,50);
     soldierB1.position = ccp(-10, -63);
     soldierB2.position = ccp(80, -63);
     soldierB3.position = ccp(170,-63);
+
     soldierA1.scale = 2.5;
     soldierA2.scale = 2.5;
     soldierA3.scale = 2.5;
@@ -377,6 +407,7 @@
     soldierB3.scale = 2.5;
     
     CCMenu *SoldierMenu = [CCMenu menuWithItems:nil];
+    
     [SoldierMenu addChild:soldierLv1 z:0];
     [SoldierMenu addChild:soldierLv2 z:0];
     [SoldierMenu addChild:soldierLv3 z:0];
@@ -407,6 +438,7 @@
 
 /**increase and decrease button*/
 -(CCMenu*) loadButton{
+    
     
     soldierA_decrease=[CCMenuItemImage itemWithNormalImage:@"soldier_decrease_unselect.png" selectedImage:@"soldier_decrease_select.png" target:self selector:@selector(setSoldierNumber:)];
     
@@ -488,7 +520,6 @@
     [SoldierMenu setPosition:ccp(mobileDisplaySize.width/2, mobileDisplaySize.height/2)];
     return SoldierMenu;
 }
-
 
 /**used to be in SoldierLayer Start*/
 
